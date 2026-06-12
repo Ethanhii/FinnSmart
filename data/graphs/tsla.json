@@ -1,0 +1,41 @@
+{
+  "ticker": "TSLA",
+  "name": "Tesla, Inc.",
+  "description": "Builds electric vehicles, energy storage and autonomy software. Battery suppliers, AI compute, raw materials and government policy all move the stock.",
+  "nodes": [
+    { "id": "tsla", "name": "Tesla", "ticker": "TSLA", "type": "stock", "relationship": "Your stock" },
+
+    { "id": "panasonic", "name": "Panasonic", "type": "supplier", "relationship": "Long-time battery cell partner for US vehicles" },
+    { "id": "catl", "name": "CATL", "type": "supplier", "relationship": "Supplies LFP battery cells, especially in China" },
+    { "id": "lges", "name": "LG Energy Solution", "type": "supplier", "relationship": "Battery cell supplier" },
+    { "id": "albemarle", "name": "Albemarle", "ticker": "ALB", "type": "supplier", "relationship": "Supplies lithium for batteries" },
+    { "id": "nvda", "name": "NVIDIA", "ticker": "NVDA", "type": "supplier", "relationship": "Supplies GPUs for AI training of Full Self-Driving" },
+
+    { "id": "hertz", "name": "Hertz", "ticker": "HTZ", "type": "customer", "relationship": "Fleet customer purchasing EVs for rental" },
+    { "id": "consumers", "name": "Retail Buyers", "type": "customer", "relationship": "Demand for vehicles drives revenue" },
+
+    { "id": "x", "name": "xAI", "type": "partner", "relationship": "AI collaboration and shared talent with Elon Musk ventures" },
+    { "id": "spacex", "name": "SpaceX (Starlink)", "type": "partner", "relationship": "Connectivity and ecosystem partner" },
+
+    { "id": "bitcoin", "name": "Bitcoin Holdings", "type": "equity", "relationship": "Tesla holds Bitcoin on its balance sheet" },
+
+    { "id": "us_gov", "name": "US Government", "type": "government", "relationship": "EV tax credits and NHTSA safety oversight" },
+    { "id": "china", "name": "China (Regulators)", "type": "government", "relationship": "Shanghai Gigafactory and key sales market" },
+    { "id": "eu", "name": "European Union", "type": "government", "relationship": "Tariffs and emissions policy" }
+  ],
+  "edges": [
+    { "id": "e_panasonic", "source": "panasonic", "target": "tsla", "relationType": "supplies batteries to" },
+    { "id": "e_catl", "source": "catl", "target": "tsla", "relationType": "supplies batteries to" },
+    { "id": "e_lges", "source": "lges", "target": "tsla", "relationType": "supplies batteries to" },
+    { "id": "e_albemarle", "source": "albemarle", "target": "tsla", "relationType": "supplies lithium to" },
+    { "id": "e_nvda", "source": "nvda", "target": "tsla", "relationType": "supplies AI compute to" },
+    { "id": "e_hertz", "source": "hertz", "target": "tsla", "relationType": "buys vehicles from" },
+    { "id": "e_consumers", "source": "consumers", "target": "tsla", "relationType": "buy vehicles from" },
+    { "id": "e_x", "source": "x", "target": "tsla", "relationType": "shares AI work with" },
+    { "id": "e_spacex", "source": "spacex", "target": "tsla", "relationType": "partners on connectivity with" },
+    { "id": "e_bitcoin", "source": "tsla", "target": "bitcoin", "relationType": "holds" },
+    { "id": "e_us_gov", "source": "us_gov", "target": "tsla", "relationType": "regulates and subsidizes" },
+    { "id": "e_china", "source": "china", "target": "tsla", "relationType": "is a key market for" },
+    { "id": "e_eu", "source": "eu", "target": "tsla", "relationType": "regulates" }
+  ]
+}

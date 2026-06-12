@@ -1,0 +1,45 @@
+{
+  "ticker": "AAPL",
+  "name": "Apple Inc.",
+  "description": "Designs the iPhone, Mac and a fast-growing services business. A deep supply chain, key software partners and global regulators all shape how its stock moves.",
+  "nodes": [
+    { "id": "aapl", "name": "Apple", "ticker": "AAPL", "type": "stock", "relationship": "Your stock" },
+
+    { "id": "tsmc", "name": "TSMC", "ticker": "TSM", "type": "supplier", "relationship": "Exclusive fabricator of Apple's A- and M-series chips" },
+    { "id": "foxconn", "name": "Foxconn", "type": "supplier", "relationship": "Primary assembler of iPhones and other devices" },
+    { "id": "corning", "name": "Corning", "ticker": "GLW", "type": "supplier", "relationship": "Supplies cover glass for iPhone and Apple devices" },
+    { "id": "sony", "name": "Sony", "type": "supplier", "relationship": "Supplies camera image sensors" },
+    { "id": "qcom", "name": "Qualcomm", "ticker": "QCOM", "type": "supplier", "relationship": "Supplies 5G modems for iPhone" },
+    { "id": "broadcom", "name": "Broadcom", "ticker": "AVGO", "type": "supplier", "relationship": "Supplies wireless and RF components" },
+
+    { "id": "bestbuy", "name": "Best Buy", "ticker": "BBY", "type": "customer", "relationship": "Major retail channel for Apple hardware" },
+    { "id": "carriers", "name": "Wireless Carriers", "type": "customer", "relationship": "Distribute and subsidize iPhones to consumers" },
+
+    { "id": "googl", "name": "Google", "ticker": "GOOGL", "type": "partner", "relationship": "Pays Apple to be the default search engine in Safari" },
+    { "id": "openai", "name": "OpenAI", "type": "partner", "relationship": "Powers parts of Apple Intelligence" },
+    { "id": "gs", "name": "Goldman Sachs", "ticker": "GS", "type": "partner", "relationship": "Banking partner behind Apple Card" },
+
+    { "id": "gsat", "name": "Globalstar", "ticker": "GSAT", "type": "equity", "relationship": "Apple funded and holds a stake; provides iPhone satellite connectivity" },
+
+    { "id": "eu", "name": "European Union", "type": "government", "relationship": "Enforces the Digital Markets Act on the App Store" },
+    { "id": "us_gov", "name": "US Government", "type": "government", "relationship": "Antitrust scrutiny and trade policy" },
+    { "id": "china", "name": "China (Regulators)", "type": "government", "relationship": "Major sales market and manufacturing base" }
+  ],
+  "edges": [
+    { "id": "e_tsmc", "source": "tsmc", "target": "aapl", "relationType": "fabricates chips for" },
+    { "id": "e_foxconn", "source": "foxconn", "target": "aapl", "relationType": "assembles devices for" },
+    { "id": "e_corning", "source": "corning", "target": "aapl", "relationType": "supplies glass to" },
+    { "id": "e_sony", "source": "sony", "target": "aapl", "relationType": "supplies sensors to" },
+    { "id": "e_qcom", "source": "qcom", "target": "aapl", "relationType": "supplies modems to" },
+    { "id": "e_broadcom", "source": "broadcom", "target": "aapl", "relationType": "supplies components to" },
+    { "id": "e_bestbuy", "source": "bestbuy", "target": "aapl", "relationType": "retails products of" },
+    { "id": "e_carriers", "source": "carriers", "target": "aapl", "relationType": "distribute devices of" },
+    { "id": "e_googl", "source": "googl", "target": "aapl", "relationType": "pays search revenue to" },
+    { "id": "e_openai", "source": "openai", "target": "aapl", "relationType": "provides AI models to" },
+    { "id": "e_gs", "source": "gs", "target": "aapl", "relationType": "underwrites Apple Card for" },
+    { "id": "e_gsat", "source": "aapl", "target": "gsat", "relationType": "holds equity in" },
+    { "id": "e_eu", "source": "eu", "target": "aapl", "relationType": "regulates" },
+    { "id": "e_us_gov", "source": "us_gov", "target": "aapl", "relationType": "regulates" },
+    { "id": "e_china", "source": "china", "target": "aapl", "relationType": "is a key market for" }
+  ]
+}
