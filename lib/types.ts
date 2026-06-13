@@ -64,6 +64,12 @@ export interface StockVerdict {
   /** e.g. "next 24-48h" */
   timeframe: string;
   rationale: string;
+  /** Investor-facing narrative: why the stock is likely up/down overall (Kimi). */
+  explanation?: string;
+  /** Top reasons pushing the stock higher over this horizon. */
+  bullishDrivers?: string[];
+  /** Top reasons pressuring the stock over this horizon. */
+  bearishDrivers?: string[];
   /** Node id of the most impactful entity. */
   mostAffectedNodeId: string;
 }

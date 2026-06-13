@@ -6,7 +6,7 @@ import { SignalPill } from "@/components/SignalPill";
 import { SIGNAL_COLORS, pct } from "@/lib/ui";
 
 export interface CardState {
-  status: "loading" | "ready" | "error";
+  status: "idle" | "loading" | "ready" | "error";
   data?: AnalyzeResponse;
   error?: string;
 }
@@ -53,9 +53,11 @@ export function WatchlistCard({
             <SignalPill signal={verdict.signal} />
           ) : state.status === "error" ? (
             <span className="pill pill-neutral">unavailable</span>
-          ) : (
+          ) : state.status === "idle" ? (
+            <span className="pill pill-neutral">not analyzed</span>
+          ) : state.status === "loading" ? (
             <span className="h-5 w-16 animate-pulse rounded-full bg-[var(--color-surface-2)]" />
-          )}
+          ) : null}
         </div>
 
         <div className="mt-5 space-y-3">
@@ -64,6 +66,10 @@ export function WatchlistCard({
               <div className="h-3 w-3/4 animate-pulse rounded bg-[var(--color-surface-2)]" />
               <div className="h-3 w-1/2 animate-pulse rounded bg-[var(--color-surface-2)]" />
             </>
+          ) : state.status === "idle" ? (
+            <p className="text-sm text-[var(--color-muted)]">
+              Open the map and click Analyze to trace news ripples.
+            </p>
           ) : state.status === "error" ? (
             <p className="text-sm text-[var(--color-muted)]">
               {state.error ?? "Map not available yet."}

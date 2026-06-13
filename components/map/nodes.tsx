@@ -91,6 +91,7 @@ export interface StockNodeData {
   ticker: string;
   name: string;
   signal?: Signal;
+  selected?: boolean;
   [key: string]: unknown;
 }
 
@@ -98,8 +99,11 @@ export function StockNode({ data }: { data: StockNodeData }) {
   const color = data.signal ? SIGNAL_COLORS[data.signal] : "var(--color-text)";
   return (
     <div
-      className="relative grid w-40 place-items-center rounded-xl bg-[var(--color-surface)] px-4 py-4 text-center"
-      style={{ border: `1.5px solid ${color}` }}
+      className="relative grid w-40 cursor-pointer place-items-center rounded-xl bg-[var(--color-surface)] px-4 py-4 text-center transition-colors"
+      style={{
+        border: `${data.selected ? 2.5 : 1.5}px solid ${color}`,
+        boxShadow: data.selected ? `0 0 0 2px ${color}33` : undefined,
+      }}
     >
       <HiddenHandles />
       <div className="text-2xl font-semibold tracking-tight" style={{ color }}>
@@ -107,6 +111,13 @@ export function StockNode({ data }: { data: StockNodeData }) {
       </div>
       <div className="mt-0.5 max-w-[9rem] truncate text-[11px] text-[var(--color-muted)]">
         {data.name}
+      </div>
+      <div className="mt-2 text-[10px] font-medium text-[var(--color-muted)]">
+        {data.selected ? (
+          <span className="text-[var(--color-text)]">Outlook shown →</span>
+        ) : (
+          <span>Click for outlook</span>
+        )}
       </div>
     </div>
   );

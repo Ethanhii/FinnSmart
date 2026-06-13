@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import type { Citation, EntityImpact, StockVerdict } from "@/lib/types";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { Citation, EntityImpact, Signal, StockVerdict } from "@/lib/types";
 import { NODE_TYPE_LABELS } from "@/lib/types";
 import { SignalPill } from "@/components/SignalPill";
 import { SIGNAL_COLORS, pct } from "@/lib/ui";
@@ -18,32 +18,68 @@ function relativeTime(publishedAt?: string): string {
   return `${days}d ago`;
 }
 
+function deriveDrivers(impacts: EntityImpact[]) {
+  const bullish = impacts
+    .filter((i) => i.signal === "positive")
+    .sort((a, b) => b.magnitude - a.magnitude)
+    .slice(0, 4)
+    .map((i) => `${i.name}: ${i.summary.split(".")[0]}`);
+  const bearish = impacts
+    .filter((i) => i.signal === "negative")
+    .sort((a, b) => b.magnitude - a.magnitude)
+    .slice(0, 4)
+    .map((i) => `${i.name}: ${i.summary.split(".")[0]}`);
+  return { bullish, bearish };
+}
+
 export function ImpactDrawer({
   verdict,
   impacts,
   loading,
   selectedNodeId,
+  stockNodeId,
+  ticker,
   onSelect,
 }: {
   verdict?: StockVerdict;
   impacts: EntityImpact[];
   loading: boolean;
   selectedNodeId?: string | null;
+  stockNodeId?: string;
+  ticker?: string;
   onSelect?: (nodeId: string) => void;
 }) {
   const sorted = [...impacts].sort((a, b) => b.magnitude - a.magnitude);
+  const stockSelected = Boolean(stockNodeId && selectedNodeId === stockNodeId);
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const verdictRef = useRef<HTMLDivElement | null>(null);
 
-  // When a node is selected (e.g. clicked on the map), scroll to its card and
-  // open its news detail.
+  const outlook = useMemo(() => {
+    if (!verdict) return null;
+    const derived = deriveDrivers(impacts);
+    return {
+      explanation: verdict.explanation ?? verdict.rationale,
+      bullishDrivers:
+        verdict.bullishDrivers?.length ? verdict.bullishDrivers : derived.bullish,
+      bearishDrivers:
+        verdict.bearishDrivers?.length ? verdict.bearishDrivers : derived.bearish,
+    };
+  }, [verdict, impacts]);
+
+  // When a node is selected on the map, scroll to the right panel section.
   useEffect(() => {
     if (!selectedNodeId) return;
+    if (stockNodeId && selectedNodeId === stockNodeId) {
+      verdictRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setExpandedId(null);
+      return;
+    }
     const el = cardRefs.current[selectedNodeId];
     if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
     setExpandedId(selectedNodeId);
-  }, [selectedNodeId]);
+  }, [selectedNodeId, stockNodeId]);
 
   const handleCardClick = (nodeId: string) => {
     onSelect?.(nodeId);
@@ -52,10 +88,22 @@ export function ImpactDrawer({
 
   return (
     <aside className="flex h-full w-full flex-col overflow-hidden">
-      {/* Verdict */}
-      <div className="border-b border-[var(--color-border)] p-4">
-        <div className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
-          Impact verdict
+      {/* Verdict / stock outlook */}
+      <div
+        ref={verdictRef}
+        className="border-b border-[var(--color-border)] p-4 transition-colors"
+        style={{
+          borderColor: stockSelected ? SIGNAL_COLORS[verdict?.signal ?? "neutral"] : undefined,
+          background: stockSelected ? "var(--color-surface-2)" : undefined,
+        }}
+      >
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
+            {stockSelected ? `${ticker ?? "Stock"} outlook` : "Impact verdict"}
+          </div>
+          {stockSelected ? (
+            <span className="text-[10px] font-medium text-[var(--color-accent)]">Selected</span>
+          ) : null}
         </div>
         {loading || !verdict ? (
           <div className="mt-3 space-y-2">
@@ -87,9 +135,39 @@ export function ImpactDrawer({
                 />
               </div>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--color-text)]">
-              {verdict.rationale}
-            </p>
+
+            {stockSelected && outlook ? (
+              <>
+                <div className="mt-4">
+                  <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-muted)]">
+                    Why {ticker ?? "the stock"} is {directionLabel(verdict.signal)}
+                  </div>
+                  <p className="text-sm leading-relaxed text-[var(--color-text)]">
+                    {outlook.explanation}
+                  </p>
+                </div>
+                <DriverList
+                  label="Tailwinds"
+                  drivers={outlook.bullishDrivers}
+                  color={SIGNAL_COLORS.positive}
+                />
+                <DriverList
+                  label="Headwinds"
+                  drivers={outlook.bearishDrivers}
+                  color={SIGNAL_COLORS.negative}
+                />
+              </>
+            ) : (
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-text)]">
+                {verdict.rationale}
+              </p>
+            )}
+
+            {!stockSelected && stockNodeId ? (
+              <p className="mt-3 text-[11px] text-[var(--color-muted)]">
+                Click the center {ticker ?? "stock"} node for a full up/down explanation.
+              </p>
+            ) : null}
           </div>
         )}
       </div>
@@ -164,6 +242,48 @@ export function ImpactDrawer({
         </div>
       </div>
     </aside>
+  );
+}
+
+function directionLabel(signal: Signal): string {
+  if (signal === "positive") return "likely to rise";
+  if (signal === "negative") return "likely to fall";
+  return "mixed / range-bound";
+}
+
+function DriverList({
+  label,
+  drivers,
+  color,
+}: {
+  label: string;
+  drivers: string[];
+  color: string;
+}) {
+  if (drivers.length === 0) return null;
+  return (
+    <div className="mt-3">
+      <div
+        className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide"
+        style={{ color }}
+      >
+        {label}
+      </div>
+      <ul className="space-y-1.5">
+        {drivers.map((d, i) => (
+          <li
+            key={i}
+            className="flex gap-2 text-xs leading-relaxed text-[var(--color-text)]"
+          >
+            <span
+              className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
+              style={{ background: color }}
+            />
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

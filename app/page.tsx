@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { AnalyzeResponse, Signal } from "@/lib/types";
 import { AVAILABLE_STOCKS, DEFAULT_TICKERS, findStock } from "@/lib/catalog";
 import { Brand } from "@/components/Brand";
@@ -36,19 +36,25 @@ export default function HomePage() {
     if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(tickers));
   }, [tickers, hydrated]);
 
-  // Fetch analysis for any ticker not yet loaded.
+  const cacheFetched = useRef<Set<string>>(new Set());
+
+  // Load saved analysis only — never auto-run the pipeline from the dashboard.
   useEffect(() => {
+    if (!hydrated) return;
     tickers.forEach((ticker) => {
-      if (analyses[ticker]) return;
+      if (cacheFetched.current.has(ticker)) return;
+      cacheFetched.current.add(ticker);
       setAnalyses((prev) => ({ ...prev, [ticker]: { status: "loading" } }));
-      fetch(`/api/analyze/${ticker}`, { method: "POST" })
+      fetch(`/api/analyze/${ticker}?horizon=short`)
         .then(async (res) => {
+          if (res.status === 404) {
+            setAnalyses((prev) => ({ ...prev, [ticker]: { status: "idle" } }));
+            return;
+          }
           if (!res.ok) throw new Error((await res.json()).error ?? "Failed");
-          return (await res.json()) as AnalyzeResponse;
+          const data = (await res.json()) as AnalyzeResponse;
+          setAnalyses((prev) => ({ ...prev, [ticker]: { status: "ready", data } }));
         })
-        .then((data) =>
-          setAnalyses((prev) => ({ ...prev, [ticker]: { status: "ready", data } }))
-        )
         .catch((err: Error) =>
           setAnalyses((prev) => ({
             ...prev,
@@ -56,7 +62,7 @@ export default function HomePage() {
           }))
         );
     });
-  }, [tickers, analyses]);
+  }, [tickers, hydrated]);
 
   const addStock = useCallback(
     (e: React.FormEvent) => {
@@ -80,6 +86,12 @@ export default function HomePage() {
   );
 
   const removeStock = useCallback((ticker: string) => {
+    cacheFetched.current.delete(ticker);
+    setAnalyses((prev) => {
+      const next = { ...prev };
+      delete next[ticker];
+      return next;
+    });
     setTickers((prev) => prev.filter((t) => t !== ticker));
   }, []);
 
@@ -182,7 +194,7 @@ export default function HomePage() {
                 key={ticker}
                 ticker={ticker}
                 name={nameFor(ticker)}
-                state={analyses[ticker] ?? { status: "loading" }}
+                state={analyses[ticker] ?? { status: "idle" }}
                 onRemove={removeStock}
               />
             ))}

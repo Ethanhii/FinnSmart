@@ -10,7 +10,7 @@ import type {
 } from "@/lib/types";
 import { HORIZONS } from "@/lib/types";
 import { serpNews, type NewsItem } from "@/lib/integrations/brightdata";
-import { kimiChat, kimiConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
+import { kimiChat, llmConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
 
 /** Relationship-type weighting: how much an entity's news matters to the stock. */
 const TYPE_WEIGHT: Record<GraphNode["type"], number> = {
@@ -30,10 +30,23 @@ export async function analyzeStock(
   horizon: TimeHorizon = "short"
 ): Promise<AnalyzeResponse> {
   const entities = graph.nodes.filter((n) => n.type !== "stock");
+  const serpRange = HORIZONS[horizon].serpRange;
 
-  // Step 2 (parallel web research) + 3 (mechanical filter) + 4 (eval) per entity.
+  // Step 2: fetch news for every entity in parallel (all Bright Data calls at once).
+  const researched = await Promise.all(
+    entities.map(async (node) => {
+      const raw = await serpNews(`"${node.name}" stock news`, {
+        timeRange: serpRange,
+        num: 10,
+        entityName: node.name,
+      });
+      return { node, news: dedupeNews(raw) };
+    })
+  );
+
+  // Step 4: evaluate every entity in parallel (after all research completes).
   const impacts = await Promise.all(
-    entities.map((node) => analyzeEntity(graph, node, horizon))
+    researched.map(({ node, news }) => evaluateEntity(graph, node, news, horizon))
   );
 
   // Step 5: combine every entity into a final verdict for the stock.
@@ -46,25 +59,6 @@ export async function analyzeStock(
     verdict,
     impacts,
   };
-}
-
-async function analyzeEntity(
-  graph: StockGraph,
-  node: GraphNode,
-  horizon: TimeHorizon
-): Promise<EntityImpact> {
-  // Step 2: web research, windowed to the selected horizon.
-  const raw = await serpNews(`"${node.name}" stock news`, {
-    timeRange: HORIZONS[horizon].serpRange,
-    num: 10,
-    entityName: node.name,
-  });
-
-  // Step 3: mechanical filters (dedupe + drop empties).
-  const news = dedupeNews(raw);
-
-  // Step 4: relevancy & evaluation.
-  return evaluateEntity(graph, node, news, horizon);
 }
 
 function dedupeNews(items: NewsItem[]): NewsItem[] {
@@ -130,7 +124,7 @@ async function evaluateEntity(
   const citations = toCitations(news);
   const h = HORIZONS[horizon];
 
-  if (kimiConfigured() && news.length > 0) {
+  if (llmConfigured() && news.length > 0) {
     try {
       const text = await kimiChat(
         [
@@ -204,7 +198,7 @@ async function buildVerdict(
   const mostAffected = [...impacts].sort((a, b) => b.magnitude - a.magnitude)[0];
   const h = HORIZONS[horizon];
 
-  if (kimiConfigured()) {
+  if (llmConfigured()) {
     try {
       const text = await kimiChat(
         [
@@ -227,7 +221,7 @@ async function buildVerdict(
               })),
               instructions:
                 `Reason about the ${h.label} horizon. The expectedMove should be sized appropriately for that horizon and timeframe should reflect "${h.timeframe}". ` +
-                "Return {\"signal\":\"positive|negative|neutral\",\"confidence\":0..1,\"expectedMove\":\"e.g. +1% to +3%\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=3 sentences\",\"mostAffectedEntity\":\"<entity name>\"}.",
+                "Return {\"signal\":\"positive|negative|neutral\",\"confidence\":0..1,\"expectedMove\":\"e.g. +1% to +3%\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=2 sentences summary\",\"explanation\":\"3-5 sentences explaining WHY the stock is likely to rise or fall overall through its connected landscape — clear, investor-friendly prose\",\"bullishDrivers\":[\"<=12 words each, max 4\"],\"bearishDrivers\":[\"<=12 words each, max 4\"],\"mostAffectedEntity\":\"<entity name>\"}.",
             }),
           },
         ],
@@ -239,6 +233,9 @@ async function buildVerdict(
         expectedMove: string;
         timeframe: string;
         rationale: string;
+        explanation?: string;
+        bullishDrivers?: string[];
+        bearishDrivers?: string[];
         mostAffectedEntity?: string;
       }>(text);
       const matchedId =
@@ -251,6 +248,9 @@ async function buildVerdict(
         expectedMove: parsed.expectedMove ?? "flat",
         timeframe: parsed.timeframe ?? h.timeframe,
         rationale: parsed.rationale ?? "",
+        explanation: parsed.explanation ?? parsed.rationale ?? "",
+        bullishDrivers: parsed.bullishDrivers?.filter(Boolean) ?? [],
+        bearishDrivers: parsed.bearishDrivers?.filter(Boolean) ?? [],
         mostAffectedNodeId: matchedId,
       };
     } catch {
@@ -305,10 +305,31 @@ function mockVerdict(
     .slice(0, 3)
     .map((i) => `${nodeById.get(i.nodeId)?.name} (${i.signal})`);
 
+  const bullishDrivers = [...impacts]
+    .filter((i) => i.signal === "positive")
+    .sort((a, b) => b.magnitude - a.magnitude)
+    .slice(0, 4)
+    .map((i) => `${nodeById.get(i.nodeId)?.name}: ${i.summary.split(".")[0]}.`);
+
+  const bearishDrivers = [...impacts]
+    .filter((i) => i.signal === "negative")
+    .sort((a, b) => b.magnitude - a.magnitude)
+    .slice(0, 4)
+    .map((i) => `${nodeById.get(i.nodeId)?.name}: ${i.summary.split(".")[0]}.`);
+
   const rationale =
     drivers.length > 0
       ? `Over the ${HORIZONS[horizon].label.toLowerCase()} horizon, net connected-entity news leans ${signal}. Key drivers: ${drivers.join(", ")}.`
       : "No material news across the connected landscape; expect little ripple.";
+
+  const direction =
+    signal === "positive" ? "rise" : signal === "negative" ? "fall" : "move sideways";
+  const explanation =
+    drivers.length > 0
+      ? `Over the ${HORIZONS[horizon].label.toLowerCase()} horizon, connected-entity news suggests ${graph.ticker} is likely to ${direction} (${expectedMove}). ` +
+        `Positive ripples from ${bullishDrivers.length ? bullishDrivers.slice(0, 2).map((d) => d.split(":")[0]).join(" and ") : "few entities"} ` +
+        `${bearishDrivers.length ? `are partly offset by pressure from ${bearishDrivers.slice(0, 2).map((d) => d.split(":")[0]).join(" and ")}.` : "dominate the landscape."}`
+      : rationale;
 
   return {
     signal,
@@ -316,6 +337,9 @@ function mockVerdict(
     expectedMove,
     timeframe: HORIZONS[horizon].timeframe,
     rationale,
+    explanation,
+    bullishDrivers,
+    bearishDrivers,
     mostAffectedNodeId: mostAffected?.nodeId ?? "",
   };
 }

@@ -19,13 +19,15 @@
  * Run (once implemented):  npx tsx scripts/generateGraph.ts NVDA
  */
 import type { StockGraph } from "@/lib/types";
-import { kimiChat, kimiConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
+import { kimiChat, llmConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
 
 const CATEGORIES = ["supplier", "customer", "partner", "equity", "government"] as const;
 
 export async function generateGraph(ticker: string, name: string): Promise<StockGraph> {
-  if (!kimiConfigured()) {
-    throw new Error("Set KIMI_API_KEY to generate graphs. Demo uses data/graphs/*.json.");
+  if (!llmConfigured()) {
+    throw new Error(
+      "Set KIMI_API_KEY or TOKEN_ROUTER_API_KEY to generate graphs. Demo uses data/graphs/*.json."
+    );
   }
 
   const lists = await Promise.all(

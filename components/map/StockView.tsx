@@ -32,6 +32,7 @@ import {
   type StockNodeData,
 } from "@/components/map/nodes";
 import { ImpactDrawer } from "@/components/map/ImpactDrawer";
+import { ResizableDrawerPanel } from "@/components/map/ResizableDrawerPanel";
 import { SignalPill } from "@/components/SignalPill";
 import { Brand } from "@/components/Brand";
 import { CATEGORY_LABELS, NODE_TYPE_COLORS, SIGNAL_COLORS } from "@/lib/ui";
@@ -132,7 +133,7 @@ export function StockView({ ticker }: { ticker: string }) {
   const [graph, setGraph] = useState<StockGraph | null>(null);
   const [graphError, setGraphError] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
-  const [analyzing, setAnalyzing] = useState(true);
+  const [analyzing, setAnalyzing] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Set<NodeType>>(() => new Set());
 
@@ -161,7 +162,6 @@ export function StockView({ ticker }: { ticker: string }) {
   const runAnalysis = useCallback(
     (h: TimeHorizon) => {
       setAnalyzing(true);
-      setAnalysis(null);
       fetch(`/api/analyze/${ticker}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -174,18 +174,37 @@ export function StockView({ ticker }: { ticker: string }) {
         .then((data) => {
           setAnalysis(data);
           setAppliedHorizon(h);
+          setHorizon(h);
         })
-        .catch(() => setAnalysis(null))
+        .catch(() => {
+          /* keep any previously loaded cached analysis on failure */
+        })
         .finally(() => setAnalyzing(false));
     },
     [ticker]
   );
 
+  // Load saved analysis for the selected horizon — no pipeline run on page visit.
   useEffect(() => {
-    if (graph) runAnalysis(DEFAULT_HORIZON);
-  }, [graph, runAnalysis]);
+    if (!graph || analyzing) return;
+    let active = true;
+    fetch(`/api/analyze/${ticker}?horizon=${horizon}`)
+      .then(async (res) => {
+        if (!res.ok) return null;
+        return (await res.json()) as AnalyzeResponse;
+      })
+      .then((data) => {
+        if (!active || !data) return;
+        setAnalysis(data);
+        setAppliedHorizon(data.horizon);
+      });
+    return () => {
+      active = false;
+    };
+  }, [graph, ticker, horizon, analyzing]);
 
-  const horizonDirty = horizon !== appliedHorizon && !analyzing;
+  const horizonDirty = Boolean(analysis) && horizon !== appliedHorizon && !analyzing;
+  const hasAnalysis = Boolean(analysis);
 
   const layout = useMemo(() => (graph ? buildLayout(graph) : null), [graph]);
 
@@ -252,6 +271,7 @@ export function StockView({ ticker }: { ticker: string }) {
             ticker: stockNode.ticker ?? stockNode.name,
             name: stockNode.name,
             signal: analysis?.verdict.signal,
+            selected: selected === layout.stockId,
           } satisfies StockNodeData,
         });
       }
@@ -368,7 +388,9 @@ export function StockView({ ticker }: { ticker: string }) {
   ]);
 
   const handleNodeClick = useCallback((_: unknown, node: Node) => {
-    if (node.type === "category") {
+    if (node.type === "stock") {
+      setSelected(node.id);
+    } else if (node.type === "category") {
       const cat = (node.data as CategoryNodeData).category;
       // Click toggles the branch; multiple branches can stay open.
       setExpanded((prev) => {
@@ -449,13 +471,15 @@ export function StockView({ ticker }: { ticker: string }) {
             disabled={analyzing}
             className="rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors disabled:opacity-50"
             style={
-              horizonDirty
+              !hasAnalysis || horizonDirty
                 ? { borderColor: "var(--color-text)", background: "var(--color-text)", color: "#000" }
                 : { borderColor: "var(--color-border)", background: "var(--color-surface)" }
             }
           >
             {analyzing
               ? "Tracing ripples…"
+              : !hasAnalysis
+              ? "Analyze"
               : horizonDirty
               ? `Re-analyze · ${HORIZONS[horizon].label}`
               : "Re-analyze"}
@@ -475,7 +499,12 @@ export function StockView({ ticker }: { ticker: string }) {
           <span className="font-medium text-[var(--color-text)]">
             {HORIZONS[horizon].label}
           </span>{" "}
-          ({HORIZONS[horizon].range}) — re-analyze to update the map.
+          ({HORIZONS[horizon].range}) — click Re-analyze to update, or switch back to load a saved run.
+        </div>
+      ) : !hasAnalysis && !analyzing ? (
+        <div className="flex shrink-0 items-center justify-center gap-2 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-1.5 text-xs text-[var(--color-muted)]">
+          Click <span className="font-medium text-[var(--color-text)]">Analyze</span> to trace
+          news ripples across this map.
         </div>
       ) : null}
 
@@ -533,16 +562,18 @@ export function StockView({ ticker }: { ticker: string }) {
           </div>
         </div>
 
-        {/* Drawer */}
-        <div className="hidden w-[340px] shrink-0 border-l border-[var(--color-border)] bg-[var(--color-bg)] md:block">
+        {/* Drawer — drag left edge to resize */}
+        <ResizableDrawerPanel>
           <ImpactDrawer
             verdict={verdict}
             impacts={analysis?.impacts ?? []}
             loading={analyzing}
             selectedNodeId={selected}
+            stockNodeId={layout?.stockId}
+            ticker={ticker}
             onSelect={selectFromDrawer}
           />
-        </div>
+        </ResizableDrawerPanel>
       </div>
     </div>
   );
