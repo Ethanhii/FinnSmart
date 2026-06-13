@@ -132,6 +132,8 @@ function FitController({
 export function StockView({ ticker }: { ticker: string }) {
   const [graph, setGraph] = useState<StockGraph | null>(null);
   const [graphError, setGraphError] = useState<string | null>(null);
+  const [graphLoading, setGraphLoading] = useState(true);
+  const [graphGenerating, setGraphGenerating] = useState(false);
   const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
@@ -144,16 +146,34 @@ export function StockView({ ticker }: { ticker: string }) {
   const [rfNodes, setRfNodes, onNodesChange] = useNodesState<Node>([]);
   const [rfEdges, setRfEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
-  // Load graph.
+  // Load graph from cache, or generate and persist on first visit.
   useEffect(() => {
     let active = true;
-    fetch(`/api/graph/${ticker}`)
-      .then(async (res) => {
-        if (!res.ok) throw new Error((await res.json()).error ?? "Not found");
-        return (await res.json()) as StockGraph;
-      })
-      .then((g) => active && setGraph(g))
-      .catch((e: Error) => active && setGraphError(e.message));
+    (async () => {
+      setGraphLoading(true);
+      setGraphError(null);
+      setGraph(null);
+      try {
+        let res = await fetch(`/api/graph/${ticker}`);
+        if (res.status === 404) {
+          if (active) setGraphGenerating(true);
+          res = await fetch(`/api/graph/${ticker}`, { method: "POST" });
+        }
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error ?? "Failed to load map");
+        }
+        const g = (await res.json()) as StockGraph;
+        if (active) setGraph(g);
+      } catch (e) {
+        if (active) setGraphError(e instanceof Error ? e.message : "Failed to load map");
+      } finally {
+        if (active) {
+          setGraphLoading(false);
+          setGraphGenerating(false);
+        }
+      }
+    })();
     return () => {
       active = false;
     };
@@ -417,6 +437,21 @@ export function StockView({ ticker }: { ticker: string }) {
 
   const verdict = analysis?.verdict;
   const presentTypes = layout?.categories ?? [];
+
+  if (graphLoading) {
+    return (
+      <div className="grid min-h-screen place-items-center px-6 text-center">
+        <div>
+          <h1 className="text-xl font-semibold">{ticker}</h1>
+          <p className="mt-2 text-[var(--color-muted)]">
+            {graphGenerating
+              ? "Building relationship map with AI — first visit only…"
+              : "Loading map…"}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (graphError) {
     return (

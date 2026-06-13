@@ -1,0 +1,1297 @@
+{
+  "ticker": "MSFT",
+  "byHorizon": {
+    "short": {
+      "ticker": "MSFT",
+      "generatedAt": "2026-06-13T06:33:06.751Z",
+      "horizon": "short",
+      "verdict": {
+        "signal": "positive",
+        "confidence": 0.75,
+        "expectedMove": "+3% to +7%",
+        "timeframe": "next ~3 months",
+        "rationale": "Microsoft's short-term outlook is bolstered by transformative AI partnership catalysts with OpenAI and NVIDIA, which overwhelm modest federal budget headwinds and keep Azure demand trajectory intact before the next earnings print.",
+        "explanation": "The connected landscape is dominated by bullish AI infrastructure and partnership signals. OpenAI's potential trillion-dollar IPO filing marks up Microsoft's strategic stake and validates Azure as the exclusive AI cloud backbone, while NVIDIA's expanded agentic AI partnership directly strengthens Azure's competitive offering. Upstream semiconductor momentum from AMD, Micron, and Intel de-risks near-term supply chains for cloud capacity expansion. These forces collectively offset the lone material negative: Moody's-driven uncertainty around U.S. government IT budgets. With enterprise customers like FedEx and Walmart showing stable consumption and no major contract churn, the net risk-reward skews positively for the stock over the coming quarter.",
+        "bullishDrivers": [
+          "OpenAI IPO marks up stake, validates Azure",
+          "NVIDIA agentic AI deepens Azure moat",
+          "Semiconductor supply chain de-risks cloud capacity",
+          "Enterprise demand stable at FedEx, Walmart"
+        ],
+        "bearishDrivers": [
+          "U.S. credit downgrade pressures federal IT",
+          "Federal fiscal uncertainty clouds DoD spending"
+        ],
+        "mostAffectedNodeId": "partner_openai"
+      },
+      "impacts": [
+        {
+          "nodeId": "supplier_nvidia_corporation",
+          "name": "NVIDIA Corporation",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.3,
+          "summary": "The expanded NVIDIA partnership for Agentic AI directly enhances Microsoft’s Azure AI offering and near-term competitiveness. Broader bullish sentiment and price target upgrades for NVIDIA also validate continued strong demand for AI infrastructure, indirectly supporting confidence in Microsoft’s short-term AI revenue execution.",
+          "citations": [
+            {
+              "title": "Is NVIDIA Corporation (NVDA) One of the Top Must-Buy Semiconductor Stocks to Invest in Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-one-top-115333765.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the top must-buy semiconductor stocks to invest in now. NVIDIA Corporation (NASDAQ:NVDA) released financial..."
+            },
+            {
+              "title": "Here is why NVIDIA Corporation (NVDA) is among the Best Automation Stocks to Buy for Warehouse Construction",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-nvidia-corporation-nvda-among-194100654.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "With an upside potential of 33.83%, NVIDIA Corporation (NASDAQ:NVDA) is among the 7 Best Automation Stocks to Buy for Warehouse Construction."
+            },
+            {
+              "title": "This is why NVIDIA Corporation (NVDA) is a Top Stock to Buy for The Long Term",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-nvidia-corporation-nvda-top-163938966.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the top stocks to buy for the long-term. On May 21, Baird reiterated an Outperform rating on NVIDIA Corporation..."
+            },
+            {
+              "title": "Wall Street Bullish on Nvidia (NVDA), Is It a Good Stock to Buy?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bullish-nvidia-nvda-130828848.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "17 hours ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the Good Stocks to Invest in Now. Wall Street remains bullish on NVIDIA Corporation (NASDAQ:NVDA) despite around..."
+            },
+            {
+              "title": "NVIDIA Corporation (NVDA) Expands Partnership with Microsoft For Agentic AI Deployment",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-expands-partnership-103640208.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the analyst-favorite stocks and is widely held by hedge funds, ranking among the 10 best stocks to buy for the..."
+            },
+            {
+              "title": "NVIDIA (NVDA): The Best High Growth Stock to Buy and Hold for the Next Decade",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-nvda-best-high-growth-235003690.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the 15 High Growth Stocks to Buy and Hold for the Next Decade. On May 20, 2026, NVIDIA Corporation (NASDAQ:NVDA)..."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_advanced_micro_devices_inc",
+          "name": "Advanced Micro Devices, Inc.",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "AMD's EPYC production ramp and strong data-center momentum suggest robust supply and healthy demand for cloud/AI servers, which indirectly supports Azure's near-term capacity expansion and lowers supply-chain risk for Microsoft. However, the impact is modest because the news reflects broader industry trends rather than Microsoft-specific contract or volume changes.",
+          "citations": [
+            {
+              "title": "Advanced Micro Devices Inc Stock (AMD) Moved Up by 3.17% on May 28: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261934174-market-movers-amd-20260528",
+              "source": "TradingKey",
+              "publishedAt": "2 weeks ago",
+              "snippet": "AMD stock saw positive movement driven by strong Q1 2026 results.Analysts are optimistic about AMD's AI initiatives and data center growth."
+            },
+            {
+              "title": "Advanced Micro Devices (AMD) Up More Than 100% Over the Past 6 Months, Here’s What You Need to Know",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/advanced-micro-devices-amd-more-171454926.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 days ago",
+              "snippet": "Advanced Micro Devices, Inc. (NASDAQ:AMD) has gained roughly 100% over the past 6 months. Analysts expect the company to grow its EPS by more than 60% over..."
+            },
+            {
+              "title": "X Square Capital LLC Sells 17,259 Shares of Advanced Micro Devices, Inc. $AMD",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-x-square-capital-llc-sells-17259-shares-of-advanced-micro-devices-inc-amd-2026-06-09/",
+              "source": "MarketBeat",
+              "publishedAt": "3 days ago",
+              "snippet": "X Square Capital LLC reduced its position in Advanced Micro Devices, Inc. (NASDAQ:AMD - Free Report) by 27.7% during the 4th quarter, according to its most..."
+            },
+            {
+              "title": "Advanced Micro Devices Inc (AMD) Stock Price, Trades & News",
+              "url": "https://www.gurufocus.com/stock/AMD/summary",
+              "source": "GuruFocus",
+              "publishedAt": "13 hours ago",
+              "snippet": "Advanced Micro Devices Inc (AMD) stock price, GURU trades, performance, financial stability, valuations, and filing info from GuruFocus."
+            },
+            {
+              "title": "AMD Is Soaring, But Here's Why It's Time To Say Goodbye (NASDAQ:AMD)",
+              "url": "https://seekingalpha.com/article/4913497-amd-is-soaring-but-heres-why-its-time-to-say-goodbye",
+              "source": "Seeking Alpha",
+              "publishedAt": "3 days ago",
+              "snippet": "Advanced Micro Devices has delivered accelerating revenue and margin growth, driven by surging AI and data center demand. Read more on AMD stock here."
+            },
+            {
+              "title": "Why Is AMD Stock Falling Wednesday? - Advanced Micro Devices (NASDAQ:AMD)",
+              "url": "https://www.benzinga.com/trading-ideas/movers/26/06/53113225/why-is-amd-stock-falling-wednesday",
+              "source": "Benzinga",
+              "publishedAt": "2 days ago",
+              "snippet": "Advanced Micro Devices Inc. (NASDAQ:AMD) stock fell Wednesday as semiconductor stocks came under pressure amid a broader risk-off move, with investors..."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_intel_corporation",
+          "name": "Intel Corporation",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0.1,
+          "summary": "Intel's recent stock volatility and mixed strategic headlines—including foundry progress offset by insider selling and price swings—do not signal near-term supply disruptions or pricing shifts for Microsoft's Azure and Surface divisions. Given long-term procurement cycles and Microsoft's increasingly diversified silicon sourcing, these developments are unlikely to materially affect MSFT within the current quarter.",
+          "citations": [
+            {
+              "title": "Is Intel (INTC) the Best High Growth Stock to Buy and Hold for the Next Decade?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/intel-intc-best-high-growth-234838721.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ:INTC) is one of the 15 High Growth Stocks to Buy and Hold for the Next Decade. On May 20, 2026, Intel Corporation (NASDAQ:INTC)..."
+            },
+            {
+              "title": "Intel Corporation (NASDAQ: INTC) Stock Price Trades at $120 After Doubling AMD's 2026 Gains",
+              "url": "https://www.foreignpolicyjournal.com/2026/05/22/intel-corporation-nasdaq-intc-stock-price-trades-at-120-after-doubling-amds-2026-gains/",
+              "source": "Foreign Policy Journal",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ: INTC) was trading at approximately $119.99 on Friday, May 22, within a session range of $118.09 to $122.78 in volume of 68.31."
+            },
+            {
+              "title": "Intel (NASDAQ:INTC) Stock Price Down 5.1% - Here's Why",
+              "url": "https://www.marketbeat.com/instant-alerts/intel-nasdaqintc-stock-price-down-51-heres-why-2026-05-29/",
+              "source": "MarketBeat",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ:INTC - Get Free Report) dropped 5.1% on Friday . The company traded as low as $113.54 and last traded at $114.68."
+            },
+            {
+              "title": "1 Intel Insider Just Sold Nearly 10% of His INTC Stock",
+              "url": "https://www.barchart.com/story/news/2404187/1-intel-insider-just-sold-nearly-10-of-his-intc-stock",
+              "source": "Barchart.com",
+              "publishedAt": "2 days ago",
+              "snippet": "Intel Corporation (INTC) has certainly staged one of the market's most dramatic turnarounds over the past year, transforming itself into a stock that many..."
+            },
+            {
+              "title": "Intel surges after double rating upgrade at BofA",
+              "url": "https://seekingalpha.com/news/4602541-intel-surges-after-double-rating-upgrade-at-bofa",
+              "source": "Seeking Alpha",
+              "publishedAt": "1 day ago",
+              "snippet": "Shares of Intel (INTC) surged premarket on Thursday after BofA double upgraded the chipmaker's stock to Buy from Underperform."
+            },
+            {
+              "title": "Why is Intel stock gaining today?",
+              "url": "https://www.investing.com/news/stock-market-news/why-is-intel-stock-gaining-today-93CH-4732501",
+              "source": "Investing.com",
+              "publishedAt": "3 days ago",
+              "snippet": "Investing.com -- Intel Corporation stock is rising +2.0% in pre-open trading today, trading at $112.44, as the afterglow of a major foundry breakthrough..."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_micron_technology_inc",
+          "name": "Micron Technology, Inc.",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.25,
+          "summary": "Bullish Micron sentiment driven by AI memory demand indicates strong data center buildout by hyperscale customers, supporting near-term Azure growth expectations for Microsoft. Any associated component cost pressure on Surface and Xbox is unlikely to materially offset this demand signal within the current quarter.",
+          "citations": [
+            {
+              "title": "Analyst See More Upside Despite Micron Technology’s (MU) 90% Gains in May",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/analyst-see-more-upside-despite-171738561.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "6 days ago",
+              "snippet": "Despite Micron Technology, Inc. (NASDAQ:MU)'s impressive 90% gains in May 2026, the Street continues to increase price targets, reflecting continued bullish..."
+            },
+            {
+              "title": "Micron Technology, Inc. Stock 12‑Month Price Target Raised to $646.15, Implies 11% Downside",
+              "url": "https://www.tradingview.com/news/tradingview:3e1fd79e26daa:0-micron-technology-inc-stock-12-month-price-target-raised-to-646-15-implies-11-downside/",
+              "source": "TradingView",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Explore more price target data and ratings for Micron Technology, Inc. on the Forecasts tab, and track all previous and future analyst recommendations for..."
+            },
+            {
+              "title": "Micron Technology Inc (NASDAQ:MU) Passes Navellier's Eight-Pillar Growth Screen",
+              "url": "https://www.chartmill.com/news/MU/Chartmill-48968-Micron-Technology-Inc-NASDAQMU-Passes-Navelliers-Eight-Pillar-Growth-Screen",
+              "source": "ChartMill",
+              "publishedAt": "3 weeks ago",
+              "snippet": "In the quest for superior growth stocks, the investment philosophy outlined in Louis Navellier's The Little Book That Makes You Rich provides a strong,..."
+            },
+            {
+              "title": "Micron sets June 24 date for fiscal Q3 earnings webcast",
+              "url": "https://www.stocktitan.net/news/MU/micron-technology-to-report-fiscal-third-quarter-results-on-june-24-22gcrbths4gp.html",
+              "source": "Stock Titan",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Investors get details on Micron's fiscal Q3 earnings call, scheduled for June 24 at 2:30 p.m. MT, with a live webcast and replay available for about a year."
+            },
+            {
+              "title": "Micron Jumps 12% After Price Target Raise From $535 to $1,625: Here's What's Driving Wall Street's Most Bullish Target",
+              "url": "https://247wallst.com/investing/2026/05/26/micron-jumps-10-after-price-target-raise-from-535-to-1625-heres-whats-driving-wall-streets-most-bullish-target/",
+              "source": "24/7 Wall St.",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Shares of Micron Technology (NASDAQ:MU | MU Price Prediction) are up 12% to $843 after UBS raised its price target on MU stock to $1,625 from $535."
+            },
+            {
+              "title": "Micron: Dancing Near The Exit (Downgrade) (NASDAQ:MU)",
+              "url": "https://seekingalpha.com/article/4913324-micron-dancing-near-the-exit-downgrade",
+              "source": "Seeking Alpha",
+              "publishedAt": "3 days ago",
+              "snippet": "Micron Technology, Inc. was downgraded to Sell as volatility and lofty EPS expectations raise downside risk. Click for this MU earnings preview."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_hon_hai_precision_industry_co_ltd",
+          "name": "Hon Hai Precision Industry Co., Ltd.",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.15,
+          "summary": "Hon Hai's strong revenue growth and earnings beat signal a financially healthy contract manufacturing partner, supporting stable near-term production capacity for Microsoft's Xbox and Surface hardware lines. However, because the reported surge is driven primarily by AI server demand rather than MSFT-specific hardware orders, the direct positive impact on Microsoft's stock before next earnings is modest.",
+          "citations": [
+            {
+              "title": "Hon Hai: Promising Short-To-Medium Term Prospects (OTCMKTS:HNHPF)",
+              "url": "https://seekingalpha.com/article/4913605-hon-hai-promising-short-to-medium-term-prospects",
+              "source": "Seeking Alpha",
+              "publishedAt": "2 days ago",
+              "snippet": "Hon Hai Precision's 40% revenue surge in May implies that a 2Q2026 beat is on the cards. Click here to read why HNHPF stock is a Buy."
+            },
+            {
+              "title": "Hon Hai Precision Industry Co., Ltd. Reports Earnings Results for the First Quarter Ended March 31, 2026",
+              "url": "https://www.marketscreener.com/news/hon-hai-precision-industry-co-ltd-reports-earnings-results-for-the-first-quarter-ended-march-31-ce7f5bd3dc8bf020",
+              "source": "www.marketscreener.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Hon Hai Precision Industry Co., Ltd. reported earnings results for the first quarter ended March 31, 2026. For the first quarter, the company reported sales..."
+            },
+            {
+              "title": "Hon Hai Precision Industry Co Ltd Stock (TW0002317005): Sector context as Foxconn stays in focus",
+              "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/hon-hai-precision-industry-co-ltd-stock-tw0002317005-sector-context-as/69525142",
+              "source": "AD HOC NEWS",
+              "publishedAt": "23 hours ago",
+              "snippet": "Hon Hai (Foxconn), TW0002317005. Hon Hai Precision Industry Co Ltd Stock (TW0002317005): Sector context as Foxconn stays in focus."
+            },
+            {
+              "title": "Hon Hai Precision Industry Co., Ltd. Approves Cash Dividend for 2025, Payable on July 31, 2026",
+              "url": "https://www.marketscreener.com/news/hon-hai-precision-industry-co-ltd-approves-cash-dividend-for-2025-ce7f5ddbda80fe2d",
+              "source": "marketscreener.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Hon Hai Precision Industry Co., Ltd. announced that at the AGM held on May 29, 2026, approved ratification the proposal for distribution of 2025 earnings."
+            },
+            {
+              "title": "Hon Hai Precision Industry Co Ltd stock (TW0002317005): AI server boom lifts Q1 profit and sparks ne",
+              "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/hon-hai-precision-industry-co-ltd-stock-tw0002317005-ai-server-boom/69346202",
+              "source": "Ad Hoc News",
+              "publishedAt": "4 weeks ago",
+              "snippet": "Hon Hai (Foxconn), TW0002317005. Hon Hai Precision Industry Co Ltd stock (TW0002317005): AI server boom lifts Q1 profit and sparks new Singapore investment."
+            },
+            {
+              "title": "Bull And Hon Hai Technology Group Focus On Manufacturing Enablement And Industrialization Of AI System Designed For Demanding Workloads",
+              "url": "https://www.marketscreener.com/news/bull-and-hon-hai-technology-group-focus-on-manufacturing-enablement-and-industrialization-of-ai-syst-ce7f5cd8dd8efe2d",
+              "source": "www.marketscreener.com",
+              "publishedAt": "1 week ago",
+              "snippet": "Bull and Hon Hai Technology Group announced a strategic collaboration to manufacture AI and Cloud infrastructure, from Europe to the global market."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_united_states_government",
+          "name": "United States Government",
+          "type": "customer",
+          "signal": "negative",
+          "magnitude": 0.3,
+          "summary": "Moody's U.S. credit downgrade concerns threaten the fiscal stability of Microsoft's largest collective customer, creating near-term uncertainty around federal IT budgets and contract reliability. Quantum computing funding announcements and political instability add noise but do not materially offset the short-term budget headwind.",
+          "citations": [
+            {
+              "title": "Trump stock trades fuel accusations of corruption and profiting off presidency",
+              "url": "https://www.pbs.org/newshour/show/trump-stock-trades-fuel-accusations-of-corruption-and-profiting-off-presidency",
+              "source": "PBS",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Earlier this month, President Trump disclosed that his trust actively traded individual stocks. It's an unprecedented practice for a sitting U.S. president..."
+            },
+            {
+              "title": "Department of Commerce Announces Letters of Intent With 9 Companies for $2 Billion to Accelerate U.S. Leadership in Quantum Computing",
+              "url": "https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion",
+              "source": "National Institute of Standards and Technology (.gov)",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The Department of Commerce today announced the signing of 9 letters of intent to provide $2.013 billion in federal incentives under the CHIPS and Science..."
+            },
+            {
+              "title": "Irrational Exuberance Again",
+              "url": "https://www.aei.org/economics/irrational-exuberance-again/",
+              "source": "American Enterprise Institute - AEI",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Desmond Lachman. Author by Desmond Lachman. Author Title Senior Fellow. Date May 19, 2026. Publisher Post | AEIdeas. Category Economics..."
+            },
+            {
+              "title": "Why Did IonQ Stock Pop Today?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-did-ionq-stock-pop-151234546.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Valued at $19.6 billion, IonQ (NYSE: IONQ) stock is the biggest pure play on quantum computing you can buy. That's the good news for IonQ today."
+            },
+            {
+              "title": "US Government Stock Portfolio Under Trump: Should Indians Invest?",
+              "url": "https://www.indmoney.com/blog/us-stocks/the-trump-portfolio-should-indian-investors-follow-us-government-stock-portfolio",
+              "source": "INDmoney",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Learn how the US government's $20.9B equity portfolio spanning Intel, quantum computing, and drones, is reshaping markets and what it means for investors."
+            },
+            {
+              "title": "FBI finds 303 gold bars in home of CIA employee who allegedly lied about his credentials: Complaint",
+              "url": "https://abcnews.com/US/former-cia-officer-allegedly-defrauded-government-lying-credentials/story?id=133366001",
+              "source": "ABC News - Breaking News, Latest News and Videos",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The former government officer, David Rush, has been charged with theft of public money, according to a complaint filed in the Eastern District of Virginia."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_walmart_inc",
+          "name": "Walmart Inc.",
+          "type": "customer",
+          "signal": "positive",
+          "magnitude": 0.1,
+          "summary": "Walmart’s 26% online sales growth and supply-chain efficiency investments signal sustained near-term consumption of Azure and Microsoft 365 under its multi-year enterprise agreement, while reaffirmed annual guidance lowers the risk of immediate contract pullback. Although Walmart’s shares have faced pressure from macro caution and insider selling, this strategic customer’s operational momentum provides a modestly supportive read-through for Microsoft’s short-term cloud revenue.",
+          "citations": [
+            {
+              "title": "Walmart Inc. (WMT) Focused on Enhancing Supply Chain Efficiency with New Service",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-inc-wmt-focused-enhancing-032427988.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "Walmart Inc. (NASDAQ:WMT) is one of the best defensive stocks to buy amid geopolitical tensions. On June 3, Walmart Inc. (NASDAQ:WMT) took an important step..."
+            },
+            {
+              "title": "Walmart Inc Stock (WMT) Moved Down by 3.20% on May 29: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261936631-market-movers-wmt-20260529",
+              "source": "TradingKey",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Walmart stock declined due to consumer spending concerns and outlook.Consumers cut spending due to rising prices and reliance on savings."
+            },
+            {
+              "title": "WMT News | WALMART INC (NASDAQ:WMT)",
+              "url": "https://www.chartmill.com/stock/quote/WMT/news",
+              "source": "ChartMill",
+              "publishedAt": "2 days ago",
+              "snippet": "WALMART INC (WMT) Stock News. NASDAQ:WMT • US9311421039. WMT Stock Price Today. 118.88 USD. -0.95 (-0.79%). At close: Jun 9, 2026. 119.63 USD."
+            },
+            {
+              "title": "Walton family holdings trust sells $254m in Walmart Inc. stock",
+              "url": "https://www.investing.com/news/insider-trading-news/walton-family-holdings-trust-sells-254m-in-walmart-inc-stock-93CH-4710931",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "The Walton Family Holdings Trust, a significant shareholder in Walmart Inc. (NYSE:WMT), recently sold approximately $254.4 million worth of the retailer's..."
+            },
+            {
+              "title": "Capital Wealth Planning LLC Raises Stock Position in Walmart Inc. $WMT",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-capital-wealth-planning-llc-raises-stock-position-in-walmart-inc-wmt-2026-06-11/",
+              "source": "MarketBeat",
+              "publishedAt": "1 day ago",
+              "snippet": "Capital Wealth Planning LLC grew its holdings in shares of Walmart Inc. (NASDAQ:WMT - Free Report) by 23014.7% during the fourth quarter, according to its..."
+            },
+            {
+              "title": "Walmart’s online sales jump 26% as revenue hits $177.8B",
+              "url": "https://www.stocktitan.net/news/WMT/walmart-reports-revenue-growth-of-7-3-up-5-9-in-constant-currency-byuunas9wa1t.html",
+              "source": "Stock Titan",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Global advertising up 37% and operating income grew 5.0% as Walmart reported adjusted EPS of $0.66, issued Q2 guidance and reaffirmed its FY27 outlook."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_at_t_inc",
+          "name": "AT&T Inc.",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0.1,
+          "summary": "The AT&T headlines focus on share-price volatility, an Oppenheimer downgrade, and long-term capital-return plans rather than any change to Azure or modern-workplace spending. With no indication that the multi-billion cloud migration is being altered and AT&T guiding solid Q2 free cash flow, the near-term ripple to Microsoft is negligible.",
+          "citations": [
+            {
+              "title": "symbol__ Stock Quote Price and Forecast",
+              "url": "https://www.cnn.com/markets/stocks/T",
+              "source": "CNN",
+              "publishedAt": "1 day ago",
+              "snippet": "View AT&T Inc T stock quote prices, financial information, real-time forecasts, and company news from CNN."
+            },
+            {
+              "title": "Rep. Tim Moore Sells Off Shares of AT&T Inc. (NYSE:T)",
+              "url": "https://www.marketbeat.com/instant-alerts/rep-tim-moore-sells-off-shares-of-att-inc-nyset-2026-06-09/",
+              "source": "MarketBeat",
+              "publishedAt": "4 days ago",
+              "snippet": "Representative Tim Moore (Republican-North Carolina) recently sold shares of AT&T Inc. (NYSE:T). In a filing disclosed on June 05th, the Representative..."
+            },
+            {
+              "title": "AT&T plans $45B+ for investors as CFO outlines 2026 strategy",
+              "url": "https://www.stocktitan.net/news/T/pascal-desroches-to-update-shareholders-at-mizuho-technology-ugu3chwsw8xr.html",
+              "source": "Stock Titan",
+              "publishedAt": "4 days ago",
+              "snippet": "CFO Pascal Desroches will update on AT&T's multi‑year plan, 2026 guidance, $45B+ in 2026‑28 payouts and $4.0–$4.5B in Q2 free cash flow."
+            },
+            {
+              "title": "AT&T Inc. stock underperforms Wednesday when compared to competitors",
+              "url": "https://www.marketwatch.com/data-news/at-t-inc-stock-underperforms-wednesday-when-compared-to-competitors-c6d7d207-0bc6f27f10aa",
+              "source": "MarketWatch",
+              "publishedAt": "1 month ago",
+              "snippet": "Shares of AT&T Inc. T. -0.32%. slid 1.94% to $24.74 Wednesday, on what proved to be an all-around mixed trading session for the stock market,..."
+            },
+            {
+              "title": "AT&T Inc Stock (T) Closed Down by 3.29% on Jun 4: Key Drivers Unveiled",
+              "url": "https://www.tradingkey.com/news/market-movers/261947264-market-movers-t-20260604",
+              "source": "TradingKey",
+              "publishedAt": "1 week ago",
+              "snippet": "Oppenheimer downgraded AT&T stock rating due to competitive risks.Supreme Court ruling affirmed FCC's authority to fine telecom companies.AT&T stock shows..."
+            },
+            {
+              "title": "Tim Moore from North Carolina’s 14th District makes significant trades in AT&T Inc.",
+              "url": "https://www.investing.com/news/company-news/tim-moore-from-north-carolinas-14th-district-makes-significant-trades-in-att-inc-93CH-4731928",
+              "source": "Investing.com",
+              "publishedAt": "4 days ago",
+              "snippet": "Tim Moore, the congressional representative for North Carolina's 14th district, has made notable transactions in AT&T Inc. (T) stocks, according to a recent..."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_the_coca_cola_company",
+          "name": "The Coca-Cola Company",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The Coca-Cola news centers on general investment sentiment, analyst ratings, and insider stock transactions rather than any operational changes to its consumption of Microsoft Azure, Dynamics 365, or Microsoft 365. Consequently, there is no identifiable near-term channel through which these developments would materially affect Microsoft’s stock within the current quarter.",
+          "citations": [
+            {
+              "title": "Is The Coca-Cola Company (KO) A Good Stock To Buy Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-company-ko-good-152704001.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "Is KO a good stock to buy? We came across a bullish thesis on The Coca-Cola Company on r/investing_discussion by Variant_Invest."
+            },
+            {
+              "title": "Coca-Cola CFO John Murphy to speak at dbAccess Global Consumer Conference",
+              "url": "https://www.stocktitan.net/news/KO/the-coca-cola-company-announces-participation-in-db-access-global-5zamt25goa6t.html",
+              "source": "Stock Titan",
+              "publishedAt": "3 weeks ago",
+              "snippet": "ATLANTA --(BUSINESS WIRE)-- The Coca-Cola Company announced today that John Murphy, President and Chief Financial Officer, will present at the dbAccess..."
+            },
+            {
+              "title": "Why Warren Buffett Hasn’t Sold Coca-Cola Stock for Over 30 Years",
+              "url": "https://www.barchart.com/story/news/2223759/why-warren-buffett-hasnt-sold-coca-cola-stock-for-over-30-years",
+              "source": "Barchart",
+              "publishedAt": "2 weeks ago",
+              "snippet": "KO stock is a the perfect example of Buffett's forever stock."
+            },
+            {
+              "title": "Barclays Reaffirms Bullish View on The Coca-Cola Company (KO) with Higher Price Target",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/barclays-reaffirms-bullish-view-coca-140253079.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "The Coca-Cola Company (NYSE:KO) is included among the Dividend Stock Portfolio For Retirement: Top 12 Stock Picks. On May 21, Barclays raised its price..."
+            },
+            {
+              "title": "Coca-Cola chairman James Quincey sells $35.6m in company stock",
+              "url": "https://www.investing.com/news/insider-trading-news/cocacola-chairman-james-quincey-sells-356m-in-company-stock-93CH-4731183",
+              "source": "Investing.com",
+              "publishedAt": "4 days ago",
+              "snippet": "James Quincey, Chairman and Director of The Coca-Cola Company (NYSE:KO), sold common stock valued at approximately $35.6 million over two days in early June..."
+            },
+            {
+              "title": "Is The Coca-Cola Company (KO) A Good Stock To Buy Now?",
+              "url": "https://www.insidermonkey.com/blog/is-the-coca-cola-company-ko-a-good-stock-to-buy-now-2-1756789/?amp=1",
+              "source": "Insider Monkey",
+              "publishedAt": "1 day ago",
+              "snippet": "Is KO a good stock to buy? We came across a bullish thesis on The Coca-Cola Company on r/investing_discussion by Variant_Invest."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_fedex_corporation",
+          "name": "FedEx Corporation",
+          "type": "customer",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "FedEx’s earnings beat and operational momentum signal continued Azure investment capacity by this major customer, while the Freight spin-off creates potential incremental cloud infrastructure demand from the newly independent entity over the next quarter.",
+          "citations": [
+            {
+              "title": "FedEx Corporation (FDX) Rose on Earnings Beat",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/fedex-corporation-fdx-rose-earnings-143751865.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "The London Company released its Q1 2026 investor letter for “The London Company Large Cap Strategy”. In early 2026, US equities declined, with the Russell..."
+            },
+            {
+              "title": "FedEx Stock Near a 52-Week High After a 96% Rally: Here’s What Comes Next for Investors",
+              "url": "https://www.tikr.com/blog/fedex-stock-near-a-52-week-high-after-a-96-rally-heres-what-comes-next-for-investors",
+              "source": "TIKR.com",
+              "publishedAt": "1 week ago",
+              "snippet": "FedEx Corporation provides transportation, e-commerce, and business services across more than 220 countries. Its DRIVE transformation program and Network..."
+            },
+            {
+              "title": "FedEx Corporation Stock 12‑Month Price Target Cut to $405.94, Implies 22% Upside",
+              "url": "https://www.tradingview.com/news/tradingview:dbb0f7f481865:0-fedex-corporation-stock-12-month-price-target-cut-to-405-94-implies-22-upside/",
+              "source": "TradingView",
+              "publishedAt": "1 week ago",
+              "snippet": "According to estimates from 24 analysts, FedEx Corporation stock's average price target has fallen from $408.86 to $405.94, with forecasts ranging from $230..."
+            },
+            {
+              "title": "Why FedEx Stock Just Dropped",
+              "url": "https://www.fool.com/investing/2026/06/01/why-fedex-stock-just-dropped/",
+              "source": "The Motley Fool",
+              "publishedAt": "1 week ago",
+              "snippet": "FedEx Corporation (FDX +0.09%) stock crashed nearly 19% through 11:15 a.m. ET this morning -- but don't panic. This apparent disaster isn't what meets the..."
+            },
+            {
+              "title": "Focus Partners Advisor Solutions LLC Acquires 3,661 Shares of FedEx Corporation $FDX",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-focus-partners-advisor-solutions-llc-acquires-3661-shares-of-fedex-corporation-fdx-2026-06-10/",
+              "source": "MarketBeat",
+              "publishedAt": "2 days ago",
+              "snippet": "Focus Partners Advisor Solutions LLC boosted its holdings in FedEx Corporation (NYSE:FDX - Free Report) by 39.5% during the 4th quarter, according to the..."
+            },
+            {
+              "title": "FedEx Freight begins operations as independent, publicly-traded company",
+              "url": "https://www.5newsonline.com/article/news/fedex-freight-begins-operations-as-independent-publicly-traded-company/527-10887d42-2ccd-4569-94e1-33cce6b14c9e",
+              "source": "5newsonline.com",
+              "publishedAt": "1 week ago",
+              "snippet": "MEMPHIS, Tenn. — FedEx Freight will now operate as an independent, publicly traded less-than-truckload company, according to an announcement made on Monday."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_openai",
+          "name": "OpenAI",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.5,
+          "summary": "OpenAI’s confidential IPO filing and potential $850 billion–$1 trillion valuation would dramatically mark up Microsoft’s multi-billion dollar stake while validating Azure’s role as the exclusive cloud backbone, driving positive re-rating sentiment for MSFT ahead of any debut.",
+          "citations": [
+            {
+              "title": "OpenAI IPO: 6 things to know before you buy the stock",
+              "url": "/goto?url=CAESuQEB7keqTco2k9Npt0fj1JDXY1QKzl-SRQwzl6-W6SnYDslO-JyzCEJBtE1l2NKqhVfmPAXYwCnWtqXA9tL2dUIwu4DDaGOksftNBHXYHV56yp56pyN04GKHeH8SAtxsJg6W2o8qTaXLvr-qI92Nfbt1I3VUwKuiMSfOXOmTGQWvpOiOzajYCin4u6Wf1kHzUl3vr9XHYnHuchCLngTaM9S_tU3Gyjft1_prza8_p8FJQOkaPv-sGI0ZiQ==",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 days ago",
+              "snippet": "OpenAI, the company behind ChatGPT, is jumping into the mega-IPO stock-trading race, filing a confidential S-1 with the Securities and Exchange Commission."
+            },
+            {
+              "title": "OpenAI plans stock market debut, setting up new race with Anthropic",
+              "url": "/goto?url=CAESZgHuR6pNW5Zq7SnJHCBiXvpMy5_YIgkmh68qInqme-tdkPcqp4x8JnvimgPDBm_q-v5haSoSNLpgK2puxzHdmi63ardO5DEkODeFbWAAPDBsKcNp7cD0HYRdLV5M6zGhJUavD5LZ7A==",
+              "source": "BBC",
+              "publishedAt": "3 days ago",
+              "snippet": "OpenAI, the company behind popular chatbot ChatGPT, has become the latest artificial intelligence (AI) giant to reveal plans to sell shares to the public..."
+            },
+            {
+              "title": "OpenAI confidentially files for IPO, prepping Wall Street for mega AI debut",
+              "url": "/goto?url=CAESogEB7keqTf9jLn0AlB_aYiCn6VW4DswDPbJa5yqJWPQDJ-jpzRJMsODOy_bLvvcoq4GH8KftE2BL9mYtavW6Qh2a0sYkpmjiJBSGx-u6-F35x6x4kyM36hGcxVNoNy9iOgksmHM5TDyL8Sx3wXSk1U5ZKUgkdTVmKA1D3cNkd7eGWZI--kHnGnFqGulVBo_Z2q7twOBdWgv-KPNmCFIJ-quKG5I=",
+              "source": "CNBC",
+              "publishedAt": "4 days ago",
+              "snippet": "OpenAI's confidential filing lands days before SpaceX is set to go public and a week after Anthropic announced its confidential disclosure with the SEC."
+            },
+            {
+              "title": "OpenAI confidentially files for initial public offering on US stock market",
+              "url": "/goto?url=CAESkwEB7keqTQGHn7tIZ-vRu-8whg7PzEegZxy14IvzMfzk3ZXndQfV3GgldjIwvkFJk0CQPxLClT9g537NiTYJeDrYJ1KHDVC2mSZMH2bXB29y4cLwkKm1jI4_trSnMwf8z2eJTNzq6yelwIGYfhele_HEybhKtrzjn481-SFBZYmgaj2WksmH85AHGfvg7_x-zwttQbY=",
+              "source": "The Guardian",
+              "publishedAt": "4 days ago",
+              "snippet": "ChatGPT maker expected to be valued at more than $850bn, one of most highly valued listings in market history."
+            },
+            {
+              "title": "Why Anthropic, OpenAI and SpaceX are all racing to go public now",
+              "url": "/goto?url=CAESggEB7keqTSnk5Z9hZ26hCfJF3jZoEz5MdafMkHohri5y593IBLjcb69NcPVGn1dp0eOtMiuB-x9_zZ2NbQktvJiHKThdu5TKl_6dpH-hQ0dw98u5pqp8oE7phfElWcVUWCyWWDGxqw-q1dGoq-bvBcOi3BypL67m0Rd__OXXKMjcHwxT",
+              "source": "Northeastern Global News",
+              "publishedAt": "4 days ago",
+              "snippet": "Together, the three companies, all seeking IPOs, are expected to command valuations rarely seen in public markets."
+            },
+            {
+              "title": "Why It Matters if OpenAI or Anthropic Wins the IPO Race",
+              "url": "/goto?url=CAESfQHuR6pNCU9L2aYDb6FbGFhIRBQnDWvqf8aEeW4IWIY8_An6LD3YnhT0YPjq83-3DtIatMnIPHiaInd1k2tH2-9E4H78r0H2-2z7UxnRSqkbH-Ieg4W8UDMHqLL6bEoHQl7z6X2jXOJYV3aQPXZSGFJ87uZGiSWn6ZmuIK1V",
+              "source": "WSJ",
+              "publishedAt": "1 week ago",
+              "snippet": "In the bitter rivalry between AI heavyweights OpenAI and Anthropic, it will mostly be who has the best technology that determines the ultimate victor."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_nvidia_corporation",
+          "name": "NVIDIA Corporation",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.4,
+          "summary": "The explicit expansion of the NVIDIA partnership for agentic AI strengthens Azure's near-term AI offerings and signals deepening co-development. Broad Wall Street bullishness on NVIDIA also implies robust datacenter demand, which supports Microsoft's Azure growth trajectory and reduces infrastructure supply concerns over the current quarter.",
+          "citations": [
+            {
+              "title": "Is NVIDIA Corporation (NVDA) One of the Top Must-Buy Semiconductor Stocks to Invest in Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-one-top-115333765.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the top must-buy semiconductor stocks to invest in now. NVIDIA Corporation (NASDAQ:NVDA) released financial..."
+            },
+            {
+              "title": "Here is why NVIDIA Corporation (NVDA) is among the Best Automation Stocks to Buy for Warehouse Construction",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-nvidia-corporation-nvda-among-194100654.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "With an upside potential of 33.83%, NVIDIA Corporation (NASDAQ:NVDA) is among the 7 Best Automation Stocks to Buy for Warehouse Construction."
+            },
+            {
+              "title": "This is why NVIDIA Corporation (NVDA) is a Top Stock to Buy for The Long Term",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-nvidia-corporation-nvda-top-163938966.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the top stocks to buy for the long-term. On May 21, Baird reiterated an Outperform rating on NVIDIA Corporation..."
+            },
+            {
+              "title": "Wall Street Bullish on Nvidia (NVDA), Is It a Good Stock to Buy?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bullish-nvidia-nvda-130828848.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "17 hours ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the Good Stocks to Invest in Now. Wall Street remains bullish on NVIDIA Corporation (NASDAQ:NVDA) despite around..."
+            },
+            {
+              "title": "NVIDIA Corporation (NVDA) Expands Partnership with Microsoft For Agentic AI Deployment",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-expands-partnership-103640208.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the analyst-favorite stocks and is widely held by hedge funds, ranking among the 10 best stocks to buy for the..."
+            },
+            {
+              "title": "NVIDIA (NVDA): The Best High Growth Stock to Buy and Hold for the Next Decade",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-nvda-best-high-growth-235003690.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the 15 High Growth Stocks to Buy and Hold for the Next Decade. On May 20, 2026, NVIDIA Corporation (NASDAQ:NVDA)..."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_adobe_inc",
+          "name": "Adobe Inc.",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.15,
+          "summary": "Adobe's record Q2 and surging AI recurring revenue signal strong enterprise adoption of its deeply integrated workflows with Microsoft 365 and Teams, modestly bolstering Microsoft's near-term ecosystem value and partnership monetization despite Adobe's own stock volatility and analyst target cuts.",
+          "citations": [
+            {
+              "title": "Adobe Q2: The Market Has Lost Its Mind With This Low Valuation (NASDAQ:ADBE)",
+              "url": "https://seekingalpha.com/article/4914372-adobe-q2-the-market-has-lost-its-mind-with-this-low-valuation",
+              "source": "Seeking Alpha",
+              "publishedAt": "1 day ago",
+              "snippet": "Adobe Inc. delivered a strong Q2, beating consensus on both revenue and EPS for the 14th consecutive quarter. Read more on ADBE stock here."
+            },
+            {
+              "title": "Adobe Inc. Stock 12‑Month Price Target Cut to $295.43, Implies 35% Upside",
+              "url": "https://www.tradingview.com/news/tradingview:7098388c8fe45:0-adobe-inc-stock-12-month-price-target-cut-to-295-43-implies-35-upside/",
+              "source": "TradingView",
+              "publishedAt": "23 hours ago",
+              "snippet": "According to estimates from 29 analysts, Adobe Inc. stock's average price target has fallen from $319.57 to $295.43, with forecasts ranging from $190 to..."
+            },
+            {
+              "title": "Adobe’s AI recurring revenue triples past $500M as record Q2 lifts 2026 targets",
+              "url": "https://www.stocktitan.net/news/ADBE/adobe-reports-record-q2-rfj218egg8hi.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 day ago",
+              "snippet": "AI-first recurring revenue topping $500M helped drive Adobe's record $6.62B Q2 and higher FY26 revenue and EPS targets, as CFO Dan Durn prepares to exit."
+            },
+            {
+              "title": "Adobe Inc. stock underperforms Wednesday when compared to competitors",
+              "url": "https://www.marketwatch.com/data-news/adobe-inc-stock-underperforms-wednesday-when-compared-to-competitors-e11cd9dc-53f53cfd2730?mod=mw_quote_news",
+              "source": "MarketWatch",
+              "publishedAt": "2 days ago",
+              "snippet": "fell 2.48% to $353.32. Editor's Note: This story was auto-generated by Automated Insights, an automation technology provider, using data from Dow Jones and..."
+            },
+            {
+              "title": "Adobe shares rise as investors position ahead of next earnings and lean into a valuation rebound | ADBE Stock News",
+              "url": "https://www.quiverquant.com/news/Adobe+shares+rise+as+investors+position+ahead+of+next+earnings+and+lean+into+a+valuation+rebound",
+              "source": "Quiver Quantitative",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Adobe Inc. (ADBE) is up 3.4% today. Here is some analysis on what might have caused this price movem."
+            },
+            {
+              "title": "Earnings Flash (ADBE) Adobe Inc. Posts Q2 Adjusted EPS $5.96 per Share",
+              "url": "https://www.marketscreener.com/news/earnings-flash-adbe-adobe-inc-posts-q2-adjusted-eps-5-96-per-share-ce7f5cd8dc8cf322",
+              "source": "marketscreener.com",
+              "publishedAt": "1 day ago",
+              "snippet": "Earnings Flash (ADBE) Adobe Inc. Posts Q2 Adjusted EPS $5.96 per Share. Published on 06/11/2026 at 04:06 pm EDT. MT Newswires."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_sap_se",
+          "name": "SAP SE",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0.1,
+          "summary": "SAP’s accelerating cloud momentum and AI push support Azure consumption under the joint partnership, but near-term margin pressures and stock volatility largely offset each other, producing negligible net impact on MSFT within the current quarter.",
+          "citations": [
+            {
+              "title": "Why is SAP stock sliding today?",
+              "url": "https://www.investing.com/news/stock-market-news/why-is-sap-stock-sliding-today-93CH-4736639",
+              "source": "Investing.com",
+              "publishedAt": "1 day ago",
+              "snippet": "Investing.com -- SAP SE stock fell 4.1% to trade at 143.52 EUR, extending the prior session's losses after Goldman Sachs lowered its gross margin forecast..."
+            },
+            {
+              "title": "Will SAP SE (SAP) Benefit From Its Cloud Migration?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/sap-se-sap-benefit-cloud-133230272.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Eagle Capital Management, an investment management company, released its first quarter 2026 investor letter. A copy of the letter is available to download..."
+            },
+            {
+              "title": "Market Wrap: SAP Shares Surge⚡European Stock Markets Are Turning Green🟩",
+              "url": "https://www.xtb.com/int/market-analysis/news-and-research/market-wrap-sap-shares-surge-european-stock-markets-are-turning-green",
+              "source": "XTB.com",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Markets and macroeconomics European indices are rising on Tuesday &ndash; the German DAX is up by around 1.3%, the French CAC 40 by 0.9%, the FTSE 100 by..."
+            },
+            {
+              "title": "SAP SE Stock (SAP) Moved Down by 5.17% on Jun 11: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261961852-market-movers-sap-20260611",
+              "source": "TradingKey",
+              "publishedAt": "1 day ago",
+              "snippet": "SAP shares declined due to analyst, competitive, and macroeconomic pressures.Goldman Sachs cut SAP's gross margin forecast due to anticipated hardware costs..."
+            },
+            {
+              "title": "SAP jumps 6.2% as investors focus on strong cloud momentum and fresh AI “autonomous enterprise” push",
+              "url": "https://www.quiverquant.com/news/SAP+jumps+6.2%25+as+investors+focus+on+strong+cloud+momentum+and+fresh+AI+%E2%80%9Cautonomous+enterprise%E2%80%9D+push",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 week ago",
+              "snippet": "SAP SE (SAP) is up 6.2% today. Here is some analysis on what might have caused this price movement.A."
+            },
+            {
+              "title": "SAP SE (SAP) Shares Fall 3.9% -- What GF Score of 78 Tells Investors",
+              "url": "https://www.gurufocus.com/news/8912810/sap-se-sap-shares-fall-39-what-gf-score-of-78-tells-investors",
+              "source": "GuruFocus",
+              "publishedAt": "1 day ago",
+              "snippet": "On June 11, 2026, SAP SE (SAP) shares fell 3.9% to a current price of $163.64. This decline comes amid a challenging year, with the stock down 31.5%..."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_intel_corporation",
+          "name": "Intel Corporation",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "Intel's foundry momentum and hyperscaler interest signal a stabilizing manufacturing partner, modestly reducing near-term supply risk for Microsoft's Windows and Azure hardware roadmap, though direct financial impact within the quarter remains limited.",
+          "citations": [
+            {
+              "title": "Is Intel (INTC) the Best High Growth Stock to Buy and Hold for the Next Decade?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/intel-intc-best-high-growth-234838721.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ:INTC) is one of the 15 High Growth Stocks to Buy and Hold for the Next Decade. On May 20, 2026, Intel Corporation (NASDAQ:INTC)..."
+            },
+            {
+              "title": "Intel Corporation (NASDAQ: INTC) Stock Price Trades at $120 After Doubling AMD's 2026 Gains",
+              "url": "https://www.foreignpolicyjournal.com/2026/05/22/intel-corporation-nasdaq-intc-stock-price-trades-at-120-after-doubling-amds-2026-gains/",
+              "source": "Foreign Policy Journal",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ: INTC) was trading at approximately $119.99 on Friday, May 22, within a session range of $118.09 to $122.78 in volume of 68.31."
+            },
+            {
+              "title": "Intel (NASDAQ:INTC) Stock Price Down 5.1% - Here's Why",
+              "url": "https://www.marketbeat.com/instant-alerts/intel-nasdaqintc-stock-price-down-51-heres-why-2026-05-29/",
+              "source": "MarketBeat",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Intel Corporation (NASDAQ:INTC - Get Free Report) dropped 5.1% on Friday . The company traded as low as $113.54 and last traded at $114.68."
+            },
+            {
+              "title": "1 Intel Insider Just Sold Nearly 10% of His INTC Stock",
+              "url": "https://www.barchart.com/story/news/2404187/1-intel-insider-just-sold-nearly-10-of-his-intc-stock",
+              "source": "Barchart.com",
+              "publishedAt": "2 days ago",
+              "snippet": "Intel Corporation (INTC) has certainly staged one of the market's most dramatic turnarounds over the past year, transforming itself into a stock that many..."
+            },
+            {
+              "title": "Why is Intel stock gaining today?",
+              "url": "https://www.investing.com/news/stock-market-news/why-is-intel-stock-gaining-today-93CH-4732501",
+              "source": "Investing.com",
+              "publishedAt": "3 days ago",
+              "snippet": "Investing.com -- Intel Corporation stock is rising +2.0% in pre-open trading today, trading at $112.44, as the afterglow of a major foundry breakthrough..."
+            },
+            {
+              "title": "Intel surges after double rating upgrade at BofA",
+              "url": "https://seekingalpha.com/news/4602541-intel-surges-after-double-rating-upgrade-at-bofa",
+              "source": "Seeking Alpha",
+              "publishedAt": "1 day ago",
+              "snippet": "Shares of Intel (INTC) surged premarket on Thursday after BofA double upgraded the chipmaker's stock to Buy from Underperform."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_the_vanguard_group_inc",
+          "name": "The Vanguard Group, Inc.",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The news only covers Vanguard's ETF holdings in unrelated companies and a routine UK regulatory filing for Senior plc, with no bearing on Microsoft or its near-term stock performance.",
+          "citations": [
+            {
+              "title": "ETFs Investing in OUTFRONT Media Inc. Stocks",
+              "url": "https://www.tradingview.com/symbols/SWB-76C0/etfs/",
+              "source": "TradingView",
+              "publishedAt": "6 days ago",
+              "snippet": "Sorted by market value, the list below shows funds with OUTFRONT Media Inc. stocks. Equipped with price, change, and other helpful stats,..."
+            },
+            {
+              "title": "Form 8.3 - The Vanguard Group, Inc.: Senior plc",
+              "url": "https://www.marketscreener.com/news/form-8-3-the-vanguard-group-inc-senior-plc-ce7f5ddadd89f321",
+              "source": "www.marketscreener.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "(a) Full name of discloser: The Vanguard Group, Inc. (b) Owner or controller of interests and short positions disclosed, if different from 1(a):."
+            },
+            {
+              "title": "ETFs Investing in Keurig Dr Pepper Inc. Stocks",
+              "url": "https://www.tradingview.com/symbols/XETR-DP5/etfs/",
+              "source": "TradingView",
+              "publishedAt": "6 days ago",
+              "snippet": "Sorted by market value, the list below shows funds with Keurig Dr Pepper Inc. stocks. Equipped with price, change, and other helpful stats,..."
+            },
+            {
+              "title": "ETFs Investing in Martin Marietta Materials, Inc. Stocks",
+              "url": "https://www.tradingview.com/symbols/XETR-MMX/etfs/",
+              "source": "TradingView",
+              "publishedAt": "6 days ago",
+              "snippet": "Sorted by market value, the list below shows funds with Martin Marietta Materials, Inc. stocks. Equipped with price, change, and other helpful stats,..."
+            },
+            {
+              "title": "ETFs Investing in Generac Holdings Inc. Stocks",
+              "url": "https://www.tradingview.com/symbols/XETR-G84/etfs/",
+              "source": "TradingView",
+              "publishedAt": "6 days ago",
+              "snippet": "Sorted by market value, the list below shows funds with Generac Holdings Inc. stocks. Equipped with price, change, and other helpful stats,..."
+            },
+            {
+              "title": "ETFs Investing in Apollo Global Management Inc Stocks",
+              "url": "https://www.tradingview.com/symbols/XETR-N7I/etfs/",
+              "source": "TradingView",
+              "publishedAt": "6 days ago",
+              "snippet": "Sorted by market value, the list below shows funds with Apollo Global Management Inc stocks. Equipped with price, change, and other helpful stats,..."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_blackrock_inc",
+          "name": "BlackRock, Inc.",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0.05,
+          "summary": "Recent BlackRock headlines—losing its top U.S. ETF issuer position to Vanguard, a routine dividend, and a potential SpaceX private investment—do not directly alter near-term fund flows or portfolio weightings in Microsoft. Over the short term, there is no identifiable catalyst forcing material buying or selling of MSFT through BlackRock’s iShares or active equity mandates.",
+          "citations": [
+            {
+              "title": "Weekly market commentary",
+              "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/publications/weekly-commentary",
+              "source": "BlackRock",
+              "publishedAt": "4 days ago",
+              "snippet": "Stay tuned for insights on hot topics and latest trends in the financial market via the Weekly commentary by the BlackRock Investment Institute."
+            },
+            {
+              "title": "BlackRock Inc (BLK) Offers Dividend As It Sees Crypto Shaping Markets",
+              "url": "https://finance.yahoo.com/markets/crypto/articles/blackrock-inc-blk-offers-dividend-172523489.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 days ago",
+              "snippet": "BlackRock Inc (NYSE:BLK) is one of the most profitable crypto-exposed stocks to buy now. On May 20, BlackRock Inc (NYSE:BLK) said that it plans to pay a..."
+            },
+            {
+              "title": "Fund Update: New $798.3M $PIPR stock position opened by BlackRock, Inc.",
+              "url": "https://www.quiverquant.com/news/Fund+Update%3A+New+%24798.3M+%24PIPR+stock+position+opened+by+BlackRock%2C+Inc.",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "BlackRock, Inc. has opened a new $798.3M position in $PIPR, per a new SEC 13F filing. This disclosur."
+            },
+            {
+              "title": "BlackRock Inc. stock underperforms Tuesday when compared to competitors",
+              "url": "https://www.marketwatch.com/data-news/blackrock-inc-stock-underperforms-tuesday-when-compared-to-competitors-7370e804-ca582ccfd9b5",
+              "source": "MarketWatch",
+              "publishedAt": "3 weeks ago",
+              "snippet": "shed 4.57% to $1,036.30 Tuesday, on what proved to be an all-around grim trading session for the stock market, with the S&P 500 Index."
+            },
+            {
+              "title": "$5.73-a-share BlackRock dividend heads to investors in June",
+              "url": "https://www.stocktitan.net/news/BLK/black-rock-declares-quarterly-dividend-of-5-73-on-common-50or92vozxcx.html",
+              "source": "Stock Titan",
+              "publishedAt": "3 weeks ago",
+              "snippet": "NEW YORK --(BUSINESS WIRE)-- BlackRock, Inc. (NYSE:BLK) today announced that its Board of Directors has declared a quarterly cash dividend of $5.73 per..."
+            },
+            {
+              "title": "BlackRock Inc (NYSE:BLK) Strong Growth Stocks with good Technical Setup Ratings",
+              "url": "https://www.chartmill.com/news/BLK/Chartmill-49037-BlackRock-Inc-NYSEBLK-Strong-Growth-Stocks-with-good-Technical-Setup-Ratings",
+              "source": "ChartMill",
+              "publishedAt": "2 weeks ago",
+              "snippet": "BlackRock (BLK) shows strong growth with accelerating EPS and revenue, plus a bullish technical setup rating of 8/10, signaling a potential breakout..."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_state_street_corporation",
+          "name": "State Street Corporation",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "None of the reported news pertains to State Street’s holdings, trading, or custody services related to Microsoft; the items address STT’s own dividends, insider sales, analyst outlooks, and an unrelated Australian equity position, leaving no meaningful near-term transmission to MSFT.",
+          "citations": [
+            {
+              "title": "Why State Street Corporation (STT) is a Great Dividend Stock Right Now",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-state-street-corporation-stt-154502540.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Getting big returns from financial portfolios, whether through stocks, bonds, ETFs, other securities, or a combination of all, is an investor's dream."
+            },
+            {
+              "title": "State Street Corporation Declares Dividends on its Common Stock and Non-Cumulative Perpetual Preferred Stock Series “G,” “I,” “J,” and “K”",
+              "url": "https://www.businesswire.com/news/home/20260520219976/en/State-Street-Corporation-Declares-Dividends-on-its-Common-Stock-and-Non-Cumulative-Perpetual-Preferred-Stock-Series-G-I-J-and-K",
+              "source": "Business Wire",
+              "publishedAt": "3 weeks ago",
+              "snippet": "State Street Corporation (NYSE:STT) today announced a quarterly cash dividend of $0.84 per share of common stock, payable on July 13, 2026 to common..."
+            },
+            {
+              "title": "Jake Auchincloss makes partial sale of State Street Corporation stocks",
+              "url": "https://www.investing.com/news/company-news/jake-auchincloss-makes-partial-sale-of-state-street-corporation-stocks-93CH-4708687",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Massachusetts's 4th congressional district representative, Jake Auchincloss, has made a partial sale of his holdings in State Street Corporation (NYSE:STT)."
+            },
+            {
+              "title": "Are Wall Street Analysts Bullish on State Street Corporation Stock?",
+              "url": "https://www.barchart.com/story/news/1997609/are-wall-street-analysts-bullish-on-state-street-corporation-stock",
+              "source": "Barchart",
+              "publishedAt": "3 weeks ago",
+              "snippet": "State Street Corporation has rallied the broader market over the past year, and analysts remain moderately optimistic about the stock's prospects."
+            },
+            {
+              "title": "State Street (NYSE:STT) Stock Forecast & Analyst Predictions",
+              "url": "https://simplywall.st/stocks/us/diversified-financials/nyse-stt/state-street/future",
+              "source": "Simply Wall Street",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Discover State Street's earnings and revenue growth rates, forecasts, and the latest analyst predictions while comparing them to its industry peers."
+            },
+            {
+              "title": "State Street (NYSE: STT) CEO details 10b5-1 share sale and holdings",
+              "url": "https://www.stocktitan.net/sec-filings/STT/form-4-state-street-corp-insider-trading-activity-8cbf86b331a2.html",
+              "source": "Stock Titan",
+              "publishedAt": "2 weeks ago",
+              "snippet": "State Street CEO Ronald P. O'Hanley sold 14553 shares at $155.35 under a Rule 10b5-1 plan, retaining 255512 direct shares and additional indirect trust..."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_fmr_llc_fidelity_investments",
+          "name": "FMR LLC (Fidelity Investments)",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "None of the cited news directly concerns Fidelity's Microsoft holdings or near-term trading intentions. Indirect effects from record retirement inflows and fund launches are too diffuse to alter MSFT's price over the short horizon.",
+          "citations": [
+            {
+              "title": "Fidelity Q1 2026 Retirement Analysis: 401(k) and 403(b) Savings Rates Reach Record Levels, Despite Uncertain Economy",
+              "url": "https://newsroom.fidelity.com/pressreleases/fidelity-q1-2026-retirement-analysis--401-k--and-403-b--savings-rates-reach-record-levels--despite-u/s/f8f4ee41-ab58-4f14-9adb-dcb4feb3f2c7",
+              "source": "Fidelity Newsroom",
+              "publishedAt": "2 weeks ago",
+              "snippet": "BOSTON, May 28, 2026 – According to Fidelity Investments®' latest Q1 2026 retirement analysis, both 401(k) and 403(b) total savings rates reached record..."
+            },
+            {
+              "title": "Fidelity Investments | Assets Under Management, Services, & History | Britannica Money",
+              "url": "https://www.britannica.com/money/Fidelity-Investments",
+              "source": "Britannica",
+              "publishedAt": "1 week ago",
+              "snippet": "Fidelity Investments is one of the largest asset managers in the United States. Headquartered in Boston,..."
+            },
+            {
+              "title": "Fidelity Investments® to Expand Target Date Lineup With Launch of Guaranteed Income Solution",
+              "url": "https://newsroom.fidelity.com/pressreleases/fidelity-investments--to-expand-target-date-lineup-with-launch-of-guaranteed-income-solution/s/afb7c7fe-f18f-4727-8aa5-3750a24cf9e0",
+              "source": "Fidelity Newsroom",
+              "publishedAt": "2 days ago",
+              "snippet": "Freedom Lifetime CITs will combine target date investing with lifetime income options from Nationwide® and New York Life®, aiming to help many Americans..."
+            },
+            {
+              "title": "Fidelity Small Cap Index Fund Q1 2026 Commentary (FSSNX)",
+              "url": "https://seekingalpha.com/article/4914004-fidelity-small-cap-index-fund-q1-2026-commentary",
+              "source": "Seeking Alpha",
+              "publishedAt": "2 days ago",
+              "snippet": "Fidelity Small Cap Index Fund delivered a 0.91% return in Q1 2026, matching its benchmark. Read the full analysis for more details."
+            },
+            {
+              "title": "Fidelity Investments crosses 5% threshold in GTT",
+              "url": "https://www.marketscreener.com/news/fidelity-investments-crosses-5-threshold-in-gtt-ce7f5adbdf8ff327",
+              "source": "www.marketscreener.com",
+              "publishedAt": "3 weeks ago",
+              "snippet": "FMR LLC, the holding company for Fidelity Investments, has notified the AMF that it crossed above the 5% threshold in both capital and voting rights of GTT..."
+            },
+            {
+              "title": "FMR LLC Reduces Stake in Grocery Outlet Holding Corp",
+              "url": "https://www.gurufocus.com/news/8913174/fmr-llc-reduces-stake-in-grocery-outlet-holding-corp?mobile=true",
+              "source": "GuruFocus",
+              "publishedAt": "1 day ago",
+              "snippet": "On May 29, 2026, FMR LLC (Trades, Portfolio) executed a significant transaction involving Grocery Outlet Holding Corp (GO), reducing its stake by 4981837..."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_geode_capital_management_llc",
+          "name": "Geode Capital Management, LLC",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The news only concerns Geode Capital’s trading activity in unrelated holdings and contains no information about its Microsoft position or any read-through to MSFT’s business outlook. Consequently, these filings provide no meaningful short-term signal for MSFT’s stock price.",
+          "citations": [
+            {
+              "title": "Fund Update: New $124.9M $PIPR stock position opened by GEODE CAPITAL MANAGEMENT, LLC",
+              "url": "https://www.quiverquant.com/news/Fund+Update%3A+New+%24124.9M+%24PIPR+stock+position+opened+by+GEODE+CAPITAL+MANAGEMENT%2C+LLC",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "GEODE CAPITAL MANAGEMENT, LLC has opened a new $124.9M position in $PIPR, per a new SEC 13F filing."
+            },
+            {
+              "title": "Geode Capital Management LLC Purchases 67,239 Shares of On Holding AG $ONON",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-geode-capital-management-llc-purchases-67239-shares-of-on-holding-ag-onon-2026-06-09/",
+              "source": "MarketBeat",
+              "publishedAt": "3 days ago",
+              "snippet": "Geode Capital Management LLC increased its stake in On Holding AG (NYSE:ONON - Free Report) by 4.7% during the fourth quarter, according to the company in..."
+            },
+            {
+              "title": "Geode Capital Management LLC Increases Stock Position in MYR Group, Inc. $MYRG",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-geode-capital-management-llc-increases-stock-position-in-myr-group-inc-myrg-2026-06-08/",
+              "source": "MarketBeat",
+              "publishedAt": "4 days ago",
+              "snippet": "Geode Capital Management LLC grew its stake in shares of MYR Group, Inc. (NASDAQ:MYRG - Free Report) by 3.5% during the fourth quarter, according to the..."
+            },
+            {
+              "title": "Fund Update: New $70.2M $VSNT stock position opened by GEODE CAPITAL MANAGEMENT, LLC",
+              "url": "https://www.quiverquant.com/news/Fund+Update%3A+New+%2470.2M+%24VSNT+stock+position+opened+by+GEODE+CAPITAL+MANAGEMENT%2C+LLC",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "GEODE CAPITAL MANAGEMENT, LLC has opened a new $70.2M position in $VSNT, per a new SEC 13F filing. T."
+            },
+            {
+              "title": "Geode Capital Management LLC Sells 1,219,755 Shares of Wells Fargo & Company $WFC",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-geode-capital-management-llc-sells-1219755-shares-of-wells-fargo-company-wfc-2026-05-28/",
+              "source": "MarketBeat",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Geode Capital Management LLC lessened its stake in shares of Wells Fargo & Company (NYSE:WFC) by 1.7% during the 4th quarter, according to its most recent..."
+            },
+            {
+              "title": "Fund Update: New $46.0M $DFTX stock position opened by GEODE CAPITAL MANAGEMENT, LLC",
+              "url": "https://www.quiverquant.com/news/Fund+Update%3A+New+%2446.0M+%24DFTX+stock+position+opened+by+GEODE+CAPITAL+MANAGEMENT%2C+LLC",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "GEODE CAPITAL MANAGEMENT, LLC has opened a new $46.0M position in $DFTX, per a new SEC 13F filing. T."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_u_s_department_of_defense",
+          "name": "U.S. Department of Defense",
+          "type": "government",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "The DoD’s expanded blacklist of Chinese military-linked tech firms reinforces the preference for secure, domestic cloud and enterprise software suppliers like Microsoft under the JWCC program, while Dell’s $9.7 billion contract signals robust near-term defense IT spending. This supports a favorable demand outlook for Microsoft’s federal business over the next three months, though the lack of direct MSFT-specific awards keeps the immediate earnings impact modest.",
+          "citations": [
+            {
+              "title": "Pentagon expands list of China military-linked firms to include Alibaba, Baidu in fresh blow to diplomatic thaw",
+              "url": "https://www.cnbc.com/2026/06/09/alibaba-baidu-byd-named-on-pentagons-china-military-list-.html",
+              "source": "CNBC",
+              "publishedAt": "4 days ago",
+              "snippet": "The Pentagon briefly posted a similar expanded list in February, then withdrew it without explanation before Trump's China trip."
+            },
+            {
+              "title": "U.S. Defense list adds NIO, but trading in its shares continues",
+              "url": "https://www.stocktitan.net/news/NIO/nio-inc-responds-to-the-u-s-department-of-defense-chinese-military-bq2ifarzmv21.html",
+              "source": "Stock Titan",
+              "publishedAt": "4 days ago",
+              "snippet": "Listing is not a sanction and does not curb trading in NIO securities. The company plans to engage the U.S. Department of Defense and may pursue legal..."
+            },
+            {
+              "title": "Cirrus Design Corp. added to Department of Defense prohibited list",
+              "url": "https://www.duluthnewstribune.com/business/cirrus-design-corp-added-to-department-of-defense-prohibited-list",
+              "source": "Duluth News Tribune",
+              "publishedAt": "3 days ago",
+              "snippet": "GRAND FORKS — The U.S. Department of Defense on Monday, June 8, added Cirrus Design Corp. to a list of \"Chinese military companies\" operating in the United..."
+            },
+            {
+              "title": "NIO: Inclusion on U.S. Department of Defense's \"Chinese Military Company\" List Lacks Justification",
+              "url": "https://autonews.gasgoo.com/articles/news/nio-inclusion-on-us-department-of-defenses-chinese-military-company-list-lacks-justification-2064267224213467136",
+              "source": "Gasgoo",
+              "publishedAt": "3 days ago",
+              "snippet": "Gasgoo Munich- On June 9, NIO stated in a filing with the Hong Kong Stock Exchange that it had noted the U.S. Department of Defense's decision to include..."
+            },
+            {
+              "title": "Alibaba, Baidu designated as Chinese Military Companies by Defense Department (BABA:NYSE)",
+              "url": "https://seekingalpha.com/news/4601492-alibaba-baidu-designated-as-chinese-military-companies-by-defense-department",
+              "source": "Seeking Alpha",
+              "publishedAt": "4 days ago",
+              "snippet": "Shares of Alibaba (BABA) and Baidu (BIDU) slipped into the red after the U.S. Department of Defense included the two within a list of Chinese military..."
+            },
+            {
+              "title": "7 Best Drone Stocks for 2026 | Investing",
+              "url": "https://money.usnews.com/investing/articles/best-drone-stocks-to-buy",
+              "source": "U.S. News - Money",
+              "publishedAt": "3 days ago",
+              "snippet": "With a federal government funding tailwind, the drone industry continues its steady climb."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_u_s_army",
+          "name": "U.S. Army",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The recent news flow centers on drone contracts and general defense spending sentiment rather than Microsoft's IVAS program or HoloLens headset orders, offering no direct short-term catalyst for MSFT through this specific Army relationship. Consequently, the IVAS prime contractor channel is unlikely to materially move the stock within the current quarter before next earnings.",
+          "citations": [
+            {
+              "title": "Best Defense Stocks to Buy in 2026 and How to Invest in Them",
+              "url": "https://www.fool.com/investing/stock-market/market-sectors/industrials/defense-stocks/",
+              "source": "The Motley Fool",
+              "publishedAt": "4 days ago",
+              "snippet": "Defense stocks get the bulk of their revenue from one customer -- the U.S. government. Fortunately, that customer has deep pockets and a long history of..."
+            },
+            {
+              "title": "News - Army Reserve leader shares best practices at recruiter forum",
+              "url": "https://www.dvidshub.net/news/566022/army-reserve-leader-shares-best-practices-recruiter-forum",
+              "source": "DVIDS",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Photo By Sgt. Salvatore Ottaviano | Brig. Gen. John D. Rhodes, deputy commanding general of the U.S. Army Reserve's 99th...... read more read more."
+            },
+            {
+              "title": "7 Best Drone Stocks for 2026 | Investing",
+              "url": "https://money.usnews.com/investing/articles/best-drone-stocks-to-buy",
+              "source": "U.S. News - Money",
+              "publishedAt": "3 days ago",
+              "snippet": "With a federal government funding tailwind, the drone industry continues its steady climb."
+            },
+            {
+              "title": "Teledyne Technologies (TDY) Stock After Boson SX8 Launch And U.S. Army Deal Is Valuation Upside Still Left",
+              "url": "https://simplywall.st/stocks/us/tech/nyse-tdy/teledyne-technologies/news/teledyne-technologies-tdy-stock-after-boson-sx8-launch-and-u",
+              "source": "Simply Wall Street",
+              "publishedAt": "2 hours ago",
+              "snippet": "Teledyne Technologies (TDY) has drawn fresh attention after its FLIR OEM unit introduced the Boson SX8, an NDAA compliant, high definition thermal camera..."
+            },
+            {
+              "title": "Drone AI to scan Army runways for mines in new Safe Pro test",
+              "url": "https://www.stocktitan.net/news/SPAI/safe-pro-contracted-to-provide-u-s-army-edge-ai-operational-support-fbmvjfckz06t.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 day ago",
+              "snippet": "Safe Pro Group (Nasdaq: SPAI) announced a U.S. Army contract to provide edge AI operational support during an airfield exercise in late June 2026."
+            },
+            {
+              "title": "Safe Pro Group stock jumps on U.S. Army AI contract win",
+              "url": "https://www.investing.com/news/stock-market-news/safe-pro-group-stock-jumps-on-us-army-ai-contract-win-93CH-4722159",
+              "source": "Investing.com",
+              "publishedAt": "1 week ago",
+              "snippet": "Investing.com -- Safe Pro Group Inc. (NASDAQ:SPAI) shares rose 6.2% in premarket trading Tuesday after the company announced it secured a U.S. Army contract..."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_u_k_crown_commercial_service",
+          "name": "U.K. Crown Commercial Service",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "Unisys’s CCS TS4 framework appointment does not materially alter Microsoft’s near‑term earnings or its standing as a strategic UK public‑sector supplier, as any resulting government technology spend would flow through services without an immediate, measurable impact on Azure or licensing revenue before the next quarter.",
+          "citations": [
+            {
+              "title": "UK public services tap Unisys via CCS TS4 tech framework",
+              "url": "https://www.stocktitan.net/news/UIS/unisys-selected-as-technology-services-provider-for-the-uk-0bt97mnlbjcp.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 month ago",
+              "snippet": "Unisys (NYSE: UIS) has been selected as a technology services provider across all six lots of the UK Government Crown Commercial Service Technology Services..."
+            },
+            {
+              "title": "Dell taps Unisys as top Americas data center partner for 2026",
+              "url": "https://www.stocktitan.net/news/UIS/unisys-earns-2026-global-alliances-americas-data-center-partner-of-ubbz2fwpja0b.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 day ago",
+              "snippet": "AI-driven demand for scalable data centers underpins Dell's 2026 Americas Partner of the Year award to Unisys for its work in complex secure infrastructure."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_u_s_general_services_administration",
+          "name": "U.S. General Services Administration",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The reported GSA contract award to Snowflake does not alter Microsoft’s existing federal procurement vehicles or near-term revenue streams, resulting in no meaningful short-term impact on MSFT ahead of next earnings.",
+          "citations": [
+            {
+              "title": "GSA shares renderings of Tennessee courthouse designed by HOK",
+              "url": "https://www.archpaper.com/2026/06/gsa-tennessee-courthouse-hok/?amp=1",
+              "source": "The Architect’s Newspaper",
+              "publishedAt": "2 days ago",
+              "snippet": "General Services Administration shared renderings of a new federal courthouse designed by HOK in Chattanooga, Tennessee. The building is among the first to..."
+            },
+            {
+              "title": "Why Is Snowflake (SNOW) Stock Soaring Today",
+              "url": "https://stockstory.org/us/stocks/nyse/snow/news/why-up-down/why-is-snowflake-snow-stock-soaring-today-4",
+              "source": "StockStory",
+              "publishedAt": "2 weeks ago",
+              "snippet": "What Happened? Shares of cloud data platform provider Snowflake (NYSE:SNOW) jumped 38.8% in the afternoon session after it added more than $20 billion in..."
+            },
+            {
+              "title": "Snowflake (SNOW) Stock Trades Up, Here Is Why",
+              "url": "https://www.theglobeandmail.com/investing/markets/stocks/SNOW/pressreleases/2089592/snowflake-snow-stock-trades-up-here-is-why/",
+              "source": "The Globe and Mail",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Shares of cloud data platform provider Snowflake (NYSE:SNOW) jumped 4.1% in the afternoon session after the U.S. General Services Administration (GSA)..."
+            },
+            {
+              "title": "Snowflake Stock (SNOW) Opinions on Federal OneGov Contract and Earnings Outlook | SNOW Stock News",
+              "url": "https://www.quiverquant.com/news/Snowflake+Stock+%28SNOW%29+Opinions+on+Federal+OneGov+Contract+and+Earnings+Outlook",
+              "source": "Quiver Quantitative",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Federal Contract Surge: Social media conversations center on Snowflake's stock climbing over 4 percent after the company secured a strategic OneGov..."
+            },
+            {
+              "title": "Snowflake Secures US Government Deal and Higher Stock Price Targets",
+              "url": "https://www.asatunews.co.id/en/snowflake-secures-us-government-deal-price-targets",
+              "source": "AsatuNews.co.id",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Snowflake secured a OneGov contract with the U.S. General Services Administration and received multiple price target upgrades ahead of its Q1 earnings."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_u_s_department_of_homeland_security",
+          "name": "U.S. Department of Homeland Security",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The DHS news flow centers on physical infrastructure awards (AECOM), colocation leasing (Equinix), and immigration policy, with no direct link to near-term procurement or changes in spending on Microsoft's cloud, cybersecurity, or productivity software. Consequently, these developments are unlikely to materially affect Microsoft's revenue from the agency within the current quarter.",
+          "citations": [
+            {
+              "title": "AECOM tapped to upgrade DHS facilities in all 50 states",
+              "url": "https://www.stocktitan.net/news/ACM/aecom-awarded-nationwide-u-s-department-of-homeland-security-0typpvt2v0wv.html",
+              "source": "Stock Titan",
+              "publishedAt": "4 days ago",
+              "snippet": "Contract extends AECOM's 10-year DHS role, covering A/E design for facilities in all 50 states and key U.S. territories tied to security upgrades."
+            },
+            {
+              "title": "How Investors May Respond To Equinix (EQIX) DHS Deal And Rising Colocation Demand",
+              "url": "https://simplywall.st/stocks/us/real-estate/nasdaq-eqix/equinix/news/how-investors-may-respond-to-equinix-eqix-dhs-deal-and-risin",
+              "source": "Simply Wall Street",
+              "publishedAt": "1 week ago",
+              "snippet": "Recently, Equinix has featured at high-profile finance and REIT conferences while insiders filed several Form 144 notices for small planned share resales..."
+            },
+            {
+              "title": "AECOM awarded nationwide U.S. Department of Homeland Security contract to support critical infrastructure modernization",
+              "url": "https://www.marketscreener.com/news/aecom-awarded-nationwide-u-s-department-of-homeland-security-contract-to-support-critical-infrastru-ce7f5dd2d181f62c",
+              "source": "www.marketscreener.com",
+              "publishedAt": "4 days ago",
+              "snippet": "AECOM , the trusted global infrastructure leader, today announced it has been selected to continue providing architecture and engineering services to the..."
+            },
+            {
+              "title": "Protests escalate outside ICE facility over alleged inhumane conditions",
+              "url": "https://www.bbc.com/news/videos/cy022zj9pkjo",
+              "source": "BBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "The Department of Homeland security said in a statement that the detainees receive \"medical, dental, and mental health services as available\"."
+            },
+            {
+              "title": "Oil prices rise, but not by enough to keep Wall Street from more records",
+              "url": "https://www.wandtv.com/news/national/crude-oil-prices-rise-after-latest-us-iran-fighting-and-us-stocks-slip/article_4ac8cd22-b436-5cea-acd1-7621b99e62b6.html",
+              "source": "wandtv.com",
+              "publishedAt": "1 week ago",
+              "snippet": "Oil prices rose following the latest fighting to threaten the U.S.-Iran ceasefire, but Wall Street isn't very worried, and U.S. stocks are rising toward..."
+            },
+            {
+              "title": "No need to leave US for green card, DHS clarifies",
+              "url": "https://timesofindia.indiatimes.com/business/international-business/no-need-to-leave-us-for-green-card-dhs-clarifies/articleshow/131407151.cms",
+              "source": "The Times of India",
+              "publishedAt": "2 weeks ago",
+              "snippet": "International Business News: The US department of homeland security (DHS) has clarified that people applying for green cards do not need to leave the United..."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "lastUpdated": "2026-06-13T06:33:06.751Z"
+}

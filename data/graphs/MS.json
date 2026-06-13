@@ -1,0 +1,317 @@
+{
+  "ticker": "MS",
+  "name": "Morgan Stanley",
+  "description": "Morgan Stanley ecosystem — suppliers, customers, partners, holdings, and regulators.",
+  "nodes": [
+    {
+      "id": "ms",
+      "name": "Morgan Stanley",
+      "ticker": "MS",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_microsoft_corporation",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "supplier",
+      "relationship": "Strategic enterprise software and cloud infrastructure supplier"
+    },
+    {
+      "id": "supplier_bloomberg_l_p",
+      "name": "Bloomberg L.P.",
+      "type": "supplier",
+      "relationship": "Primary market data terminal and financial information supplier"
+    },
+    {
+      "id": "supplier_blackrock_inc",
+      "name": "BlackRock, Inc.",
+      "ticker": "BLK",
+      "type": "supplier",
+      "relationship": "Provider of Aladdin investment management and risk analytics platforms"
+    },
+    {
+      "id": "supplier_salesforce_inc",
+      "name": "Salesforce, Inc.",
+      "ticker": "CRM",
+      "type": "supplier",
+      "relationship": "Enterprise CRM and wealth management cloud software supplier"
+    },
+    {
+      "id": "supplier_amazon_com_inc",
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "supplier",
+      "relationship": "Cloud infrastructure and computing services supplier via AWS"
+    },
+    {
+      "id": "customer_u_s_department_of_the_treasury",
+      "name": "U.S. Department of the Treasury",
+      "type": "customer",
+      "relationship": "Designated primary dealer for U.S. Treasury securities, purchasing directly at government auctions."
+    },
+    {
+      "id": "customer_meta_platforms_inc",
+      "name": "Meta Platforms, Inc.",
+      "ticker": "META",
+      "type": "customer",
+      "relationship": "Lead underwriter for the 2012 IPO and subsequent capital markets transactions."
+    },
+    {
+      "id": "customer_verizon_communications_inc",
+      "name": "Verizon Communications Inc.",
+      "ticker": "VZ",
+      "type": "customer",
+      "relationship": "Lead bookrunner for the record $49 billion bond offering to fund the Vodafone wireless acquisition."
+    },
+    {
+      "id": "customer_saudi_aramco",
+      "name": "Saudi Aramco",
+      "ticker": "2222.SR",
+      "type": "customer",
+      "relationship": "Joint global coordinator and bookrunner for the 2019 IPO, the largest in history."
+    },
+    {
+      "id": "customer_tesla_inc",
+      "name": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "type": "customer",
+      "relationship": "Lead underwriter for multiple equity and convertible debt offerings since 2010."
+    },
+    {
+      "id": "partner_mitsubishi_ufj_financial_group",
+      "name": "Mitsubishi UFJ Financial Group",
+      "ticker": "MUFG",
+      "type": "partner",
+      "relationship": "Major shareholder and joint-venture partner for Morgan Stanley MUFG Securities in Japan."
+    },
+    {
+      "id": "partner_microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "type": "partner",
+      "relationship": "Strategic cloud partnership leveraging Azure for digital transformation and infrastructure modernization."
+    },
+    {
+      "id": "partner_broadridge_financial_solutions",
+      "name": "Broadridge Financial Solutions",
+      "ticker": "BR",
+      "type": "partner",
+      "relationship": "Strategic wealth management technology partner providing platform and outsourcing solutions."
+    },
+    {
+      "id": "partner_american_express",
+      "name": "American Express",
+      "ticker": "AXP",
+      "type": "partner",
+      "relationship": "Co-branded credit card partnership including the Platinum Card for Morgan Stanley clients."
+    },
+    {
+      "id": "partner_openai",
+      "name": "OpenAI",
+      "type": "partner",
+      "relationship": "Strategic AI collaboration deploying GPT-4 to power the Morgan Stanley wealth management assistant."
+    },
+    {
+      "id": "equity_e_trade_financial_corporation",
+      "name": "E*TRADE Financial Corporation",
+      "type": "equity",
+      "relationship": "Wholly owned retail brokerage subsidiary acquired in 2020"
+    },
+    {
+      "id": "equity_eaton_vance_corp",
+      "name": "Eaton Vance Corp.",
+      "type": "equity",
+      "relationship": "Wholly owned asset management subsidiary acquired in 2021"
+    },
+    {
+      "id": "equity_mitsubishi_ufj_financial_group",
+      "name": "Mitsubishi UFJ Financial Group",
+      "ticker": "MUFG",
+      "type": "equity",
+      "relationship": "Strategic shareholder and banking alliance partner since 2008"
+    },
+    {
+      "id": "equity_solium_capital",
+      "name": "Solium Capital",
+      "type": "equity",
+      "relationship": "Wholly owned equity compensation platform acquired in 2019 operating as Shareworks"
+    },
+    {
+      "id": "government_u_s_department_of_the_treasury",
+      "name": "U.S. Department of the Treasury",
+      "type": "government",
+      "relationship": "Primary dealer for U.S. government securities and participant in federal financial stabilization programs."
+    },
+    {
+      "id": "government_federal_reserve_system",
+      "name": "Federal Reserve System",
+      "type": "government",
+      "relationship": "Primary federal banking regulator overseeing the firm as a bank holding company and subject to supervisory stress testing."
+    },
+    {
+      "id": "government_u_s_securities_and_exchange_commission",
+      "name": "U.S. Securities and Exchange Commission",
+      "type": "government",
+      "relationship": "Primary regulator of its securities underwriting, broker-dealer, and investment advisory operations."
+    },
+    {
+      "id": "government_federal_deposit_insurance_corporation",
+      "name": "Federal Deposit Insurance Corporation",
+      "type": "government",
+      "relationship": "Deposit insurer and resolution planning authority for Morgan Stanley's FDIC-insured banking subsidiaries."
+    },
+    {
+      "id": "government_office_of_the_comptroller_of_the_currency",
+      "name": "Office of the Comptroller of the Currency",
+      "type": "government",
+      "relationship": "Chartering authority and primary regulator for its national bank subsidiary, Morgan Stanley Bank, N.A."
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_microsoft_corporation",
+      "source": "supplier_microsoft_corporation",
+      "target": "ms",
+      "relationType": "Strategic enterprise software and cloud infrastructure supplier"
+    },
+    {
+      "id": "e_supplier_bloomberg_l_p",
+      "source": "supplier_bloomberg_l_p",
+      "target": "ms",
+      "relationType": "Primary market data terminal and financial information supplier"
+    },
+    {
+      "id": "e_supplier_blackrock_inc",
+      "source": "supplier_blackrock_inc",
+      "target": "ms",
+      "relationType": "Provider of Aladdin investment management and risk analytics platforms"
+    },
+    {
+      "id": "e_supplier_salesforce_inc",
+      "source": "supplier_salesforce_inc",
+      "target": "ms",
+      "relationType": "Enterprise CRM and wealth management cloud software supplier"
+    },
+    {
+      "id": "e_supplier_amazon_com_inc",
+      "source": "supplier_amazon_com_inc",
+      "target": "ms",
+      "relationType": "Cloud infrastructure and computing services supplier via AWS"
+    },
+    {
+      "id": "e_customer_u_s_department_of_the_treasury",
+      "source": "customer_u_s_department_of_the_treasury",
+      "target": "ms",
+      "relationType": "Designated primary dealer for U.S. Treasury securities, purchasing directly at government auctions."
+    },
+    {
+      "id": "e_customer_meta_platforms_inc",
+      "source": "customer_meta_platforms_inc",
+      "target": "ms",
+      "relationType": "Lead underwriter for the 2012 IPO and subsequent capital markets transactions."
+    },
+    {
+      "id": "e_customer_verizon_communications_inc",
+      "source": "customer_verizon_communications_inc",
+      "target": "ms",
+      "relationType": "Lead bookrunner for the record $49 billion bond offering to fund the Vodafone wireless acquisition."
+    },
+    {
+      "id": "e_customer_saudi_aramco",
+      "source": "customer_saudi_aramco",
+      "target": "ms",
+      "relationType": "Joint global coordinator and bookrunner for the 2019 IPO, the largest in history."
+    },
+    {
+      "id": "e_customer_tesla_inc",
+      "source": "customer_tesla_inc",
+      "target": "ms",
+      "relationType": "Lead underwriter for multiple equity and convertible debt offerings since 2010."
+    },
+    {
+      "id": "e_partner_mitsubishi_ufj_financial_group",
+      "source": "partner_mitsubishi_ufj_financial_group",
+      "target": "ms",
+      "relationType": "Major shareholder and joint-venture partner for Morgan Stanley MUFG Securities in Japan."
+    },
+    {
+      "id": "e_partner_microsoft",
+      "source": "partner_microsoft",
+      "target": "ms",
+      "relationType": "Strategic cloud partnership leveraging Azure for digital transformation and infrastructure modernization."
+    },
+    {
+      "id": "e_partner_broadridge_financial_solutions",
+      "source": "partner_broadridge_financial_solutions",
+      "target": "ms",
+      "relationType": "Strategic wealth management technology partner providing platform and outsourcing solutions."
+    },
+    {
+      "id": "e_partner_american_express",
+      "source": "partner_american_express",
+      "target": "ms",
+      "relationType": "Co-branded credit card partnership including the Platinum Card for Morgan Stanley clients."
+    },
+    {
+      "id": "e_partner_openai",
+      "source": "partner_openai",
+      "target": "ms",
+      "relationType": "Strategic AI collaboration deploying GPT-4 to power the Morgan Stanley wealth management assistant."
+    },
+    {
+      "id": "e_equity_e_trade_financial_corporation",
+      "source": "ms",
+      "target": "equity_e_trade_financial_corporation",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_eaton_vance_corp",
+      "source": "ms",
+      "target": "equity_eaton_vance_corp",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_mitsubishi_ufj_financial_group",
+      "source": "ms",
+      "target": "equity_mitsubishi_ufj_financial_group",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_solium_capital",
+      "source": "ms",
+      "target": "equity_solium_capital",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_u_s_department_of_the_treasury",
+      "source": "government_u_s_department_of_the_treasury",
+      "target": "ms",
+      "relationType": "Primary dealer for U.S. government securities and participant in federal financial stabilization programs."
+    },
+    {
+      "id": "e_government_federal_reserve_system",
+      "source": "government_federal_reserve_system",
+      "target": "ms",
+      "relationType": "Primary federal banking regulator overseeing the firm as a bank holding company and subject to supervisory stress testing."
+    },
+    {
+      "id": "e_government_u_s_securities_and_exchange_commission",
+      "source": "government_u_s_securities_and_exchange_commission",
+      "target": "ms",
+      "relationType": "Primary regulator of its securities underwriting, broker-dealer, and investment advisory operations."
+    },
+    {
+      "id": "e_government_federal_deposit_insurance_corporation",
+      "source": "government_federal_deposit_insurance_corporation",
+      "target": "ms",
+      "relationType": "Deposit insurer and resolution planning authority for Morgan Stanley's FDIC-insured banking subsidiaries."
+    },
+    {
+      "id": "e_government_office_of_the_comptroller_of_the_currency",
+      "source": "government_office_of_the_comptroller_of_the_currency",
+      "target": "ms",
+      "relationType": "Chartering authority and primary regulator for its national bank subsidiary, Morgan Stanley Bank, N.A."
+    }
+  ]
+}

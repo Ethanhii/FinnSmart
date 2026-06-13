@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { AnalyzeResponse, Signal } from "@/lib/types";
-import { AVAILABLE_STOCKS, DEFAULT_TICKERS, findStock } from "@/lib/catalog";
+import type { AnalyzeResponse, Signal, WatchlistItem } from "@/lib/types";
+import { DEFAULT_WATCHLIST_ITEMS } from "@/lib/catalog";
 import { Brand } from "@/components/Brand";
 import { SignalPill } from "@/components/SignalPill";
 import { WatchlistCard, type CardState } from "@/components/WatchlistCard";
@@ -10,38 +10,51 @@ import { SIGNAL_COLORS, SIGNAL_LABELS } from "@/lib/ui";
 
 const STORAGE_KEY = "finnsmart.watchlist";
 
+function loadWatchlist(): WatchlistItem[] {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return DEFAULT_WATCHLIST_ITEMS;
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed) || parsed.length === 0) return DEFAULT_WATCHLIST_ITEMS;
+
+    // Migrate legacy string[] watchlists.
+    if (typeof parsed[0] === "string") {
+      return (parsed as string[]).map((ticker) => ({
+        ticker: ticker.toUpperCase(),
+        name: ticker.toUpperCase(),
+      }));
+    }
+
+    return parsed as WatchlistItem[];
+  } catch {
+    return DEFAULT_WATCHLIST_ITEMS;
+  }
+}
+
 export default function HomePage() {
-  const [tickers, setTickers] = useState<string[]>(DEFAULT_TICKERS);
+  const [watchlist, setWatchlist] = useState<WatchlistItem[]>(DEFAULT_WATCHLIST_ITEMS);
   const [hydrated, setHydrated] = useState(false);
   const [analyses, setAnalyses] = useState<Record<string, CardState>>({});
   const [query, setQuery] = useState("");
   const [searchError, setSearchError] = useState<string | null>(null);
+  const [suggestions, setSuggestions] = useState<WatchlistItem[]>([]);
+  const [searching, setSearching] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Load persisted watchlist.
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) setTickers(parsed);
-      }
-    } catch {
-      /* ignore */
-    }
+    setWatchlist(loadWatchlist());
     setHydrated(true);
   }, []);
 
-  // Persist on change.
   useEffect(() => {
-    if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(tickers));
-  }, [tickers, hydrated]);
+    if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(watchlist));
+  }, [watchlist, hydrated]);
 
   const cacheFetched = useRef<Set<string>>(new Set());
 
-  // Load saved analysis only — never auto-run the pipeline from the dashboard.
   useEffect(() => {
     if (!hydrated) return;
-    tickers.forEach((ticker) => {
+    watchlist.forEach(({ ticker }) => {
       if (cacheFetched.current.has(ticker)) return;
       cacheFetched.current.add(ticker);
       setAnalyses((prev) => ({ ...prev, [ticker]: { status: "loading" } }));
@@ -62,27 +75,91 @@ export default function HomePage() {
           }))
         );
     });
-  }, [tickers, hydrated]);
+  }, [watchlist, hydrated]);
+
+  // Debounced Yahoo Finance search.
+  useEffect(() => {
+    const q = query.trim();
+    if (q.length < 1) {
+      setSuggestions([]);
+      setSearching(false);
+      return;
+    }
+
+    setSearching(true);
+    const timer = setTimeout(() => {
+      fetch(`/api/search?q=${encodeURIComponent(q)}`)
+        .then(async (res) => {
+          if (!res.ok) throw new Error((await res.json()).error ?? "Search failed");
+          const data = (await res.json()) as { results: WatchlistItem[] };
+          setSuggestions(data.results ?? []);
+          setShowSuggestions(true);
+        })
+        .catch(() => setSuggestions([]))
+        .finally(() => setSearching(false));
+    }, 280);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  const addToWatchlist = useCallback(
+    (item: WatchlistItem) => {
+      setSearchError(null);
+      if (watchlist.some((s) => s.ticker === item.ticker)) {
+        setSearchError(`${item.ticker} is already on your watchlist.`);
+        return;
+      }
+      setWatchlist((prev) => [...prev, item]);
+      setQuery("");
+      setSuggestions([]);
+      setShowSuggestions(false);
+    },
+    [watchlist]
+  );
 
   const addStock = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
       setSearchError(null);
-      const match = findStock(query);
-      if (!match) {
-        setSearchError(
-          `No pre-built map for "${query}" yet. Try NVDA, AAPL or TSLA.`
-        );
+
+      const q = query.trim();
+      if (!q) return;
+
+      // Prefer an exact ticker match from suggestions.
+      const exact = suggestions.find((s) => s.ticker === q.toUpperCase());
+      if (exact) {
+        addToWatchlist(exact);
         return;
       }
-      if (tickers.includes(match.ticker)) {
-        setSearchError(`${match.ticker} is already on your watchlist.`);
+
+      if (suggestions.length === 1) {
+        addToWatchlist(suggestions[0]);
         return;
       }
-      setTickers((prev) => [...prev, match.ticker]);
-      setQuery("");
+
+      if (suggestions.length > 1) {
+        setSearchError("Pick a stock from the suggestions below.");
+        setShowSuggestions(true);
+        return;
+      }
+
+      // Last resort: resolve ticker directly.
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`);
+        const data = (await res.json()) as { results?: WatchlistItem[]; error?: string };
+        if (!res.ok) throw new Error(data.error ?? "Search failed");
+        const match =
+          data.results?.find((s) => s.ticker === q.toUpperCase()) ?? data.results?.[0];
+        if (!match) {
+          setSearchError(`No stock found for "${q}". Try a ticker or company name.`);
+          return;
+        }
+        addToWatchlist(match);
+      } catch (err) {
+        setSearchError(err instanceof Error ? err.message : "Search failed");
+      }
     },
-    [query, tickers]
+    [query, suggestions, addToWatchlist]
   );
 
   const removeStock = useCallback((ticker: string) => {
@@ -92,13 +169,11 @@ export default function HomePage() {
       delete next[ticker];
       return next;
     });
-    setTickers((prev) => prev.filter((t) => t !== ticker));
+    setWatchlist((prev) => prev.filter((s) => s.ticker !== ticker));
   }, []);
 
+  const tickers = useMemo(() => watchlist.map((s) => s.ticker), [watchlist]);
   const summary = useMemo(() => computeSummary(tickers, analyses), [tickers, analyses]);
-
-  const nameFor = (ticker: string) =>
-    AVAILABLE_STOCKS.find((s) => s.ticker === ticker)?.name ?? ticker;
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 pb-20 pt-6">
@@ -117,19 +192,56 @@ export default function HomePage() {
           your stock with green and red flows.
         </p>
 
-        <form onSubmit={addStock} className="mt-7 flex max-w-md gap-2">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search a stock to add (e.g. NVDA, Apple, Tesla)"
-            className="flex-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 text-sm outline-none placeholder:text-[var(--color-muted)] focus:border-[#3a3a3a]"
-          />
-          <button
-            type="submit"
-            className="rounded-lg bg-[var(--color-text)] px-5 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-90"
-          >
-            Add
-          </button>
+        <form onSubmit={addStock} className="relative mt-7 max-w-md">
+          <div className="flex gap-2">
+            <input
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setSearchError(null);
+              }}
+              onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+              placeholder="Search any stock (e.g. MSFT, Apple, Berkshire)"
+              className="flex-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 text-sm outline-none placeholder:text-[var(--color-muted)] focus:border-[#3a3a3a]"
+              autoComplete="off"
+            />
+            <button
+              type="submit"
+              className="rounded-lg bg-[var(--color-text)] px-5 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-90"
+            >
+              Add
+            </button>
+          </div>
+
+          {showSuggestions && suggestions.length > 0 ? (
+            <ul className="absolute left-0 right-14 top-full z-20 mt-1 max-h-64 overflow-y-auto rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] py-1 shadow-lg">
+              {suggestions.map((item) => (
+                <li key={item.ticker}>
+                  <button
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => addToWatchlist(item)}
+                    className="flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-sm hover:bg-[var(--color-surface-2)]"
+                  >
+                    <span>
+                      <span className="font-semibold">{item.ticker}</span>
+                      <span className="ml-2 text-[var(--color-muted)]">{item.name}</span>
+                    </span>
+                    {item.exchange ? (
+                      <span className="text-[10px] uppercase text-[var(--color-muted)]">
+                        {item.exchange}
+                      </span>
+                    ) : null}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          {searching ? (
+            <p className="mt-2 text-xs text-[var(--color-muted)]">Searching…</p>
+          ) : null}
         </form>
         {searchError ? (
           <p className="mt-2 text-sm text-[var(--color-neg)]">{searchError}</p>
@@ -183,18 +295,18 @@ export default function HomePage() {
         <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-muted)]">
           Your stocks
         </h2>
-        {tickers.length === 0 ? (
+        {watchlist.length === 0 ? (
           <div className="card grid place-items-center p-10 text-center text-[var(--color-muted)]">
             Your watchlist is empty. Search above to add a stock.
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {tickers.map((ticker) => (
+            {watchlist.map((item) => (
               <WatchlistCard
-                key={ticker}
-                ticker={ticker}
-                name={nameFor(ticker)}
-                state={analyses[ticker] ?? { status: "idle" }}
+                key={item.ticker}
+                ticker={item.ticker}
+                name={item.name}
+                state={analyses[item.ticker] ?? { status: "idle" }}
                 onRemove={removeStock}
               />
             ))}

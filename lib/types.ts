@@ -142,6 +142,7 @@ export interface AnalyzeResponse {
 export interface WatchlistItem {
   ticker: string;
   name: string;
+  exchange?: string;
 }
 
 export const NODE_TYPE_LABELS: Record<NodeType, string> = {

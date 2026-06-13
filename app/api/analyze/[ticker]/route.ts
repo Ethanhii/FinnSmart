@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCachedAnalysis, saveAnalysis } from "@/lib/analysis-store";
-import { getGraph } from "@/lib/graphs";
+import { getGraph, getOrGenerateGraph } from "@/lib/graphs";
 import { analyzeStock } from "@/lib/pipeline";
 import { HORIZONS, type TimeHorizon } from "@/lib/types";
 
@@ -13,7 +13,7 @@ export async function GET(
   { params }: { params: Promise<{ ticker: string }> }
 ) {
   const { ticker } = await params;
-  const graph = getGraph(ticker);
+  const graph = await getGraph(ticker);
 
   if (!graph) {
     return NextResponse.json(
@@ -41,18 +41,22 @@ export async function POST(
   { params }: { params: Promise<{ ticker: string }> }
 ) {
   const { ticker } = await params;
-  const graph = getGraph(ticker);
 
-  if (!graph) {
-    return NextResponse.json(
-      { error: `No relationship map available for "${ticker.toUpperCase()}" yet.` },
-      { status: 404 }
-    );
-  }
-
-  const horizon = await parseHorizonFromBody(req);
+  let companyName: string | undefined;
+  let horizon: TimeHorizon = "short";
 
   try {
+    const body = (await req.json()) as { horizon?: string; name?: string };
+    if (body?.horizon && body.horizon in HORIZONS) {
+      horizon = body.horizon as TimeHorizon;
+    }
+    companyName = body?.name?.trim() || undefined;
+  } catch {
+    /* default horizon */
+  }
+
+  try {
+    const graph = await getOrGenerateGraph(ticker, companyName);
     const result = await analyzeStock(graph, horizon);
     await saveAnalysis(result);
     return NextResponse.json(result);
@@ -67,17 +71,5 @@ export async function POST(
 function parseHorizonFromUrl(url: string): TimeHorizon {
   const h = new URL(url).searchParams.get("horizon");
   if (h && h in HORIZONS) return h as TimeHorizon;
-  return "short";
-}
-
-async function parseHorizonFromBody(req: Request): Promise<TimeHorizon> {
-  try {
-    const body = (await req.json()) as { horizon?: string };
-    if (body?.horizon && body.horizon in HORIZONS) {
-      return body.horizon as TimeHorizon;
-    }
-  } catch {
-    /* no/invalid body -> default */
-  }
   return "short";
 }

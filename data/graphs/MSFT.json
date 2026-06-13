@@ -1,0 +1,331 @@
+{
+  "ticker": "MSFT",
+  "name": "Microsoft Corporation",
+  "description": "Microsoft Corporation ecosystem — suppliers, customers, partners, holdings, and regulators.",
+  "nodes": [
+    {
+      "id": "msft",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_nvidia_corporation",
+      "name": "NVIDIA Corporation",
+      "ticker": "NVDA",
+      "type": "supplier",
+      "relationship": "Primary supplier of data center GPUs powering Azure AI and high-performance computing infrastructure"
+    },
+    {
+      "id": "supplier_advanced_micro_devices_inc",
+      "name": "Advanced Micro Devices, Inc.",
+      "ticker": "AMD",
+      "type": "supplier",
+      "relationship": "Supplier of semi-custom processors for Xbox consoles and EPYC CPUs for Azure servers"
+    },
+    {
+      "id": "supplier_intel_corporation",
+      "name": "Intel Corporation",
+      "ticker": "INTC",
+      "type": "supplier",
+      "relationship": "Long-standing supplier of Xeon processors for Azure data centers and Core processors for Surface devices"
+    },
+    {
+      "id": "supplier_micron_technology_inc",
+      "name": "Micron Technology, Inc.",
+      "ticker": "MU",
+      "type": "supplier",
+      "relationship": "Supplier of DRAM and NAND flash memory for cloud servers, Xbox, and Surface products"
+    },
+    {
+      "id": "supplier_hon_hai_precision_industry_co_ltd",
+      "name": "Hon Hai Precision Industry Co., Ltd.",
+      "ticker": "HNHPF",
+      "type": "supplier",
+      "relationship": "Contract manufacturer for Xbox gaming consoles and Surface hardware devices"
+    },
+    {
+      "id": "customer_united_states_government",
+      "name": "United States Government",
+      "type": "customer",
+      "relationship": "Largest collective enterprise customer across DoD and civilian agency cloud and software contracts"
+    },
+    {
+      "id": "customer_walmart_inc",
+      "name": "Walmart Inc.",
+      "ticker": "WMT",
+      "type": "customer",
+      "relationship": "Multi-year strategic Azure cloud and Microsoft 365 enterprise customer"
+    },
+    {
+      "id": "customer_at_t_inc",
+      "name": "AT&T Inc.",
+      "ticker": "T",
+      "type": "customer",
+      "relationship": "Multi-billion dollar Azure cloud migration and modern workplace customer"
+    },
+    {
+      "id": "customer_the_coca_cola_company",
+      "name": "The Coca-Cola Company",
+      "ticker": "KO",
+      "type": "customer",
+      "relationship": "Global strategic agreement spanning Azure, Dynamics 365, and Microsoft 365"
+    },
+    {
+      "id": "customer_fedex_corporation",
+      "name": "FedEx Corporation",
+      "ticker": "FDX",
+      "type": "customer",
+      "relationship": "Major Azure analytics and cloud infrastructure customer"
+    },
+    {
+      "id": "partner_openai",
+      "name": "OpenAI",
+      "type": "partner",
+      "relationship": "Strategic AI partner and exclusive cloud provider via multi-billion dollar investment and deep Azure integration"
+    },
+    {
+      "id": "partner_nvidia_corporation",
+      "name": "NVIDIA Corporation",
+      "ticker": "NVDA",
+      "type": "partner",
+      "relationship": "Primary GPU and AI infrastructure partner powering Azure AI services and data centers"
+    },
+    {
+      "id": "partner_adobe_inc",
+      "name": "Adobe Inc.",
+      "ticker": "ADBE",
+      "type": "partner",
+      "relationship": "Deep enterprise product integration across Microsoft 365, Teams and Adobe Experience Cloud workflows"
+    },
+    {
+      "id": "partner_sap_se",
+      "name": "SAP SE",
+      "ticker": "SAP",
+      "type": "partner",
+      "relationship": "Strategic cloud partnership anchored by RISE with SAP and joint enterprise solutions on Azure"
+    },
+    {
+      "id": "partner_intel_corporation",
+      "name": "Intel Corporation",
+      "ticker": "INTC",
+      "type": "partner",
+      "relationship": "Long-standing co-engineering and semiconductor partnership for Windows devices and Azure infrastructure"
+    },
+    {
+      "id": "equity_the_vanguard_group_inc",
+      "name": "The Vanguard Group, Inc.",
+      "type": "equity",
+      "relationship": "Largest institutional shareholder and major ETF provider"
+    },
+    {
+      "id": "equity_blackrock_inc",
+      "name": "BlackRock, Inc.",
+      "ticker": "BLK",
+      "type": "equity",
+      "relationship": "Major institutional equity holder via iShares and active funds"
+    },
+    {
+      "id": "equity_state_street_corporation",
+      "name": "State Street Corporation",
+      "ticker": "STT",
+      "type": "equity",
+      "relationship": "Major institutional shareholder and custody bank"
+    },
+    {
+      "id": "equity_fmr_llc_fidelity_investments",
+      "name": "FMR LLC (Fidelity Investments)",
+      "type": "equity",
+      "relationship": "Significant institutional shareholder and mutual fund manager"
+    },
+    {
+      "id": "equity_geode_capital_management_llc",
+      "name": "Geode Capital Management, LLC",
+      "type": "equity",
+      "relationship": "Significant institutional shareholder and quantitative manager"
+    },
+    {
+      "id": "government_u_s_department_of_defense",
+      "name": "U.S. Department of Defense",
+      "type": "government",
+      "relationship": "Major cloud and enterprise software supplier under the JWCC program and broader DoD enterprise agreements."
+    },
+    {
+      "id": "government_u_s_army",
+      "name": "U.S. Army",
+      "type": "government",
+      "relationship": "Prime contractor for the Integrated Visual Augmentation System (IVAS), supplying HoloLens-based augmented reality headsets."
+    },
+    {
+      "id": "government_u_k_crown_commercial_service",
+      "name": "U.K. Crown Commercial Service",
+      "type": "government",
+      "relationship": "Strategic software and cloud supplier to the British public sector through national procurement frameworks and enterprise agreements."
+    },
+    {
+      "id": "government_u_s_general_services_administration",
+      "name": "U.S. General Services Administration",
+      "type": "government",
+      "relationship": "Central federal procurement vehicle for government-wide Microsoft software, cloud, and hardware contracts."
+    },
+    {
+      "id": "government_u_s_department_of_homeland_security",
+      "name": "U.S. Department of Homeland Security",
+      "type": "government",
+      "relationship": "Key provider of cloud infrastructure, cybersecurity services, and productivity software across DHS agencies."
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_nvidia_corporation",
+      "source": "supplier_nvidia_corporation",
+      "target": "msft",
+      "relationType": "Primary supplier of data center GPUs powering Azure AI and high-performance computing infrastructure"
+    },
+    {
+      "id": "e_supplier_advanced_micro_devices_inc",
+      "source": "supplier_advanced_micro_devices_inc",
+      "target": "msft",
+      "relationType": "Supplier of semi-custom processors for Xbox consoles and EPYC CPUs for Azure servers"
+    },
+    {
+      "id": "e_supplier_intel_corporation",
+      "source": "supplier_intel_corporation",
+      "target": "msft",
+      "relationType": "Long-standing supplier of Xeon processors for Azure data centers and Core processors for Surface devices"
+    },
+    {
+      "id": "e_supplier_micron_technology_inc",
+      "source": "supplier_micron_technology_inc",
+      "target": "msft",
+      "relationType": "Supplier of DRAM and NAND flash memory for cloud servers, Xbox, and Surface products"
+    },
+    {
+      "id": "e_supplier_hon_hai_precision_industry_co_ltd",
+      "source": "supplier_hon_hai_precision_industry_co_ltd",
+      "target": "msft",
+      "relationType": "Contract manufacturer for Xbox gaming consoles and Surface hardware devices"
+    },
+    {
+      "id": "e_customer_united_states_government",
+      "source": "customer_united_states_government",
+      "target": "msft",
+      "relationType": "Largest collective enterprise customer across DoD and civilian agency cloud and software contracts"
+    },
+    {
+      "id": "e_customer_walmart_inc",
+      "source": "customer_walmart_inc",
+      "target": "msft",
+      "relationType": "Multi-year strategic Azure cloud and Microsoft 365 enterprise customer"
+    },
+    {
+      "id": "e_customer_at_t_inc",
+      "source": "customer_at_t_inc",
+      "target": "msft",
+      "relationType": "Multi-billion dollar Azure cloud migration and modern workplace customer"
+    },
+    {
+      "id": "e_customer_the_coca_cola_company",
+      "source": "customer_the_coca_cola_company",
+      "target": "msft",
+      "relationType": "Global strategic agreement spanning Azure, Dynamics 365, and Microsoft 365"
+    },
+    {
+      "id": "e_customer_fedex_corporation",
+      "source": "customer_fedex_corporation",
+      "target": "msft",
+      "relationType": "Major Azure analytics and cloud infrastructure customer"
+    },
+    {
+      "id": "e_partner_openai",
+      "source": "partner_openai",
+      "target": "msft",
+      "relationType": "Strategic AI partner and exclusive cloud provider via multi-billion dollar investment and deep Azure integration"
+    },
+    {
+      "id": "e_partner_nvidia_corporation",
+      "source": "partner_nvidia_corporation",
+      "target": "msft",
+      "relationType": "Primary GPU and AI infrastructure partner powering Azure AI services and data centers"
+    },
+    {
+      "id": "e_partner_adobe_inc",
+      "source": "partner_adobe_inc",
+      "target": "msft",
+      "relationType": "Deep enterprise product integration across Microsoft 365, Teams and Adobe Experience Cloud workflows"
+    },
+    {
+      "id": "e_partner_sap_se",
+      "source": "partner_sap_se",
+      "target": "msft",
+      "relationType": "Strategic cloud partnership anchored by RISE with SAP and joint enterprise solutions on Azure"
+    },
+    {
+      "id": "e_partner_intel_corporation",
+      "source": "partner_intel_corporation",
+      "target": "msft",
+      "relationType": "Long-standing co-engineering and semiconductor partnership for Windows devices and Azure infrastructure"
+    },
+    {
+      "id": "e_equity_the_vanguard_group_inc",
+      "source": "msft",
+      "target": "equity_the_vanguard_group_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_blackrock_inc",
+      "source": "msft",
+      "target": "equity_blackrock_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_state_street_corporation",
+      "source": "msft",
+      "target": "equity_state_street_corporation",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_fmr_llc_fidelity_investments",
+      "source": "msft",
+      "target": "equity_fmr_llc_fidelity_investments",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_geode_capital_management_llc",
+      "source": "msft",
+      "target": "equity_geode_capital_management_llc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_u_s_department_of_defense",
+      "source": "government_u_s_department_of_defense",
+      "target": "msft",
+      "relationType": "Major cloud and enterprise software supplier under the JWCC program and broader DoD enterprise agreements."
+    },
+    {
+      "id": "e_government_u_s_army",
+      "source": "government_u_s_army",
+      "target": "msft",
+      "relationType": "Prime contractor for the Integrated Visual Augmentation System (IVAS), supplying HoloLens-based augmented reality headsets."
+    },
+    {
+      "id": "e_government_u_k_crown_commercial_service",
+      "source": "government_u_k_crown_commercial_service",
+      "target": "msft",
+      "relationType": "Strategic software and cloud supplier to the British public sector through national procurement frameworks and enterprise agreements."
+    },
+    {
+      "id": "e_government_u_s_general_services_administration",
+      "source": "government_u_s_general_services_administration",
+      "target": "msft",
+      "relationType": "Central federal procurement vehicle for government-wide Microsoft software, cloud, and hardware contracts."
+    },
+    {
+      "id": "e_government_u_s_department_of_homeland_security",
+      "source": "government_u_s_department_of_homeland_security",
+      "target": "msft",
+      "relationType": "Key provider of cloud infrastructure, cybersecurity services, and productivity software across DHS agencies."
+    }
+  ]
+}
