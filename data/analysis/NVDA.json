@@ -3,14 +3,27 @@
   "byHorizon": {
     "short": {
       "ticker": "NVDA",
-      "generatedAt": "2026-06-13T04:24:16.923Z",
+      "generatedAt": "2026-06-13T07:23:21.808Z",
       "horizon": "short",
       "verdict": {
         "signal": "positive",
-        "confidence": 0.76,
-        "expectedMove": "+3% to +7%",
+        "confidence": 0.83,
+        "expectedMove": "+5% to +10%",
         "timeframe": "next ~3 months",
-        "rationale": "Robust supply-chain confirmations from TSMC, SK Hynix, and Samsung, alongside strong near-term demand signals from AWS, Dell, and Super Micro, provide fundamental support that outweighs negative sentiment drag from Microsoft's spending concerns and U.S.-China regulatory overhangs. The convergence of stable advanced-node supply and hyperscaler/OEM revenue visibility supports a constructive short-term outlook before the next earnings cycle. Geopolitical and sector-rotation risks remain present but are insufficient to offset the breadth of positive operational read-throughs.",
+        "rationale": "An avalanche of bullish supply-chain and customer datapoints—from TSMC and HBM vendors to hyperscaler demand and server OEM backlogs—confirms strong near-term revenue visibility. These positives easily absorb modest headwinds from Microsoft spending anxiety and China regulatory risks, leaving NVDA well supported into its next earnings report.",
+        "explanation": "NVDA's short-term outlook is reinforced by a fully aligned supply chain: TSMC confirms robust advanced GPU supply, SK Hynix and Micron signal surging HBM demand with expanding capacity, and server OEMs like Super Micro and Dell are securing billions in financing to fulfill massive AI server backlogs that depend on NVIDIA GPUs. On the demand side, AWS explicitly reaffirmed its commitment to NVIDIA deployments alongside accelerating cloud revenue, while Meta's dedicated AI financing underscores sustained procurement from another key hyperscaler. Although Microsoft stock weakness introduces fleeting capex jitters and China's regulatory tightening remains a wildcard, these are overwhelmed by immediate revenue visibility and bullish ecosystem datapoints flowing through the current quarter.",
+        "bullishDrivers": [
+          "AWS accelerating GPU deployments",
+          "TSMC confirming robust advanced GPU supply",
+          "HBM suppliers tripling capacity",
+          "Server OEMs funding massive AI backlogs"
+        ],
+        "bearishDrivers": [
+          "Microsoft AI spending concerns",
+          "China regulatory crackdown risks",
+          "HBM supply still tight",
+          "Hyperscaler capex anxiety"
+        ],
         "mostAffectedNodeId": "amzn"
       },
       "impacts": [
@@ -19,8 +32,8 @@
           "name": "TSMC",
           "type": "supplier",
           "signal": "positive",
-          "magnitude": 0.5,
-          "summary": "TSMC's on-target Q2 sales, surging AI demand, and capacity expansion confirm stable supply for NVIDIA's sole-source advanced GPUs, supporting near-term revenue execution and shipment predictability before the next earnings. Offsetting this are potential foundry price hikes and broader AI-sector sentiment weakness following the Broadcom-driven rotation, which cap the magnitude of the near-term lift.",
+          "magnitude": 0.6,
+          "summary": "TSMC's surging sales, on-target quarterly performance, and AI-driven capacity expansion confirm robust near-term supply for NVIDIA's most advanced GPUs while validating relentless end-demand. Although geopolitical tensions and prospective foundry price hikes pose longer-term risks, the immediate supply-chain execution and bullish commentary from NVIDIA's own CEO provide net support for NVDA ahead of its next earnings report.",
           "citations": [
             {
               "title": "Why TSMC (TSM) Outpaced the Stock Market Today",
@@ -47,7 +60,7 @@
               "title": "Why is Taiwan Semiconductor stock surging today?",
               "url": "https://www.investing.com/news/stock-market-news/why-is-taiwan-semiconductor-stock-surging-today-93CH-4719732",
               "source": "Investing.com",
-              "publishedAt": "1 week ago",
+              "publishedAt": "2 weeks ago",
               "snippet": "Investing.com -- Taiwan Semiconductor Manufacturing stock surged 4.8% in morning trading to reach $438.47, touching a fresh 52-week high of $443.18 intraday..."
             },
             {
@@ -71,8 +84,8 @@
           "name": "SK Hynix",
           "type": "supplier",
           "signal": "positive",
-          "magnitude": 0.4,
-          "summary": "The announced multiyear partnership locks in SK Hynix’s next-generation HBM supply aligned to NVIDIA’s AI roadmap, reducing near-term production and procurement risk. SK Hynix’s planned U.S. listing should also improve its capital access to fund capacity expansion, indirectly stabilizing NVIDIA’s critical supply chain before the next earnings.",
+          "magnitude": 0.5,
+          "summary": "SK Hynix’s soaring valuation and pledge to triple capacity signal surging AI-memory demand and easing supply constraints for the HBM that powers NVIDIA’s GPUs. Its planned U.S. listing further bolsters the supplier’s financial strength, reducing near-term production risk and supporting NVDA’s ability to meet GPU demand over the next quarter.",
           "citations": [
             {
               "title": "South Korea's SK Hynix eyes US listing as soon as August, sources say",
@@ -89,32 +102,32 @@
               "snippet": "Shares of SK Hynix soared over 11% on Wednesday, pushing the South Korean memory-chip maker above the $1 trillion market capitalization mark."
             },
             {
-              "title": "Why Micron Stock Is Rising After Rival SK Hynix’s Fresh Deal with Nvidia",
-              "url": "https://www.barrons.com/articles/micron-stock-price-sk-hynix-memory-c9446e61",
-              "source": "Barron's",
-              "publishedAt": "4 days ago",
-              "snippet": "Micron Technology is bouncing back from last week's selloff, shrugging off the news that memory-chip rival SK Hynix is expanding its work with major..."
+              "title": "SK Hynix Stock Is Soaring—In South Korea. Here's How You Can Invest In It in the U.S.",
+              "url": "https://www.investopedia.com/sk-hynix-stock-is-soaring-in-south-korea-here-s-how-you-can-invest-in-it-in-the-u-s-dram-etfs-11984608",
+              "source": "Investopedia",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Korea- and chip-themed funds with big helpings of SK Hynix are shooting the lights out so far this year. Shares of the memory chip giant have risen more..."
             },
             {
-              "title": "Micron and Sandisk drop on double dose of bad news — blame Broadcom and SK Hynix",
-              "url": "https://sherwood.news/markets/micron-and-sandisk-drop-on-double-dose-of-bad-news-blame-broadcom-and-sk-hynix/",
-              "source": "Sherwood News",
-              "publishedAt": "1 week ago",
-              "snippet": "Back in March, SK Hynix announced that it had filed an application to list ADRs with the SEC, the review of which still remains underway, with..."
-            },
-            {
-              "title": "Broadcom-Linked AI Selloff Hits Samsung, SK Hynix Stocks In Korea: DRAM Eyes Second Day In Red",
-              "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-linked-ai-selloff-hits-064441875.html",
+              "title": "SK Hynix joins Micron in $1 trillion club as AI memory chip rally accelerates",
+              "url": "https://finance.yahoo.com/markets/stocks/article/sk-hynix-joins-micron-in-1-trillion-club-as-ai-memory-chip-rally-accelerates-024514610.html",
               "source": "Yahoo Finance",
-              "publishedAt": "1 week ago",
-              "snippet": "SK Hynix, Samsung and Micron are the three biggest holdings of DRAM. Broadcom's AI forecasts, which some considered soft, triggered a sell-off in AI-linked..."
+              "publishedAt": "2 weeks ago",
+              "snippet": "SK Hynix joins the $1 trillion club as memory chip stocks rally."
             },
             {
-              "title": "NVIDIA and SK hynix Announce Multiyear Technology Partnership to Advance Memory for AI Factories",
-              "url": "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory",
-              "source": "NVIDIA Newsroom",
-              "publishedAt": "5 days ago",
-              "snippet": "News Summary: NVIDIA and SK hynix announce multiyear technology partnership for next-generation memory aligned to NVIDIA's AI infrastructure roadmap."
+              "title": "SK Hynix and Micron: Booming AI chip demand helps create two new $1tn club members",
+              "url": "https://www.bbc.com/news/articles/cnvp9dq0p3go",
+              "source": "BBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "SK Hynix and Micron are the latest tech firms to join the growing list of stocks with mega valuations."
+            },
+            {
+              "title": "SK Hynix ETF Boom Is Becoming a Force in the Stock’s Trading",
+              "url": "https://www.bloomberg.com/news/articles/2026-06-11/sk-hynix-etf-boom-is-becoming-a-force-in-the-stock-s-trading",
+              "source": "Bloomberg.com",
+              "publishedAt": "1 day ago",
+              "snippet": "One of the hottest artificial-intelligence stocks in South Korea is increasingly being driven by demand for products built on top of it."
             }
           ]
         },
@@ -123,21 +136,21 @@
           "name": "Micron",
           "type": "supplier",
           "signal": "positive",
-          "magnitude": 0.4,
-          "summary": "Micron's surge to a $1 trillion market cap on AI-driven memory shortages signals exceptionally strong demand for data-center GPUs, validating robust near-term sales and a tight supply environment for NVIDIA. While sector rotation and competitive supplier headlines add noise, the core read-through from surging HBM demand remains constructive for NVDA's current quarter ahead of earnings.",
+          "magnitude": 0.5,
+          "summary": "Micron's surge on AI-driven memory shortages and bullish analyst upgrades validates exceptionally strong near-term demand for NVIDIA's data-center GPUs, bolstering confidence in current-quarter earnings. While HBM supply remains tight, reports that NVIDIA is diversifying memory suppliers mitigate immediate production-constraint risks.",
           "citations": [
             {
-              "title": "Why Micron Stock Bounced Back Today",
-              "url": "https://finance.yahoo.com/markets/stocks/articles/why-micron-stock-bounced-back-202846363.html",
+              "title": "Micron stock jumps after company tops $1 trillion in market cap",
+              "url": "https://finance.yahoo.com/markets/article/micron-stock-jumps-after-company-tops-1-trillion-in-market-cap-134443842.html",
               "source": "Yahoo Finance",
-              "publishedAt": "1 day ago",
-              "snippet": "After two days of dispiriting declines, Micron (NASDAQ: MU) stock bounced back on Thursday, closing the day up 11.7% and returning its share price to where..."
+              "publishedAt": "2 weeks ago",
+              "snippet": "Micron stock rose after UBS said the AI boom has changed the memory chip market — and tripled its price target to a Street high."
             },
             {
               "title": "Why Goldman Is Cautious on Micron Stock Ahead of Earnings",
               "url": "https://www.barrons.com/articles/micron-stock-price-target-goldman-earnings-f5f6475b",
               "source": "Barron's",
-              "publishedAt": "8 hours ago",
+              "publishedAt": "11 hours ago",
               "snippet": "Micron stock has bounced around this week and Goldman Sachs analysts are wary of a high bar for its earnings this month."
             },
             {
@@ -155,18 +168,18 @@
               "snippet": "A BofA analyst says Micron still trades at an attractive valuation with further upside ahead, as surging AI workloads tighten memory supply and keep the..."
             },
             {
-              "title": "This AI Winner Has Been Unstoppable. Is It Time to Sell?",
-              "url": "https://global.morningstar.com/en-ca/stocks/this-ai-winner-has-been-unstoppable-is-it-time-sell",
-              "source": "Morningstar",
-              "publishedAt": "4 days ago",
-              "snippet": "Micron Technology MU recently joined the elite club of trillion-dollar companies after its stock skyrocketed more than 900% in one year."
-            },
-            {
               "title": "Why Micron Stock Bounced Back Today",
               "url": "https://www.fool.com/investing/2026/06/11/why-micron-stock-bounced-back-today/",
               "source": "The Motley Fool",
               "publishedAt": "1 day ago",
               "snippet": "After two days of dispiriting declines, Micron (MU 1.02%) stock bounced back on Thursday, closing the day up 11.7% and returning its share price to where it..."
+            },
+            {
+              "title": "This AI Winner Has Been Unstoppable. Is It Time to Sell?",
+              "url": "https://global.morningstar.com/en-ca/stocks/this-ai-winner-has-been-unstoppable-is-it-time-sell",
+              "source": "Morningstar",
+              "publishedAt": "4 days ago",
+              "snippet": "Micron Technology MU recently joined the elite club of trillion-dollar companies after its stock skyrocketed more than 900% in one year."
             }
           ]
         },
@@ -175,8 +188,8 @@
           "name": "Samsung Electronics",
           "type": "supplier",
           "signal": "positive",
-          "magnitude": 0.4,
-          "summary": "Samsung’s averted strike and new union deal remove near-term supply disruption risks for NVIDIA’s memory and advanced packaging inputs. The start of HBM4E sample shipments also reinforces confidence in Samsung’s technology pipeline, supporting NVDA’s supply outlook before next earnings.",
+          "magnitude": 0.3,
+          "summary": "Samsung’s shipment of next-generation HBM4E samples and its averted labor strike de-risk NVIDIA’s memory and advanced packaging supply chain over the coming months, supporting sentiment ahead of near-term earnings. While HBM4E volume production is still ahead, the reduced threat of supply disruption and progress on next-generation components provides a modest positive cue for NVDA shares.",
           "citations": [
             {
               "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
@@ -200,25 +213,25 @@
               "snippet": "Samsung Electronics. 005930. -1.90%. , one of the world's best-performing stocks this year, is reportedly the target of an insider-trading probe."
             },
             {
-              "title": "Banks Curb Hedge Fund Bets on SK Hynix, Samsung After Rally",
+              "title": "Samsung Electronics Shares Drop 2.6% Over 11 Days, Leveraged ETFs Plummet 10.5%",
+              "url": "https://m.ajupress.com/amp/20260611180370173",
+              "source": "aju press",
+              "publishedAt": "1 day ago",
+              "snippet": "[Photo by Yonhap News]The impact of the negative compounding effect is becoming evid..."
+            },
+            {
+              "title": "Banks Curb Hedge Fund Bets on SK Hynix, Samsung After Wild Moves",
               "url": "https://www.bloomberg.com/news/articles/2026-06-12/banks-curb-hedge-fund-bets-on-sk-hynix-samsung-after-wild-moves",
               "source": "Bloomberg.com",
-              "publishedAt": "22 hours ago",
+              "publishedAt": "1 day ago",
               "snippet": "Global banks are curbing hedge funds' leveraged bets on Asia's top chipmakers including SK Hynix Inc. and Samsung Electronics Co. after a blistering rally..."
             },
             {
-              "title": "Seoul shares rally over 8 pct on tech gains after Samsung wage deal, Nvidia outlook; won rises",
-              "url": "https://www.upi.com/Top_News/World-News/2026/05/21/korea-KOSPI-Korea-Stock-Index-rally-8-percent-gain-Samsung-deal-Nvidia-outlook/2311779348045/",
-              "source": "upi",
-              "publishedAt": "3 weeks ago",
-              "snippet": "South Korean stocks spiked more than 8 percent Thursday on tech gains, after Samsung Electronics averted a strike and strong earnings from Nvidia boosted..."
-            },
-            {
-              "title": "Samsung Electronics Signs Union Deal, Stock Implications for SMC",
-              "url": "https://www.gurufocus.com/news/8884848/samsung-electronics-signs-union-deal-stock-implications-for-smci?mobile=true",
-              "source": "GuruFocus",
+              "title": "Samsung Electronics ships faster HBM4E chip samples to customers; shares jump",
+              "url": "https://finance.yahoo.com/sectors/technology/articles/samsung-electronics-ships-faster-hbm4e-023021485.html",
+              "source": "Yahoo Finance",
               "publishedAt": "2 weeks ago",
-              "snippet": "On May 27, 2026, Samsung Electronics successfully negotiated a union agreement, avoiding a large-scale strike and offering substantial bonuses to its..."
+              "snippet": "Samsung Electronics on Friday said it started shipping samples of its latest high-bandwidth memory (HBM) chip to customers, pulling ahead of rivals in..."
             }
           ]
         },
@@ -227,8 +240,8 @@
           "name": "Microsoft",
           "type": "customer",
           "signal": "negative",
-          "magnitude": 0.4,
-          "summary": "Microsoft's sell-off amid renewed AI spending concerns and technical weakness fuels fears of cooling hyperscaler capex, dragging near-term sentiment on NVIDIA's core data-center revenue. Existing GPU orders likely hold through the quarter, but NVDA's stock is expected to trade in sympathy with its largest customer's weakness before the next earnings cycle.",
+          "magnitude": 0.3,
+          "summary": "Microsoft’s stock slide and renewed artificial-intelligence spending concerns create near-term headwinds for NVIDIA, as investors may worry that Azure’s massive GPU procurement could face pressure or slower growth before the next earnings cycle. While no order cuts have been confirmed, the customer’s valuation compression and capex anxiety weigh on NVIDIA’s sentiment over the quarter.",
           "citations": [
             {
               "title": "Why Microsoft Stock Is Sinking Today",
@@ -241,7 +254,7 @@
               "title": "Microsoft Stock Is Having a Rough Week. It’s the Latest AI Play Under Pressure.",
               "url": "https://www.barrons.com/articles/microsoft-stock-ai-spending-b7cebd93",
               "source": "Barron's",
-              "publishedAt": "10 hours ago",
+              "publishedAt": "13 hours ago",
               "snippet": "Tech stocks are selling off amid renewed artificial-intelligence spending concerns, Microsoft included."
             },
             {
@@ -266,11 +279,11 @@
               "snippet": "Morningstar's analyst unpacks Microsoft's AI investments, revenue growth potential, and biggest risks while making the case for a $600 valuation."
             },
             {
-              "title": "Is Microsoft Stock Too Cheap To Ignore?",
-              "url": "https://www.trefis.com/stock/msft/articles/602263/is-microsoft-stock-too-cheap-to-ignore/2026-06-10",
-              "source": "Trefis",
+              "title": "Microsoft Stock Price Prediction: A New Record High on the Horizon?",
+              "url": "https://247wallst.com/investing/2026/06/10/microsoft-stock-price-prediction-a-new-record-high-on-the-horizon/",
+              "source": "24/7 Wall St.",
               "publishedAt": "2 days ago",
-              "snippet": "Microsoft (MSFT) stock is at an interesting point right now. If you bet on it, you are betting on a company that's growing reasonably, is sustaining good..."
+              "snippet": "Microsoft (NASDAQ:MSFT | MSFT Price Prediction) is trading at an unusually soft spot heading into the second half of 2026, and our model says the setup is..."
             }
           ]
         },
@@ -280,7 +293,7 @@
           "type": "customer",
           "signal": "positive",
           "magnitude": 0.4,
-          "summary": "Meta's reported plans to raise tens of billions to fund its AI push and maintain over $125 billion in annual AI spending confirm sustained near-term GPU demand from a key NVIDIA customer. While Meta's stock slump reflects dilution fears and AI ROI skepticism, the direct procurement relationship implies continued robust orders supporting NVDA through its next earnings.",
+          "summary": "Meta's reported plan to raise tens of billions to fund its AI push and its massive 2025 AI capex budget signal sustained near-term demand for NVIDIA GPUs from a key hyperscaler customer. While Meta's equity-sale overhang and AI-spending debate are pressuring its own shares, the dedicated financing supports robust procurement activity that directly benefits NVIDIA's revenue through the current quarter.",
           "citations": [
             {
               "title": "Meta Stock Slumps Further As Bulls And Bears Debate Tech Giant's AI 'Evolution'",
@@ -301,7 +314,7 @@
               "url": "https://www.fool.com/investing/2026/06/07/huge-news-for-meta-stock-investors/",
               "source": "The Motley Fool",
               "publishedAt": "5 days ago",
-              "snippet": "Meta (META 0.67%) is considering a massive stock sale similar to what Alphabet (GOOG +0.29%) (GOOGL +0.45%) recently announced. *Stock prices used were the..."
+              "snippet": "Meta (META 0.14%) is considering a massive stock sale similar to what Alphabet (GOOG +0.44%) (GOOGL +0.53%) recently announced. *Stock prices used were the..."
             },
             {
               "title": "Meta's stock sinks on report company could raise tens of billions of dollars to fund AI push",
@@ -314,15 +327,15 @@
               "title": "Prediction: Can Meta Stock Reach $700 by Year-End?",
               "url": "https://247wallst.com/investing/2026/06/12/prediction-can-meta-stock-reach-700-by-year-end/",
               "source": "24/7 Wall St.",
-              "publishedAt": "13 hours ago",
+              "publishedAt": "16 hours ago",
               "snippet": "Meta Platforms (NASDAQ:META | META Price Prediction) just delivered Q1 revenue of $56.31 billion, up 33% YoY, and EPS of $10.44 against a $6.66 consensus."
             },
             {
-              "title": "META Stock Rebounds Overnight: Analyst Says Subscriptions Could Be $20B Business By 2030",
-              "url": "https://es.tradingview.com/news/stocktwits:134b8ad86094b:0-meta-stock-rebounds-overnight-analyst-says-subscriptions-could-be-20b-business-by-2030/",
-              "source": "TradingView",
-              "publishedAt": "3 days ago",
-              "snippet": "Meta Platforms Inc.'s new subscription offering for its social media and AI apps could generate $20 billion in revenue by 2030, analysts at Truist said on..."
+              "title": "Bank of America has a stark message for Meta stock investors",
+              "url": "https://www.thestreet.com/investing/stocks/bank-of-america-has-a-stark-message-for-meta-stock-investors",
+              "source": "TheStreet",
+              "publishedAt": "2 weeks ago",
+              "snippet": "BofA reiterated Buy on Meta citing enterprise AI as a key outlet for excess capacity. Here is the thesis, the $1T market context, what it means for..."
             }
           ]
         },
@@ -331,8 +344,8 @@
           "name": "Amazon (AWS)",
           "type": "customer",
           "signal": "positive",
-          "magnitude": 0.65,
-          "summary": "AWS's accelerating 28% growth and explicit commitment to sticking with Nvidia GPUs despite its own chip development confirms robust near-term demand from a top hyperscaler customer, supporting NVIDIA's data center revenue within the current quarter. The expansion of AI infrastructure on AWS directly translates to continued high-volume GPU deployments, reinforcing confidence ahead of NVDA's next earnings.",
+          "magnitude": 0.75,
+          "summary": "Accelerating AWS revenue growth and explicit confirmation that Amazon is sticking with NVIDIA GPU deployments despite its own chip development indicate strong, ongoing near-term demand for NVIDIA's data center products. This reinforces NVDA's revenue visibility through the current quarter and supports bullish sentiment heading into the next earnings report.",
           "citations": [
             {
               "title": "Amazon Stock (AMZN) Opinions on Strong AWS Growth Amid Valuation Discussions",
@@ -345,7 +358,7 @@
               "title": "AMZN Stock Jumps Overnight: AWS Sticks With Nvidia Bet Even Amid Surging Demand For In-House Chips",
               "url": "https://stocktwits.com/news-articles/markets/equity/amzn-stock-jumps-overnight-aws-sticks-with-nvidia-gpus-in-house-chip-demand/cZBtuhIReEq",
               "source": "Stocktwits",
-              "publishedAt": "1 day ago",
+              "publishedAt": "2 days ago",
               "snippet": "AWS revenue climbed 28% from the previous year to $37.6 billion in Q1, marking its fastest growth rate in more than three years."
             },
             {
@@ -383,14 +396,14 @@
           "name": "CoreWeave",
           "type": "customer",
           "signal": "positive",
-          "magnitude": 0.4,
-          "summary": "CoreWeave's surging stock, upcoming Russell/Nasdaq 100 index inclusion, and NVIDIA's increased equity stake signal strong AI-cloud demand and direct balance-sheet gains, reinforcing near-term confidence in GPU sales from a major customer ahead of earnings. Founder selling and leverage risks are outweighed in the short term by the validation of continued infrastructure spending.",
+          "magnitude": 0.3,
+          "summary": "CoreWeave's surging valuation, upcoming index inclusion, and NVIDIA's own doubled-down investment signal strengthened near-term demand visibility and ecosystem alignment from a major customer. However, significant founder selling and the firm's highly leveraged balance sheet keep the immediate ripple to NVIDIA modest.",
           "citations": [
             {
               "title": "Why CoreWeave Stock Is Up on Monday",
               "url": "https://finance.yahoo.com/markets/stocks/articles/why-coreweave-stock-monday-173741589.html",
               "source": "Yahoo Finance",
-              "publishedAt": "1 week ago",
+              "publishedAt": "2 weeks ago",
               "snippet": "Most of the time, it's quite clear why a stock is soaring. This is not one of those times. Rather, the reason CoreWeave (NASDAQ: CRWV) shares are up 14.3%..."
             },
             {
@@ -418,14 +431,14 @@
               "title": "Why CoreWeave Stock Is Up on Monday",
               "url": "https://www.fool.com/investing/2026/06/01/why-coreweave-stock-is-up-on-monday/",
               "source": "The Motley Fool",
-              "publishedAt": "1 week ago",
+              "publishedAt": "2 weeks ago",
               "snippet": "Most of the time, it's quite clear why a stock is soaring. This is not one of those times. Rather, the reason CoreWeave (CRWV +4.91%) shares are up 14.3% as..."
             },
             {
               "title": "Why is CoreWeave stock up 6% today?",
               "url": "https://www.investing.com/news/stock-market-news/why-is-coreweave-stock-up-6-today-93CH-4718342",
               "source": "Investing.com",
-              "publishedAt": "1 week ago",
+              "publishedAt": "2 weeks ago",
               "snippet": "Investing.com -- CoreWeave Inc stock surged 6.5% in pre-open trading to reach $116.60, as investors responded to the company's freshly announced strategic..."
             }
           ]
@@ -435,8 +448,8 @@
           "name": "Arm Holdings",
           "type": "partner",
           "signal": "positive",
-          "magnitude": 0.5,
-          "summary": "The news highlights an expanding CPU architecture partnership, with Arm joining Nvidia’s AI PC push and ongoing Grace platform demand reinforcing ecosystem momentum, which supports near-term platform breadth and sentiment for NVDA. Transient noise around FTC scrutiny and licensing revenue debates is outweighed by the collaboration’s tangible product roadmap within the current quarter.",
+          "magnitude": 0.3,
+          "summary": "News of Arm-based CPUs powering Nvidia’s new AI PC initiative and Grace platform momentum validates Nvidia’s ecosystem expansion beyond GPUs, delivering a modest short-term sentiment tailwind. While Vera CPU speculation and FTC noise create minor uncertainty, the strengthening architecture partnership supports the bullish platform narrative ahead of NVDA’s next earnings.",
           "citations": [
             {
               "title": "Why Arm Holdings Stock Popped Today",
@@ -449,7 +462,7 @@
               "title": "Is Arm Holdings plc (ARM) A Good Stock To Buy Now?",
               "url": "https://finance.yahoo.com/markets/stocks/articles/arm-holdings-plc-arm-good-161406071.html",
               "source": "Yahoo Finance",
-              "publishedAt": "12 hours ago",
+              "publishedAt": "15 hours ago",
               "snippet": "Is ARM a good stock to buy? We came across a bullish thesis on Arm Holdings plc on Long-term Investing's Substack by Sanjiv."
             },
             {
@@ -460,18 +473,18 @@
               "snippet": "Investing.com -- Arm Holdings ADR stock surged +10.1% in morning trading today, reaching $245.70 and touching a fresh 52-week high of $247.97,..."
             },
             {
-              "title": "Stock Price Prediction: Arm Holdings Has Limited Upside Despite 177% Rally",
-              "url": "https://247wallst.com/investing/2026/05/29/stock-price-prediction-arm-holdings-has-limited-upside-despite-177-rally/",
-              "source": "24/7 Wall St.",
-              "publishedAt": "2 weeks ago",
-              "snippet": "I'll cut to the chase. Arm Holdings (NASDAQ:ARM | ARM Price Prediction) has more than doubled year-to-date, and our proprietary model now sees only a sliver..."
-            },
-            {
               "title": "Red-hot Arm Holdings soars to another all-time high. What's fueling the move this time?",
               "url": "https://www.cnbc.com/2026/05/28/red-hot-arm-soars-to-another-all-time-high-what-is-fueling-the-move-this-time.html",
               "source": "CNBC",
               "publishedAt": "2 weeks ago",
               "snippet": "... and Financial News, Stock Quotes, and Market Data and Analysis. Market Data Terms of Use and Disclaimers. Data also provided by Reuters logo."
+            },
+            {
+              "title": "Stock Price Prediction: Arm Holdings Has Limited Upside Despite 177% Rally",
+              "url": "https://247wallst.com/investing/2026/05/29/stock-price-prediction-arm-holdings-has-limited-upside-despite-177-rally/",
+              "source": "24/7 Wall St.",
+              "publishedAt": "2 weeks ago",
+              "snippet": "I'll cut to the chase. Arm Holdings (NASDAQ:ARM | ARM Price Prediction) has more than doubled year-to-date, and our proprietary model now sees only a sliver..."
             },
             {
               "title": "Why Arm Holdings Stock Rallied on Thursday",
@@ -487,8 +500,8 @@
           "name": "Super Micro",
           "type": "partner",
           "signal": "positive",
-          "magnitude": 0.4,
-          "summary": "Super Micro's $7 billion capital raise to fulfill a $39 billion AI server backlog confirms exceptionally strong near-term demand for the NVIDIA GPUs that power its platforms. While the dilutive financing pressured SMCI shares, the massive order pipeline supports NVIDIA's sales volume through a key channel partner over the current quarter.",
+          "magnitude": 0.5,
+          "summary": "Super Micro's $7 billion financing to fulfill $39 billion in AI server orders indicates strong near-term procurement of NVIDIA GPUs by a key assembly partner, supporting NVDA's revenue visibility this quarter. While SMCI stock faces dilution-related pressure, the massive backlog directly translates to sustained demand for NVIDIA's data center platforms through the current quarter.",
           "citations": [
             {
               "title": "Super Micro stock falls 13% on $7 billion financing plans as company touts AI server orders",
@@ -539,8 +552,8 @@
           "name": "Dell Technologies",
           "type": "partner",
           "signal": "positive",
-          "magnitude": 0.45,
-          "summary": "Dell's blowout AI server revenue growth and raised outlook signal robust near-term demand for the NVIDIA GPUs that power those systems, supporting NVDA's data center sales through the current quarter. This OEM momentum validates NVIDIA's supply chain strength and demand visibility ahead of its own next earnings.",
+          "magnitude": 0.5,
+          "summary": "Dell's explosive AI server revenue growth and raised outlook signal strong near-term enterprise demand that flows directly to NVIDIA through this OEM partnership, supporting NVDA's data center revenue visibility within the current quarter.",
           "citations": [
             {
               "title": "Dell Technologies (DELL): The Best American Stock to Buy and Hold for the Next Decade",
@@ -550,13 +563,6 @@
               "snippet": "Dell Technologies Inc. (NYSE:DELL) is one of the 10 Best American Stocks to Buy and Hold for the Next Decade. On May 31, 2026, Bernstein analyst Mark Newman..."
             },
             {
-              "title": "Dell shares jump 39% after server maker reports fastest sales growth since return to public market in 2018",
-              "url": "https://www.cnbc.com/2026/05/28/dell-q1-earnings-report-2027.html",
-              "source": "CNBC",
-              "publishedAt": "2 weeks ago",
-              "snippet": "Dell reported 88% year-over-year revenue growth, topping analysts estimates. The company is benefiting from demand for computer servers for artificial..."
-            },
-            {
               "title": "Dell Technologies Stock (DELL) Opinions on AI Server Growth",
               "url": "https://www.quiverquant.com/news/Dell+Technologies+Stock+%28DELL%29+Opinions+on+AI+Server+Growth",
               "source": "Quiver Quantitative",
@@ -564,10 +570,17 @@
               "snippet": "AI Server Momentum: Social media chatter centers on Dell Technologies' robust positioning in the AI."
             },
             {
+              "title": "Dell shares jump 39% after server maker reports fastest sales growth since return to public market in 2018",
+              "url": "https://www.cnbc.com/2026/05/28/dell-q1-earnings-report-2027.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Dell reported 88% year-over-year revenue growth, topping analysts estimates. The company is benefiting from demand for computer servers for artificial..."
+            },
+            {
               "title": "Dell Technologies: Is It the Next Big Artificial Intelligence Stock?",
               "url": "https://www.fool.com/investing/2026/06/01/dell-technologies-is-it-the-next-big-artificial-in/",
               "source": "The Motley Fool",
-              "publishedAt": "1 week ago",
+              "publishedAt": "2 weeks ago",
               "snippet": "Shares of Dell Technologies (DELL +2.43%) have been surging recently after the company posted strong quarterly earnings numbers, which featured plenty of..."
             },
             {
@@ -590,23 +603,23 @@
           "nodeId": "soundhound",
           "name": "SoundHound AI",
           "type": "equity",
-          "signal": "positive",
+          "signal": "neutral",
           "magnitude": 0.05,
-          "summary": "SoundHound's operational catalysts, platform launches, and bullish analyst sentiment could lift its share price in the coming months, generating minor unrealized gains on NVIDIA's equity stake. Given SoundHound's relatively small market capitalization, however, any direct financial ripple to NVDA before its next earnings will be effectively immaterial.",
+          "summary": "NVIDIA's equity stake in SoundHound AI is financially immaterial relative to its market capitalization, so volatile but mixed short-term headlines around SOUN—spanning analyst optimism, platform launches, dilution fears, and legal scrutiny—are unlikely to generate any meaningful ripple into NVDA's stock price within the current quarter.",
           "citations": [
             {
-              "title": "SoundHound AI Just Announced Major News for Shareholders",
-              "url": "https://www.fool.com/investing/2026/05/18/soundhound-ai-just-announced-major-news/",
-              "source": "The Motley Fool",
-              "publishedAt": "3 weeks ago",
-              "snippet": "SoundHound AI (SOUN 1.21%) is a fairly popular artificial intelligence stock, thanks to its small size, huge growth, and major opportunity."
+              "title": "Why SoundHound AI (SOUN) Stock Is Up Today",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-soundhound-ai-soun-stock-051800605.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Shares of voice AI technology company SoundHound AI (NASDAQ:SOUN) jumped 5.7% in the afternoon session after Snowflake's impressive earnings results..."
             },
             {
-              "title": "Is SoundHound AI, Inc. (SOUN) A Good Stock To Buy Now?",
-              "url": "https://finance.yahoo.com/markets/stocks/articles/soundhound-ai-inc-soun-good-212738180.html",
-              "source": "Yahoo Finance",
-              "publishedAt": "5 days ago",
-              "snippet": "Is SOUN a good stock to buy? We came across a bullish thesis on SoundHound AI, Inc. on Stay Invested's Substack by Denis Gorbunov. In this article, we will..."
+              "title": "Why I'm Rethinking My Bearish Outlook on SoundHound AI: The Stock Could Be a Long-Term Winner",
+              "url": "https://www.fool.com/investing/2026/06/10/why-im-rethinking-my-bearish-outlook-on-soundhound/",
+              "source": "The Motley Fool",
+              "publishedAt": "2 days ago",
+              "snippet": "SoundHound AI doesn't have a large competitive moat and has largely been a niche player in agentic voice artificial intelligence (AI)."
             },
             {
               "title": "SoundHound AI Stock (SOUN) Opinions on AI Platform Launches and Acquisitions",
@@ -616,13 +629,6 @@
               "snippet": "AI Platform Momentum Builds: Recent conversations highlight SoundHound AI's launch of its OASYS agentic platform and plans to acquire LivePerson,..."
             },
             {
-              "title": "Why SoundHound AI (SOUN) Stock Is Up Today",
-              "url": "https://stockstory.org/us/stocks/nasdaq/soun/news/why-up-down/why-soundhound-ai-soun-stock-is-up-today-4",
-              "source": "StockStory",
-              "publishedAt": "2 weeks ago",
-              "snippet": "What Happened? Shares of voice AI technology company SoundHound AI (NASDAQ:SOUN) jumped 5.7% in the afternoon session after Snowflake's impressive earnings..."
-            },
-            {
               "title": "SoundHound AI (NASDAQ: SOUN) Faces Heavy Short Pressure Despite Strong Revenue Growth",
               "url": "https://www.foreignpolicyjournal.com/2026/06/08/soundhound-ai-nasdaq-soun-faces-heavy-short-pressure-despite-strong-revenue-growth/",
               "source": "Foreign Policy Journal",
@@ -630,11 +636,18 @@
               "snippet": "SoundHound AI, Inc. (NASDAQ: SOUN) has become one of the most actively shorted stocks in the AI sector, with a short float exceeding 38% of its available."
             },
             {
-              "title": "Is SoundHound AI (SOUN) a Buy as Wall Street Analysts Look Optimistic?",
-              "url": "https://finance.yahoo.com/markets/stocks/articles/soundhound-ai-soun-buy-wall-133004949.html",
+              "title": "SOUN Stock Slides As Legal Scrutiny And Dilution Fears Mount",
+              "url": "https://stockstotrade.com/news/soundhound-ai-inc-soun-news-2026_06_03/",
+              "source": "StocksToTrade",
+              "publishedAt": "1 week ago",
+              "snippet": "SoundHound AI Inc. stocks have been trading down by -7.43 percent amid negative sentiment over slowing voice-AI demand and competition."
+            },
+            {
+              "title": "Is SoundHound AI, Inc. (SOUN) A Good Stock To Buy Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/soundhound-ai-inc-soun-good-212738180.html",
               "source": "Yahoo Finance",
-              "publishedAt": "2 days ago",
-              "snippet": "According to the average brokerage recommendation (ABR), one should invest in SoundHound AI (SOUN). It is debatable whether this highly sought-after metric..."
+              "publishedAt": "5 days ago",
+              "snippet": "Is SOUN a good stock to buy? We came across a bullish thesis on SoundHound AI, Inc. on Stay Invested's Substack by Denis Gorbunov. In this article, we will..."
             }
           ]
         },
@@ -642,9 +655,9 @@
           "nodeId": "us_gov",
           "name": "US Government",
           "type": "government",
-          "signal": "negative",
-          "magnitude": 0.35,
-          "summary": "News of deepening U.S. government intervention—including potential equity stakes in AI firms and heightened policy conflicts of interest—suggests export-license decisions may become more politicized or protectionist in the near term. This raises uncertainty that advanced-chip export rules could tighten to favor domestic investments, creating a mild negative overhang on NVDA's overseas revenue visibility before the next earnings.",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "U.S. government signaling deeper investment and strategic support for AI and semiconductors validates sector demand and buoying near-term sentiment for NVIDIA, even though the headlines do not yet materially alter existing export license rules.",
           "citations": [
             {
               "title": "Which company will the U.S. government take a stake in next? Here’s what traders think",
@@ -664,7 +677,7 @@
               "title": "US move into quantum computing adds to a portfolio that spans semiconductors, steel, nuclear, and rare earths",
               "url": "https://finance.yahoo.com/economy/policy/article/us-move-into-quantum-computing-adds-to-a-portfolio-that-spans-semiconductors-steel-nuclear-and-rare-earths-173919828.html",
               "source": "Yahoo Finance",
-              "publishedAt": "2 weeks ago",
+              "publishedAt": "3 weeks ago",
               "snippet": "The Trump administration is expanding the government's burgeoning investment portfolio, announcing Thursday that it will award grants to nine quantum..."
             },
             {
@@ -695,14 +708,14 @@
           "name": "China (Regulators)",
           "type": "government",
           "signal": "negative",
-          "magnitude": 0.2,
-          "summary": "Escalating Chinese regulatory hostility toward U.S. financial platforms signals worsening bilateral commercial tensions, increasing the risk of retaliatory measures against American tech firms. Over the next three months, this elevates uncertainty around NVIDIA's restricted China business and reinforces headwinds from local chip competition.",
+          "magnitude": 0.3,
+          "summary": "Beijing's escalating crackdowns on domestic tech giants and cross-border financial platforms signal a more restrictive environment for NVIDIA's key market, likely dampening near-term demand sentiment from Chinese hyperscalers and reinforcing local-competition risks over the current quarter.",
           "citations": [
             {
               "title": "Hong Kong regulators vow strict compliance as Beijing tightens capital controls",
               "url": "https://amp.scmp.com/business/banking-finance/article/3356892/hong-kong-regulators-vow-strict-compliance-beijing-tightens-capital-controls",
               "source": "South China Morning Post",
-              "publishedAt": "19 hours ago"
+              "publishedAt": "22 hours ago"
             },
             {
               "title": "Futu faces investigation by China regulators, shares drop 28% on legal concerns.",
@@ -715,7 +728,7 @@
               "title": "FUTU, BJ, MLCO Stocks Hit 52-Week Lows Last Week: What's Driving The Selloff?",
               "url": "https://www.tradingview.com/news/stocktwits:350b9a20d094b:0-futu-bj-mlco-stocks-hit-52-week-lows-last-week-what-s-driving-the-selloff/",
               "source": "TradingView",
-              "publishedAt": "2 weeks ago",
+              "publishedAt": "3 weeks ago",
               "snippet": "Futu shares fell after Chinese regulators proposed a $271 million penalty for allegations of unlicensed operations. BJ's Wholesale Club stock dropped 8.3%..."
             },
             {
@@ -726,23 +739,23 @@
               "snippet": "Alibaba stock fell due to regulatory scrutiny over misleading advertising.China's regulators are tightening oversight on internet giants,..."
             },
             {
+              "title": "Alibaba Chip Approval Reshapes AI Capacity And Valuation Story",
+              "url": "https://www.sahmcapital.com/news/content/alibaba-chip-approval-reshapes-ai-capacity-and-valuation-story-2026-05-16",
+              "source": "Sahm",
+              "publishedAt": "1 month ago",
+              "snippet": "U.S. authorities have approved Alibaba Group Holding (NYSE:BABA) to purchase Nvidia's advanced H200 AI chips. The decision affects Alibaba's AI and cloud..."
+            },
+            {
               "title": "DBS Research and UOBKH eye Singtel, Venture as top picks for June",
               "url": "https://www.businesstimes.com.sg/companies-markets/dbs-research-and-uobkh-eye-singtel-venture-top-picks-june",
               "source": "The Business Times",
               "publishedAt": "5 days ago",
               "snippet": "Singtel's 18% drop from a March peak is an 'opportunity to add', while Venture's revenue may be boosted by AI Read more at The Business Times."
-            },
-            {
-              "title": "China cracks down on U.S. stock trading platforms, seizes illegal gains",
-              "url": "https://www.cryptopolitan.com/china-cracks-down-u-s-stock-trading/",
-              "source": "Cryptopolitan",
-              "publishedAt": "3 weeks ago",
-              "snippet": "China's Securities Regulatory Commission (CSRC) is cracking down on U.S. stock trading platforms and has seized illegal gains."
             }
           ]
         }
       ]
     }
   },
-  "lastUpdated": "2026-06-13T04:24:16.923Z"
+  "lastUpdated": "2026-06-13T07:23:21.808Z"
 }

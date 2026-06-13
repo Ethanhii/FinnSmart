@@ -23,3 +23,7 @@ npm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# VideoDB transcript cache (local)
+data/videodb-cache/*
+!data/videodb-cache/.gitkeep

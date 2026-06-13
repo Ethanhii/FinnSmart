@@ -10,6 +10,7 @@ import type {
 } from "@/lib/types";
 import { HORIZONS } from "@/lib/types";
 import { serpNews, type NewsItem } from "@/lib/integrations/brightdata";
+import { enrichVideoNews, resetVideoEnrichBudget } from "@/lib/integrations/videodb";
 import { kimiChat, llmConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
 
 /** Relationship-type weighting: how much an entity's news matters to the stock. */
@@ -31,6 +32,7 @@ export async function analyzeStock(
 ): Promise<AnalyzeResponse> {
   const entities = graph.nodes.filter((n) => n.type !== "stock");
   const serpRange = HORIZONS[horizon].serpRange;
+  resetVideoEnrichBudget();
 
   // Step 2: fetch news for every entity in parallel (all Bright Data calls at once).
   const researched = await Promise.all(
@@ -40,7 +42,10 @@ export async function analyzeStock(
         num: 10,
         entityName: node.name,
       });
-      return { node, news: dedupeNews(raw) };
+      const news = dedupeNews(raw);
+      // Step 2b: enrich video/YouTube sources with VideoDB transcripts (optional).
+      const enriched = await enrichVideoNews(news);
+      return { node, news: enriched };
     })
   );
 
@@ -139,7 +144,11 @@ async function evaluateEntity(
               targetStock: { ticker: graph.ticker, name: graph.name },
               entity: { name: node.name, type: node.type, relationship: node.relationship },
               timeHorizon: { label: h.label, window: h.range, meaning: h.description },
-              news: news.map((n) => ({ title: n.title, snippet: n.snippet, source: n.source })),
+              news: news.map((n) => ({
+                title: n.title,
+                snippet: n.snippet,
+                source: n.source,
+              })),
               instructions:
                 `Judge impact specifically over the ${h.label} horizon (${h.range}: ${h.description}). ` +
                 "Return {\"signal\":\"positive|negative|neutral\",\"magnitude\":0..1,\"summary\":\"<=2 sentences explaining the ripple to the target stock over this horizon\"}.",

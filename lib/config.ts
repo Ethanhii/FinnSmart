@@ -18,6 +18,11 @@ export const KIMI_MODEL = process.env.KIMI_MODEL ?? "kimi-k2.6";
 export const BRIGHTDATA_API_KEY = process.env.BRIGHTDATA_API_KEY ?? "";
 export const BRIGHTDATA_ZONE = process.env.BRIGHTDATA_ZONE ?? "";
 
+/** VideoDB — video upload + transcription for YouTube/video news sources. */
+export const VIDEO_DB_API_KEY =
+  process.env.VIDEO_DB_API_KEY ?? process.env.VIDEODB_API_KEY ?? "";
+export const VIDEODB_COLLECTION = process.env.VIDEODB_COLLECTION ?? "default";
+
 export const TOKEN_ROUTER_API_KEY = process.env.TOKEN_ROUTER_API_KEY ?? "";
 export const TOKEN_ROUTER_BASE_URL =
   process.env.TOKEN_ROUTER_BASE_URL ?? "https://api.tokenrouter.com/v1";
@@ -56,6 +61,10 @@ export function llmConfigured(): boolean {
 
 export function brightDataConfigured(): boolean {
   return !FORCE_MOCKS && BRIGHTDATA_API_KEY.length > 0 && BRIGHTDATA_ZONE.length > 0;
+}
+
+export function videoDbConfigured(): boolean {
+  return !FORCE_MOCKS && VIDEO_DB_API_KEY.length > 0;
 }
 
 /** True when at least one external dependency is mocked. */

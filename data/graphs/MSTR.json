@@ -1,0 +1,306 @@
+{
+  "ticker": "MSTR",
+  "name": "Strategy Inc",
+  "description": "Strategy Inc ecosystem — suppliers, customers, partners, holdings, and regulators.",
+  "nodes": [
+    {
+      "id": "mstr",
+      "name": "Strategy Inc",
+      "ticker": "MSTR",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_coinbase_global_inc",
+      "name": "Coinbase Global, Inc.",
+      "ticker": "COIN",
+      "type": "supplier",
+      "relationship": "Primary bitcoin custody and trade execution counterparty for corporate treasury strategy"
+    },
+    {
+      "id": "supplier_amazon_com_inc",
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "supplier",
+      "relationship": "Cloud infrastructure hosting for MicroStrategy Cloud platform and internal systems"
+    },
+    {
+      "id": "supplier_microsoft_corporation",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "supplier",
+      "relationship": "Azure cloud infrastructure and core enterprise software platform partner"
+    },
+    {
+      "id": "supplier_alphabet_inc",
+      "name": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "type": "supplier",
+      "relationship": "Google Cloud infrastructure and analytics ecosystem partner"
+    },
+    {
+      "id": "customer_starbucks_corporation",
+      "name": "Starbucks Corporation",
+      "ticker": "SBUX",
+      "type": "customer",
+      "relationship": "Enterprise customer using MicroStrategy analytics and BI platform for data visualization and business reporting."
+    },
+    {
+      "id": "customer_hilton_worldwide_holdings_inc",
+      "name": "Hilton Worldwide Holdings Inc.",
+      "ticker": "HLT",
+      "type": "customer",
+      "relationship": "Hospitality customer utilizing MicroStrategy software for operational analytics and business intelligence."
+    },
+    {
+      "id": "customer_lowe_s_companies_inc",
+      "name": "Lowe's Companies, Inc.",
+      "ticker": "LOW",
+      "type": "customer",
+      "relationship": "Retail customer leveraging MicroStrategy's enterprise analytics for supply chain and merchandising insights."
+    },
+    {
+      "id": "customer_united_states_postal_service",
+      "name": "United States Postal Service",
+      "type": "customer",
+      "relationship": "Federal agency customer using MicroStrategy's analytics platform for logistics and operational data analysis."
+    },
+    {
+      "id": "customer_gucci",
+      "name": "Gucci",
+      "type": "customer",
+      "relationship": "Luxury retail customer using MicroStrategy's BI solutions for store analytics and consumer insights."
+    },
+    {
+      "id": "partner_coinbase_global_inc",
+      "name": "Coinbase Global, Inc.",
+      "ticker": "COIN",
+      "type": "partner",
+      "relationship": "Primary bitcoin custody, trading and prime brokerage partner for corporate treasury operations."
+    },
+    {
+      "id": "partner_microsoft_corporation",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "partner",
+      "relationship": "Strategic cloud and enterprise software partner enabling Azure-hosted analytics and productivity integrations."
+    },
+    {
+      "id": "partner_amazon_com_inc",
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "partner",
+      "relationship": "AWS cloud infrastructure partner for MicroStrategy Cloud deployments and enterprise hosting."
+    },
+    {
+      "id": "partner_alphabet_inc",
+      "name": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "type": "partner",
+      "relationship": "Google Cloud partner supporting cloud marketplace distribution and data analytics integrations."
+    },
+    {
+      "id": "partner_snowflake_inc",
+      "name": "Snowflake Inc.",
+      "ticker": "SNOW",
+      "type": "partner",
+      "relationship": "Data cloud technology partner for integrated analytics and unified data connectivity."
+    },
+    {
+      "id": "equity_blackrock_inc",
+      "name": "BlackRock, Inc.",
+      "ticker": "BLK",
+      "type": "equity",
+      "relationship": "Largest institutional shareholder via iShares ETFs and active strategies"
+    },
+    {
+      "id": "equity_the_vanguard_group_inc",
+      "name": "The Vanguard Group, Inc.",
+      "type": "equity",
+      "relationship": "Major passive institutional shareholder through index funds and ETFs"
+    },
+    {
+      "id": "equity_state_street_corporation",
+      "name": "State Street Corporation",
+      "ticker": "STT",
+      "type": "equity",
+      "relationship": "Significant institutional shareholder via State Street Global Advisors ETFs"
+    },
+    {
+      "id": "equity_fmr_llc_fidelity_investments",
+      "name": "FMR LLC (Fidelity Investments)",
+      "type": "equity",
+      "relationship": "Major institutional shareholder through Fidelity mutual funds and ETFs"
+    },
+    {
+      "id": "equity_capital_international_investors",
+      "name": "Capital International Investors",
+      "type": "equity",
+      "relationship": "Large active institutional shareholder through Capital Group investment vehicles"
+    },
+    {
+      "id": "government_u_s_securities_and_exchange_commission",
+      "name": "U.S. Securities and Exchange Commission",
+      "type": "government",
+      "relationship": "Primary regulator for public company reporting and Bitcoin treasury accounting oversight"
+    },
+    {
+      "id": "government_u_s_general_services_administration",
+      "name": "U.S. General Services Administration",
+      "type": "government",
+      "relationship": "Federal supply schedule contracting vehicle enabling civilian agency software procurement"
+    },
+    {
+      "id": "government_u_s_department_of_defense",
+      "name": "U.S. Department of Defense",
+      "type": "government",
+      "relationship": "Defense and intelligence community customer for business intelligence analytics platforms"
+    },
+    {
+      "id": "government_internal_revenue_service",
+      "name": "Internal Revenue Service",
+      "type": "government",
+      "relationship": "Tax authority governing corporate tax liabilities and Bitcoin treasury tax treatment"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_coinbase_global_inc",
+      "source": "supplier_coinbase_global_inc",
+      "target": "mstr",
+      "relationType": "Primary bitcoin custody and trade execution counterparty for corporate treasury strategy"
+    },
+    {
+      "id": "e_supplier_amazon_com_inc",
+      "source": "supplier_amazon_com_inc",
+      "target": "mstr",
+      "relationType": "Cloud infrastructure hosting for MicroStrategy Cloud platform and internal systems"
+    },
+    {
+      "id": "e_supplier_microsoft_corporation",
+      "source": "supplier_microsoft_corporation",
+      "target": "mstr",
+      "relationType": "Azure cloud infrastructure and core enterprise software platform partner"
+    },
+    {
+      "id": "e_supplier_alphabet_inc",
+      "source": "supplier_alphabet_inc",
+      "target": "mstr",
+      "relationType": "Google Cloud infrastructure and analytics ecosystem partner"
+    },
+    {
+      "id": "e_customer_starbucks_corporation",
+      "source": "customer_starbucks_corporation",
+      "target": "mstr",
+      "relationType": "Enterprise customer using MicroStrategy analytics and BI platform for data visualization and business reporting."
+    },
+    {
+      "id": "e_customer_hilton_worldwide_holdings_inc",
+      "source": "customer_hilton_worldwide_holdings_inc",
+      "target": "mstr",
+      "relationType": "Hospitality customer utilizing MicroStrategy software for operational analytics and business intelligence."
+    },
+    {
+      "id": "e_customer_lowe_s_companies_inc",
+      "source": "customer_lowe_s_companies_inc",
+      "target": "mstr",
+      "relationType": "Retail customer leveraging MicroStrategy's enterprise analytics for supply chain and merchandising insights."
+    },
+    {
+      "id": "e_customer_united_states_postal_service",
+      "source": "customer_united_states_postal_service",
+      "target": "mstr",
+      "relationType": "Federal agency customer using MicroStrategy's analytics platform for logistics and operational data analysis."
+    },
+    {
+      "id": "e_customer_gucci",
+      "source": "customer_gucci",
+      "target": "mstr",
+      "relationType": "Luxury retail customer using MicroStrategy's BI solutions for store analytics and consumer insights."
+    },
+    {
+      "id": "e_partner_coinbase_global_inc",
+      "source": "partner_coinbase_global_inc",
+      "target": "mstr",
+      "relationType": "Primary bitcoin custody, trading and prime brokerage partner for corporate treasury operations."
+    },
+    {
+      "id": "e_partner_microsoft_corporation",
+      "source": "partner_microsoft_corporation",
+      "target": "mstr",
+      "relationType": "Strategic cloud and enterprise software partner enabling Azure-hosted analytics and productivity integrations."
+    },
+    {
+      "id": "e_partner_amazon_com_inc",
+      "source": "partner_amazon_com_inc",
+      "target": "mstr",
+      "relationType": "AWS cloud infrastructure partner for MicroStrategy Cloud deployments and enterprise hosting."
+    },
+    {
+      "id": "e_partner_alphabet_inc",
+      "source": "partner_alphabet_inc",
+      "target": "mstr",
+      "relationType": "Google Cloud partner supporting cloud marketplace distribution and data analytics integrations."
+    },
+    {
+      "id": "e_partner_snowflake_inc",
+      "source": "partner_snowflake_inc",
+      "target": "mstr",
+      "relationType": "Data cloud technology partner for integrated analytics and unified data connectivity."
+    },
+    {
+      "id": "e_equity_blackrock_inc",
+      "source": "mstr",
+      "target": "equity_blackrock_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_the_vanguard_group_inc",
+      "source": "mstr",
+      "target": "equity_the_vanguard_group_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_state_street_corporation",
+      "source": "mstr",
+      "target": "equity_state_street_corporation",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_fmr_llc_fidelity_investments",
+      "source": "mstr",
+      "target": "equity_fmr_llc_fidelity_investments",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_capital_international_investors",
+      "source": "mstr",
+      "target": "equity_capital_international_investors",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_u_s_securities_and_exchange_commission",
+      "source": "government_u_s_securities_and_exchange_commission",
+      "target": "mstr",
+      "relationType": "Primary regulator for public company reporting and Bitcoin treasury accounting oversight"
+    },
+    {
+      "id": "e_government_u_s_general_services_administration",
+      "source": "government_u_s_general_services_administration",
+      "target": "mstr",
+      "relationType": "Federal supply schedule contracting vehicle enabling civilian agency software procurement"
+    },
+    {
+      "id": "e_government_u_s_department_of_defense",
+      "source": "government_u_s_department_of_defense",
+      "target": "mstr",
+      "relationType": "Defense and intelligence community customer for business intelligence analytics platforms"
+    },
+    {
+      "id": "e_government_internal_revenue_service",
+      "source": "government_internal_revenue_service",
+      "target": "mstr",
+      "relationType": "Tax authority governing corporate tax liabilities and Bitcoin treasury tax treatment"
+    }
+  ]
+}
