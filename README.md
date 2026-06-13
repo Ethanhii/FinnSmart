@@ -6,9 +6,19 @@ Each stock is shown as its own **living map** (a React Flow "sandbox"). When new
 
 ## Quick start
 
+**Prerequisites:** Node.js 20+ and npm 10+ (see `requirements.txt` for the full checklist).
+
 ```bash
 npm install
+cp .env.example .env.local   # Windows: copy .env.example .env.local
 npm run dev
+```
+
+Or run the automated bootstrap:
+
+```bash
+python scripts/setup_env.py
+# or: npm run setup
 ```
 
 Open http://localhost:3000.

@@ -1,0 +1,107 @@
+# =============================================================================
+# FinnSmart — Environment & Dependency Requirements
+# =============================================================================
+#
+# FinnSmart is a Next.js (Node.js / TypeScript) app. Dependencies are installed
+# with npm (see package.json), not pip. This file is the single checklist to get
+# a machine ready to run the project.
+#
+# ------------------------------------------------------------------------------
+# 1. SYSTEM REQUIREMENTS (install first)
+# ------------------------------------------------------------------------------
+#
+#   Node.js     >= 20.0.0     https://nodejs.org/
+#   npm         >= 10.0.0     (bundled with Node.js)
+#   Git         any recent    https://git-scm.com/
+#
+#   Recommended: use the version in .nvmrc
+#     nvm install
+#     nvm use
+#
+# ------------------------------------------------------------------------------
+# 2. QUICK SETUP
+# ------------------------------------------------------------------------------
+#
+#   git clone <repo-url>
+#   cd FinnSmart
+#   npm install
+#   cp .env.example .env.local          # Windows: copy .env.example .env.local
+#   npm run dev
+#
+#   Open http://localhost:3000
+#
+#   Or run the automated bootstrap script (Python 3.8+, stdlib only):
+#     python scripts/setup_env.py
+#
+# ------------------------------------------------------------------------------
+# 3. ENVIRONMENT VARIABLES (.env.local)
+# ------------------------------------------------------------------------------
+#
+#   Copy .env.example → .env.local. The app runs on mock data with NO keys set.
+#   Add keys below for live Kimi LLM + Bright Data news research.
+#
+#   Required for live mode:
+#     KIMI_API_KEY=
+#     KIMI_BASE_URL=https://api.moonshot.ai/v1
+#     KIMI_MODEL=kimi-k2.6
+#     BRIGHTDATA_API_KEY=
+#     BRIGHTDATA_ZONE=
+#
+#   Optional:
+#     TOKEN_ROUTER_API_KEY=
+#     TOKEN_ROUTER_BASE_URL=https://api.tokenrouter.com/v1
+#     TOKEN_ROUTER_MODEL=moonshotai/kimi-k2.6
+#     LLM_PRIMARY=kimi                    # or tokenrouter
+#     LLM_TEMPERATURE=1
+#     FINNSMART_USE_MOCKS=true            # force mocks even when keys are set
+#
+# ------------------------------------------------------------------------------
+# 4. NPM DEPENDENCIES (installed via: npm install)
+# ------------------------------------------------------------------------------
+#
+#   Production:
+#     next@^15.1.0
+#     react@^19.0.0
+#     react-dom@^19.0.0
+#     @xyflow/react@^12.3.5
+#     openai@^4.77.0
+#     server-only@^0.0.1
+#
+#   Development:
+#     typescript@^5.7.0
+#     tailwindcss@^4.0.0
+#     @tailwindcss/postcss@^4.0.0
+#     @types/node@^22.10.0
+#     @types/react@^19.0.0
+#     @types/react-dom@^19.0.0
+#
+# ------------------------------------------------------------------------------
+# 5. NPM SCRIPTS
+# ------------------------------------------------------------------------------
+#
+#   npm run dev      Start dev server (http://localhost:3000)
+#   npm run build    Production build
+#   npm run start    Run production server
+#   npm run lint     Lint the codebase
+#
+# ------------------------------------------------------------------------------
+# 6. OPTIONAL — pre-generate a stock relationship map (CLI)
+# ------------------------------------------------------------------------------
+#
+#   npx tsx scripts/generateGraph.ts MSFT
+#
+#   Requires KIMI_API_KEY or TOKEN_ROUTER_API_KEY in .env.local.
+#   Saves to data/graphs/{TICKER}.json
+#
+# ------------------------------------------------------------------------------
+# 7. EXTERNAL SERVICES (no extra pip/npm packages)
+# ------------------------------------------------------------------------------
+#
+#   Kimi (Moonshot)     LLM — graph generation, news scoring, verdict
+#   Bright Data         Google News SERP research per entity
+#   Yahoo Finance       Stock search autocomplete (no API key)
+#   Token Router        Optional LLM gateway (OpenAI-compatible)
+#
+# =============================================================================
+# No Python packages are required. pip install -r requirements.txt is a no-op.
+# =============================================================================
