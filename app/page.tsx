@@ -58,7 +58,7 @@ export default function HomePage() {
       if (cacheFetched.current.has(ticker)) return;
       cacheFetched.current.add(ticker);
       setAnalyses((prev) => ({ ...prev, [ticker]: { status: "loading" } }));
-      fetch(`/api/analyze/${ticker}?horizon=short`)
+      fetch(`/api/analyze/${ticker}?horizon=medium`)
         .then(async (res) => {
           if (res.status === 404) {
             setAnalyses((prev) => ({ ...prev, [ticker]: { status: "idle" } }));

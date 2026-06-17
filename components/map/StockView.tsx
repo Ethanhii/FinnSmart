@@ -33,11 +33,19 @@ import {
 } from "@/components/map/nodes";
 import { ImpactDrawer } from "@/components/map/ImpactDrawer";
 import { ResizableDrawerPanel } from "@/components/map/ResizableDrawerPanel";
+import { PipelineProfileBanner } from "@/components/map/PipelineProfileBanner";
 import { SignalPill } from "@/components/SignalPill";
 import { Brand } from "@/components/Brand";
 import { CATEGORY_LABELS, NODE_TYPE_COLORS, SIGNAL_COLORS } from "@/lib/ui";
 
-const TYPE_ORDER: NodeType[] = ["supplier", "customer", "partner", "equity", "government"];
+const TYPE_ORDER: NodeType[] = [
+  "supplier",
+  "customer",
+  "partner",
+  "equity",
+  "government",
+  "macro",
+];
 const SIGN: Record<Signal, number> = { positive: 1, negative: -1, neutral: 0 };
 
 interface Pos {
@@ -543,6 +551,8 @@ export function StockView({ ticker }: { ticker: string }) {
         </div>
       ) : null}
 
+      {analysis?.profile ? <PipelineProfileBanner profile={analysis.profile} /> : null}
+
       <div className="flex min-h-0 flex-1">
         {/* Sandbox map */}
         <div className="relative min-w-0 flex-1">
@@ -602,6 +612,7 @@ export function StockView({ ticker }: { ticker: string }) {
           <ImpactDrawer
             verdict={verdict}
             impacts={analysis?.impacts ?? []}
+            directCompanyNews={analysis?.directCompanyNews}
             loading={analyzing}
             selectedNodeId={selected}
             stockNodeId={layout?.stockId}

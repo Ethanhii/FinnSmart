@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { getCachedAnalysis, saveAnalysis } from "@/lib/analysis-store";
 import { getGraph, getOrGenerateGraph } from "@/lib/graphs";
 import { analyzeStock } from "@/lib/pipeline";
-import { HORIZONS, type TimeHorizon } from "@/lib/types";
+import type { TimeHorizon } from "@/lib/types";
+import { normalizeHorizon } from "@/lib/horizon-news";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -43,12 +44,12 @@ export async function POST(
   const { ticker } = await params;
 
   let companyName: string | undefined;
-  let horizon: TimeHorizon = "short";
+  let horizon: TimeHorizon = "medium";
 
   try {
     const body = (await req.json()) as { horizon?: string; name?: string };
-    if (body?.horizon && body.horizon in HORIZONS) {
-      horizon = body.horizon as TimeHorizon;
+    if (body?.horizon) {
+      horizon = normalizeHorizon(body.horizon);
     }
     companyName = body?.name?.trim() || undefined;
   } catch {
@@ -70,6 +71,6 @@ export async function POST(
 
 function parseHorizonFromUrl(url: string): TimeHorizon {
   const h = new URL(url).searchParams.get("horizon");
-  if (h && h in HORIZONS) return h as TimeHorizon;
-  return "short";
+  if (h) return normalizeHorizon(h);
+  return "medium";
 }

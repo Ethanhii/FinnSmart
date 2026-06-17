@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup": "python scripts/setup_env.py"
+    "setup": "python scripts/setup_env.py",
+    "benchmark:serp": "tsx scripts/benchmark-brightdata.ts"
   },
   "dependencies": {
     "@xyflow/react": "^12.3.5",

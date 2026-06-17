@@ -29,6 +29,7 @@ export const NODE_TYPE_COLORS: Record<NodeType, string> = {
   partner: "#a98bff",
   equity: "#2bd576",
   government: "#ff8a5b",
+  macro: "#e879f9",
 };
 
 /** Plural labels used for the category hubs that the stock branches into. */
@@ -39,6 +40,7 @@ export const CATEGORY_LABELS: Record<NodeType, string> = {
   partner: "Partners",
   equity: "Equity Holdings",
   government: "Government & Regulators",
+  macro: "Macro & Geopolitical",
 };
 
 export function pct(n: number): string {

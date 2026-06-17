@@ -10,8 +10,20 @@ import type {
 } from "@/lib/types";
 import { HORIZONS } from "@/lib/types";
 import { serpNews, type NewsItem } from "@/lib/integrations/brightdata";
-import { enrichVideoNews, resetVideoEnrichBudget } from "@/lib/integrations/videodb";
+import {
+  buildSerpLayers,
+  filterNewsToLayer,
+  HORIZON_REASONING_WEIGHTS,
+  hoursAgo,
+  layersForHorizon,
+  mergeLayeredNews,
+  type NewsLayerId,
+  type SerpLayerSpec,
+} from "@/lib/horizon-news";
 import { kimiChat, llmConfigured, parseJsonResponse } from "@/lib/integrations/kimi";
+import { fetchCompanyNews } from "@/lib/integrations/yahoo";
+import { profileEnabled } from "@/lib/config";
+import { createProfiler, type PipelineProfiler } from "@/lib/pipeline-profile";
 
 /** Relationship-type weighting: how much an entity's news matters to the stock. */
 const TYPE_WEIGHT: Record<GraphNode["type"], number> = {
@@ -21,6 +33,7 @@ const TYPE_WEIGHT: Record<GraphNode["type"], number> = {
   partner: 0.7,
   equity: 0.6,
   government: 1.3,
+  macro: 1.35,
 };
 
 const SIGN: Record<Signal, number> = { positive: 1, negative: -1, neutral: 0 };
@@ -28,34 +41,51 @@ const SIGN: Record<Signal, number> = { positive: 1, negative: -1, neutral: 0 };
 /** Orchestrates Steps 2-5 of the pipeline and returns the full analysis. */
 export async function analyzeStock(
   graph: StockGraph,
-  horizon: TimeHorizon = "short"
+  horizon: TimeHorizon = "medium"
 ): Promise<AnalyzeResponse> {
   const entities = graph.nodes.filter((n) => n.type !== "stock");
-  const serpRange = HORIZONS[horizon].serpRange;
-  resetVideoEnrichBudget();
+  const profiler = createProfiler(profileEnabled());
 
-  // Step 2: fetch news for every entity in parallel (all Bright Data calls at once).
-  const researched = await Promise.all(
-    entities.map(async (node) => {
-      const raw = await serpNews(`"${node.name}" stock news`, {
-        timeRange: serpRange,
-        num: 10,
-        entityName: node.name,
-      });
-      const news = dedupeNews(raw);
-      // Step 2b: enrich video/YouTube sources with VideoDB transcripts (optional).
-      const enriched = await enrichVideoNews(news);
-      return { node, news: enriched };
-    })
-  );
+  const researchStart = performance.now();
+  const [newsByEntity, directCompanyNews] = await Promise.all([
+    (async () => {
+      const serpStart = performance.now();
+      const result = await fetchAllEntityNewsParallel(entities, horizon, graph, profiler);
+      profiler?.setSerpWall(performance.now() - serpStart);
+      return result;
+    })(),
+    (async () => {
+      const yahooStart = performance.now();
+      const result = await fetchDirectCompanyNews(graph.ticker, horizon);
+      profiler?.setYahoo(performance.now() - yahooStart);
+      return result;
+    })(),
+  ]);
+  const researchMs = Math.round(performance.now() - researchStart);
 
-  // Step 4: evaluate every entity in parallel (after all research completes).
+  const evalStart = performance.now();
   const impacts = await Promise.all(
-    researched.map(({ node, news }) => evaluateEntity(graph, node, news, horizon))
+    entities.map((node) =>
+      evaluateEntity(graph, node, newsByEntity.get(node.id) ?? [], horizon, profiler)
+    )
   );
+  const entityEvalMs = Math.round(performance.now() - evalStart);
 
-  // Step 5: combine every entity into a final verdict for the stock.
-  const verdict = await buildVerdict(graph, impacts, horizon);
+  const verdictStart = performance.now();
+  const verdict = await buildVerdict(
+    graph,
+    impacts,
+    horizon,
+    directCompanyNews,
+    profiler
+  );
+  const verdictMs = Math.round(performance.now() - verdictStart);
+
+  const profile = profiler?.finalize(graph.ticker, {
+    researchMs,
+    entityEvalMs,
+    verdictMs,
+  });
 
   return {
     ticker: graph.ticker,
@@ -63,7 +93,101 @@ export async function analyzeStock(
     horizon,
     verdict,
     impacts,
+    directCompanyNews,
+    profile,
   };
+}
+
+interface SerpTask {
+  node: GraphNode;
+  layer: SerpLayerSpec;
+  query: string;
+}
+
+/** SERP query tuned by node type — macro themes use ticker + channel, not company-name news. */
+function serpQueryForNode(graph: StockGraph, node: GraphNode): string {
+  if (node.type === "macro") {
+    return `${graph.ticker} ${node.name}`;
+  }
+  return `"${node.name}" stock news`;
+}
+
+const HORIZON_MAX_AGE_HOURS: Record<TimeHorizon, number> = {
+  immediate: 24,
+  medium: 60 * 24,
+  long: 365 * 24,
+};
+
+/** Yahoo headlines about the ticker itself — filtered to the selected horizon window. */
+async function fetchDirectCompanyNews(
+  ticker: string,
+  horizon: TimeHorizon
+): Promise<Citation[]> {
+  const raw = await fetchCompanyNews(ticker, 10);
+  const maxAge = HORIZON_MAX_AGE_HOURS[horizon];
+
+  return raw
+    .filter((n) => hoursAgo(n.publishedAt) <= maxAge)
+    .slice(0, 8)
+    .map((n) => ({
+      title: n.title,
+      url: n.url,
+      source: n.source,
+      publishedAt: n.publishedAt,
+      snippet: n.snippet,
+      weight: 0.85,
+    }));
+}
+
+/**
+ * Flatten (entity × layer) into one task list and await all SERP calls together.
+ * Medium horizon = 2× entities calls; long = 3× — all concurrent, no sequential awaits.
+ */
+async function fetchAllEntityNewsParallel(
+  entities: GraphNode[],
+  horizon: TimeHorizon,
+  graph: StockGraph,
+  profiler: PipelineProfiler | null
+): Promise<Map<string, NewsItem[]>> {
+  const layerSpecs = buildSerpLayers();
+  const layerIds = layersForHorizon(horizon);
+
+  const tasks: SerpTask[] = entities.flatMap((node) =>
+    layerIds.map((id) => ({
+      node,
+      layer: layerSpecs[id],
+      query: serpQueryForNode(graph, node),
+    }))
+  );
+
+  const serpResults = await Promise.all(
+    tasks.map(async ({ node, layer, query }) => {
+      const start = performance.now();
+      const raw = await serpNews(query, {
+        tbs: layer.tbs,
+        num: layer.num,
+        entityName: node.name,
+      });
+      profiler?.recordSerp(`${node.name} · ${layer.id}`, performance.now() - start);
+      const gated = filterNewsToLayer(dedupeNews(raw), layer);
+      return { nodeId: node.id, layerId: layer.id, items: gated };
+    })
+  );
+
+  const byEntity = new Map<string, { layer: NewsLayerId; items: NewsItem[] }[]>();
+
+  for (const { nodeId, layerId, items } of serpResults) {
+    const list = byEntity.get(nodeId) ?? [];
+    list.push({ layer: layerId, items });
+    byEntity.set(nodeId, list);
+  }
+
+  const merged = new Map<string, NewsItem[]>();
+  for (const [nodeId, buckets] of byEntity) {
+    merged.set(nodeId, mergeLayeredNews(buckets, horizon));
+  }
+
+  return merged;
 }
 
 function dedupeNews(items: NewsItem[]): NewsItem[] {
@@ -91,18 +215,10 @@ function hostOf(url: string): string {
   }
 }
 
-/** Hours since publication; smaller = more urgent. Unknown dates rank mid. */
-function hoursAgo(publishedAt?: string): number {
-  if (!publishedAt) return 240;
-  const t = Date.parse(publishedAt);
-  if (Number.isNaN(t)) return 240;
-  return Math.max(0, (Date.now() - t) / 3_600_000);
-}
-
 /** Combined importance: editorial weight + recency (urgency). Higher = first. */
 function citationImportance(n: NewsItem): number {
   const weight = n.weight ?? 0.3;
-  const recency = Math.max(0, 1 - hoursAgo(n.publishedAt) / 720); // ~30d window
+  const recency = Math.max(0, 1 - hoursAgo(n.publishedAt) / 720);
   return weight * 2 + recency;
 }
 
@@ -120,23 +236,31 @@ function toCitations(news: NewsItem[]): Citation[] {
     }));
 }
 
+function reasoningBlock(horizon: TimeHorizon): string {
+  return HORIZON_REASONING_WEIGHTS[horizon];
+}
+
 async function evaluateEntity(
   graph: StockGraph,
   node: GraphNode,
   news: NewsItem[],
-  horizon: TimeHorizon
+  horizon: TimeHorizon,
+  profiler: PipelineProfiler | null
 ): Promise<EntityImpact> {
   const citations = toCitations(news);
   const h = HORIZONS[horizon];
 
   if (llmConfigured() && news.length > 0) {
     try {
+      const isMacro = node.type === "macro";
+      const kimiStart = performance.now();
       const text = await kimiChat(
         [
           {
             role: "system",
-            content:
-              "You are a financial relationship analyst. Given a target stock, a connected entity, and recent news about that entity, decide how the news is likely to affect the TARGET stock through the stated relationship, over the requested TIME HORIZON. Respond with strict JSON only.",
+            content: isMacro
+              ? "You are a macro equity analyst. Given a target stock and a macro/geopolitical risk channel, decide how recent news on this theme is likely to affect the TARGET stock directly (not through a supplier or customer), over the requested TIME HORIZON. Respond with strict JSON only."
+              : "You are a financial relationship analyst. Given a target stock, a connected entity, and recent news about that entity, decide how the news is likely to affect the TARGET stock through the stated relationship, over the requested TIME HORIZON. Respond with strict JSON only.",
           },
           {
             role: "user",
@@ -144,19 +268,22 @@ async function evaluateEntity(
               targetStock: { ticker: graph.ticker, name: graph.name },
               entity: { name: node.name, type: node.type, relationship: node.relationship },
               timeHorizon: { label: h.label, window: h.range, meaning: h.description },
+              contextWeights: reasoningBlock(horizon),
               news: news.map((n) => ({
                 title: n.title,
                 snippet: n.snippet,
                 source: n.source,
+                publishedAt: n.publishedAt,
               })),
               instructions:
-                `Judge impact specifically over the ${h.label} horizon (${h.range}: ${h.description}). ` +
-                "Return {\"signal\":\"positive|negative|neutral\",\"magnitude\":0..1,\"summary\":\"<=2 sentences explaining the ripple to the target stock over this horizon\"}.",
+                reasoningBlock(horizon) +
+                " Return {\"signal\":\"positive|negative|neutral\",\"magnitude\":0..1,\"summary\":\"<=2 sentences explaining the ripple to the target stock over this horizon\"}.",
             }),
           },
         ],
         { json: true }
       );
+      profiler?.recordKimi(node.name, performance.now() - kimiStart);
       const parsed = parseJsonResponse<{ signal: Signal; magnitude: number; summary: string }>(text);
       return {
         nodeId: node.id,
@@ -177,12 +304,10 @@ async function evaluateEntity(
 
 function mockEvaluate(node: GraphNode, news: NewsItem[], citations: Citation[]): EntityImpact {
   let score = 0;
-  let weightSum = 0;
   let topWeight = 0;
   for (const n of news) {
     const w = n.weight ?? 0.3;
     score += SIGN[n.sentiment ?? "neutral"] * w;
-    weightSum += w;
     topWeight = Math.max(topWeight, w);
   }
   const signal: Signal = score > 0.05 ? "positive" : score < -0.05 ? "negative" : "neutral";
@@ -201,7 +326,9 @@ function mockEvaluate(node: GraphNode, news: NewsItem[], citations: Citation[]):
 async function buildVerdict(
   graph: StockGraph,
   impacts: EntityImpact[],
-  horizon: TimeHorizon
+  horizon: TimeHorizon,
+  directCompanyNews: Citation[] = [],
+  profiler: PipelineProfiler | null = null
 ): Promise<StockVerdict> {
   const nodeById = new Map(graph.nodes.map((n) => [n.id, n]));
   const mostAffected = [...impacts].sort((a, b) => b.magnitude - a.magnitude)[0];
@@ -209,6 +336,7 @@ async function buildVerdict(
 
   if (llmConfigured()) {
     try {
+      const verdictStart = performance.now();
       const text = await kimiChat(
         [
           {
@@ -221,21 +349,32 @@ async function buildVerdict(
             content: JSON.stringify({
               targetStock: { ticker: graph.ticker, name: graph.name },
               timeHorizon: { label: h.label, window: h.range, meaning: h.description },
+              contextWeights: reasoningBlock(horizon),
+              directCompanyNews: directCompanyNews.map((n) => ({
+                title: n.title,
+                snippet: n.snippet,
+                source: n.source,
+                publishedAt: n.publishedAt,
+              })),
               impacts: impacts.map((i) => ({
                 entity: nodeById.get(i.nodeId)?.name,
+                type: nodeById.get(i.nodeId)?.type,
                 relationship: nodeById.get(i.nodeId)?.relationship,
                 signal: i.signal,
                 magnitude: i.magnitude,
                 summary: i.summary,
               })),
               instructions:
-                `Reason about the ${h.label} horizon. The expectedMove should be sized appropriately for that horizon and timeframe should reflect "${h.timeframe}". ` +
-                "Return {\"signal\":\"positive|negative|neutral\",\"confidence\":0..1,\"expectedMove\":\"e.g. +1% to +3%\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=2 sentences summary\",\"explanation\":\"3-5 sentences explaining WHY the stock is likely to rise or fall overall through its connected landscape — clear, investor-friendly prose\",\"bullishDrivers\":[\"<=12 words each, max 4\"],\"bearishDrivers\":[\"<=12 words each, max 4\"],\"mostAffectedEntity\":\"<entity name>\"}.",
+                reasoningBlock(horizon) +
+                " Weight directCompanyNews heavily — these are idiosyncratic catalysts on the stock itself. " +
+                ` The expectedMove should be sized for the ${h.label} horizon; timeframe should reflect "${h.timeframe}". ` +
+                "Return {\"signal\":\"positive|negative|neutral\",\"confidence\":0..1,\"expectedMove\":\"e.g. +1% to +3%\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=2 sentences summary\",\"explanation\":\"3-5 sentences explaining WHY the stock is likely to rise or fall overall — investor-friendly prose\",\"bullishDrivers\":[\"<=12 words each, max 4\"],\"bearishDrivers\":[\"<=12 words each, max 4\"],\"mostAffectedEntity\":\"<entity or macro channel name>\"}.",
             }),
           },
         ],
         { json: true }
       );
+      profiler?.setVerdict(performance.now() - verdictStart);
       const parsed = parseJsonResponse<{
         signal: Signal;
         confidence: number;
@@ -270,20 +409,16 @@ async function buildVerdict(
   return mockVerdict(graph, impacts, mostAffected, horizon);
 }
 
-/** Expected-move ranges scale with the horizon so the verdict visibly shifts. */
 const MOVE_RANGES: Record<TimeHorizon, { small: string; large: string }> = {
   immediate: { small: "0.5% to 2%", large: "2% to 5%" },
-  short: { small: "1% to 3%", large: "3% to 8%" },
-  medium: { small: "3% to 8%", large: "8% to 20%" },
-  long: { small: "5% to 15%", large: "15% to 40%" },
+  medium: { small: "2% to 8%", large: "5% to 15%" },
+  long: { small: "8% to 20%", large: "15% to 40%" },
 };
 
-/** Longer horizons carry more uncertainty. */
 const HORIZON_CONFIDENCE: Record<TimeHorizon, number> = {
   immediate: 1,
-  short: 0.95,
-  medium: 0.85,
-  long: 0.7,
+  medium: 0.88,
+  long: 0.72,
 };
 
 function mockVerdict(

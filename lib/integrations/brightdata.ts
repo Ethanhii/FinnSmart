@@ -4,7 +4,9 @@ import { MOCK_NEWS, fallbackNews, type NewsItem } from "@/data/mocks/news";
 export type { NewsItem };
 
 export interface SerpOptions {
-  /** Google `tbs` style hint. We map to qdr param. */
+  /** Full Google `tbs` value, e.g. qdr:d or cdr:1,cd_min:...,cd_max:... */
+  tbs?: string;
+  /** Shorthand — mapped to qdr:{value} when tbs is omitted. */
   timeRange?: "h" | "d" | "w" | "m" | "y";
   num?: number;
   /** Used to resolve mock fixtures by exact entity name. */
@@ -28,7 +30,8 @@ export async function serpNews(
     return getMockNews(query, opts.entityName);
   }
 
-  const { timeRange = "d", num = 10 } = opts;
+  const { timeRange = "d", num = 10, tbs } = opts;
+  const tbsParam = tbs ?? `qdr:${timeRange}`;
   const searchParams = new URLSearchParams({
     q: query,
     tbm: "nws",
@@ -36,7 +39,7 @@ export async function serpNews(
     num: String(num),
     hl: "en",
     gl: "us",
-    tbs: `qdr:${timeRange}`,
+    tbs: tbsParam,
   });
   const targetUrl = `https://www.google.com/search?${searchParams.toString()}`;
 

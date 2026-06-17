@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import type { Citation, EntityImpact, Signal, StockVerdict } from "@/lib/types";
 import { NODE_TYPE_LABELS } from "@/lib/types";
 import { SignalPill } from "@/components/SignalPill";
 import { SIGNAL_COLORS, pct } from "@/lib/ui";
+
+type DrawerTab = "company" | "ecosystem";
 
 function relativeTime(publishedAt?: string): string {
   if (!publishedAt) return "";
@@ -35,6 +37,7 @@ function deriveDrivers(impacts: EntityImpact[]) {
 export function ImpactDrawer({
   verdict,
   impacts,
+  directCompanyNews = [],
   loading,
   selectedNodeId,
   stockNodeId,
@@ -43,6 +46,7 @@ export function ImpactDrawer({
 }: {
   verdict?: StockVerdict;
   impacts: EntityImpact[];
+  directCompanyNews?: Citation[];
   loading: boolean;
   selectedNodeId?: string | null;
   stockNodeId?: string;
@@ -51,10 +55,13 @@ export function ImpactDrawer({
 }) {
   const sorted = [...impacts].sort((a, b) => b.magnitude - a.magnitude);
   const stockSelected = Boolean(stockNodeId && selectedNodeId === stockNodeId);
+  const sym = ticker ?? "Stock";
 
+  const [tab, setTab] = useState<DrawerTab>("ecosystem");
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const verdictRef = useRef<HTMLDivElement | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const outlook = useMemo(() => {
     if (!verdict) return null;
@@ -68,7 +75,7 @@ export function ImpactDrawer({
     };
   }, [verdict, impacts]);
 
-  // When a node is selected on the map, scroll to the right panel section.
+  // Map selection → scroll the right section into view.
   useEffect(() => {
     if (!selectedNodeId) return;
     if (stockNodeId && selectedNodeId === stockNodeId) {
@@ -76,8 +83,13 @@ export function ImpactDrawer({
       setExpandedId(null);
       return;
     }
+    setTab("ecosystem");
     const el = cardRefs.current[selectedNodeId];
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (el) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    }
     setExpandedId(selectedNodeId);
   }, [selectedNodeId, stockNodeId]);
 
@@ -86,12 +98,14 @@ export function ImpactDrawer({
     setExpandedId((prev) => (prev === nodeId ? null : nodeId));
   };
 
+  const showCompanyTab = directCompanyNews.length > 0 || loading;
+
   return (
     <aside className="flex h-full w-full flex-col overflow-hidden">
-      {/* Verdict / stock outlook */}
+      {/* Verdict — pinned summary */}
       <div
         ref={verdictRef}
-        className="border-b border-[var(--color-border)] p-4 transition-colors"
+        className="shrink-0 border-b border-[var(--color-border)] p-4 transition-colors"
         style={{
           borderColor: stockSelected ? SIGNAL_COLORS[verdict?.signal ?? "neutral"] : undefined,
           background: stockSelected ? "var(--color-surface-2)" : undefined,
@@ -99,7 +113,7 @@ export function ImpactDrawer({
       >
         <div className="flex items-center justify-between gap-2">
           <div className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
-            {stockSelected ? `${ticker ?? "Stock"} outlook` : "Impact verdict"}
+            {stockSelected ? `${sym} outlook` : "Impact verdict"}
           </div>
           {stockSelected ? (
             <span className="text-[10px] font-medium text-[var(--color-accent)]">Selected</span>
@@ -140,7 +154,7 @@ export function ImpactDrawer({
               <>
                 <div className="mt-4">
                   <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-muted)]">
-                    Why {ticker ?? "the stock"} is {directionLabel(verdict.signal)}
+                    Why {sym} is {directionLabel(verdict.signal)}
                   </div>
                   <p className="text-sm leading-relaxed text-[var(--color-text)]">
                     {outlook.explanation}
@@ -165,83 +179,263 @@ export function ImpactDrawer({
 
             {!stockSelected && stockNodeId ? (
               <p className="mt-3 text-[11px] text-[var(--color-muted)]">
-                Click the center {ticker ?? "stock"} node for a full up/down explanation.
+                Click the center {sym} node for a full up/down explanation.
               </p>
             ) : null}
           </div>
         )}
       </div>
 
-      {/* Entities */}
-      <div className="min-h-0 flex-1 overflow-y-auto p-4">
-        <div className="mb-3 text-xs uppercase tracking-wide text-[var(--color-muted)]">
+      {/* Tab switcher */}
+      {showCompanyTab ? (
+        <div
+          className="flex shrink-0 gap-1 border-b border-[var(--color-border)] p-2"
+          role="tablist"
+          aria-label="News sections"
+        >
+          <TabButton
+            active={tab === "company"}
+            onClick={() => {
+              setTab("company");
+              scrollRef.current?.scrollTo({ top: 0 });
+            }}
+            label={`${sym} news`}
+            count={directCompanyNews.length || undefined}
+          />
+          <TabButton
+            active={tab === "ecosystem"}
+            onClick={() => {
+              setTab("ecosystem");
+              scrollRef.current?.scrollTo({ top: 0 });
+            }}
+            label="Ecosystem"
+            count={impacts.length || undefined}
+          />
+        </div>
+      ) : (
+        <div className="shrink-0 border-b border-[var(--color-border)] px-4 py-2 text-xs uppercase tracking-wide text-[var(--color-muted)]">
           Connected landscape ({impacts.length})
         </div>
-        <div className="space-y-2">
-          {loading && impacts.length === 0
-            ? Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="card h-20 animate-pulse" />
-              ))
-            : sorted.map((impact) => {
-                const isOpen = expandedId === impact.nodeId;
-                const isSelected = selectedNodeId === impact.nodeId;
-                return (
-                  <div
-                    key={impact.nodeId}
-                    ref={(el) => {
-                      cardRefs.current[impact.nodeId] = el;
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => handleCardClick(impact.nodeId)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleCardClick(impact.nodeId);
-                      }
-                    }}
-                    className="card w-full cursor-pointer p-3 text-left transition-colors hover:border-[#3a3a3a]"
-                    style={{
-                      borderColor: isSelected ? SIGNAL_COLORS[impact.signal] : undefined,
-                    }}
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="min-w-0">
-                        <div className="truncate text-sm font-semibold">{impact.name}</div>
-                        <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)]">
-                          {NODE_TYPE_LABELS[impact.type]}
-                        </div>
-                      </div>
-                      <SignalPill signal={impact.signal} />
-                    </div>
+      )}
 
-                    <p className="mt-2 text-xs leading-relaxed text-[var(--color-muted)]">
-                      {impact.summary}
-                    </p>
-
-                    {impact.citations.length > 0 ? (
-                      isOpen ? (
-                        <SourceList citations={impact.citations} signal={impact.signal} />
-                      ) : (
-                        <div className="mt-2 flex items-center gap-1 text-[11px] font-medium text-[var(--color-muted)]">
-                          <span>
-                            {impact.citations.length} source
-                            {impact.citations.length > 1 ? "s" : ""}
-                          </span>
-                          <span aria-hidden>· tap to read ▾</span>
-                        </div>
-                      )
-                    ) : (
-                      <div className="mt-2 text-[11px] text-[var(--color-muted)]">
-                        No sources in this window.
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-        </div>
+      {/* Scrollable content */}
+      <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto p-4">
+        {tab === "company" && showCompanyTab ? (
+          <CompanyNewsPanel
+            ticker={sym}
+            items={directCompanyNews}
+            loading={loading && directCompanyNews.length === 0}
+          />
+        ) : (
+          <EcosystemPanel
+            impacts={sorted}
+            loading={loading}
+            expandedId={expandedId}
+            selectedNodeId={selectedNodeId}
+            cardRefs={cardRefs}
+            onCardClick={handleCardClick}
+          />
+        )}
       </div>
     </aside>
+  );
+}
+
+function TabButton({
+  active,
+  onClick,
+  label,
+  count,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+  count?: number;
+}) {
+  return (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={active}
+      onClick={onClick}
+      className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors"
+      style={{
+        background: active ? "var(--color-surface-2)" : "transparent",
+        color: active ? "var(--color-text)" : "var(--color-muted)",
+        border: active ? "1px solid var(--color-border)" : "1px solid transparent",
+      }}
+    >
+      {label}
+      {count !== undefined && count > 0 ? (
+        <span
+          className="rounded-full px-1.5 py-0.5 text-[10px]"
+          style={{
+            background: active ? "var(--color-border)" : "var(--color-surface-2)",
+            color: "var(--color-muted)",
+          }}
+        >
+          {count}
+        </span>
+      ) : null}
+    </button>
+  );
+}
+
+function CompanyNewsPanel({
+  ticker,
+  items,
+  loading,
+}: {
+  ticker: string;
+  items: Citation[];
+  loading: boolean;
+}) {
+  if (loading) {
+    return (
+      <div className="space-y-2">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="h-16 animate-pulse rounded-lg bg-[var(--color-surface-2)]" />
+        ))}
+      </div>
+    );
+  }
+
+  if (items.length === 0) {
+    return (
+      <p className="text-center text-sm text-[var(--color-muted)]">
+        No direct headlines for {ticker} in this window.
+      </p>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      <p className="mb-3 text-[11px] text-[var(--color-muted)]">
+        Headlines about {ticker} from Yahoo Finance — not ecosystem ripples.
+      </p>
+      {items.map((c, i) => (
+        <NewsLink key={i} citation={c} />
+      ))}
+    </div>
+  );
+}
+
+function EcosystemPanel({
+  impacts,
+  loading,
+  expandedId,
+  selectedNodeId,
+  cardRefs,
+  onCardClick,
+}: {
+  impacts: EntityImpact[];
+  loading: boolean;
+  expandedId: string | null;
+  selectedNodeId?: string | null;
+  cardRefs: MutableRefObject<Record<string, HTMLDivElement | null>>;
+  onCardClick: (nodeId: string) => void;
+}) {
+  if (loading && impacts.length === 0) {
+    return (
+      <div className="space-y-2">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="card h-20 animate-pulse" />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      <p className="mb-3 text-[11px] text-[var(--color-muted)]">
+        News rippling through connected suppliers, customers, partners, and macro channels.
+      </p>
+      {impacts.map((impact) => {
+        const isOpen = expandedId === impact.nodeId;
+        const isSelected = selectedNodeId === impact.nodeId;
+        return (
+          <div
+            key={impact.nodeId}
+            ref={(el) => {
+              cardRefs.current[impact.nodeId] = el;
+            }}
+            role="button"
+            tabIndex={0}
+            onClick={() => onCardClick(impact.nodeId)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onCardClick(impact.nodeId);
+              }
+            }}
+            className="card w-full cursor-pointer p-3 text-left transition-colors hover:border-[#3a3a3a]"
+            style={{
+              borderColor: isSelected ? SIGNAL_COLORS[impact.signal] : undefined,
+            }}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <div className="min-w-0">
+                <div className="truncate text-sm font-semibold">{impact.name}</div>
+                <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)]">
+                  {NODE_TYPE_LABELS[impact.type]}
+                </div>
+              </div>
+              <SignalPill signal={impact.signal} />
+            </div>
+
+            <p className="mt-2 text-xs leading-relaxed text-[var(--color-muted)]">
+              {impact.summary}
+            </p>
+
+            {impact.citations.length > 0 ? (
+              isOpen ? (
+                <SourceList citations={impact.citations} signal={impact.signal} />
+              ) : (
+                <div className="mt-2 flex items-center gap-1 text-[11px] font-medium text-[var(--color-muted)]">
+                  <span>
+                    {impact.citations.length} source
+                    {impact.citations.length > 1 ? "s" : ""}
+                  </span>
+                  <span aria-hidden>· tap to read ▾</span>
+                </div>
+              )
+            ) : (
+              <div className="mt-2 text-[11px] text-[var(--color-muted)]">
+                No sources in this window.
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function NewsLink({ citation: c }: { citation: Citation }) {
+  return (
+    <a
+      href={c.url}
+      target="_blank"
+      rel="noreferrer"
+      className="block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-2)] p-2.5 transition-colors hover:border-[#3a3a3a]"
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] font-semibold text-[var(--color-text)]">{c.source}</span>
+        {c.publishedAt ? (
+          <span className="shrink-0 text-[10px] text-[var(--color-muted)]">
+            {relativeTime(c.publishedAt)}
+          </span>
+        ) : null}
+      </div>
+      <div className="mt-1 text-xs font-medium leading-snug text-[var(--color-text)]">
+        {c.title}
+      </div>
+      {c.snippet ? (
+        <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-[var(--color-muted)]">
+          {c.snippet}
+        </p>
+      ) : null}
+    </a>
   );
 }
 

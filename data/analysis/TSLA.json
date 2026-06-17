@@ -2063,7 +2063,642 @@
           ]
         }
       ]
+    },
+    "medium": {
+      "ticker": "TSLA",
+      "generatedAt": "2026-06-16T16:29:14.148Z",
+      "horizon": "medium",
+      "verdict": {
+        "signal": "negative",
+        "confidence": 0.65,
+        "expectedMove": "-3% to -7%",
+        "timeframe": "next 2-8 weeks",
+        "rationale": "Tesla faces a convergence of medium-term demand, governance, and geopolitical headwinds that are likely to pressure the stock over the coming weeks. Softening North American fleet demand, elevated China regulatory risk, and Musk’s escalating focus on a newly public SpaceX/xAI ecosystem outweigh supply-chain resilience and modest analyst valuation support.",
+        "explanation": "Medium-term demand signals are deteriorating as key suppliers and fleet customers point to soft North American EV volumes, while rising lithium costs and China’s unpredictable regulatory environment threaten margins and Shanghai production. The folding of xAI into SpaceX ahead of its IPO raises acute governance concerns, suggesting Musk’s attention and critical AI talent are increasingly diverted from Tesla just as the company pivots away from an affordable mass-market vehicle toward an unproven AI moonshot. Analyst fair-value bumps and stable battery supply from partners like Panasonic and CATL provide some operational ballast, but they are insufficient to offset the compounding revenue and narrative risks. Investors are likely to demand a risk premium until there is clearer evidence of sustainable auto demand and contained geopolitical exposure.",
+        "bullishDrivers": [
+          "Panasonic battery demand rebound",
+          "CATL secures LFP supply chain",
+          "EU emissions policy supports EVs",
+          "Rivian competitive threat remains muted"
+        ],
+        "bearishDrivers": [
+          "xAI folds into SpaceX, talent diverts",
+          "Hertz slashes EV fleet exposure",
+          "China regulatory hostility rises",
+          "North American EV demand softens"
+        ],
+        "mostAffectedNodeId": "x"
+      },
+      "impacts": [
+        {
+          "nodeId": "panasonic",
+          "name": "Panasonic",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.45,
+          "summary": "Panasonic's raised battery outlook explicitly tied to Tesla's sales rebound signals solidifying medium-term demand and production volumes for Tesla. The added assessment of North American anode sourcing supports future supply chain resilience, while Panasonic's own stock volatility presents no direct operational disruption.",
+          "citations": [
+            {
+              "title": "Panasonic Raises EV Battery Outlook Based On Tesla's Sales Bounce",
+              "url": "https://www.investors.com/news/tesla-sales-ev-electric-vehicle-batteries-panasonic-tsmc-samsung/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "1 month ago",
+              "snippet": "Panasonic told investors it expected higher sales of EV batteries because of Tesla's successful turnaround."
+            },
+            {
+              "title": "Assessing Panasonic Holdings (TSE:6752) Valuation After Its Recent Share Price Momentum",
+              "url": "https://simplywall.st/stocks/jp/consumer-durables/tse-6752/panasonic-holdings-shares/news/assessing-panasonic-holdings-tse6752-valuation-after-its-rec",
+              "source": "Simply Wall Street",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Recent share performance and business scale With no single headline event driving attention today, Panasonic Holdings (TSE:6752) is drawing interest as its..."
+            },
+            {
+              "title": "Is Panasonic Holdings (TSE:6752) Overvalued After Its Strong 1 Year Share Price Momentum",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/panasonic-holdings-tse-6752-overvalued-132110683.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 week ago",
+              "snippet": "Recent share performance and business scale Panasonic Holdings (TSE:6752) has drawn investor attention after a strong run in the stock over the past month..."
+            },
+            {
+              "title": "Panasonic stock rating cut at Morgan Stanley after AI rally",
+              "url": "https://www.investing.com/news/stock-market-news/panasonic-stock-rating-cut-at-morgan-stanley-after-ai-rally-4724078",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Investing.com -- Morgan Stanley downgraded Panasonic Holdings to Equal-Weight from Overweight on Wednesday, arguing that the stock's strong run has left..."
+            },
+            {
+              "title": "Panasonic to assess first North American synthetic graphite anode from NOVONIX",
+              "url": "https://www.stocktitan.net/news/NVX/novonix-delivers-mass-production-aam-sample-to-yujjayn2z3bj.html",
+              "source": "Stock Titan",
+              "publishedAt": "5 days ago",
+              "snippet": "First known North American C-sample of synthetic graphite anode material heads to Panasonic, a key step toward a U.S. supply chain and H2 2027 production."
+            }
+          ]
+        },
+        {
+          "nodeId": "catl",
+          "name": "CATL",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.3,
+          "summary": "CATL's heavily oversubscribed $5 billion capital raise strengthens its balance sheet and ability to expand LFP capacity, reducing Tesla's medium-term supply risk in China. The strong investor appetite validates healthy EV battery demand and secures a critical supplier's stability, outweighing any short-term volatility from the share placement.",
+          "citations": [
+            {
+              "title": "CATL declines nearly 7% as the Chinese battery maker unveils $5 billion share placement",
+              "url": "https://www.cnbc.com/2026/04/28/catl-shares-slide-after-5-billion-hong-kong-share-placement-plan.html",
+              "source": "CNBC",
+              "publishedAt": "1 month ago",
+              "snippet": "Shares of Contemporary Amperex Technology (CATL) declined nearly 7% after the EV battery giant unveiled plans for a roughly $5 billion equity placement in..."
+            },
+            {
+              "title": "Chinese EV battery maker CATL launches $5 billion Hong Kong share sale",
+              "url": "https://www.reuters.com/world/china/chinese-battery-maker-catl-launches-5-billion-hong-kong-shares-offering-term-2026-04-27/",
+              "source": "Reuters",
+              "publishedAt": "1 month ago",
+              "snippet": "Contemporary Amperex Technology Co (CATL) launched a roughly $5 billion share sale in Hong Kong on Monday, tapping markets less than a year after its..."
+            },
+            {
+              "title": "World’s biggest battery maker CATL to raise $5bn",
+              "url": "https://www.ft.com/content/9a824616-7ea6-4cd8-93df-266173efb015?syn-25a6b1a6=1",
+              "source": "Financial Times",
+              "publishedAt": "1 month ago",
+              "snippet": "CATL has announced a sale of additional shares worth $5bn in Hong Kong, as the Chinese battery maker takes advantage of a surge in foreign investor interest..."
+            },
+            {
+              "title": "CATL Stock Quote, Share Price, News and Analysis",
+              "url": "https://longbridge.com/en/quote/03750.HK",
+              "source": "Longbridge",
+              "publishedAt": "6 days ago",
+              "snippet": "Find CATL Stock (03750.HK) real-time stock quote, share price, news, forum discussions, reports and financial analysis Longbridge. Trade with $0 commission..."
+            },
+            {
+              "title": "CATL Share Sale’s Tightening Discount Shows China Tech Momentum",
+              "url": "https://www.bloomberg.com/news/articles/2026-04-21/catl-share-sale-s-tightening-discount-shows-china-tech-momentum",
+              "source": "Bloomberg.com",
+              "publishedAt": "Apr 20, 2026",
+              "snippet": "A sale of Contemporary Amperex Technology Co.'s shares disclosed on Monday— priced at a 5.1% discount — was more than twice subscribed."
+            }
+          ]
+        },
+        {
+          "nodeId": "lges",
+          "name": "LG Energy Solution",
+          "type": "supplier",
+          "signal": "negative",
+          "magnitude": 0.4,
+          "summary": "LG Energy Solution’s Q1 loss driven by weak North American EV demand signals softening end-market conditions that weigh on Tesla’s medium-term automotive sales outlook. While LG’s major U.S. energy storage contract supports supplier stability, it does not offset the negative demand read-through for Tesla’s core vehicle business.",
+          "citations": [
+            {
+              "title": "LG Energy Solution Vertech announces agreement with DTE Energy for 6GWh of battery energy storage systems",
+              "url": "/goto?url=CAES2gEB7keqTQ7k1CEHu5yWjta3NUGVnu1vFE7MKOnySADPk4IaqpeWgnpxVsE94wL1MgcaqsNmJRaSw1mb3PAP6iE7H_K4mWISWIrvOxveZ2M4m8uy2MzjDaFr8s_1jZOBESRecr_kiXswtlhzPddOXeBJ_bXfRfClyfGqEvVZBvLGfuc0xTIMTK2UgtFlT0On154hzXbisvde-vH0ybIu_wz8ind_EISNgasoxUj4LdkB_rVLOIhqLdzlIl9sraVxBqCUs4zgtHtcj-8gTrSUIaaiL_hsiLgsboiqxQ==",
+              "source": "PR Newswire",
+              "publishedAt": "3 weeks ago",
+              "snippet": "PRNewswire/ -- LG Energy Solution Vertech today announced a supply agreement with DTE Energy, partnering to develop Michigan-made battery energy storage..."
+            },
+            {
+              "title": "LG Energy Solution shares surged more than 16% at one point after securing a major U.S. energy storage battery contract.",
+              "url": "/goto?url=CAESlgEB7keqTWihTib7-ry0OGzlRTP8Rm3GUSfbJDMBe2y9tLnzt-s9iF5yTvoomFBOEX5aez9zU4zLgyISMSJNEuL3IdvwYp1Q8s5MKBKf9emrU2_tbKLbnwzDh4xErs64WCVkXLnDae-nBWpq2KJBbkx20cIrGQC6QQ15-2omjxvP-k3y1PGp4lD86n9MtvxdjNDu67gQ8Y0=",
+              "source": "Moomoo",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Zhitong Finance APP learned that on Thursday, LG Energy Solution's stock price surged more than 16% during trading in South Korea."
+            },
+            {
+              "title": "LG Energy Solution swings to Q1 loss on North America EV demand weakness",
+              "url": "/goto?url=CAESsAEB7keqTbyIWqRyhU7lbIvKAYOoQs4GLNfZXJZJ2maWUTyXcWBB4PPHv-cQy6hGLBtzTBAg3rYDTgsrc4-dCV1q293FzDYjKcqUUeQBlwU9olsO6WrqHLdIpkGWxmC2borpRWqZm96BxijTY3gY58Fh7h5WXARLC_cH55o0DL0vJTfJXJ2LErEpVMw68dmccOVQ4MHQJ0j162bY2uS3upfUWGc9a62vqtznNzbQfO59yg==",
+              "source": "Investing.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Investing.com-- LG Energy Solution (KS:373220) swung to a loss in the first quarter, as weaker electric vehicle demand in North America offset growth in..."
+            },
+            {
+              "title": "LG Energy Solution and DTE Energy partner to deliver 6GWh Michigan-made battery storage projects over two years.",
+              "url": "/goto?url=CAESpwEB7keqTWlYeH019uphvNCjv2xd2oFZXv26zUuuznWm2wctadzWro1rQenKLTQPGGC0rvoVg-TiQ99z_y_q7_98_OKcUHGcqnJm2RqNvauCKFeJEcQrM5pyQXnTZ6kfzj_WnwjzDirPzHST8w3s4vuKwbEimvpAQebt8KXaKzLT4aTAuGxq4sGsoLrTb75inegqBc4IW6qeotlgCAR-7SOJkE3nQriUiw==",
+              "source": "Pluang",
+              "publishedAt": "3 weeks ago",
+              "snippet": "LG Energy Solution Vertech and DTE Energy have signed an agreement to develop eight battery energy storage projects in Michigan, delivering a total of 6..."
+            },
+            {
+              "title": "LG Energy Solution recorded its largest trading volume in 52 weeks on the news of a large North Amer..",
+              "url": "/goto?url=CAESXgHuR6pNva9FPZ6YMETqTcQg28NtG4vfVnwzq9ZNjFre8ICegSedQdvYbUWRWzvMeHLTEbZa4wN5aCCMyjGPdNhzqWkPKytpwFJnM-9pXZBkObqiDj8maF53NfKJHXs=",
+              "source": "매일경제",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Amid strong KOSPI secondary battery-related stocks, LG Energy Solution jumped 11% to 102.1 trillion won in market capitalization. As of 1 p.m. on the 28th,..."
+            }
+          ]
+        },
+        {
+          "nodeId": "albemarle",
+          "name": "Albemarle",
+          "type": "supplier",
+          "signal": "negative",
+          "magnitude": 0.2,
+          "summary": "Over the medium term, Albemarle’s uptrend on firming lithium demand and pricing points to modestly higher battery input costs for Tesla, creating a margin headwind. This is tempered by resilient end-market EV demand signals and no immediate supply disruption, keeping the overall impact muted.",
+          "citations": [
+            {
+              "title": "Albemarle Announces Quarterly Common Stock Dividend",
+              "url": "https://www.prnewswire.com/news-releases/albemarle-announces-quarterly-common-stock-dividend-302762966.html",
+              "source": "PR Newswire",
+              "publishedAt": "1 month ago",
+              "snippet": "PRNewswire/ -- The Board of Directors of Albemarle Corporation (NYSE: ALB) today announced that it declared a quarterly common stock dividend of $0.405 per."
+            },
+            {
+              "title": "Albemarle (ALB) Stock After 184% One Year Surge Are Recent Gains Already Priced In",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/albemarle-alb-stock-184-one-231416086.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 days ago",
+              "snippet": "Investors may be wondering whether Albemarle's share price still offers value after a strong run, or if most of the easy gains are already behind it."
+            },
+            {
+              "title": "RBC Capital raises Albemarle stock price target on growth outlook",
+              "url": "https://www.investing.com/news/analyst-ratings/rbc-capital-raises-albemarle-stock-price-target-on-growth-outlook-93CH-4710155",
+              "source": "Investing.com",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Investing.com - RBC Capital raised its price target on Albemarle Corp. shares (NYSE:ALB) to $257 from $253 on Monday while maintaining an Outperform rating."
+            },
+            {
+              "title": "Here's How to Play Albemarle Stock Before Q1 Earnings Release",
+              "url": "https://www.tradingview.com/news/zacks:ef77bc89c094b:0-here-s-how-to-play-albemarle-stock-before-q1-earnings-release/",
+              "source": "TradingView",
+              "publishedAt": "1 month ago",
+              "snippet": "Albemarle Corporation ALB is slated to report first-quarter 2026 results after the closing bell on May 6. ALB is likely to have benefited from its cost and..."
+            },
+            {
+              "title": "Albemarle Stock Jumps As Analysts Hike Price Targets",
+              "url": "https://stockstotrade.com/news/albemarlecorporation-alb-news-2026_06_12-2/",
+              "source": "StocksToTrade",
+              "publishedAt": "3 days ago",
+              "snippet": "Albemarle Corporation stocks have been trading up by 7.78 percent amid upbeat sentiment on strengthening lithium demand and pricing."
+            }
+          ]
+        },
+        {
+          "nodeId": "nvda",
+          "name": "NVIDIA",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "NVIDIA’s planned bond offering and resilient market performance signal strong financial capacity to fund GPU production expansion, reducing medium-term supply uncertainty for Tesla’s FSD AI training infrastructure.",
+          "citations": [
+            {
+              "title": "Nvidia Stock Just Did Something for the First Time in More Than 5 Years. Here's What History Says Happens Next.",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-just-did-something-131500202.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "So far this year, Nvidia (NASDAQ: NVDA) stock has gained 8% -- placing it slightly above the returns in the S&P 500 and nominally trailing those seen in the..."
+            },
+            {
+              "title": "Nvidia Stock: How the Chip Maker Is Trading Today",
+              "url": "https://www.barrons.com/articles/nvidia-stock-price-today-c7cc7f2f",
+              "source": "Barron's",
+              "publishedAt": "2 hours ago",
+              "snippet": "Nvidia stock was edging down, a day after the chip maker said it would tap the debt market for the first time since 2021."
+            },
+            {
+              "title": "Is Nvidia Stock a Buy?",
+              "url": "https://www.fool.com/investing/2026/06/13/is-nvidia-stock-a-buy/",
+              "source": "The Motley Fool",
+              "publishedAt": "2 days ago",
+              "snippet": "Few companies have ever defined a technology shift the way Nvidia (NVDA 1.51%) has defined the rise of artificial intelligence (AI)."
+            },
+            {
+              "title": "Nvidia Stock Retakes Key Level As Chipmaker Plans Bond Offering",
+              "url": "https://www.investors.com/news/technology/nvidia-stock-retakes-key-level-bond-offering/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "20 hours ago",
+              "snippet": "Nvidia stock rallied Monday along with the semiconductor sector and the broader stock market. It also retook a key support level."
+            },
+            {
+              "title": "The one number that will actually move Nvidia’s stock Wednesday night",
+              "url": "https://fortune.com/2026/05/20/what-to-watch-for-in-nvidia-earnings/",
+              "source": "Fortune",
+              "publishedAt": "4 weeks ago",
+              "snippet": "Nvidia has another blockbuster earnings report after the bell Wednesday, and Wall Street, as per usual, is readying the fireworks. Recommended Video..."
+            }
+          ]
+        },
+        {
+          "nodeId": "hertz",
+          "name": "Hertz",
+          "type": "customer",
+          "signal": "negative",
+          "magnitude": 0.4,
+          "summary": "Hertz’s weakening revenue, declining return on invested capital, and bearish analyst downgrades indicate reduced financial capacity to maintain or expand its EV fleet purchases from Tesla over the medium term. Its pivot toward Uber partnerships and robotaxi servicing shifts the relationship away from bulk vehicle acquisition, creating a durable headwind for Tesla’s B2B sales channel.",
+          "citations": [
+            {
+              "title": "Uber Sends Hertz Stock Soaring. Is There More Room for HTZ to Run?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/uber-sends-hertz-stock-soaring-204416288.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Hertz shares rallied today as Uber announced an expanded, multi-year deal with the car rental firm. But Wall Street remains bearish as ever on HTZ stock for..."
+            },
+            {
+              "title": "Hertz Global Holdings Stock Short Interest Falls to 46.57% | HTZ Stock News",
+              "url": "https://www.quiverquant.com/news/Hertz+Global+Holdings+Stock+Short+Interest+Falls+to+46.57%25",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "Hertz Global Holdings short interest was 46.57% of the float on April 15th, according to new data we."
+            },
+            {
+              "title": "Why Hertz (HTZ) Shares Are Trading Lower Today",
+              "url": "https://stockstory.org/us/stocks/nasdaq/htz/news/why-up-down/why-hertz-htz-shares-are-trading-lower-today",
+              "source": "StockStory",
+              "publishedAt": "1 month ago",
+              "snippet": "What Happened? Shares of global car rental company Hertz (NASDAQ:HTZ) fell 8.6% in the afternoon session after Northcoast Research downgraded the stock to..."
+            },
+            {
+              "title": "Hertz (HTZ) Stock Valuation After Revenue Pressure And Rising Short Interest",
+              "url": "https://simplywall.st/stocks/us/transportation/nasdaq-htz/hertz-global-holdings/news/hertz-htz-stock-valuation-after-revenue-pressure-and-rising",
+              "source": "Simply Wall Street",
+              "publishedAt": "1 day ago",
+              "snippet": "Hertz Global Holdings (HTZ) is back in focus after weakening revenue trends, a sharp decline in return on invested capital, and short interest at 43.49% of..."
+            },
+            {
+              "title": "Hertz’s new Oro unit will service Uber robotaxis in the Bay Area",
+              "url": "https://www.stocktitan.net/news/HTZ/hertz-and-uber-partner-to-power-autonomous-robotaxi-and-driver-led-ut4i0isfkt34.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 month ago",
+              "snippet": "Hertz launches affiliate Oro Mobility as part of its strategy to expand into new mobility vectors, announcing Uber as its first major partner and extending..."
+            }
+          ]
+        },
+        {
+          "nodeId": "consumers",
+          "name": "Retail Buyers",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The provided headlines concern retail investors in equity markets—such as SpaceX IPO allocations and chip-stock rallies—rather than retail vehicle purchasers, so there is no operative transmission through the stated demand-for-vehicles relationship to affect Tesla’s revenue over the medium term.",
+          "citations": [
+            {
+              "title": "Retail Buyers Will Power Stocks Higher After Iran War Shock, Tom Lee Says – Will A Shaky Ceasefire Hurt His Upside Call?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/retail-buyers-power-stocks-higher-171603597.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Retail investors are ready to mobilize and send stock markets higher, but this may depend on the Strait of Hormuz remaining open. Buyers had initially been..."
+            },
+            {
+              "title": "Red-hot SpaceX IPO may burn retail buyers",
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/red-hot-spacex-ipo-may-burn-retail-buyers-2026-06-11/",
+              "source": "Reuters",
+              "publishedAt": "4 days ago",
+              "snippet": "With the media frenzy surrounding the public listing of Elon Musk's SpaceX sizzling, there's a serious risk that investors piling into the world's largest..."
+            },
+            {
+              "title": "SpaceX cuts retail IPO allocation to low 20% range, source says",
+              "url": "https://www.cnbc.com/2026/06/11/spacex-cuts-retail-ipo-allocation-to-low-20percent-range-source-says.html",
+              "source": "CNBC",
+              "publishedAt": "4 days ago",
+              "snippet": "The Elon Musk-led company plans to direct a percentage in the low 20s of the offering to retail buyers, according to a person familiar with the matter."
+            },
+            {
+              "title": "Retail Floods Into ‘Silly’ Chipmaker Rally as Moves Get Extreme",
+              "url": "https://www.bloomberg.com/news/articles/2026-05-11/retail-floods-into-silly-chipmaker-rally-as-moves-get-extreme",
+              "source": "Bloomberg.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Retail traders largely sat out a record-setting advance in chip stocks in April. Now they're diving in just as worries mount that the group's rally may be..."
+            },
+            {
+              "title": "Advisors Urge Caution on SpaceX IPO for Retail Buyers",
+              "url": "https://www.wealthmanagement.com/investing-strategies/advisors-caution-clients-to-wait-post-ipo-for-spacex-bets",
+              "source": "Wealth Management",
+              "publishedAt": "1 month ago",
+              "snippet": "Advisors say retail investors should wait for a post-IPO dip before buying SpaceX shares due to high valuation."
+            }
+          ]
+        },
+        {
+          "nodeId": "x",
+          "name": "xAI",
+          "type": "partner",
+          "signal": "negative",
+          "magnitude": 0.5,
+          "summary": "The folding of loss-making xAI into SpaceX ahead of its IPO exposes accelerating losses and 'reckless' financials within Musk's ecosystem, heightening investor concerns that shared AI talent and executive attention will be diverted from Tesla toward the newly public, capital-rich entity. Over the medium term, this intensifies talent competition and raises governance risks that weigh on Tesla's standalone valuation despite any ecosystem synergies.",
+          "citations": [
+            {
+              "title": "Top House Republican’s family investment poised to benefit from SpaceX IPO",
+              "url": "https://www.cnbc.com/2026/06/12/lisa-mcclain-spacex-ipo-xai-investment-congress.html",
+              "source": "CNBC",
+              "publishedAt": "3 days ago",
+              "snippet": "Republican Rep. Lisa McClain's husband bought up to $250000 in Elon Musk's xAI before it was folded into SpaceX ahead of its IPO."
+            },
+            {
+              "title": "Elon Musk Just Linked SpaceX, xAI, Tesla, and Nvidia Into 1 Trade. Here's How to Position Your Portfolio.",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/elon-musk-just-linked-spacex-183400847.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "With all eyes on the looming SpaceX IPO, investors may be overlooking other ways to benefit from the broader ecosystem that Elon Musk has built."
+            },
+            {
+              "title": "‘Financials Look Reckless’: Lifting xAI’s Hood in the SpaceX IPO",
+              "url": "https://global.morningstar.com/en-gb/stocks/financials-look-reckless-lifting-xais-hood-spacex-ipo",
+              "source": "Morningstar",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The Grok maker's losses are accelerating, as SpaceX's IPO pulls back the curtain on a large AI model company's financials for the first time."
+            },
+            {
+              "title": "SpaceX files for stock market debut that could make Elon Musk a trillionaire",
+              "url": "https://www.bbc.com/news/articles/cg4pe2953q1o",
+              "source": "BBC",
+              "publishedAt": "4 weeks ago",
+              "snippet": "Elon Musk's SpaceX has revealed its plans to go public in the US, allowing people to trade shares in the firm on the stock market."
+            },
+            {
+              "title": "SpaceX blasts off with a record-breaking $75 billion IPO",
+              "url": "https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk",
+              "source": "NPR",
+              "publishedAt": "5 days ago",
+              "snippet": "Elon Musk's rocket company, recently merged with xAI, raised $75 billion in its initial public stock offering. It's the first of a trio of mega-IPOs from AI..."
+            }
+          ]
+        },
+        {
+          "nodeId": "spacex",
+          "name": "SpaceX (Starlink)",
+          "type": "partner",
+          "signal": "negative",
+          "magnitude": 0.4,
+          "summary": "Over the medium term, SpaceX’s impending IPO risks unwinding Tesla’s proxy-trade premium as investors gain direct access to Musk’s space ventures, while Starlink’s falling ARPU and growth warnings suggest a financially strained partner that offers less ecosystem upside than anticipated. These competitive and capital-flow shifts modestly weaken Tesla’s narrative valuation without immediately threatening core operations.",
+          "citations": [
+            {
+              "title": "SpaceX is way ahead of competitors with Starlink, but growth is harder heading into IPO",
+              "url": "https://www.cnbc.com/2026/06/11/spacex-starlink-growth-getting-harder-ahead-of-ipo.html",
+              "source": "CNBC",
+              "publishedAt": "4 days ago",
+              "snippet": "Heading into its IPO, SpaceX's only profitable business is Starlink. But there are red flags for investors. Average revenue per user is down,..."
+            },
+            {
+              "title": "SpaceX's stock wasn't the company's only launch today — It also put 29 Starlink satellites in orbit",
+              "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-10-54-b1080-ccsfs-asog",
+              "source": "Space",
+              "publishedAt": "3 days ago",
+              "snippet": "Liftoff of the Falcon 9 rocket occurred at 8:27 a.m. ET, just over an hour before SpaceX went public on the NASDAQ stock market."
+            },
+            {
+              "title": "Want SpaceX Stock Before the IPO? These 3 Plays Give You a Back Door In.",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/want-spacex-stock-ipo-3-195400463.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "After years of anticipation, privately held SpaceX finally has plans to go public. The Elon Musk-backed space exploration company filed with the Securities..."
+            },
+            {
+              "title": "Musk’s $1.8 trillion SpaceX IPO could be ‘highly undesirable’ for some",
+              "url": "https://www.aljazeera.com/economy/2026/6/11/musks-1-8-trillion-spacex-ipo-could-be-highly-undesirable-for-some",
+              "source": "Al Jazeera",
+              "publishedAt": "4 days ago",
+              "snippet": "SpaceX's IPO could challenge pension funds as concerns grow over its valuation and governance structure under Musk."
+            },
+            {
+              "title": "Rocket Lab and 3 More Space Stocks to Buy Ahead of SpaceX’s Massive IPO",
+              "url": "https://www.barrons.com/articles/rocket-lab-stock-buy-spacex-ipo-3fb25247",
+              "source": "Barron's",
+              "publishedAt": "1 month ago",
+              "snippet": "Ahead of Elon Musk's SpaceX IPO, New Street Research launched coverage of 10 space stocks on Wednesday. The broker calls four of them Buy including Rocket..."
+            }
+          ]
+        },
+        {
+          "nodeId": "bitcoin",
+          "name": "Bitcoin Holdings",
+          "type": "equity",
+          "signal": "negative",
+          "magnitude": 0.15,
+          "summary": "Mounting institutional selling pressure and volatility in corporate Bitcoin treasury strategies—highlighted by Strategy’s recent liquidations and plans to fund dividends via sales—are likely to modestly depress the fair value of Tesla’s balance sheet crypto holdings and create minor earnings noise under current accounting rules. The ripple effect on TSLA should remain contained, however, as these holdings represent only a small fraction of the company’s overall market capitalization and core operating business.",
+          "citations": [
+            {
+              "title": "Strategy shares fall after selling $2.5 million in bitcoin, its first sale since 2022",
+              "url": "https://www.cnbc.com/2026/06/01/strategy-shares-fall-after-selling-2point5-million-in-bitcoin-its-first-sale-since-2022.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Michael Saylor's Strategy sold bitcoin for the second time ever as geopolitical uncertainty continues to weigh on the cryptocurrency's price."
+            },
+            {
+              "title": "Trump Takes Stake In MARA Holdings As Bitcoin And AI Risks Mount",
+              "url": "https://finance.yahoo.com/markets/crypto/articles/trump-takes-stake-mara-holdings-050900909.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Never miss an important update on your stock portfolio and cut through the noise. Over 7 million investors trust Simply Wall St to stay informed where it..."
+            },
+            {
+              "title": "Strategy weighs selling bitcoin to fund dividends amid Q1 net loss",
+              "url": "https://www.coindesk.com/business/2026/05/05/michael-saylor-s-strategy-signals-potential-bitcoin-sale-to-fund-dividends-obligations",
+              "source": "CoinDesk",
+              "publishedAt": "1 month ago",
+              "snippet": "Disclosure: The author of this story owns shares in Strategy (MSTR). Strategy (MSTR), the world's largest publicly traded corporate holder of bitcoin,..."
+            },
+            {
+              "title": "Benchmark reaffirms Strategy stock rating citing bitcoin holdings value",
+              "url": "https://www.investing.com/news/analyst-ratings/benchmark-reaffirms-strategy-stock-rating-citing-bitcoin-holdings-value-93CH-4722542",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Benchmark reaffirms Strategy stock rating citing bitcoin holdings value."
+            },
+            {
+              "title": "Why Strategy (MSTR) Stock Is Nosediving",
+              "url": "https://stockstory.org/us/stocks/nasdaq/mstr/news/why-up-down/why-strategy-mstr-stock-is-nosediving-2",
+              "source": "StockStory",
+              "publishedAt": "1 month ago",
+              "snippet": "What Happened? Shares of bitcoin development company Strategy (NASDAQ:MSTR) fell 5.1% in the afternoon session after the company disclosed plans to..."
+            }
+          ]
+        },
+        {
+          "nodeId": "us_gov",
+          "name": "US Government",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material US Government news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "china",
+          "name": "China (Regulators)",
+          "type": "government",
+          "signal": "negative",
+          "magnitude": 0.35,
+          "summary": "Broad regulatory crackdowns and escalating hostility toward U.S. businesses in China heighten the risk of tighter scrutiny or compliance costs for Tesla’s Shanghai Gigafactory and domestic sales over the coming weeks. While the automotive sector is not yet directly targeted, the unpredictable enforcement environment threatens margin pressure and demand uncertainty in Tesla’s largest production hub and a critical revenue market.",
+          "citations": [
+            {
+              "title": "Futu faces investigation by China regulators, shares drop 28% on legal concerns.",
+              "url": "https://pluang.com/en/news-feed/peringatan-investigasi-futu-holdings-terkait-penyelidikan-regulator-china",
+              "source": "Pluang",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Futu Holdings Limited announced it received a notice of investigation and penalty pre-notification from the China Securities Regulatory Commission related..."
+            },
+            {
+              "title": "FUTU, BJ, MLCO Stocks Hit 52-Week Lows Last Week: What's Driving The Selloff?",
+              "url": "https://www.tradingview.com/news/stocktwits:350b9a20d094b:0-futu-bj-mlco-stocks-hit-52-week-lows-last-week-what-s-driving-the-selloff/",
+              "source": "TradingView",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Futu shares fell after Chinese regulators proposed a $271 million penalty for allegations of unlicensed operations. BJ's Wholesale Club stock dropped 8.3%..."
+            },
+            {
+              "title": "Alibaba Group Holding Ltd Stock (BABA) Moved Down by 3.70% on Jun 11: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261961661-market-movers-baba-20260611",
+              "source": "TradingKey",
+              "publishedAt": "5 days ago",
+              "snippet": "Alibaba stock fell due to regulatory scrutiny over misleading advertising.China's regulators are tightening oversight on internet giants,..."
+            },
+            {
+              "title": "Xi tests China's reach by blocking Meta's already-done acquisition of Singapore-based Manus",
+              "url": "https://www.businesstimes.com.sg/international/global/xi-tests-chinas-reach-blocking-metas-already-done-acquisition-singapore-based-manus",
+              "source": "The Business Times",
+              "publishedAt": "1 month ago",
+              "snippet": "[BEIJING] China has sought for years to exert influence over business deals beyond its home turf. Still, its decision to press Meta Platforms to unwind a..."
+            },
+            {
+              "title": "China cracks down on U.S. stock trading platforms, seizes illegal gains",
+              "url": "https://www.cryptopolitan.com/china-cracks-down-u-s-stock-trading/",
+              "source": "Cryptopolitan",
+              "publishedAt": "3 weeks ago",
+              "snippet": "China's Securities Regulatory Commission (CSRC) is cracking down on U.S. stock trading platforms and has seized illegal gains."
+            }
+          ]
+        },
+        {
+          "nodeId": "eu",
+          "name": "European Union",
+          "type": "government",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "EU circular-economy and green-grid initiatives signal sustained emissions-reduction policies that support electric-vehicle adoption, providing a modest medium-term tailwind for Tesla’s European sales. Geopolitical-driven market volatility is a secondary headwind, but the policy trajectory under the emissions-policy channel remains net favorable.",
+          "citations": [
+            {
+              "title": "Dulux maker's stock soars 20% after takeover bid from major rival; oil holds below $100",
+              "url": "https://www.cnbc.com/2026/05/27/european-markets-stoxx-600-ftse-dax-cac-iran-news.html",
+              "source": "CNBC",
+              "publishedAt": "3 weeks ago",
+              "snippet": "European stocks closed in positive territory on Wednesday as regional investors assess the latest military operations against Iran."
+            },
+            {
+              "title": "European stocks fall as private market stress, Mideast tensions dent sentiment",
+              "url": "https://www.reuters.com/business/finance/european-stocks-dip-mideast-tensions-zara-owner-inditex-gains-2026-06-03/",
+              "source": "Reuters",
+              "publishedAt": "2 weeks ago",
+              "snippet": "European shares slipped on Wednesday as escalating Middle East tensions and ‌fresh jitters over private markets pushed investors out of riskier assets,..."
+            },
+            {
+              "title": "European Stocks That May Be Priced Below Estimated Value In May 2026",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/european-stocks-may-priced-below-053758017.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "As the pan-European STOXX Europe 600 Index saw modest gains amid easing geopolitical tensions and strong corporate earnings, investors are keenly observing..."
+            },
+            {
+              "title": "Circular economy offers the EU win-win on environment and economy",
+              "url": "https://www.eea.europa.eu/en/newsroom/news/circular-economy-offers-the-eu-win-win",
+              "source": "European Environment Agency (EEA)",
+              "publishedAt": "1 month ago",
+              "snippet": "Stepping up a circular economy offers the European Union the potential for significant positive impacts on Europe's environment and poses an untapped and..."
+            },
+            {
+              "title": "Green Energy Demand Is Recharging European Utilities. 4 Stocks to Consider.",
+              "url": "https://www.barrons.com/articles/green-energy-europe-utilities-stocks-68e1b5ed",
+              "source": "Barron's",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Europe is overhauling an aging grid to absorb renewable-generation capacity that now provides nearly half of the European Union's electricity."
+            }
+          ]
+        }
+      ],
+      "directCompanyNews": [
+        {
+          "title": "Paying 50x Earnings Can Still Be Cheap — If You Know This One Thing",
+          "url": "https://finance.yahoo.com/m/b8dc3df8-8471-37ec-a17c-420bc3923b73/paying-50x-earnings-can-still.html",
+          "source": "24/7 Wall St.",
+          "publishedAt": "2026-06-16T15:34:09.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Market Chatter: YPF Signs Agreement to Explore EV Charging, Storage Infrastructure",
+          "url": "https://finance.yahoo.com/energy/articles/market-chatter-ypf-signs-agreement-151059545.html",
+          "source": "MT Newswires",
+          "publishedAt": "2026-06-16T15:10:59.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Tesla (TSLA) Stock Gets Fair Value Bump As Analysts Debate AI And Demand",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-tsla-stock-gets-fair-150941909.html",
+          "source": "Simply Wall St.",
+          "publishedAt": "2026-06-16T15:09:41.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "The Mag 7 plus these three AI companies make up the new Fab 10",
+          "url": "https://finance.yahoo.com/video/mag-7-plus-three-ai-150000435.html",
+          "source": "Yahoo Finance Video",
+          "publishedAt": "2026-06-16T15:00:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "SpaceX  Launches Start of Acquisition Spree with Cursor After Historic IPO",
+          "url": "https://finance.yahoo.com/m/d6f7088d-37cc-37a8-9fdb-a395f84acec9/spacex%C2%A0-launches-start-of.html",
+          "source": "24/7 Wall St.",
+          "publishedAt": "2026-06-16T14:46:50.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Why Rivian's R2 model is 'almost mass marketable,' but not quite",
+          "url": "https://finance.yahoo.com/video/why-rivians-r2-model-is-almost-mass-marketable-but-not-quite-144644644.html",
+          "source": "Yahoo Finance Video",
+          "publishedAt": "2026-06-16T14:46:44.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Cathie Wood's ARKK Cuts BMNR Stake On Bitmine's Holdings Pop, Joins Trims Of Roku, Tesla, AMD In No-Buy Monday",
+          "url": "https://finance.yahoo.com/m/6b01dfa1-2873-3928-899e-01b26b94207c/cathie-wood%27s-arkk-cuts-bmnr.html",
+          "source": "Stocktwits",
+          "publishedAt": "2026-06-16T14:45:49.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Tesla Stock Traded Its Affordable Car Dream For An AI Moonshot",
+          "url": "https://finance.yahoo.com/m/33fce2e3-aa19-3416-9b5c-b9254f8842a8/tesla-stock-traded-its.html",
+          "source": "Trefis",
+          "publishedAt": "2026-06-16T14:45:47.000Z",
+          "weight": 0.85
+        }
+      ]
     }
   },
-  "lastUpdated": "2026-06-13T07:50:08.272Z"
+  "lastUpdated": "2026-06-16T16:29:14.148Z"
 }

@@ -67,3 +67,60 @@ export async function resolveStock(ticker: string): Promise<WatchlistItem | null
   // Yahoo often returns the exact symbol first even without exact match.
   return results[0] ?? { ticker: sym, name: sym };
 }
+
+export interface YahooNewsItem {
+  title: string;
+  url: string;
+  source: string;
+  publishedAt?: string;
+  snippet?: string;
+}
+
+interface YahooNewsResponse {
+  news?: {
+    title?: string;
+    link?: string;
+    publisher?: string;
+    providerPublishTime?: number;
+    summary?: string;
+  }[];
+}
+
+/** Fetch recent headlines about a ticker directly from Yahoo Finance (no API key). */
+export async function fetchCompanyNews(
+  ticker: string,
+  limit = 8
+): Promise<YahooNewsItem[]> {
+  const sym = ticker.trim().toUpperCase();
+  if (!sym) return [];
+
+  const params = new URLSearchParams({
+    q: sym,
+    quotesCount: "0",
+    newsCount: String(limit),
+    listsCount: "0",
+  });
+
+  const res = await fetch(`${SEARCH_URL}?${params}`, {
+    headers: { "User-Agent": "FinnSmart/1.0" },
+    cache: "no-store",
+  });
+
+  if (!res.ok) return [];
+
+  const data = (await res.json()) as YahooNewsResponse;
+  const news = Array.isArray(data.news) ? data.news : [];
+
+  return news
+    .filter((n) => n.title && n.link)
+    .slice(0, limit)
+    .map((n) => ({
+      title: n.title!,
+      url: n.link!,
+      source: n.publisher ?? "Yahoo Finance",
+      publishedAt: n.providerPublishTime
+        ? new Date(n.providerPublishTime * 1000).toISOString()
+        : undefined,
+      snippet: n.summary,
+    }));
+}

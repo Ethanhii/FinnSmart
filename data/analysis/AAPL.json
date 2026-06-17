@@ -1599,7 +1599,817 @@
           ]
         }
       ]
+    },
+    "medium": {
+      "ticker": "AAPL",
+      "generatedAt": "2026-06-17T17:25:16.834Z",
+      "horizon": "medium",
+      "verdict": {
+        "signal": "positive",
+        "confidence": 0.62,
+        "expectedMove": "+2% to +4%",
+        "timeframe": "next 2-8 weeks",
+        "rationale": "Secure high-margin Services revenue and healthy distribution channels offset supplier cost pressures and geopolitical risks, supporting modest medium-term appreciation.",
+        "explanation": "Apple's medium-term outlook is underpinned by Google's financial strength securing the lucrative Safari default search payments, alongside robust wireless carrier and retail channel health that stabilizes iPhone sell-through. These financial tailwinds largely compensate for TSMC's leading-edge price hikes and persistent U.S.-China regulatory noise. Post-WWDC analyst optimism and validated Apple Intelligence partnerships further bolster sentiment, tilting the risk/reward slightly positive over the coming weeks despite margin and policy headwinds.",
+        "bullishDrivers": [
+          "Google secures Safari search payments",
+          "Strong carrier and retail channels",
+          "Durable Apple Intelligence roadmap",
+          "Post-WWDC analyst target upgrades"
+        ],
+        "bearishDrivers": [
+          "TSMC chip price increases",
+          "China regulatory hostility",
+          "US antitrust policy overhang",
+          "AI rollout settlement costs"
+        ],
+        "mostAffectedNodeId": "googl"
+      },
+      "impacts": [
+        {
+          "nodeId": "tsmc",
+          "name": "TSMC",
+          "type": "supplier",
+          "signal": "negative",
+          "magnitude": 0.45,
+          "summary": "TSMC's planned price increases on leading-edge chips directly raise input costs for Apple's exclusively sourced A- and M-series processors, pressuring gross margins over the coming weeks to months. While TSMC's strong demand outlook signals stable supply continuity, the supplier's pricing power translates into a net medium-term profitability drag for Apple.",
+          "citations": [
+            {
+              "title": "TSMC (NYSE:TSM) Stock Weighing AI Momentum Against A 6% Overvaluation Narrative",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-nyse-tsm-stock-weighing-051100705.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "Section 1 Taiwan Semiconductor Manufacturing (NYSE:TSM) is back in focus after recent share price moves, with investors weighing its sizeable US$1.89b net..."
+            },
+            {
+              "title": "Asia tech stocks drop after Broadcom rattles AI trade and drags Wall Street names lower",
+              "url": "https://www.cnbc.com/2026/06/05/asian-technology-stocks-sk-hynix-samsung-tsmc-advantest.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Asian technology shares fell, tracking losses in U.S. semiconductor stocks after disappointing earnings Broadcom sparked a rotation out of AI-linked names."
+            },
+            {
+              "title": "Investors Look Beyond TSMC as AI Boom Spreads to New Winners",
+              "url": "https://www.bloomberg.com/news/articles/2026-05-21/investors-look-beyond-tsmc-as-ai-boom-spreads-to-new-winners",
+              "source": "Bloomberg.com",
+              "publishedAt": "4 weeks ago",
+              "snippet": "After several years flying high as Asia's best Nvidia Corp. proxy, Taiwan Semiconductor Manufacturing Co. is increasingly vying with other artificial..."
+            },
+            {
+              "title": "TSMC, IBD Stock Of The Day, Flirts With Buy Point As Chip Giant Will Raise Prices Amid AI Demand",
+              "url": "https://www.investors.com/research/ibd-stock-of-the-day/tsm-stock-buy-point-tsmc-chip-giant-raise-ai-chip-price/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "3 weeks ago",
+              "snippet": "TSM stock rose Wednesday, flirting with an entry, as Taiwan Semiconductor Manufacturing plans to raise prices on its leading-edge chips."
+            },
+            {
+              "title": "TSMC stock price target raised to NT$3,500 by Aletheia Capital",
+              "url": "https://www.investing.com/news/analyst-ratings/tsmc-stock-price-target-raised-to-nt3500-by-aletheia-capital-93CH-4744107",
+              "source": "Investing.com",
+              "publishedAt": "1 day ago",
+              "snippet": "TSMC stock price target raised to NT$3500 by Aletheia Capital."
+            }
+          ]
+        },
+        {
+          "nodeId": "foxconn",
+          "name": "Foxconn",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Foxconn news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "corning",
+          "name": "Corning",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.15,
+          "summary": "Corning’s AI-driven revenue surge and improved financial footing modestly reduce medium-term supply-chain and counterparty risk for Apple’s cover glass sourcing. Because the rally is driven by optical communications and data-center deals rather than the direct iPhone glass business, the positive ripple to AAPL remains limited.",
+          "citations": [
+            {
+              "title": "Why is Corning stock surging today?",
+              "url": "https://www.investing.com/news/stock-market-news/why-is-corning-stock-surging-today-93CH-4722625",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Investing.com -- Corning stock surged +12.2% in mid-day trading after Nvidia CEO Jensen Huang publicly highlighted the limits of copper-based interconnects..."
+            },
+            {
+              "title": "Corning (GLW) Stock After 97% Rally And Recent Pullback Is The Price Still Reasonable",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/corning-glw-stock-97-rally-201353659.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "Corning's stock has caught plenty of attention, and if you are wondering whether the recent price puts it above or below a reasonable value, this breakdown..."
+            },
+            {
+              "title": "Corning, IBD Stock Of The Day, Boosted By AI Data Center Play",
+              "url": "https://www.investors.com/research/ibd-stock-of-the-day/corning-stock-artificial-intelligence-data-centers-photonics/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "1 day ago",
+              "snippet": "Corning stock has gained over 100% in 2026 as Wall Street focuses on the firm's booming optical communications business for AI data centers."
+            },
+            {
+              "title": "Corning shares slide 6.8% amid guidance concerns and profit-taking after AI-driven rally | GLW Stock News",
+              "url": "https://www.quiverquant.com/news/Corning+shares+slide+6.8%25+amid+guidance+concerns+and+profit-taking+after+AI-driven+rally",
+              "source": "Quiver Quantitative",
+              "publishedAt": "1 month ago",
+              "snippet": "Corning Incorporated (GLW) is down 6.8% today. Here is some analysis on what might have caused this."
+            },
+            {
+              "title": "Corning Stock Soars After Company Signs Another Deal With a Magnificent 7 Member",
+              "url": "https://www.investopedia.com/corning-stock-soars-after-company-signs-another-deal-with-a-magnificent-7-member-glw-11992913",
+              "source": "Investopedia",
+              "publishedAt": "1 week ago",
+              "snippet": "Corning shares jumped Monday after the glass and optic fiber cable maker announced a new multi-billion dollar deal with Amazon."
+            }
+          ]
+        },
+        {
+          "nodeId": "sony",
+          "name": "Sony",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.25,
+          "summary": "Recent signals show Sony deepening its focus and industry integration in image sensors, suggesting a stable, innovative supply of camera components for Apple over the coming months. With no disruption risks evident and Sony's semiconductor business gaining profitability priority, Apple's hardware cycle and supply chain reliability receive mild support.",
+          "citations": [
+            {
+              "title": "Sony (SONY) Stock Slides as Market Rises: Facts to Know Before You Trade",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/sony-sony-stock-slides-market-215003404.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Sony (SONY) closed at $20.28 in the latest trading session, marking a -1.02% move from the prior day."
+            },
+            {
+              "title": "Sony: The Market Is Mispricing Its Entertainment Transformation (NYSE:SONY)",
+              "url": "https://seekingalpha.com/article/4915234-sony-stock-market-mispricing-its-entertainment-transformation",
+              "source": "Seeking Alpha",
+              "publishedAt": "1 day ago",
+              "snippet": "Sony's music and image sensor businesses are becoming increasingly important drivers of profitability, reducing reliance on cyclical consumer electronics..."
+            },
+            {
+              "title": "Bernstein SocGen raises Sony stock price target on profitability focus",
+              "url": "https://www.investing.com/news/analyst-ratings/bernstein-socgen-raises-sony-stock-price-target-on-profitability-focus-93CH-4674626",
+              "source": "Investing.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Investing.com - Bernstein SocGen Group raised its price target on Sony Corp. (NYSE:SONY) to JPY3,500.00 from JPY3,400.00 while maintaining a Market Perform..."
+            },
+            {
+              "title": "Sony’s new AI cameras follow basketball action automatically",
+              "url": "https://www.stocktitan.net/news/SONY/sony-electronics-bringing-new-technologies-including-marquee-display-xrwjcv574eqx.html",
+              "source": "Stock Titan",
+              "publishedAt": "2 weeks ago",
+              "snippet": "AI PTZ cameras with auto framing, new Crystal LED S Series displays and device management tools headline Sony's InfoComm 2026 booth in Las Vegas."
+            },
+            {
+              "title": "MIPI Alliance Welcomes Sony Semiconductor Solutions as a Promoter Member",
+              "url": "https://www.businesswire.com/news/home/20260616915804/en/MIPI-Alliance-Welcomes-Sony-Semiconductor-Solutions-as-a-Promoter-Member",
+              "source": "Business Wire",
+              "publishedAt": "1 day ago",
+              "snippet": "The MIPI Alliance announced Sony Semiconductor Solutions was approved as its newest Promoter member. Hiroo Takahashi joins the board of directors."
+            }
+          ]
+        },
+        {
+          "nodeId": "qcom",
+          "name": "Qualcomm",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0.15,
+          "summary": "Qualcomm's surge is fueled by AI and data-center growth largely outside its Apple modem business, implying no supply disruption but also no direct medium-term cost or technology benefit to iPhone. Through the stated supplier relationship, the news confers negligible near-term financial or operational ripple to AAPL.",
+          "citations": [
+            {
+              "title": "Why Qualcomm (QCOM) Stock Is Up Today",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/why-qualcomm-qcom-stock-today-220728104.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Shares of wireless chipmaker Qualcomm (NASDAQ:QCOM) jumped 3.5% in the afternoon session after Micron's UBS-led surge ignited a semiconductor rally. Stocks..."
+            },
+            {
+              "title": "Price Prediction: Qualcomm Stock Will Trade at This Price in 2028",
+              "url": "https://247wallst.com/investing/2026/05/27/price-prediction-qualcomm-stock-will-trade-at-this-price-in-2028/",
+              "source": "24/7 Wall St.",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Qualcomm (NASDAQ:QCOM | QCOM Price Prediction) just did something I did not expect this year. Shares rose 27.2% in a single week and sit at $248.82,..."
+            },
+            {
+              "title": "Qualcomm's stock pop shows investors are 'waking up' to boom in AI devices",
+              "url": "https://www.cnbc.com/2026/05/22/qualcomms-stock-pop-shows-investors-waking-up-to-boom-in-ai-devices.html",
+              "source": "CNBC",
+              "publishedAt": "4 weeks ago",
+              "snippet": "Qualcomm shares soared 12% on Friday and are now up 75% in the past month. The company is using its dominance in smartphones to cement its role as a key..."
+            },
+            {
+              "title": "Massive News for Qualcomm Stock Investors",
+              "url": "https://www.fool.com/investing/2026/05/28/massive-news-for-qualcomm-stock-investors/",
+              "source": "The Motley Fool",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Expansion into the data center market is driving shares of this semiconductor stock higher."
+            },
+            {
+              "title": "Qualcomm Is Eyeing a Massive AI Pivot. Why Wall Street Is Still Cautious.",
+              "url": "https://www.barrons.com/articles/qualcomm-stock-price-target-catalyst-d878e040",
+              "source": "Barron's",
+              "publishedAt": "23 hours ago",
+              "snippet": "J.P. Morgan believes the chip maker could target more than $3 billion in data-center revenue for fiscal 2027 at its upcoming investor day."
+            }
+          ]
+        },
+        {
+          "nodeId": "broadcom",
+          "name": "Broadcom",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0.1,
+          "summary": "Broadcom’s decline is driven by software and AI chip segments missing lofty expectations, not by its wireless/RF business that supplies Apple, so AAPL faces no material supply or cost disruption over the medium term. The ripple effect through this specific supplier relationship is therefore negligible in the weeks ahead.",
+          "citations": [
+            {
+              "title": "Down More Than 20% From Its High, Is Broadcom Stock a Buy?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/down-more-20-high-broadcom-145000389.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 day ago",
+              "snippet": "The tech giant's valuation has fallen since it reported earnings earlier this month."
+            },
+            {
+              "title": "Broadcom set to shed $300 billion in value as AI results fail to impress",
+              "url": "https://www.reuters.com/business/broadcom-tumbles-revenue-miss-clouds-ai-boom-bets-2026-06-04/",
+              "source": "Reuters",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Broadcom shares slumped more than 14% ​on Thursday, dragging chip peers lower, after the company's results fell short of lofty expectations around demand..."
+            },
+            {
+              "title": "Down More Than 20% From Its High, Is Broadcom Stock a Buy?",
+              "url": "https://www.fool.com/investing/2026/06/16/down-more-than-20-from-its-high-is-broadcom-stock/",
+              "source": "The Motley Fool",
+              "publishedAt": "1 day ago",
+              "snippet": "The tech giant's valuation has fallen since it reported earnings earlier this month."
+            },
+            {
+              "title": "Prediction: Can Broadcom Shares Hit $550 in 2027?",
+              "url": "https://247wallst.com/investing/2026/06/15/prediction-can-broadcom-shares-hit-550-in-2027/",
+              "source": "24/7 Wall St.",
+              "publishedAt": "2 days ago",
+              "snippet": "Broadcom (NASDAQ:AVGO | AVGO Price Prediction) is in the middle of the most aggressive AI ramp in semiconductor history, yet shares trade nowhere near their..."
+            },
+            {
+              "title": "Broadcom stock plunges on weak software sales, unchanged AI chip forecast for the year",
+              "url": "https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Broadcom reported weaker-than-expected revenue in its fiscal second-quarter earnings report on Wednesday. Leading up to the report, revenue has surged in..."
+            }
+          ]
+        },
+        {
+          "nodeId": "bestbuy",
+          "name": "Best Buy",
+          "type": "customer",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "Best Buy's new paid-membership rewards program and recent earnings beat should modestly lift Apple hardware sell-through at the channel over the medium term, outweighing near-term uncertainty from its planned CEO succession.",
+          "citations": [
+            {
+              "title": "Best Buy Announces Regular Quarterly Cash Dividend",
+              "url": "https://www.businesswire.com/news/home/20260528807140/en/Best-Buy-Announces-Regular-Quarterly-Cash-Dividend",
+              "source": "Business Wire",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The Board of Directors of Best Buy Co., Inc. (NYSE:BBY) has authorized the payment of a regular quarterly cash dividend of $0.96 per common share."
+            },
+            {
+              "title": "Best Buy starts giving paid members points on every purchase",
+              "url": "https://www.stocktitan.net/news/BBY/best-buy-introduces-reward-points-for-my-best-buy-plus-and-total-x7j2dcw79hh1.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 month ago",
+              "snippet": "Starting June 4, members paying $29.99 or $199.99 a year get 1% back on eligible purchases, or 6% when they use a Best Buy credit card."
+            },
+            {
+              "title": "Why Best Buy Stock Jumped Today",
+              "url": "https://www.fool.com/investing/2026/05/28/why-best-buy-stock-is-up-today/",
+              "source": "The Motley Fool",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Shares of Best Buy (BBY +0.48%) rallied on Thursday after the consumer electronics retailer's profits exceeded investors' expectations."
+            },
+            {
+              "title": "Best Buy Announces Chief Executive Officer Succession Plans",
+              "url": "https://corporate.bestbuy.com/2026/ceo-succession-plans/",
+              "source": "Best Buy Corporate",
+              "publishedAt": "Apr 22, 2026",
+              "snippet": "Jason Bonfig to succeed Corie Barry as Chief Executive Officer, following her planned departure at the end of Q3. MINNEAPOLIS, [April 22, 2026] – Best Buy..."
+            },
+            {
+              "title": "Best Buy (BBY) Stock Trades Down, Here Is Why",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/best-buy-bby-stock-trades-030923986.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "Apr 22, 2026",
+              "snippet": "Shares of electronics retailer Best Buy (NYSE:BBY) fell 4.8% in the afternoon session after the company announced that Chief Executive Officer Corie Barry..."
+            }
+          ]
+        },
+        {
+          "nodeId": "carriers",
+          "name": "Wireless Carriers",
+          "type": "customer",
+          "signal": "positive",
+          "magnitude": 0.35,
+          "summary": "Verizon's raised guidance and solid earnings indicate robust carrier financial health, supporting continued iPhone subsidies and distribution strength through the medium term. The Supreme Court regulatory ruling poses only marginal cost pressure and is outweighed by the muted near-term competitive threat from satellite alternatives, keeping Apple's primary sales channel stable.",
+          "citations": [
+            {
+              "title": "Stock Market Today, June 4: AT&T Falls After Supreme Court Rules Against Wireless Carriers in FCC Case",
+              "url": "https://www.fool.com/coverage/stock-market-today/2026/06/04/stock-market-today-june-4-at-and-t-falls-after-supreme-court-rules-against-wireless-carriers-in-fcc-case/",
+              "source": "The Motley Fool",
+              "publishedAt": "2 weeks ago",
+              "snippet": "On June 4, 2026, investors are weighing today's Supreme Court ruling against AT&T and Verizon, while digesting yesterday's analyst downgrade."
+            },
+            {
+              "title": "US supreme court backs FCC in clash with wireless carriers over fines",
+              "url": "https://www.theguardian.com/business/2026/jun/04/verizon-att-supreme-court-decision",
+              "source": "The Guardian",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Justices uphold FCC authority to impose in-house penalties, rejecting AT&T and Verizon jury trial claims. Sign up for the Breaking News US newsletter email."
+            },
+            {
+              "title": "SpaceX wireless ambitions may be less threatening to carriers than feared: BNP Paribas (SPCX:NASDAQ)",
+              "url": "https://seekingalpha.com/news/4603151-spacex-wireless-ambitions-may-be-less-threatening-to-carriers-than-feared-bnp-paribas",
+              "source": "Seeking Alpha",
+              "publishedAt": "2 days ago",
+              "snippet": "BNP says SpaceX Starlink Mobile may not disrupt Verizon, AT&T, T-Mobile soon; indoor limits & AI/IoT focus loom through 2027 auction."
+            },
+            {
+              "title": "US Supreme Court backs FCC in clash with wireless carriers over fines By Reuters",
+              "url": "https://www.investing.com/news/stock-market-news/us-supreme-court-sides-with-fcc-in-clash-with-wireless-carriers-over-fines-4726995",
+              "source": "Investing.com",
+              "publishedAt": "2 weeks ago",
+              "snippet": "US Supreme Court backs FCC in clash with wireless carriers over fines."
+            },
+            {
+              "title": "Verizon Stock Jumps After Earnings. How Big Wireless Is Crushing Cable.",
+              "url": "https://www.barrons.com/articles/verizon-stock-price-earnings-c4e1be5e",
+              "source": "Barron's",
+              "publishedAt": "1 month ago",
+              "snippet": "Verizon stock rallies after the wireless carrier beats on first-quarter earnings and raises its guidance."
+            }
+          ]
+        },
+        {
+          "nodeId": "googl",
+          "name": "Google",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.4,
+          "summary": "Google's record stock surge and $84.75 billion capital raise to fund AI signal a financially robust partner that remains heavily invested in search distribution, reinforcing its ability and incentive to preserve the lucrative Safari default payments to Apple. Over the medium term, this reduces uncertainty around a critical high-margin revenue stream for AAPL's Services segment, creating a supportive tailwind.",
+          "citations": [
+            {
+              "title": "A Researcher Who Left the AI Labs Predicted Google’s Stock Would “Explode”",
+              "url": "https://247wallst.com/investing/2026/06/16/a-researcher-who-left-the-ai-labs-predicted-googles-stock-would-explode/",
+              "source": "24/7 Wall St.",
+              "publishedAt": "1 day ago",
+              "snippet": "Back in June 2024, researcher Leopold Aschenbrenner left OpenAI's superalignment team and predicted that Alphabet (NASDAQ:GOOGL | GOOGL Price Prediction)..."
+            },
+            {
+              "title": "Google just had its best month since 2004",
+              "url": "https://finance.yahoo.com/markets/article/google-just-had-its-best-month-since-2004-162717056.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Alphabet stock just had its best month, up nearly 34%, since Google was still a recent IPO."
+            },
+            {
+              "title": "Google Upsizes Equity Offering To Fund AI To $84.75 Billion",
+              "url": "https://www.investors.com/news/technology/google-stock-alphabet-artificial-intelligence-80-billion-capital-raise/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Google stock fell after Alphabet announced equity offerings totaling $84.75 billion in a capital rise amid higher spending on AI data centers."
+            },
+            {
+              "title": "Google parent Alphabet to sell $80bn in stock to fund AI plans",
+              "url": "https://www.aljazeera.com/economy/2026/6/2/google-parent-alphabet-to-sell-80bn-in-stock-to-fund-ai-plans",
+              "source": "Al Jazeera",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Alphabet, Google's parent company, has announced plans to sell $80bn worth of shares to fund its rollout of artificial intelligence."
+            },
+            {
+              "title": "Here's How Much Traders Expect Google Parent Alphabet's Stock to Move After Earnings",
+              "url": "https://www.investopedia.com/here-is-how-much-traders-expect-google-parent-alphabet-stock-to-move-after-earnings-googl-q1-fy2026-update-11958197",
+              "source": "Investopedia",
+              "publishedAt": "1 month ago",
+              "snippet": "Google parent Alphabet is due to report earnings Wednesday afternoon, with shares seen potentially hitting fresh records following the results."
+            }
+          ]
+        },
+        {
+          "nodeId": "openai",
+          "name": "OpenAI",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.2,
+          "summary": "OpenAI's IPO filing signals a durable, well-capitalized partner for Apple Intelligence, reducing counterparty risk and validating the consumer-AI narrative underpinning Apple's valuation. Over the medium term, this supports confidence in Apple Intelligence's roadmap without introducing immediate pricing or competitive disruptions, creating a modest sentiment tailwind for AAPL.",
+          "citations": [
+            {
+              "title": "OpenAI Just Took the First Step Toward Its IPO. Here's How to Invest in the Stock Now.",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/openai-just-took-first-step-105000224.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "The leading AI lab's first public share sale could be a while away, but you can buy these investments right now."
+            },
+            {
+              "title": "OpenAI plans stock market debut, setting up new race with Anthropic",
+              "url": "https://www.bbc.com/news/articles/cd958eqg1n5o",
+              "source": "BBC",
+              "publishedAt": "1 week ago",
+              "snippet": "OpenAI, the company behind popular chatbot ChatGPT, has become the latest artificial intelligence (AI) giant to reveal plans to sell shares to the public..."
+            },
+            {
+              "title": "Why Anthropic, OpenAI and SpaceX are all racing to go public now",
+              "url": "https://news.northeastern.edu/2026/06/08/anthropic-openai-spacex-ipo-race/",
+              "source": "Northeastern Global News",
+              "publishedAt": "1 week ago",
+              "snippet": "Together, the three companies, all seeking IPOs, are expected to command valuations rarely seen in public markets."
+            },
+            {
+              "title": "OpenAI files for IPO as AI investment race intensifies",
+              "url": "https://www.nbcnews.com/business/markets/openai-chatgpt-files-ipo-rcna349101",
+              "source": "NBC News",
+              "publishedAt": "1 week ago",
+              "snippet": "OpenAI announced it has filed to offer its stock on public markets, just a week after its chief rival, Anthropic, did the same."
+            },
+            {
+              "title": "OpenAI confidentially files for IPO, prepping Wall Street for mega AI debut",
+              "url": "https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html",
+              "source": "CNBC",
+              "publishedAt": "1 week ago",
+              "snippet": "OpenAI's confidential filing lands days before SpaceX is set to go public and a week after Anthropic announced its confidential disclosure with the SEC."
+            }
+          ]
+        },
+        {
+          "nodeId": "gs",
+          "name": "Goldman Sachs",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.1,
+          "summary": "Goldman Sachs’ record profitability and share price signal a financially robust banking partner, marginally supporting medium-term confidence in Apple Card program stability. However, none of the provided news directly impacts partnership operations, lending terms, or user growth in a way that would materially move Apple’s stock.",
+          "citations": [
+            {
+              "title": "The S&P 500 Is Forecast to Climb as Earnings Growth Powers Stocks Higher",
+              "url": "https://www.goldmansachs.com/insights/articles/s-and-p-500-forecast-to-climb-as-earnings-growth-powers-stocks-higher",
+              "source": "Goldman Sachs",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Goldman Sachs Research raised its S&P 500 year-end target to 8000, projecting earnings per share of $340 in 2026 (a 24% increase, year over year)."
+            },
+            {
+              "title": "Goldman Sachs cuts Hong Kong stocks in favor of mainland China AI hardware plays",
+              "url": "https://www.cnbc.com/2026/06/03/goldman-sachs-cuts-hong-kong-stocks-to-ne.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "The investment bank on Wednesday cut its rating on H shares to market-weight from overweight, while staying overweight mainland China's A shares."
+            },
+            {
+              "title": "Goldman Sachs Sees Two Risks Facing the Stock Market—Here's What To Know",
+              "url": "https://www.investopedia.com/goldman-sachs-sees-two-risks-facing-the-stock-market-here-s-what-to-know-11985589",
+              "source": "Investopedia",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Goldman Sachs analysts raised their year-end S&P 500 price target in a note this week, but warned risks to the bull market are growing."
+            },
+            {
+              "title": "Goldman Sachs Hits Record High, Leads 15 Newcomers To Best Growth Stock Lists",
+              "url": "https://www.investors.com/research/goldman-sachs-hits-record-high-leads-15-newcomers-to-best-growth-stock-lists/",
+              "source": "Investor's Business Daily",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Goldman Sachs (GS) stock popped to a record high Friday. The investment and banking giant continues to put up double-digit profit growth numbers."
+            },
+            {
+              "title": "Why Goldman Sachs thinks stocks will rip even higher",
+              "url": "https://finance.yahoo.com/news/why-goldman-sachs-thinks-stocks-will-rip-even-higher-112018077.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "Apr 21, 2026",
+              "snippet": "What geopolitical tensions with Iran? That's the takeaway from a new call by Goldman Sachs on the markets this year. It appears the investment bank thinks..."
+            }
+          ]
+        },
+        {
+          "nodeId": "gsat",
+          "name": "Globalstar",
+          "type": "equity",
+          "signal": "negative",
+          "magnitude": 0.2,
+          "summary": "Rising acquisition interest from a major competitor and a satellite launch delay introduce medium-term uncertainty around the continuity and cost structure of Apple's iPhone satellite connectivity, while any financial gain from Apple's minority stake is too small to materially benefit AAPL.",
+          "citations": [
+            {
+              "title": "Is Globalstar, Inc. (GSAT) A Good Stock To Buy Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/globalstar-inc-gsat-good-stock-135343740.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "4 days ago",
+              "snippet": "Is GSAT a good stock to buy? We came across a bullish thesis on Globalstar, Inc. on The Mispricing Desk's Substack. In this article, we will summarize the..."
+            },
+            {
+              "title": "Globalstar stock hits 52-week high at 82.35 USD",
+              "url": "https://www.investing.com/news/company-news/globalstar-stock-hits-52week-high-at-8235-usd-93CH-4649701",
+              "source": "Investing.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Globalstar Inc. stock reached a new 52-week high, touching 82.35 USD, as the company continues to experience significant growth. The stock currently trades..."
+            },
+            {
+              "title": "Globalstar Announces First Quarter 2026 Financial Results",
+              "url": "https://www.businesswire.com/news/home/20260507209415/en/Globalstar-Announces-First-Quarter-2026-Financial-Results",
+              "source": "Business Wire",
+              "publishedAt": "1 month ago",
+              "snippet": "GLOBALSTAR ANNOUNCES FIRST QUARTER 2026 FINANCIAL RESULTS."
+            },
+            {
+              "title": "How Globalstar's HIBLEO-4 Launch Delay and Equity Grants Will Impact Globalstar (GSAT) Investors",
+              "url": "https://simplywall.st/stocks/us/telecom/nasdaq-gsat/globalstar/news/how-globalstars-hibleo-4-launch-delay-and-equity-grants-will",
+              "source": "Simply Wall Street",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Globalstar recently postponed its planned May 17, 2026 HIBLEO-4 replenishment satellite launch with SpaceX to allow additional preparation time,..."
+            },
+            {
+              "title": "Massive News: This Satellite Stock Could Be Amazon's Next Big Acquision",
+              "url": "https://www.fool.com/investing/2026/04/21/massive-news-this-satellite-stock-could-be-amazons/",
+              "source": "The Motley Fool",
+              "publishedAt": "Apr 21, 2026",
+              "snippet": "Globalstar (GSAT 2.60%) is suddenly at the center of a much bigger fight between Amazon and SpaceX. I break down why this reported deal matters,..."
+            }
+          ]
+        },
+        {
+          "nodeId": "eu",
+          "name": "European Union",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0.05,
+          "summary": "Recent EU news focuses on geopolitical tensions, green energy, and auto tariffs rather than Digital Markets Act enforcement, implying no material change in App Store regulatory risk for Apple over the medium term. These developments do not alter the expected trajectory of compliance costs or App Store revenue exposure in Europe.",
+          "citations": [
+            {
+              "title": "Dulux maker's stock soars 20% after takeover bid from major rival; oil holds below $100",
+              "url": "https://www.cnbc.com/2026/05/27/european-markets-stoxx-600-ftse-dax-cac-iran-news.html",
+              "source": "CNBC",
+              "publishedAt": "3 weeks ago",
+              "snippet": "European stocks closed in positive territory on Wednesday as regional investors assess the latest military operations against Iran."
+            },
+            {
+              "title": "European stocks fall as private market stress, Mideast tensions dent sentiment",
+              "url": "https://www.reuters.com/business/finance/european-stocks-dip-mideast-tensions-zara-owner-inditex-gains-2026-06-03/",
+              "source": "Reuters",
+              "publishedAt": "2 weeks ago",
+              "snippet": "European shares slipped on Wednesday as escalating Middle East tensions and ‌fresh jitters over private markets pushed investors out of riskier assets,..."
+            },
+            {
+              "title": "Circular economy offers the EU win-win on environment and economy",
+              "url": "https://www.eea.europa.eu/en/newsroom/news/circular-economy-offers-the-eu-win-win",
+              "source": "European Environment Agency (EEA)",
+              "publishedAt": "1 month ago",
+              "snippet": "Stepping up a circular economy offers the European Union the potential for significant positive impacts on Europe's environment and poses an untapped and..."
+            },
+            {
+              "title": "Green Energy Demand Is Recharging European Utilities. 4 Stocks to Consider.",
+              "url": "https://www.barrons.com/articles/green-energy-europe-utilities-stocks-68e1b5ed",
+              "source": "Barron's",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Europe is overhauling an aging grid to absorb renewable-generation capacity that now provides nearly half of the European Union's electricity."
+            },
+            {
+              "title": "European car stocks down after Trump says he will raise tariffs on autos",
+              "url": "https://www.investing.com/news/stock-market-news/european-car-stocks-fall-after-trump-says-he-will-raise-tariffs-on-autos-4655081",
+              "source": "Investing.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Investing.com -- European automotive stocks tumbled on Monday, weighed down by German carmakers, after President Donald Trump announced plans to raise..."
+            }
+          ]
+        },
+        {
+          "nodeId": "us_gov",
+          "name": "US Government",
+          "type": "government",
+          "signal": "negative",
+          "magnitude": 0.3,
+          "summary": "Direct U.S. government equity-taking in AI and quantum firms signals deepening, unpredictable intervention in the tech sector, amplifying medium-term trade-policy uncertainty and reinforcing a persistent antitrust overhang for Apple.",
+          "citations": [
+            {
+              "title": "Which company will the U.S. government take a stake in next? Here’s what traders think",
+              "url": "https://www.cnbc.com/2026/05/22/which-company-will-the-us-government-take-a-stake-in-next.html",
+              "source": "CNBC",
+              "publishedAt": "4 weeks ago",
+              "snippet": "The U.S. government unveiled stakes in nine quantum companies on Thursday, the latest development in the Trump administration's push to acquire shares of..."
+            },
+            {
+              "title": "The U.S. Government Is Investing $2 Billion in the Quantum Computing Space, But Did It Miss the Best Stock to Buy?",
+              "url": "https://finance.yahoo.com/sectors/technology/articles/u-government-investing-2-billion-163500053.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The U.S. government announced plans to provide over $2 billion in incentives and investments to quantum computing companies under the CHIPS and Science Act,..."
+            },
+            {
+              "title": "Palantir Stock Investors Just Got Good News from President Trump and the U.S. Government",
+              "url": "https://www.fool.com/investing/2026/04/24/palantir-stock-good-news-president-trump-governmen/",
+              "source": "The Motley Fool",
+              "publishedAt": "1 month ago",
+              "snippet": "Palantir Technologies (PLTR 1.00%) stock is down 30% from its record high, partly due to concerns about its valuation but also because some investors have..."
+            },
+            {
+              "title": "Senior U.S. Officials Eye Government Shares in AI Giants",
+              "url": "https://www.notus.org/technology/trump-ai-stake-openai",
+              "source": "News of the United States - NOTUS",
+              "publishedAt": "2 weeks ago",
+              "snippet": "An agreement to give the U.S. government equity stakes in AI companies could have seismic consequences. AP26154753451949. Sam Altman, the CEO of OpenAI,..."
+            },
+            {
+              "title": "The insider trading suspicions looming over Trump's presidency",
+              "url": "https://www.bbc.com/news/articles/cge0grppe3po",
+              "source": "BBC",
+              "publishedAt": "Apr 20, 2026",
+              "snippet": "The BBC has found a pattern of spikes in trades ahead of public announcements by the US president."
+            }
+          ]
+        },
+        {
+          "nodeId": "china",
+          "name": "China (Regulators)",
+          "type": "government",
+          "signal": "negative",
+          "magnitude": 0.35,
+          "summary": "A sustained pattern of Chinese regulatory hostility toward U.S. firms and cross-border deals signals a deteriorating operating environment, elevating medium-term policy risks for Apple's manufacturing footprint and major sales market in the region.",
+          "citations": [
+            {
+              "title": "Futu faces investigation by China regulators, shares drop 28% on legal concerns.",
+              "url": "https://pluang.com/en/news-feed/peringatan-investigasi-futu-holdings-terkait-penyelidikan-regulator-china",
+              "source": "Pluang",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Futu Holdings Limited announced it received a notice of investigation and penalty pre-notification from the China Securities Regulatory Commission related..."
+            },
+            {
+              "title": "Alibaba Group Holding Ltd Stock (BABA) Moved Down by 3.70% on Jun 11: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261961661-market-movers-baba-20260611",
+              "source": "TradingKey",
+              "publishedAt": "6 days ago",
+              "snippet": "Alibaba stock fell due to regulatory scrutiny over misleading advertising.China's regulators are tightening oversight on internet giants,..."
+            },
+            {
+              "title": "Xi tests China's reach by blocking Meta's already-done acquisition of Singapore-based Manus",
+              "url": "https://www.businesstimes.com.sg/international/global/xi-tests-chinas-reach-blocking-metas-already-done-acquisition-singapore-based-manus",
+              "source": "The Business Times",
+              "publishedAt": "1 month ago",
+              "snippet": "[BEIJING] China has sought for years to exert influence over business deals beyond its home turf. Still, its decision to press Meta Platforms to unwind a..."
+            },
+            {
+              "title": "DBS Research and UOBKH eye Singtel, Venture as top picks for June",
+              "url": "https://www.businesstimes.com.sg/companies-markets/dbs-research-and-uobkh-eye-singtel-venture-top-picks-june",
+              "source": "The Business Times",
+              "publishedAt": "1 week ago",
+              "snippet": "Singtel's 18% drop from a March peak is an 'opportunity to add', while Venture's revenue may be boosted by AI Read more at The Business Times."
+            },
+            {
+              "title": "China cracks down on U.S. stock trading platforms, seizes illegal gains",
+              "url": "https://www.cryptopolitan.com/china-cracks-down-u-s-stock-trading/",
+              "source": "Cryptopolitan",
+              "publishedAt": "4 weeks ago",
+              "snippet": "China's Securities Regulatory Commission (CSRC) is cracking down on U.S. stock trading platforms and has seized illegal gains."
+            }
+          ]
+        }
+      ],
+      "directCompanyNews": [
+        {
+          "title": "Boring, quiet & crushing the market for the last 5 years",
+          "url": "https://finance.yahoo.com/m/7c53a217-697c-3870-9a58-996c6e1110fe/boring%2C-quiet-%26-crushing-the.html",
+          "source": "TheStreet",
+          "publishedAt": "2026-06-17T17:07:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Sector Update: Tech",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/sector-tech-170353797.html",
+          "source": "MT Newswires",
+          "publishedAt": "2026-06-17T17:03:53.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Snap thinks it can beat Apple, Meta and Google to your face",
+          "url": "https://finance.yahoo.com/m/5d485551-d1c5-32da-b1a2-f9d270ed2ccf/snap-thinks-it-can-beat.html",
+          "source": "TheStreet",
+          "publishedAt": "2026-06-17T16:47:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Dan Ives Has a $400 Price Target on Apple. After WWDC, Here's Whether He's Right.",
+          "url": "https://finance.yahoo.com/m/3127d8eb-26f4-31f8-b55b-5ed54a246bd3/dan-ives-has-a-%24400-price.html",
+          "source": "Motley Fool",
+          "publishedAt": "2026-06-17T16:11:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Should You Buy, Sell, or Hold AAPL Stock After a 52% Rise in One Year?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/buy-sell-hold-aapl-stock-154500539.html",
+          "source": "Zacks",
+          "publishedAt": "2026-06-17T15:45:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Apple may owe you up to $95 from a $250 million settlement over its AI rollout — here's who qualifies",
+          "url": "https://finance.yahoo.com/technology/ai/articles/apple-may-owe-95-250-154500062.html",
+          "source": "Moneywise",
+          "publishedAt": "2026-06-17T15:45:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Alphabet Drops 6% in a Month: Buy, Sell, or Hold the GOOGL Stock?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-drops-6-month-buy-153800080.html",
+          "source": "Zacks",
+          "publishedAt": "2026-06-17T15:38:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Top Midday Stories: SpaceX Put Options Too Expensive, Burry Says; Intel Begins Production of Advanced 18A-P Chip Node",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/top-midday-stories-spacex-put-153444389.html",
+          "source": "MT Newswires",
+          "publishedAt": "2026-06-17T15:34:44.000Z",
+          "weight": 0.85
+        }
+      ],
+      "profile": {
+        "totalMs": 226293,
+        "phases": {
+          "researchMs": 82124,
+          "entityEvalMs": 94311,
+          "verdictMs": 49858
+        },
+        "research": {
+          "serpWallMs": 82124,
+          "yahooMs": 158,
+          "serpCallCount": 30,
+          "slowestSerp": [
+            {
+              "label": "Foxconn · medium",
+              "ms": 82099
+            },
+            {
+              "label": "Wireless Carriers · immediate",
+              "ms": 51521
+            },
+            {
+              "label": "Qualcomm · medium",
+              "ms": 12108
+            },
+            {
+              "label": "Google · medium",
+              "ms": 10577
+            },
+            {
+              "label": "Foxconn · immediate",
+              "ms": 7421
+            },
+            {
+              "label": "Best Buy · medium",
+              "ms": 7174
+            },
+            {
+              "label": "Broadcom · medium",
+              "ms": 6846
+            },
+            {
+              "label": "Corning · medium",
+              "ms": 6205
+            }
+          ]
+        },
+        "entityEval": {
+          "callCount": 14,
+          "slowestKimi": [
+            {
+              "label": "US Government",
+              "ms": 94306
+            },
+            {
+              "label": "Qualcomm",
+              "ms": 92515
+            },
+            {
+              "label": "Globalstar",
+              "ms": 81328
+            },
+            {
+              "label": "Best Buy",
+              "ms": 58018
+            },
+            {
+              "label": "Broadcom",
+              "ms": 53661
+            },
+            {
+              "label": "TSMC",
+              "ms": 51179
+            },
+            {
+              "label": "OpenAI",
+              "ms": 47972
+            },
+            {
+              "label": "China (Regulators)",
+              "ms": 47358
+            }
+          ]
+        },
+        "verdictMs": 49856
+      }
     }
   },
-  "lastUpdated": "2026-06-13T04:56:14.446Z"
+  "lastUpdated": "2026-06-17T17:25:16.834Z"
 }

@@ -1,3 +1,5 @@
+import type { PipelineProfile } from "@/lib/pipeline-profile";
+
 export type Signal = "positive" | "negative" | "neutral";
 
 export type NodeType =
@@ -6,7 +8,8 @@ export type NodeType =
   | "customer"
   | "partner"
   | "equity"
-  | "government";
+  | "government"
+  | "macro";
 
 export interface GraphNode {
   id: string;
@@ -74,7 +77,7 @@ export interface StockVerdict {
   mostAffectedNodeId: string;
 }
 
-export type TimeHorizon = "immediate" | "short" | "medium" | "long";
+export type TimeHorizon = "immediate" | "medium" | "long";
 
 export interface HorizonConfig {
   id: TimeHorizon;
@@ -86,50 +89,38 @@ export interface HorizonConfig {
   description: string;
   /** Default verdict timeframe text. */
   timeframe: string;
-  /** Bright Data SERP recency window (Google `qdr:` value). */
-  serpRange: "d" | "w" | "m" | "y";
 }
 
 export const HORIZONS: Record<TimeHorizon, HorizonConfig> = {
   immediate: {
     id: "immediate",
     label: "Immediate",
-    range: "days to ~2 weeks",
+    range: "last 24 hours",
     description:
-      "Pure event-driven repricing; the market digests the headline itself.",
-    timeframe: "next 1-2 weeks",
-    serpRange: "w",
-  },
-  short: {
-    id: "short",
-    label: "Short term",
-    range: "up to ~3 months",
-    description: "Within the current quarter / before next earnings.",
-    timeframe: "next ~3 months",
-    serpRange: "m",
+      "Breaking headlines and operational shocks — pure event-driven repricing.",
+    timeframe: "next 1-2 days",
   },
   medium: {
     id: "medium",
     label: "Medium term",
-    range: "3 to 12 months",
+    range: "last 2 months",
     description:
-      "The next few earnings cycles, where supply-chain and partnership effects flow through to reported numbers.",
-    timeframe: "next 3-12 months",
-    serpRange: "m",
+      "Includes immediate news plus financial and competitive shifts over weeks to ~2 months.",
+    timeframe: "next 2-8 weeks",
   },
   long: {
     id: "long",
     label: "Long term",
-    range: "12+ months",
-    description: "Structural: regulation, competitive shifts, thesis changes.",
-    timeframe: "12+ months",
-    serpRange: "y",
+    range: "last 12 months",
+    description:
+      "Layered view: immediate + medium signals plus structural and thesis-level trends up to one year.",
+    timeframe: "6-12 months",
   },
 };
 
-export const HORIZON_ORDER: TimeHorizon[] = ["immediate", "short", "medium", "long"];
+export const HORIZON_ORDER: TimeHorizon[] = ["immediate", "medium", "long"];
 
-export const DEFAULT_HORIZON: TimeHorizon = "short";
+export const DEFAULT_HORIZON: TimeHorizon = "medium";
 
 export interface AnalyzeResponse {
   ticker: string;
@@ -137,6 +128,10 @@ export interface AnalyzeResponse {
   horizon: TimeHorizon;
   verdict: StockVerdict;
   impacts: EntityImpact[];
+  /** Headlines about the stock itself (Yahoo Finance — not ecosystem ripples). */
+  directCompanyNews?: Citation[];
+  /** Present when FINNSMART_PROFILE=true — wall-clock phase breakdown. */
+  profile?: PipelineProfile;
 }
 
 export interface WatchlistItem {
@@ -152,4 +147,5 @@ export const NODE_TYPE_LABELS: Record<NodeType, string> = {
   partner: "Partner",
   equity: "Equity holding",
   government: "Government / Regulator",
+  macro: "Macro / Geopolitical",
 };

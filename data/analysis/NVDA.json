@@ -755,7 +755,151 @@
           ]
         }
       ]
+    },
+    "immediate": {
+      "ticker": "NVDA",
+      "generatedAt": "2026-06-15T15:46:21.065Z",
+      "horizon": "immediate",
+      "verdict": {
+        "signal": "neutral",
+        "confidence": 0.85,
+        "expectedMove": "-1% to +1%",
+        "timeframe": "next 1-2 days",
+        "rationale": "With no material headlines from NVIDIA's key suppliers, customers, or regulators in the last 24 hours, there is no immediate operational catalyst to trigger idiosyncratic repricing. The stock is therefore likely to trade in a tight range driven by broader market beta rather than fundamental shocks over the next 1-2 days.",
+        "explanation": "The Immediate horizon is defined by breaking news and operational shocks, yet every major node in NVIDIA's ecosystem—from TSMC and HBM memory vendors to hyperscaler customers and export regulators—reported no material developments. Without supply surprises, demand shocks, or policy shifts, the stock lacks a discrete rerating trigger for the next 48 hours. Price action should be dominated by general market flows and technical positioning rather than company-specific fundamentals. Even the modest medium-term AI demand tailwind is too gradual to produce meaningful event-driven repricing in a two-day window.",
+        "bullishDrivers": [],
+        "bearishDrivers": [],
+        "mostAffectedNodeId": "tsmc"
+      },
+      "impacts": [
+        {
+          "nodeId": "tsmc",
+          "name": "TSMC",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material TSMC news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "skhynix",
+          "name": "SK Hynix",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material SK Hynix news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "micron",
+          "name": "Micron",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Micron news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "samsung",
+          "name": "Samsung Electronics",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Samsung Electronics news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "msft",
+          "name": "Microsoft",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Microsoft news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "meta",
+          "name": "Meta",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Meta news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "amzn",
+          "name": "Amazon (AWS)",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Amazon (AWS) news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "coreweave",
+          "name": "CoreWeave",
+          "type": "customer",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material CoreWeave news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "arm",
+          "name": "Arm Holdings",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Arm Holdings news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "smci",
+          "name": "Super Micro",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Super Micro news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "dell",
+          "name": "Dell Technologies",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material Dell Technologies news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "soundhound",
+          "name": "SoundHound AI",
+          "type": "equity",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material SoundHound AI news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "us_gov",
+          "name": "US Government",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material US Government news in the window.",
+          "citations": []
+        },
+        {
+          "nodeId": "china",
+          "name": "China (Regulators)",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "No material China (Regulators) news in the window.",
+          "citations": []
+        }
+      ]
     }
   },
-  "lastUpdated": "2026-06-13T07:23:21.808Z"
+  "lastUpdated": "2026-06-15T15:46:21.065Z"
 }
