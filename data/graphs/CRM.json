@@ -1,0 +1,141 @@
+{
+  "ticker": "CRM",
+  "name": "Salesforce, Inc.",
+  "description": "Salesforce, Inc. ecosystem — suppliers, customers, partners, holdings, regulators, and macro risks.",
+  "nodes": [
+    {
+      "id": "crm",
+      "name": "Salesforce, Inc.",
+      "ticker": "CRM",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_aws",
+      "name": "AWS",
+      "ticker": "AMZN",
+      "type": "supplier",
+      "relationship": "Cloud infrastructure services provider for Salesforce"
+    },
+    {
+      "id": "supplier_microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "type": "supplier",
+      "relationship": "Provides cloud platform services to support Salesforce operations"
+    },
+    {
+      "id": "customer_boeing",
+      "name": "Boeing",
+      "type": "customer",
+      "relationship": "Utilizes Salesforce's customer relationship management software"
+    },
+    {
+      "id": "customer_ford_motor_company",
+      "name": "Ford Motor Company",
+      "type": "customer",
+      "relationship": "Leverages Salesforce technology to enhance customer service"
+    },
+    {
+      "id": "partner_hp_inc",
+      "name": "HP Inc.",
+      "ticker": "HPQ",
+      "type": "partner",
+      "relationship": "Sells printing solutions paired with Salesforce's software"
+    },
+    {
+      "id": "partner_google",
+      "name": "Google",
+      "ticker": "GOOGL",
+      "type": "partner",
+      "relationship": "Co-develops cloud services with Salesforce for business applications"
+    },
+    {
+      "id": "equity_alphabet_inc",
+      "name": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "type": "equity",
+      "relationship": "Investor with a reported $500 million stake in Salesforce"
+    },
+    {
+      "id": "government_european_commission",
+      "name": "European Commission",
+      "type": "government",
+      "relationship": "Regulates privacy policies that impact Salesforce's operations in Europe"
+    },
+    {
+      "id": "macro_cloud_computing_trends",
+      "name": "Cloud Computing Trends",
+      "type": "macro",
+      "relationship": "Directly affects Salesforce's demand and growth opportunities"
+    },
+    {
+      "id": "macro_global_market_volatility",
+      "name": "Global Market Volatility",
+      "type": "macro",
+      "relationship": "Impacts Salesforce's customer spending on CRM software"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_aws",
+      "source": "supplier_aws",
+      "target": "crm",
+      "relationType": "Cloud infrastructure services provider for Salesforce"
+    },
+    {
+      "id": "e_supplier_microsoft",
+      "source": "supplier_microsoft",
+      "target": "crm",
+      "relationType": "Provides cloud platform services to support Salesforce operations"
+    },
+    {
+      "id": "e_customer_boeing",
+      "source": "customer_boeing",
+      "target": "crm",
+      "relationType": "Utilizes Salesforce's customer relationship management software"
+    },
+    {
+      "id": "e_customer_ford_motor_company",
+      "source": "customer_ford_motor_company",
+      "target": "crm",
+      "relationType": "Leverages Salesforce technology to enhance customer service"
+    },
+    {
+      "id": "e_partner_hp_inc",
+      "source": "partner_hp_inc",
+      "target": "crm",
+      "relationType": "Sells printing solutions paired with Salesforce's software"
+    },
+    {
+      "id": "e_partner_google",
+      "source": "partner_google",
+      "target": "crm",
+      "relationType": "Co-develops cloud services with Salesforce for business applications"
+    },
+    {
+      "id": "e_equity_alphabet_inc",
+      "source": "crm",
+      "target": "equity_alphabet_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_european_commission",
+      "source": "government_european_commission",
+      "target": "crm",
+      "relationType": "Regulates privacy policies that impact Salesforce's operations in Europe"
+    },
+    {
+      "id": "e_macro_cloud_computing_trends",
+      "source": "macro_cloud_computing_trends",
+      "target": "crm",
+      "relationType": "Directly affects Salesforce's demand and growth opportunities"
+    },
+    {
+      "id": "e_macro_global_market_volatility",
+      "source": "macro_global_market_volatility",
+      "target": "crm",
+      "relationType": "Impacts Salesforce's customer spending on CRM software"
+    }
+  ]
+}

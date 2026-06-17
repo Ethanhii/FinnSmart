@@ -14,6 +14,9 @@ export const KIMI_API_KEY = process.env.KIMI_API_KEY ?? "";
 export const KIMI_BASE_URL =
   process.env.KIMI_BASE_URL ?? "https://api.moonshot.ai/v1";
 export const KIMI_MODEL = process.env.KIMI_MODEL ?? "kimi-k2.6";
+/** Fast model for relationship-map generation. moonshot-v1-8k is ~1–3s; kimi-k2.6 can take 90s+. */
+export const KIMI_GRAPH_MODEL =
+  process.env.KIMI_GRAPH_MODEL ?? "moonshot-v1-8k";
 
 export const BRIGHTDATA_API_KEY = process.env.BRIGHTDATA_API_KEY ?? "";
 export const BRIGHTDATA_ZONE = process.env.BRIGHTDATA_ZONE ?? "";
