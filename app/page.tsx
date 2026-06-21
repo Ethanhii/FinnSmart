@@ -1,12 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { AnalyzeResponse, Signal, WatchlistItem } from "@/lib/types";
+import type { AnalyzeResponse, ImpactStrength, Signal, WatchlistItem } from "@/lib/types";
 import { DEFAULT_WATCHLIST_ITEMS } from "@/lib/catalog";
 import { Brand } from "@/components/Brand";
 import { SignalPill } from "@/components/SignalPill";
 import { WatchlistCard, type CardState } from "@/components/WatchlistCard";
-import { SIGNAL_COLORS, SIGNAL_LABELS } from "@/lib/ui";
+import { SIGNAL_COLORS, SIGNAL_LABELS, strengthLabel } from "@/lib/ui";
+import { STRENGTH_SCORE } from "@/lib/strength";
 
 const STORAGE_KEY = "finnsmart.watchlist";
 
@@ -270,7 +271,8 @@ export default function HomePage() {
               <span style={{ color: SIGNAL_COLORS[summary.mostAffected.signal] }}>
                 {summary.mostAffected.ticker}{" "}
                 <span className="text-sm font-normal text-[var(--color-muted)]">
-                  {summary.mostAffected.move}
+                  {strengthLabel(summary.mostAffected.strength)} ·{" "}
+                  {SIGNAL_LABELS[summary.mostAffected.signal].toLowerCase()}
                 </span>
               </span>
             ) : (
@@ -327,7 +329,7 @@ function computeSummary(
   let ready = 0;
   let score = 0;
   let mostAffected:
-    | { ticker: string; signal: Signal; move: string; mag: number }
+    | { ticker: string; signal: Signal; strength: ImpactStrength }
     | undefined;
 
   for (const ticker of tickers) {
@@ -337,11 +339,13 @@ function computeSummary(
     if (v.signal === "positive") bullish += 1;
     else if (v.signal === "negative") bearish += 1;
     else neutral += 1;
-    score += (v.signal === "positive" ? 1 : v.signal === "negative" ? -1 : 0) * v.confidence;
+    score +=
+      (v.signal === "positive" ? 1 : v.signal === "negative" ? -1 : 0) *
+      STRENGTH_SCORE[v.strength];
 
-    const mag = v.signal === "neutral" ? 0 : v.confidence;
-    if (!mostAffected || mag > mostAffected.mag) {
-      mostAffected = { ticker, signal: v.signal, move: v.expectedMove, mag };
+    const rank = v.signal === "neutral" ? 0 : STRENGTH_SCORE[v.strength];
+    if (!mostAffected || rank > STRENGTH_SCORE[mostAffected.strength]) {
+      mostAffected = { ticker, signal: v.signal, strength: v.strength };
     }
   }
 

@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "fs/promises";
 import path from "path";
 import type { AnalyzeResponse, TimeHorizon } from "@/lib/types";
 import { HORIZON_ORDER } from "@/lib/types";
+import { normalizeAnalyzeResponse, stripProfileFromAnalysis } from "@/lib/strength";
 
 /** On-disk cache: one file per ticker, keyed by time horizon. */
 export interface TickerAnalysisStore {
@@ -37,7 +38,8 @@ export async function getCachedAnalysis(
   horizon: TimeHorizon
 ): Promise<AnalyzeResponse | null> {
   const store = await readTickerStore(ticker);
-  return store?.byHorizon[horizon] ?? null;
+  const cached = store?.byHorizon[horizon];
+  return cached ? stripProfileFromAnalysis(normalizeAnalyzeResponse(cached)) : null;
 }
 
 /** Best available cached analysis (prefers requested horizon, else most recently updated entry). */
@@ -48,10 +50,10 @@ export async function getAnyCachedAnalysis(
   const store = await readTickerStore(ticker);
   if (!store) return null;
   if (preferredHorizon && store.byHorizon[preferredHorizon]) {
-    return store.byHorizon[preferredHorizon]!;
+    return stripProfileFromAnalysis(normalizeAnalyzeResponse(store.byHorizon[preferredHorizon]!));
   }
   for (const h of HORIZON_ORDER) {
-    if (store.byHorizon[h]) return store.byHorizon[h]!;
+    if (store.byHorizon[h]) return stripProfileFromAnalysis(normalizeAnalyzeResponse(store.byHorizon[h]!));
   }
   return null;
 }
@@ -60,8 +62,9 @@ export async function getAnyCachedAnalysis(
 export async function saveAnalysis(result: AnalyzeResponse): Promise<void> {
   await ensureDir();
   const ticker = result.ticker.toUpperCase();
+  const toSave = stripProfileFromAnalysis(result);
   const existing = (await readTickerStore(ticker)) ?? { ticker, byHorizon: {} };
-  existing.byHorizon[result.horizon] = result;
+  existing.byHorizon[result.horizon] = toSave;
   existing.lastUpdated = result.generatedAt;
   await writeFile(storePath(ticker), JSON.stringify(existing, null, 2), "utf8");
 }

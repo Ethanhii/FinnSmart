@@ -1,0 +1,838 @@
+{
+  "ticker": "AMZN",
+  "byHorizon": {
+    "medium": {
+      "ticker": "AMZN",
+      "generatedAt": "2026-06-21T05:43:47.033Z",
+      "horizon": "medium",
+      "verdict": {
+        "signal": "positive",
+        "confidence": 0.72,
+        "expectedMove": "+2% to +5%",
+        "timeframe": "next 2-8 weeks",
+        "rationale": "Amazon is converting global supply chain stress into a new revenue stream via Supply Chain Services while Whole Foods expansion stabilizes retail, outweighing inflationary cost pressures and selective AWS demand softness.",
+        "explanation": "Amazon's launch of Supply Chain Services with adoption from corporates like 3M and P&G turns a historic logistics liability into a high-margin, incremental revenue driver over the coming weeks. Whole Foods continues to execute with store expansions and supply chain extensions, providing a stable consumer-facing profit contribution that helps offset inflationary fulfillment costs and softer discretionary spending. While marquee AWS customers like Netflix and IBM show signs of slower growth or competitive defection, AWS's diversified base keeps cloud headwinds manageable. Combined with quietly deepening AI infrastructure moats, the net medium-term trajectory skews positive despite persistent macro cost pressures.",
+        "bullishDrivers": [
+          "Supply Chain Services monetizes logistics stress",
+          "Whole Foods expansion stabilizes retail base",
+          "AI infrastructure moat quietly deepening",
+          "Uber and Rakuten stakes appreciating"
+        ],
+        "bearishDrivers": [
+          "Inflation elevates logistics and fulfillment costs",
+          "Netflix and IBM signal AWS demand softness",
+          "Weak discretionary spending pressures retail margins",
+          "Prime Day grocery pivot dilutes profitability"
+        ],
+        "mostAffectedNodeId": "macro_global_supply_chain_disruptions"
+      },
+      "impacts": [
+        {
+          "nodeId": "supplier_cisco_systems_inc",
+          "name": "Cisco Systems, Inc.",
+          "type": "supplier",
+          "signal": "neutral",
+          "magnitude": 0.15,
+          "summary": "Cisco's stable Q3 revenue supports uninterrupted supply to Amazon's data centers, while its internal margin headwinds lack a clear transmission mechanism to materially raise Amazon's infrastructure costs or disrupt AWS expansion over the medium term given Amazon's purchasing scale and supplier diversification.",
+          "citations": [
+            {
+              "title": "Cisco Reports Third Quarter Earnings",
+              "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html",
+              "source": "Cisco Newsroom",
+              "publishedAt": "1 month ago",
+              "snippet": "Cisco reported third quarter revenue of $15.8 billion, net income on a generally accepted accounting principles (GAAP) basis of $3.4 billion or $0.85 per..."
+            },
+            {
+              "title": "Here is What to Know Beyond Why Cisco Systems, Inc. (CSCO) is a Trending Stock",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/know-beyond-why-cisco-systems-130006103.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Cisco (CSCO) has been one of the stocks most watched by Zacks.com users lately. So, it is worth exploring what lies ahead for the stock."
+            },
+            {
+              "title": "Cisco Shares Dip After Company Discusses Margin ‘Headwind’",
+              "url": "https://www.bloomberg.com/news/articles/2026-05-19/cisco-shares-dip-after-company-discusses-margin-headwind",
+              "source": "Bloomberg.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Cisco Systems Inc. shares slipped after Chief Financial Officer Mark Patterson warned that the company would see “ups and downs” with its gross profit..."
+            },
+            {
+              "title": "Cisco Systems, Inc. Stock 12‑Month Price Target Raised to $129.2, Implies 7% Upside",
+              "url": "https://www.tradingview.com/news/tradingview:ec04a2cc4cba3:0-cisco-systems-inc-stock-12-month-price-target-raised-to-129-2-implies-7-upside/",
+              "source": "TradingView",
+              "publishedAt": "3 weeks ago",
+              "snippet": "According to estimates from 20 analysts, Cisco Systems, Inc. stock's average price target has risen from $128.15 to $129.2, with forecasts ranging from $112..."
+            },
+            {
+              "title": "Cisco Systems Inc. stock underperforms Wednesday when compared to competitors",
+              "url": "https://www.marketwatch.com/data-news/cisco-systems-inc-stock-underperforms-wednesday-when-compared-to-competitors-ecb1c197-cc74ee968900",
+              "source": "MarketWatch",
+              "publishedAt": "1 month ago",
+              "snippet": "slipped 2.82% to $91.64 Wednesday, on what proved to be an all-around favorable trading session for the stock market, with the S&P 500 Index."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_fedex_corporation",
+          "name": "FedEx Corporation",
+          "type": "supplier",
+          "signal": "positive",
+          "magnitude": 0.15,
+          "summary": "The completion of FedEx’s Freight spin-off leaves a more focused parcel carrier serving Amazon without signs of operational or financial distress, modestly reducing medium-term supplier risk. The effect on Amazon’s stock is limited, however, as Amazon relies on FedEx for only a portion of deliveries and maintains a heavily diversified logistics network.",
+          "citations": [
+            {
+              "title": "What Makes FedEx Corporation (FDX) an Investment Choice?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/makes-fedex-corporation-fdx-investment-124105153.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Victory Capital, overseeing the RS Large Cap Value Strategy, released its Q1 2026 investor letter. A copy of the letter can be downloaded here."
+            },
+            {
+              "title": "Why FedEx Stock Just Dropped",
+              "url": "https://www.fool.com/investing/2026/06/01/why-fedex-stock-just-dropped/",
+              "source": "The Motley Fool",
+              "publishedAt": "3 weeks ago",
+              "snippet": "FedEx Corporation (FDX +0.08%) stock crashed nearly 19% through 11:15 a.m. ET this morning -- but don't panic. This apparent disaster isn't what meets the..."
+            },
+            {
+              "title": "FedEx Stock Is Up 71% Over the Past Year. Here’s What Could Drive the Next Move",
+              "url": "https://www.tikr.com/blog/fedex-stock-is-up-71-over-the-past-year-heres-what-could-drive-the-next-move",
+              "source": "TIKR.com",
+              "publishedAt": "1 month ago",
+              "snippet": "FedEx Corporation is a global courier and logistics company that is spinning off its FedEx Freight division into a separately traded public company while..."
+            },
+            {
+              "title": "FedEx Corporation Stock 12‑Month Price Target Cut to $405.94, Implies 22% Upside",
+              "url": "https://www.tradingview.com/news/tradingview:dbb0f7f481865:0-fedex-corporation-stock-12-month-price-target-cut-to-405-94-implies-22-upside/",
+              "source": "TradingView",
+              "publishedAt": "3 weeks ago",
+              "snippet": "According to estimates from 24 analysts, FedEx Corporation stock's average price target has fallen from $408.86 to $405.94, with forecasts ranging from $230..."
+            },
+            {
+              "title": "FedEx Freight begins operations as independent, publicly-traded company",
+              "url": "https://www.5newsonline.com/article/news/fedex-freight-begins-operations-as-independent-publicly-traded-company/527-10887d42-2ccd-4569-94e1-33cce6b14c9e",
+              "source": "5newsonline.com",
+              "publishedAt": "3 weeks ago",
+              "snippet": "MEMPHIS, Tenn. — FedEx Freight will now operate as an independent, publicly traded less-than-truckload company, according to an announcement made on Monday."
+            }
+          ]
+        },
+        {
+          "nodeId": "supplier_whirlpool_corporation",
+          "name": "Whirlpool Corporation",
+          "type": "supplier",
+          "signal": "negative",
+          "magnitude": 0.15,
+          "summary": "Whirlpool's aggressive price increases and warning of recession-level appliance demand weakness point to softer volumes and potential margin pressure in Amazon's home goods category over the medium term. The overall impact on AMZN is expected to be modest, as appliances represent only a small slice of its broad retail and cloud revenue base.",
+          "citations": [
+            {
+              "title": "Whirlpool Corporation Announces First-Quarter Results; Accelerates Cost and Pricing Actions to Restore Margins",
+              "url": "https://www.prnewswire.com/news-releases/whirlpool-corporation-announces-first-quarter-results-accelerates-cost-and-pricing-actions-to-restore-margins-302764444.html",
+              "source": "PR Newswire",
+              "publishedAt": "1 month ago",
+              "snippet": "Decisive actions announced to restore profitability in MDA North America, including double-digit price increase and acceleration of cost take out..."
+            },
+            {
+              "title": "Jim Cramer on Whirlpool: “I Am Very Concerned About That Company”",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-whirlpool-am-very-180450443.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Whirlpool Corporation (NYSE:WHR) was among the stocks Jim Cramer looked at as he explained the need for a tame bond market for the stock market to go higher..."
+            },
+            {
+              "title": "Whirlpool says Iran war causing 'recession-level industry decline.' The shares are down 12%",
+              "url": "https://www.cnbc.com/2026/05/07/whirlpool-says-iran-war-causing-recession-level-industry-decline-the-shares-are-down-20percent.html",
+              "source": "CNBC",
+              "publishedAt": "1 month ago",
+              "snippet": "\"War in Iran resulted in recession-level industry decline in the U.S. as consumer confidence collapsed in late February and March,\" the company said."
+            },
+            {
+              "title": "Whirlpool Corporation (WHR) Rallies +2.56% as Bulls Target $44.98 2026-05-14 - Price Surge Stocks",
+              "url": "https://www.lwvtexas.org/expert-time/Whirlpool-Corporation-WHR-Rallies-256-as-Bulls-Target-4498-20260514-15-1918",
+              "source": "The League of Women Voters of Texas",
+              "publishedAt": "1 month ago",
+              "snippet": "Our system tracks stock market developments with a focus on earnings surprises, price momentum, and analyst expectations. Whirlpool Corporation shares have..."
+            },
+            {
+              "title": "Whirlpool (NYSE:WHR) Misses Q1 CY2026 Sales Expectations, Stock Drops 19.5%",
+              "url": "https://stockstory.org/us/stocks/nyse/whr/news/earnings/whirlpool-nysewhr-misses-q1-cy2026-sales-expectations-stock-drops-195percent",
+              "source": "StockStory",
+              "publishedAt": "1 month ago",
+              "snippet": "Home appliances manufacturer Whirlpool (NYSE:WHR) missed Wall Street's revenue expectations in Q1 CY2026, with sales falling 9.6% year on year to $3.27..."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_whole_foods_market_inc",
+          "name": "Whole Foods Market Inc.",
+          "type": "customer",
+          "signal": "positive",
+          "magnitude": 0.35,
+          "summary": "Whole Foods' reported strong performance, continued store expansion, and a decade-long supply chain extension suggest Amazon's grocery subsidiary is executing well and growing steadily, reducing medium-term operational risk. These signals point to a stable, modestly positive contribution from the consumer-facing retail channel to Amazon's broader results over the coming months.",
+          "citations": [
+            {
+              "title": "Is UNFI’s Extended Whole Foods Deal and Retail Media Push Altering The Investment Case For United Natural Foods (UNFI)?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/unfi-extended-whole-foods-deal-042252375.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "United Natural Foods, Inc. recently extended its distribution partnership with Whole Foods Market through 2032 and launched a national retail media network..."
+            },
+            {
+              "title": "A smaller-format Whole Foods is set to open on South Street",
+              "url": "https://www.inquirer.com/consumer/new-whole-foods-opening-south-street-philadelphia-20260513.html",
+              "source": "Inquirer.com",
+              "publishedAt": "1 month ago",
+              "snippet": "The news comes three months after Whole Foods' parent company closed all physical Amazon Fresh stores, including six in the Philly region."
+            },
+            {
+              "title": "The Friday Checkout: What has Whole Foods become under Amazon?",
+              "url": "https://www.grocerydive.com/news/whole-foods-amazon-grocery-daily-shop-specialty/822082/",
+              "source": "Grocery Dive",
+              "publishedAt": "2 weeks ago",
+              "snippet": "The specialty grocer is doing better than ever before, according to Amazon grocery and Whole Foods leader Jason Buechel. But is it the same Whole Foods..."
+            },
+            {
+              "title": "Whole Foods Market launches search for startups",
+              "url": "https://www.foodbusinessnews.net/articles/30511-whole-foods-market-launches-search-for-startups",
+              "source": "Food Business News",
+              "publishedAt": "4 days ago",
+              "snippet": "AUSTIN, TEXAS — Whole Foods Market has opened applications for its 2026 Local and Emerging Accelerator Program (LEAP). The program provides mentorship,..."
+            },
+            {
+              "title": "Whole Foods Market to Open Massachusetts Store in Seekonk",
+              "url": "https://progressivegrocer.com/whole-foods-market-open-massachusetts-store-seekonk",
+              "source": "Progressive Grocer",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The Seekonk store will source its assortment from 200+ local suppliers."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_netflix_inc",
+          "name": "Netflix, Inc.",
+          "type": "customer",
+          "signal": "negative",
+          "magnitude": 0.2,
+          "summary": "Netflix's missed Q2 2026 guidance, stock decline, and executive turnover signal a medium-term slowdown for a marquee AWS customer, modestly dampening Amazon's cloud revenue growth expectations. While Netflix's core infrastructure spend is likely sticky, curtailed expansion and risk-off sentiment toward a major client create a slight drag on AMZN.",
+          "citations": [
+            {
+              "title": "Netflix, Inc. (NFLX): One of the Best Big Name Stocks to Buy",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-inc-nflx-one-best-043820182.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Netflix, Inc. (NASDAQ:NFLX) is among the 15 Best Big Name Stocks to Buy. On April 17, Piper Sandler analyst Thomas Champion lifted the price target on the..."
+            },
+            {
+              "title": "Netflix Inc Stock (NFLX) Closed Down by 3.47% on May 5: Facts Behind the Movement",
+              "url": "https://www.tradingkey.com/news/market-movers/261858894-market-movers-nflx-20260505",
+              "source": "TradingKey",
+              "publishedAt": "1 month ago",
+              "snippet": "Netflix's Q2 2026 guidance missed revenue and EPS expectations.Executive changes and insider selling fueled negative investor sentiment."
+            },
+            {
+              "title": "3 Reasons to Hold Netflix Stock Despite 16% Drop in the Past Month",
+              "url": "https://finance.yahoo.com/news/3-reasons-hold-netflix-stock-160100173.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "Netflix NFLX has shed roughly 16% over the past month, underperforming the Zacks Broadcast Radio and Television industry and the Zacks Consumer..."
+            },
+            {
+              "title": "Is NFLX Stock Worth Buying at a Premium P/S or Should Investors Wait?",
+              "url": "https://www.tradingview.com/news/zacks:31c7b26a2094b:0-is-nflx-stock-worth-buying-at-a-premium-p-s-or-should-investors-wait/",
+              "source": "TradingView",
+              "publishedAt": "2 days ago",
+              "snippet": "Netflix NFLX trades at a forward 12-month price-to-sales ratio that sits meaningfully above its broader media and entertainment peer group, a premium that..."
+            },
+            {
+              "title": "Netflix, Inc. $NFLX Stock Holdings Boosted by Maple Capital Management Inc.",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-netflix-inc-nflx-stock-holdings-boosted-by-maple-capital-management-inc-2026-05-07/",
+              "source": "MarketBeat",
+              "publishedAt": "1 month ago",
+              "snippet": "Maple Capital Management Inc. increased its holdings in Netflix, Inc. (NASDAQ:NFLX - Free Report) by 903.5% during the fourth quarter, according to its most..."
+            }
+          ]
+        },
+        {
+          "nodeId": "customer_ibm_corporation",
+          "name": "IBM Corporation",
+          "type": "customer",
+          "signal": "negative",
+          "magnitude": 0.15,
+          "summary": "IBM’s expanded Google Cloud partnership threatens to divert its IT spending and consulting momentum away from AWS over the coming weeks to months, creating share-of-wallet pressure for Amazon. While IBM’s industrial AI and quantum announcements signal overall growth, the competitive realignment with Google Cloud is the dominant driver for the AWS customer relationship in the medium term.",
+          "citations": [
+            {
+              "title": "Saudi industrial AI push: IBM and Aramco explore an alliance",
+              "url": "https://www.stocktitan.net/news/IBM/ibm-and-aramco-explore-collaboration-to-accelerate-ai-and-innovation-5atkuw122cah.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 month ago",
+              "snippet": "The plan spans agentic AI, automation and material science for industrial and energy systems. Any deal remains subject to definitive agreements."
+            },
+            {
+              "title": "IBM and U.S. Department of Commerce Announce America's First Purpose-Built Quantum Foundry, Supported by Proposed $1 Billion CHIPS Award",
+              "url": "https://www.prnewswire.com/news-releases/ibm-and-us-department-of-commerce-announce-americas-first-purpose-built-quantum-foundry-supported-by-proposed-1-billion-chips-award-302778864.html",
+              "source": "PR Newswire",
+              "publishedAt": "1 month ago",
+              "snippet": "Powered by IBM's decades-long quantum leadership, initiative will accelerate American quantum innovation and enable advanced quantum wafer production for a..."
+            },
+            {
+              "title": "IBM and Google team up to launch stunning product for customers",
+              "url": "https://www.thestreet.com/technology/ibm-and-google-team-up-to-launch-stunning-product-for-customers",
+              "source": "TheStreet",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Google Cloud and IBM launched a major new global practice on June 4. Here is what it means for IBM stock, Google Cloud growth, and customers in 2026."
+            },
+            {
+              "title": "IBM sets out AI business blueprint with quantum in sight",
+              "url": "https://www.arabnews.com/node/2642403/media",
+              "source": "Arab News",
+              "publishedAt": "1 month ago",
+              "snippet": "LONDON: IBM launched on Tuesday at its annual Think conference in Boston what it described as its most comprehensive set of enterprise..."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_google_llc",
+          "name": "Google LLC",
+          "type": "partner",
+          "signal": "positive",
+          "magnitude": 0.1,
+          "summary": "Alphabet's surging cloud revenue and major capital raise signal a financially robust Google, which supports a stable YouTube experience on Amazon's Fire TV and modestly bolsters the device's medium-term competitiveness. Brazil-specific antitrust scrutiny poses little threat to the global partnership, leaving only a faint positive ripple for AMZN.",
+          "citations": [
+            {
+              "title": "Alphabet’s stock climbs as Google Cloud revenue runs rampant, growing 63%",
+              "url": "https://siliconangle.com/2026/04/29/alphabets-stock-climbs-google-cloud-revenue-runs-rampant-growing-63/",
+              "source": "SiliconANGLE",
+              "publishedAt": "1 month ago",
+              "snippet": "Google LLC's parent company Alphabet Inc. delivered a stunning earnings beat as it reported its first-quarter financial results today, with sales also..."
+            },
+            {
+              "title": "Alphabet Inc. (GOOG) Faces Deeper Regulatory Scrutiny in Brazil Antitrust Review",
+              "url": "https://finance.yahoo.com/sectors/technology/articles/alphabet-inc-goog-faces-deeper-095308064.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 month ago",
+              "snippet": "We recently compiled a list of the 10 Most Popular Stocks on Robinhood in 2026. Alphabet Inc. is among the most popular stocks on Robinhood in 2026."
+            },
+            {
+              "title": "Google | History & Facts; Products & Services | Britannica Money",
+              "url": "https://www.britannica.com/money/Google-Inc",
+              "source": "Britannica",
+              "publishedAt": "1 week ago",
+              "snippet": "Google is an American search engine company, founded in 1998 by Sergey Brin and Larry Page. Since 2015,..."
+            },
+            {
+              "title": "Connecticut Capital Management Group LLC Invests $979,000 in Alphabet Inc. $GOOG",
+              "url": "https://www.marketbeat.com/instant-alerts/filing-connecticut-capital-management-group-llc-invests-979000-in-alphabet-inc-goog-2026-06-06/",
+              "source": "MarketBeat",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Connecticut Capital Management Group LLC bought a new position in shares of Alphabet Inc. (NASDAQ:GOOG - Free Report) during the fourth quarter,..."
+            },
+            {
+              "title": "Alphabet Announces $80B Fundraise With $10B Berkshire Hathaway Investment",
+              "url": "https://stocktwits.com/news-articles/markets/equity/alphabet-80b-fundraise-berkshire-hathaway-invests-10b-artificial-intelligence/cZ0WEfvRevi",
+              "source": "Stocktwits",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Alphabet Inc. announced a plan to raise $80 billion in equity capital, a move aimed at bankrolling the skyrocketing costs of its artificial intelligence..."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_microsoft_corporation",
+          "name": "Microsoft Corporation",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0.05,
+          "summary": "Microsoft’s recent Azure growth miss and stock volatility do not materially affect Amazon through the narrow Alexa‑Cortana integration, as the partnership remains peripheral to both firms’ core revenue drivers. Over the medium term, the channel offers no meaningful financial or competitive transmission to AMZN.",
+          "citations": [
+            {
+              "title": "Microsoft Corporation (MSFT): One of the Best Falling Stocks Despite Getting Out of Oracle Data Center Deal",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-corporation-msft-one-best-121118404.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "18 hours ago",
+              "snippet": "Microsoft Corporation (NASDAQ:MSFT) is one of the best falling stocks to invest in, according to analysts. On June 17, Microsoft Corporation (NASDAQ:MSFT)..."
+            },
+            {
+              "title": "Microsoft Corporation (NASDAQ: MSFT) Stock Dips to $420 Amid Moody's US Credit Downgrade Concern",
+              "url": "https://www.foreignpolicyjournal.com/2026/05/22/microsoft-corporation-nasdaq-msft-stock-dips-to-420-amid-moodys-us-credit-downgrade-concern/",
+              "source": "Foreign Policy Journal",
+              "publishedAt": "1 month ago",
+              "snippet": "Microsoft Corporation (NASDAQ: MSFT) was trading around $420.30 on Friday, May 22, after touching a session high of $433.02 before retreating to a low of."
+            },
+            {
+              "title": "Microsoft Corporation (NASDAQ:MSFT): A Strong Growth Stock with a Timely Technical Setup",
+              "url": "https://www.chartmill.com/news/MSFT/Chartmill-48647-Microsoft-Corporation-NASDAQMSFT-A-Strong-Growth-Stock-with-a-Timely-Technical-Setup",
+              "source": "ChartMill",
+              "publishedAt": "1 month ago",
+              "snippet": "Microsoft Corporation (NASDAQ:MSFT) is a name that needs little introduction. As a dominant force in software, cloud computing, and artificial intelligence,..."
+            },
+            {
+              "title": "Microsoft: This Price Makes No Sense (NASDAQ:MSFT)",
+              "url": "https://seekingalpha.com/article/4910391-microsoft-this-price-makes-no-sense",
+              "source": "Seeking Alpha",
+              "publishedAt": "3 weeks ago",
+              "snippet": "Microsoft (MSFT) upside: AI partnerships, cloud growth, Copilot pricing, and DCF target $523 (+16%). Read the full analysis here."
+            },
+            {
+              "title": "Microsoft Corporation (MSFT) Fell as Azure Growth Fell Short of Expectations",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-corporation-msft-fell-azure-140550026.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 days ago",
+              "snippet": "Renaissance Investment Management, an investment management company, released its Q1 2026 “Large Cap Growth Strategy.” A copy of the letter can be..."
+            }
+          ]
+        },
+        {
+          "nodeId": "partner_apple_inc",
+          "name": "Apple Inc.",
+          "type": "partner",
+          "signal": "neutral",
+          "magnitude": 0.05,
+          "summary": "None of the recent Apple headlines address its Amazon distribution channel, product sales volume, or any change in the partnership, so they carry no measurable medium-term ripple to AMZN via this relationship. The signal is therefore neutral.",
+          "citations": [
+            {
+              "title": "Apple Inc. (AAPL): One of the Promising Stocks to Buy According to AI",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/apple-inc-aapl-one-promising-170040937.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "We just covered the 10 Best Stocks to Buy Right Now According to AI and Apple Inc. (NASDAQ:AAPL) ranks 6th on this list. Apple Inc. (NASDAQ:AAPL) is a..."
+            },
+            {
+              "title": "Alphabet vs. Amazon vs. Apple: Which is the Best Stock to Invest In?",
+              "url": "https://global.morningstar.com/en-ca/stocks/alphabet-vs-amazon-vs-apple-which-is-best-stock-invest",
+              "source": "Morningstar",
+              "publishedAt": "1 month ago",
+              "snippet": "These companies are all leaders in Big Tech. But there's one clear winner when it comes to which stock to buy today."
+            },
+            {
+              "title": "Dear Apple Stock Fans, Mark Your Calendars for May 11",
+              "url": "https://www.barchart.com/story/news/1750682/dear-apple-stock-fans-mark-your-calendars-for-may-11",
+              "source": "Barchart.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Shareholders of record on May 11 will receive an increased dividend from Apple."
+            },
+            {
+              "title": "AAPL - Apple Inc Stock Price and Quote",
+              "url": "https://finviz.com/stock?t=AAPL",
+              "source": "Finviz",
+              "publishedAt": "2 days ago",
+              "snippet": "AAPL - Apple Inc - Stock screener for investors and traders, financial visualizations."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_rakuten_group_inc",
+          "name": "Rakuten Group, Inc.",
+          "type": "equity",
+          "signal": "positive",
+          "magnitude": 0.25,
+          "summary": "Rakuten’s stronger Q1 results, FinTech reorganization, and potential Mizuho investment improve its financial stability, supporting its ability to maintain a strategic stake in and e-commerce collaboration with Amazon. Although exiting the French marketplace slightly reduces Rakuten’s international e-commerce footprint, the divestiture signals balance-sheet discipline that modestly benefits the partnership’s medium-term durability.",
+          "citations": [
+            {
+              "title": "Rakuten Bank Shares Jump as Mizuho Considers Investment",
+              "url": "https://www.bloomberg.com/news/articles/2026-05-18/rakuten-bank-shares-jump-as-mizuho-says-it-s-mulling-investment",
+              "source": "Bloomberg",
+              "publishedAt": "1 month ago",
+              "snippet": "Rakuten Bank Ltd. shares surged after Mizuho Financial Group Inc. said it is considering investing in the firm as one of the options for Japanese e-commerce..."
+            },
+            {
+              "title": "Did Rakuten’s FinTech Reorg and impact.com Alliance Just Recast Rakuten Group's (TSE:4755) Investment Narrative?",
+              "url": "https://simplywall.st/stocks/jp/retail/tse-4755/rakuten-group-shares/news/did-rakutens-fintech-reorg-and-impactcom-alliance-just-recas",
+              "source": "Simply Wall Street",
+              "publishedAt": "1 month ago",
+              "snippet": "In May 2026, Rakuten Group, Inc. reported first-quarter 2026 results showing sales of ¥643583 million and a reduced net loss of ¥18648 million,..."
+            },
+            {
+              "title": "Rakuten Group, Inc. 2026 Q1 - Results - Earnings Call Presentation (OTCMKTS:RKUNY) 2026-05-17",
+              "url": "https://seekingalpha.com/article/4905829-rakuten-group-inc-2026-q1-results-earnings-call-presentation",
+              "source": "Seeking Alpha",
+              "publishedAt": "1 month ago",
+              "snippet": "2026-05-17. The following slide deck was published by Rakuten Group, Inc."
+            },
+            {
+              "title": "Ukraine-tested drone software gets Rakuten backing for Japan",
+              "url": "https://www.stocktitan.net/news/SWMR/swarmer-partners-with-rakuten-to-enter-japan-s-advanced-autonomy-mjurw7ccwli3.html",
+              "source": "Stock Titan",
+              "publishedAt": "1 month ago",
+              "snippet": "Swarmer says its software has supported 100000 combat missions in Ukraine since April 2024. Rakuten will help introduce the technology in Japan."
+            },
+            {
+              "title": "Rakuten wants to sell its French marketplace",
+              "url": "https://www.marketscreener.com/news/rakuten-wants-to-sell-its-french-marketplace-ce7f5cdddd8cfe21",
+              "source": "www.marketscreener.com",
+              "publishedAt": "2 days ago",
+              "snippet": "Copyright © Emerce 2023 The online marketplace Rakuten, formerly PriceMinister, is looking for a buyer for its namesake marketplace in France."
+            }
+          ]
+        },
+        {
+          "nodeId": "equity_uber_technologies_inc",
+          "name": "Uber Technologies, Inc.",
+          "type": "equity",
+          "signal": "positive",
+          "magnitude": 0.25,
+          "summary": "Uber's evaluated acquisition of Delivery Hero and its Munich robotaxi partnership signal strategic expansion that should lift Uber's medium-term valuation, benefiting Amazon both as a stakeholder and through deeper logistics synergies. Near-term volatility from institutional stake reductions and budget constraints is outweighed by these longer-growth catalysts over the weeks-to-months horizon.",
+          "citations": [
+            {
+              "title": "Is Uber Technologies, Inc. (UBER) A Good Stock To Buy Now?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/uber-technologies-inc-uber-good-152026651.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Is UBER a good stock to buy? We came across a bullish thesis on Uber Technologies, Inc. on Rijnberk InvestInsights's Substack by Daan | InvestInsights."
+            },
+            {
+              "title": "Uber Is Weighing a Takeover of Delivery Hero. What That Means for UBER Stock.",
+              "url": "https://www.barchart.com/story/news/2093265/uber-is-weighing-a-takeover-of-delivery-hero-what-that-means-for-uber-stock",
+              "source": "Barchart.com",
+              "publishedAt": "1 month ago",
+              "snippet": "Uber is reportedly considering a full acquisition of German peer Delivery Hero. Here's why such a transaction may prove bullish for UBER shares."
+            },
+            {
+              "title": "Uber Technologies Inc Stock (UBER) Moved Down by 3.17% on Jun 2: A Full Analysis",
+              "url": "https://www.tradingkey.com/news/market-movers/261942166-market-movers-uber-20260602",
+              "source": "TradingKey",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Allen Investment Management cut its UBER stake by 61%.Uber capped staff AI coding tool spending amid budget concerns.Massachusetts considers new regulations..."
+            },
+            {
+              "title": "What's Going On With Uber Stock Monday?",
+              "url": "https://www.benzinga.com/trading-ideas/movers/26/06/52897488/whats-going-on-with-uber-stock-monday",
+              "source": "Benzinga",
+              "publishedAt": "3 weeks ago",
+              "snippet": "On Monday, Uber Technologies Inc. (NYSE:UBER) and Autobrains announced plans to launch a robotaxi program in Munich, pending regulatory approval,..."
+            },
+            {
+              "title": "Uber Technologies (UBER): One of the Elite Jeff Bezos Stocks to Buy",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/uber-technologies-uber-one-elite-170546709.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "3 weeks ago",
+              "snippet": "We just covered the Jeff Bezos Stock Portfolio: Top 10 Stock Picks and Uber Technologies, Inc. (NYSE:UBER) ranks 3rd on this list. Jeff Bezos executed a..."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_federal_trade_commission",
+          "name": "Federal Trade Commission",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0,
+          "summary": "The recent FTC news addresses transgender healthcare and fertilizer pricing, neither of which implicates Amazon’s business practices or antitrust exposure. As such, these developments carry no meaningful medium-term ripple to AMZN through the stated regulatory relationship.",
+          "citations": [
+            {
+              "title": "Federal Trade Commission sues leading transgender health group",
+              "url": "https://www.cnn.com/2026/06/17/health/ftc-transgender-care-lawsuit",
+              "source": "CNN",
+              "publishedAt": "3 days ago",
+              "snippet": "The Federal Trade Commission and four states sued the World Professional Association for Transgender Health on Wednesday, in the latest push by President..."
+            },
+            {
+              "title": "Federal Trade Commission investigates fertilizer producers",
+              "url": "https://www.farmprogress.com/farm-policy/federal-trade-commission-investigates-fertilizer-producers",
+              "source": "Farm Progress",
+              "publishedAt": "3 weeks ago",
+              "snippet": "The Federal Trade Commission opens an industrywide investigation into rising fertilizer costs as farmers face mounting input prices."
+            },
+            {
+              "title": "Federal Trade Commission sues leading transgender health group",
+              "url": "https://www.gmtoday.com/health/federal-trade-commission-sues-leading-transgender-health-group/article_ef07271d-4eb9-55c9-b4c9-e16fa35ff090.html",
+              "source": "GMToday.com",
+              "publishedAt": "3 days ago",
+              "snippet": "The Federal Trade Commission and four states sued the World Professional Association for Transgender Health Wednesday, in the latest push by President..."
+            },
+            {
+              "title": "US Federal Trade Commission probes rising fertilizer prices By Reuters",
+              "url": "https://www.investing.com/news/stock-market-news/us-federal-trade-commission-probes-rising-fertilizer-prices-4715481",
+              "source": "Investing.com",
+              "publishedAt": "3 weeks ago",
+              "snippet": "By Tom Polansek. CHICAGO, May 28 (Reuters) - The U.S. Federal Trade Commission said on Thursday it has been investigating fertilizer prices, which spiked..."
+            },
+            {
+              "title": "Man speaks out after losing $172k in social media scam",
+              "url": "https://abcnews.com/GMA/Living/man-speaks-after-losing-172k-social-media-scam/story?id=132413236",
+              "source": "ABC News - Breaking News, Latest News and Videos",
+              "publishedAt": "1 month ago",
+              "snippet": "A man shares what led him to lose $172000 in a social media scam."
+            }
+          ]
+        },
+        {
+          "nodeId": "government_state_of_california",
+          "name": "State of California",
+          "type": "government",
+          "signal": "neutral",
+          "magnitude": 0.15,
+          "summary": "California's flush reserves and spending caution suggest near-term stability in tax policy for Amazon's operations, while modest recycling grants and volatile revenue forecasts keep operational impacts muted over the medium term.",
+          "citations": [
+            {
+              "title": "California’s counting on an IPO tax windfall. Several factors are complicating the equation",
+              "url": "https://www.cnbc.com/2026/06/18/california-ipo-tax-windfall.html",
+              "source": "CNBC",
+              "publishedAt": "2 days ago",
+              "snippet": "The IPOs of SpaceX, OpenAI and Anthropic could create a tax windfall for the state of California. But experts say the revenue impact may be blunted."
+            },
+            {
+              "title": "California's flush with cash. Newsom wants to cut spending anyway. Here's why.",
+              "url": "https://calmatters.org/politics/2026/05/gavin-newsom-final-budget-plan/",
+              "source": "CalMatters",
+              "publishedAt": "1 month ago",
+              "snippet": "Gov. Gavin Newsom is proposing budget cuts and boosting California's reserves. He's bracing for an AI stock bubble burst and more Trump cuts."
+            },
+            {
+              "title": "Legislative Analyst's Office warn Newsom budget relies too heavily on stock market gains",
+              "url": "https://www.abc10.com/article/news/legislative-analysts-office-warn-newsom-budget-relies-too-heavily-on-stock-market-gains/103-9bfd454c-ed85-41f3-9fa3-a9870d9b723a",
+              "source": "ABC10",
+              "publishedAt": "1 month ago",
+              "snippet": "California's latest budget proposal is drawing concerns from the state's nonpartisan fiscal analysts, who say the spending plan relies too heavily on stock..."
+            },
+            {
+              "title": "California awards $41M to expand recycling opportunities",
+              "url": "https://www.wastetodaymagazine.com/news/california-awards-41-million-dollars-in-grant-funding-to-expand-recycling-opportunities/",
+              "source": "Waste Today -",
+              "publishedAt": "2 days ago",
+              "snippet": "The state of California has awarded $41 million to create green jobs and expand recycling opportunities across the state."
+            },
+            {
+              "title": "Preferred Bank pays $0.80 quarterly cash dividend July 21",
+              "url": "https://www.stocktitan.net/news/PFBC/preferred-bank-announces-quarterly-iy6v9viljnrj.html",
+              "source": "Stock Titan",
+              "publishedAt": "3 days ago",
+              "snippet": "The board declared a quarterly cash dividend payable July 21 to holders of record on July 7. Preferred Bank did not change any other terms."
+            }
+          ]
+        },
+        {
+          "nodeId": "macro_inflation",
+          "name": "Inflation",
+          "type": "macro",
+          "signal": "negative",
+          "magnitude": 0.45,
+          "summary": "Stubborn producer-price and energy inflation are elevating Amazon's logistics and fulfillment costs while dampening consumer discretionary spending, pressuring retail margins and revenue growth over the coming weeks. Amazon's Prime Day pivot to groceries and essentials may help sustain transaction volume but likely reinforces a lower-margin sales mix, limiting profitability relief in the medium term.",
+          "citations": [
+            {
+              "title": "Amazon's four-day Prime Day event starts June 23, as shoppers battle inflation",
+              "url": "https://www.cnbc.com/2026/06/02/amazon-prime-day-shopping-inflation.html",
+              "source": "CNBC",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Amazon's four-day Prime Day event starts June 23, as shoppers battle inflation ... A worker delivers Amazon packages in San Francisco, California, on Feb. 2, 2026..."
+            },
+            {
+              "title": "Amazon is leaning into groceries and essentials for Prime Day as inflation weighs on shoppers",
+              "url": "https://qz.com/amazon-prime-day-2026-groceries-essentials-inflation-060226",
+              "source": "Quartz",
+              "publishedAt": "2 weeks ago",
+              "snippet": "Speaking with CNBC, Jamil Ghani, Amazon's vice president of Prime, identified groceries and household essentials as a \"real focus\" of this year's event."
+            },
+            {
+              "title": "Another inflation alarm bell",
+              "url": "https://www.marketplace.org/episode/2026/05/13/another-inflation-alarm-bell",
+              "source": "Marketplace.org",
+              "publishedAt": "1 month ago",
+              "snippet": "The PPI showed producer prices rose 6% year-over-year in April. Plus: Super-speedy delivery, diesel trucks, Treasury yields, and teen investors."
+            },
+            {
+              "title": "S&P 500, Nasdaq, Dow Drop As US-Iran War Jitters, Inflation Risk Spur Tech Selloffs — SMCI, AMZN, OPEN, SEGG, TSLA In Focus",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-nasdaq-dow-drop-223159976.html",
+              "source": "Yahoo Finance",
+              "publishedAt": "1 week ago",
+              "snippet": "The S&P 500 and the Nasdaq 100 fell 1.6% and 2%, respectively, while the Dow Jones lost 1.9%. Super Micro (SMCI) shares dropped amid plans to raise $7..."
+            },
+            {
+              "title": "Amazon Stock And Inflation Rate Movers Facing Hidden AI Risks",
+              "url": "https://www.sahmcapital.com/news/content/amazon-stock-and-inflation-rate-movers-facing-hidden-ai-risks-2026-06-16",
+              "source": "Sahm",
+              "publishedAt": "4 days ago",
+              "snippet": "Inflation is back in the spotlight, with stubborn energy costs, fresh rate hikes in Europe, and talk of a possible Fed move all reshaping how investors..."
+            }
+          ]
+        },
+        {
+          "nodeId": "macro_global_supply_chain_disruptions",
+          "name": "Global Supply Chain Disruptions",
+          "type": "macro",
+          "signal": "positive",
+          "magnitude": 0.65,
+          "summary": "By launching Amazon Supply Chain Services, AMZN is monetizing its logistics infrastructure to generate incremental revenue and improve utilization amid persistent global supply chain stress, turning a macro vulnerability into a medium-term competitive and financial advantage. Third-party adoption from major corporates like 3M and P&G signals early traction that can diversify earnings and offset retail margin pressures over the next several weeks to months.",
+          "citations": [
+            {
+              "title": "Amazon Built a Massive Supply Chain for Itself. Now It’s for Hire.",
+              "url": "https://www.wsj.com/logistics-report/amazon-built-a-massive-supply-chain-for-itself-now-its-for-hire-c7d128b0",
+              "source": "WSJ",
+              "publishedAt": "1 month ago",
+              "snippet": "The e-commerce giant is opening its global logistics network to all businesses, betting it can turn its supply chain into the next AWS."
+            },
+            {
+              "title": "Amazon takes aim at the supply chain",
+              "url": "https://www.axios.com/2026/05/05/amazon-logistics-ups-fedex",
+              "source": "Axios",
+              "publishedAt": "1 month ago",
+              "snippet": "The company is offering its distribution, parcel shipping and fulfillment services to outside businesses, not just to those on its marketplace."
+            },
+            {
+              "title": "Is Amazon Supply Chain Services already a logistics heavyweight?",
+              "url": "https://www.supplychaindive.com/news/is-amazon-supply-chain-services-already-a-logistics-heavyweight/819522/",
+              "source": "Supply Chain Dive",
+              "publishedAt": "1 month ago",
+              "snippet": "Employees work at an Amazon fulfillment center on Aug. 1, 2017, in New Jersey. Amazon Supply Chain Services launched Monday, with 3M, Procter & Gamble and..."
+            },
+            {
+              "title": "Amazon Supply Chain Services Could Reshape 3PL Strategy",
+              "url": "https://www.inboundlogistics.com/articles/amazon-just-wholesaled-its-supply-chain-what-happens-now/",
+              "source": "Inbound Logistics",
+              "publishedAt": "1 month ago",
+              "snippet": "Amazon Supply Chain Services opens Amazon's logistics network to outside businesses, reshaping fulfillment and 3PL strategy."
+            },
+            {
+              "title": "Amazon Launches Amazon Supply Chain Services, Opening Its Logistics Network to All Businesses",
+              "url": "https://www.businesswire.com/news/home/20260504242139/en/Amazon-Launches-Amazon-Supply-Chain-Services-Opening-Its-Logistics-Network-to-All-Businesses",
+              "source": "Business Wire",
+              "publishedAt": "1 month ago",
+              "snippet": "Amazon (NASDAQ: AMZN) today announced the launch of Amazon Supply Chain Services (ASCS), which extends the company's entire portfolio of freight,..."
+            }
+          ]
+        }
+      ],
+      "directCompanyNews": [
+        {
+          "title": "Amazon quietly building a moat to outlast the AI boom",
+          "url": "https://finance.yahoo.com/m/1916ab38-13d7-3209-82ce-8759995675e7/amazon-quietly-building-a.html",
+          "source": "TheStreet",
+          "publishedAt": "2026-06-21T03:07:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Nvidia, Oracle, and Now SpaceX Are Borrowing Billions Amid the AI Boom. Is This a Warning Sign?",
+          "url": "https://finance.yahoo.com/m/f0449cc1-3898-3001-b5ec-2fcfc35cc6d9/nvidia%2C-oracle%2C-and-now.html",
+          "source": "Motley Fool",
+          "publishedAt": "2026-06-21T02:33:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Mark Cuban Warns 6 Popular Investments Could Quietly Ruin Your Wealth",
+          "url": "https://finance.yahoo.com/m/01517e3c-f3f7-3e37-832d-b47676d112df/mark-cuban-warns-6-popular.html",
+          "source": "24/7 Wall St.",
+          "publishedAt": "2026-06-20T23:50:59.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "It Will ‘Destroy’ American Dream —  Kevin O’Leary Says Higher Taxes on Billionaires Won’t Fix Economy, Says People Like Jeff Bezos Should Run New York",
+          "url": "https://finance.yahoo.com/economy/policy/articles/destroy-american-dream-kevin-o-230030707.html",
+          "source": "Benzinga",
+          "publishedAt": "2026-06-20T23:00:30.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "12 Months From Now, Will You Wish You Bought SpaceX Today?",
+          "url": "https://finance.yahoo.com/m/befff809-1c9c-3d2b-9b6e-31aed1a961f2/12-months-from-now%2C-will-you.html",
+          "source": "Motley Fool",
+          "publishedAt": "2026-06-20T19:25:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "Sezzle (SEZL) Among The Tech Stocks To Sell According To Billionaires",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/sezzle-sezl-among-tech-stocks-190420256.html",
+          "source": "Insider Monkey",
+          "publishedAt": "2026-06-20T19:04:20.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "SpaceX Surpassed Amazon in Market Cap This Week. What's Next for the Red-Hot Space Stock?",
+          "url": "https://finance.yahoo.com/m/f9505161-9aef-336b-ae93-d488e5c8c16a/spacex-surpassed-amazon-in.html",
+          "source": "Motley Fool",
+          "publishedAt": "2026-06-20T18:13:00.000Z",
+          "weight": 0.85
+        },
+        {
+          "title": "The Best Semiconductor ETF to Buy With $1,000 Right Now",
+          "url": "https://finance.yahoo.com/m/2a6c5c12-6673-3594-9ee4-0901d509bdae/the-best-semiconductor-etf-to.html",
+          "source": "Motley Fool",
+          "publishedAt": "2026-06-20T17:20:00.000Z",
+          "weight": 0.85
+        }
+      ],
+      "profile": {
+        "totalMs": 168752,
+        "phases": {
+          "researchMs": 73129,
+          "entityEvalMs": 60132,
+          "verdictMs": 35491
+        },
+        "research": {
+          "serpWallMs": 73129,
+          "yahooMs": 154,
+          "serpCallCount": 30,
+          "slowestSerp": [
+            {
+              "label": "Whole Foods Market Inc. · immediate",
+              "ms": 73104
+            },
+            {
+              "label": "Rakuten Group, Inc. · medium",
+              "ms": 9627
+            },
+            {
+              "label": "Uber Technologies, Inc. · medium",
+              "ms": 7266
+            },
+            {
+              "label": "IBM Corporation · medium",
+              "ms": 6905
+            },
+            {
+              "label": "Rakuten Group, Inc. · immediate",
+              "ms": 5725
+            },
+            {
+              "label": "Whole Foods Market Inc. · medium",
+              "ms": 5638
+            },
+            {
+              "label": "Uber Technologies, Inc. · immediate",
+              "ms": 5359
+            },
+            {
+              "label": "Microsoft Corporation · immediate",
+              "ms": 5171
+            }
+          ]
+        },
+        "entityEval": {
+          "callCount": 15,
+          "slowestKimi": [
+            {
+              "label": "State of California",
+              "ms": 60128
+            },
+            {
+              "label": "Cisco Systems, Inc.",
+              "ms": 58786
+            },
+            {
+              "label": "Rakuten Group, Inc.",
+              "ms": 53877
+            },
+            {
+              "label": "Google LLC",
+              "ms": 30614
+            },
+            {
+              "label": "Netflix, Inc.",
+              "ms": 29811
+            },
+            {
+              "label": "Whirlpool Corporation",
+              "ms": 29606
+            },
+            {
+              "label": "Whole Foods Market Inc.",
+              "ms": 29100
+            },
+            {
+              "label": "IBM Corporation",
+              "ms": 27999
+            }
+          ]
+        },
+        "verdictMs": 35489
+      }
+    }
+  },
+  "lastUpdated": "2026-06-21T05:43:47.033Z"
+}

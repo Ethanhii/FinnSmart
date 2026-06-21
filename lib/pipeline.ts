@@ -24,6 +24,13 @@ import { kimiChat, llmConfigured, parseJsonResponse } from "@/lib/integrations/k
 import { fetchCompanyNews } from "@/lib/integrations/yahoo";
 import { profileEnabled } from "@/lib/config";
 import { createProfiler, type PipelineProfiler } from "@/lib/pipeline-profile";
+import {
+  compareStrength,
+  parseStrength,
+  STRENGTH_SCORE,
+  strengthFromNumber,
+} from "@/lib/strength";
+import type { ImpactStrength } from "@/lib/types";
 
 /** Relationship-type weighting: how much an entity's news matters to the stock. */
 const TYPE_WEIGHT: Record<GraphNode["type"], number> = {
@@ -81,7 +88,7 @@ export async function analyzeStock(
   );
   const verdictMs = Math.round(performance.now() - verdictStart);
 
-  const profile = profiler?.finalize(graph.ticker, {
+  profiler?.finalize(graph.ticker, {
     researchMs,
     entityEvalMs,
     verdictMs,
@@ -94,7 +101,6 @@ export async function analyzeStock(
     verdict,
     impacts,
     directCompanyNews,
-    profile,
   };
 }
 
@@ -277,20 +283,27 @@ async function evaluateEntity(
               })),
               instructions:
                 reasoningBlock(horizon) +
-                " Return {\"signal\":\"positive|negative|neutral\",\"magnitude\":0..1,\"summary\":\"<=2 sentences explaining the ripple to the target stock over this horizon\"}.",
+                " Return {\"signal\":\"positive|negative|neutral\",\"strength\":\"low|moderate|high\",\"summary\":\"<=2 sentences explaining the ripple to the target stock over this horizon\"}. Do not estimate price moves or percentages.",
             }),
           },
         ],
         { json: true }
       );
       profiler?.recordKimi(node.name, performance.now() - kimiStart);
-      const parsed = parseJsonResponse<{ signal: Signal; magnitude: number; summary: string }>(text);
+      const parsed = parseJsonResponse<{
+        signal: Signal;
+        strength?: ImpactStrength | string;
+        magnitude?: number;
+        summary: string;
+      }>(text);
       return {
         nodeId: node.id,
         name: node.name,
         type: node.type,
         signal: parsed.signal ?? "neutral",
-        magnitude: clamp(parsed.magnitude ?? 0),
+        strength: parsed.strength
+          ? parseStrength(parsed.strength)
+          : strengthFromNumber(parsed.magnitude ?? 0),
         summary: parsed.summary ?? "",
         citations,
       };
@@ -311,7 +324,7 @@ function mockEvaluate(node: GraphNode, news: NewsItem[], citations: Citation[]):
     topWeight = Math.max(topWeight, w);
   }
   const signal: Signal = score > 0.05 ? "positive" : score < -0.05 ? "negative" : "neutral";
-  const magnitude = clamp(topWeight);
+  const strength = strengthFromNumber(topWeight);
 
   const lead = news[0];
   const directionWord =
@@ -320,7 +333,7 @@ function mockEvaluate(node: GraphNode, news: NewsItem[], citations: Citation[]):
     ? `${node.name} news (${directionWord} the stock): ${lead.title}.`
     : `No material ${node.name} news in the window.`;
 
-  return { nodeId: node.id, name: node.name, type: node.type, signal, magnitude, summary, citations };
+  return { nodeId: node.id, name: node.name, type: node.type, signal, strength, summary, citations };
 }
 
 async function buildVerdict(
@@ -331,7 +344,7 @@ async function buildVerdict(
   profiler: PipelineProfiler | null = null
 ): Promise<StockVerdict> {
   const nodeById = new Map(graph.nodes.map((n) => [n.id, n]));
-  const mostAffected = [...impacts].sort((a, b) => b.magnitude - a.magnitude)[0];
+  const mostAffected = [...impacts].sort((a, b) => compareStrength(a.strength, b.strength))[0];
   const h = HORIZONS[horizon];
 
   if (llmConfigured()) {
@@ -361,14 +374,14 @@ async function buildVerdict(
                 type: nodeById.get(i.nodeId)?.type,
                 relationship: nodeById.get(i.nodeId)?.relationship,
                 signal: i.signal,
-                magnitude: i.magnitude,
+                strength: i.strength,
                 summary: i.summary,
               })),
               instructions:
                 reasoningBlock(horizon) +
                 " Weight directCompanyNews heavily — these are idiosyncratic catalysts on the stock itself. " +
-                ` The expectedMove should be sized for the ${h.label} horizon; timeframe should reflect "${h.timeframe}". ` +
-                "Return {\"signal\":\"positive|negative|neutral\",\"confidence\":0..1,\"expectedMove\":\"e.g. +1% to +3%\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=2 sentences summary\",\"explanation\":\"3-5 sentences explaining WHY the stock is likely to rise or fall overall — investor-friendly prose\",\"bullishDrivers\":[\"<=12 words each, max 4\"],\"bearishDrivers\":[\"<=12 words each, max 4\"],\"mostAffectedEntity\":\"<entity or macro channel name>\"}.",
+                ` Timeframe should reflect "${h.timeframe}". ` +
+                "Return {\"signal\":\"positive|negative|neutral\",\"strength\":\"low|moderate|high\",\"timeframe\":\"<horizon timeframe>\",\"rationale\":\"<=2 sentences summary\",\"explanation\":\"3-5 sentences explaining WHY the stock is likely to rise or fall overall — investor-friendly prose\",\"bullishDrivers\":[\"<=12 words each, max 4\"],\"bearishDrivers\":[\"<=12 words each, max 4\"],\"mostAffectedEntity\":\"<entity or macro channel name>\"}. Do not estimate price moves, percentages, or confidence scores.",
             }),
           },
         ],
@@ -377,8 +390,8 @@ async function buildVerdict(
       profiler?.setVerdict(performance.now() - verdictStart);
       const parsed = parseJsonResponse<{
         signal: Signal;
-        confidence: number;
-        expectedMove: string;
+        strength?: ImpactStrength | string;
+        confidence?: number;
         timeframe: string;
         rationale: string;
         explanation?: string;
@@ -392,8 +405,9 @@ async function buildVerdict(
         "";
       return {
         signal: parsed.signal ?? "neutral",
-        confidence: clamp(parsed.confidence ?? 0.5),
-        expectedMove: parsed.expectedMove ?? "flat",
+        strength: parsed.strength
+          ? parseStrength(parsed.strength)
+          : strengthFromNumber(parsed.confidence ?? 0.5),
         timeframe: parsed.timeframe ?? h.timeframe,
         rationale: parsed.rationale ?? "",
         explanation: parsed.explanation ?? parsed.rationale ?? "",
@@ -409,13 +423,7 @@ async function buildVerdict(
   return mockVerdict(graph, impacts, mostAffected, horizon);
 }
 
-const MOVE_RANGES: Record<TimeHorizon, { small: string; large: string }> = {
-  immediate: { small: "0.5% to 2%", large: "2% to 5%" },
-  medium: { small: "2% to 8%", large: "5% to 15%" },
-  long: { small: "8% to 20%", large: "15% to 40%" },
-};
-
-const HORIZON_CONFIDENCE: Record<TimeHorizon, number> = {
+const HORIZON_STRENGTH_BIAS: Record<TimeHorizon, number> = {
   immediate: 1,
   medium: 0.88,
   long: 0.72,
@@ -431,33 +439,30 @@ function mockVerdict(
   let net = 0;
   for (const i of impacts) {
     const type = nodeById.get(i.nodeId)?.type ?? "partner";
-    net += SIGN[i.signal] * i.magnitude * TYPE_WEIGHT[type];
+    net += SIGN[i.signal] * STRENGTH_SCORE[i.strength] * TYPE_WEIGHT[type];
   }
 
   const signal: Signal = net > 0.25 ? "positive" : net < -0.25 ? "negative" : "neutral";
   const abs = Math.abs(net);
-  const confidence = clamp((0.45 + Math.min(abs / 4, 0.45)) * HORIZON_CONFIDENCE[horizon]);
-
-  const range = MOVE_RANGES[horizon];
-  let expectedMove = "roughly flat";
-  if (signal === "positive") expectedMove = `+${abs > 1.2 ? range.large : range.small}`;
-  if (signal === "negative") expectedMove = `-${abs > 1.2 ? range.large : range.small}`;
+  const strength = strengthFromNumber(
+    (0.35 + Math.min(abs / 4, 0.45)) * HORIZON_STRENGTH_BIAS[horizon]
+  );
 
   const drivers = [...impacts]
     .filter((i) => i.signal !== "neutral")
-    .sort((a, b) => b.magnitude - a.magnitude)
+    .sort((a, b) => compareStrength(a.strength, b.strength))
     .slice(0, 3)
     .map((i) => `${nodeById.get(i.nodeId)?.name} (${i.signal})`);
 
   const bullishDrivers = [...impacts]
     .filter((i) => i.signal === "positive")
-    .sort((a, b) => b.magnitude - a.magnitude)
+    .sort((a, b) => compareStrength(a.strength, b.strength))
     .slice(0, 4)
     .map((i) => `${nodeById.get(i.nodeId)?.name}: ${i.summary.split(".")[0]}.`);
 
   const bearishDrivers = [...impacts]
     .filter((i) => i.signal === "negative")
-    .sort((a, b) => b.magnitude - a.magnitude)
+    .sort((a, b) => compareStrength(a.strength, b.strength))
     .slice(0, 4)
     .map((i) => `${nodeById.get(i.nodeId)?.name}: ${i.summary.split(".")[0]}.`);
 
@@ -470,15 +475,14 @@ function mockVerdict(
     signal === "positive" ? "rise" : signal === "negative" ? "fall" : "move sideways";
   const explanation =
     drivers.length > 0
-      ? `Over the ${HORIZONS[horizon].label.toLowerCase()} horizon, connected-entity news suggests ${graph.ticker} is likely to ${direction} (${expectedMove}). ` +
+      ? `Over the ${HORIZONS[horizon].label.toLowerCase()} horizon, connected-entity news suggests ${graph.ticker} is likely to ${direction}. ` +
         `Positive ripples from ${bullishDrivers.length ? bullishDrivers.slice(0, 2).map((d) => d.split(":")[0]).join(" and ") : "few entities"} ` +
         `${bearishDrivers.length ? `are partly offset by pressure from ${bearishDrivers.slice(0, 2).map((d) => d.split(":")[0]).join(" and ")}.` : "dominate the landscape."}`
       : rationale;
 
   return {
     signal,
-    confidence,
-    expectedMove,
+    strength,
     timeframe: HORIZONS[horizon].timeframe,
     rationale,
     explanation,

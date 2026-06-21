@@ -1,0 +1,207 @@
+{
+  "ticker": "AMZN",
+  "name": "Amazon.com, Inc.",
+  "description": "Amazon.com, Inc. ecosystem — suppliers, customers, partners, holdings, regulators, and macro risks.",
+  "nodes": [
+    {
+      "id": "amzn",
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_cisco_systems_inc",
+      "name": "Cisco Systems, Inc.",
+      "ticker": "CSCO",
+      "type": "supplier",
+      "relationship": "Cisco is a key infrastructure supplier to support Amazon's extensive data center operations."
+    },
+    {
+      "id": "supplier_fedex_corporation",
+      "name": "FedEx Corporation",
+      "ticker": "FDX",
+      "type": "supplier",
+      "relationship": "Amazon relies on FedEx for a portion of its package delivery services."
+    },
+    {
+      "id": "supplier_whirlpool_corporation",
+      "name": "Whirlpool Corporation",
+      "ticker": "WHR",
+      "type": "supplier",
+      "relationship": "Whirlpool provides appliances and kitchen equipment sold on Amazon's marketplace."
+    },
+    {
+      "id": "customer_whole_foods_market_inc",
+      "name": "Whole Foods Market Inc.",
+      "ticker": "WFM (acquired by AMZN in 2017)",
+      "type": "customer",
+      "relationship": "Whole Foods is a subsidiary of Amazon and serves as a direct consumer-facing business channel."
+    },
+    {
+      "id": "customer_netflix_inc",
+      "name": "Netflix, Inc.",
+      "ticker": "NFLX",
+      "type": "customer",
+      "relationship": "Part of the 'AWS 100', Netflix utilizes Amazon Web Services for a significant portion of its cloud infrastructure."
+    },
+    {
+      "id": "customer_ibm_corporation",
+      "name": "IBM Corporation",
+      "ticker": "IBM",
+      "type": "customer",
+      "relationship": "IBM is a customer of Amazon's cloud services, particularly Amazon Web Services."
+    },
+    {
+      "id": "partner_google_llc",
+      "name": "Google LLC",
+      "ticker": "GOOGL",
+      "type": "partner",
+      "relationship": "Amazon and Google have a partnership allowing customers to access YouTube through Amazon's Fire TV Stick."
+    },
+    {
+      "id": "partner_microsoft_corporation",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "partner",
+      "relationship": "Amazon's Alexa and Microsoft's Cortana have formed an integration partnership to enhance users' digital assistant experience."
+    },
+    {
+      "id": "partner_apple_inc",
+      "name": "Apple Inc.",
+      "ticker": "AAPL",
+      "type": "partner",
+      "relationship": "Apple uses Amazon as a distribution channel for some of its products like Beats headphones."
+    },
+    {
+      "id": "equity_rakuten_group_inc",
+      "name": "Rakuten Group, Inc.",
+      "ticker": "4755.T",
+      "type": "equity",
+      "relationship": "Rakuten has a strategic investment in Amazon and collaborates on e-commerce initiatives."
+    },
+    {
+      "id": "equity_uber_technologies_inc",
+      "name": "Uber Technologies, Inc.",
+      "ticker": "UBER",
+      "type": "equity",
+      "relationship": "Amazon holds a stake in Uber and they have multiple business dealings, like logistics and e-commerce."
+    },
+    {
+      "id": "government_federal_trade_commission",
+      "name": "Federal Trade Commission",
+      "type": "government",
+      "relationship": "Regulates anti-competitive behavior and helps shape Amazon's business practices."
+    },
+    {
+      "id": "government_state_of_california",
+      "name": "State of California",
+      "type": "government",
+      "relationship": "Amazon's operations in California are affected by state tax laws and regulations."
+    },
+    {
+      "id": "macro_inflation",
+      "name": "Inflation",
+      "type": "macro",
+      "relationship": "Inflation can impact consumer spending and thus Amazon's sales."
+    },
+    {
+      "id": "macro_global_supply_chain_disruptions",
+      "name": "Global Supply Chain Disruptions",
+      "type": "macro",
+      "relationship": "Affects Amazon's ability to fulfill orders and maintain inventory levels."
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_cisco_systems_inc",
+      "source": "supplier_cisco_systems_inc",
+      "target": "amzn",
+      "relationType": "Cisco is a key infrastructure supplier to support Amazon's extensive data center operations."
+    },
+    {
+      "id": "e_supplier_fedex_corporation",
+      "source": "supplier_fedex_corporation",
+      "target": "amzn",
+      "relationType": "Amazon relies on FedEx for a portion of its package delivery services."
+    },
+    {
+      "id": "e_supplier_whirlpool_corporation",
+      "source": "supplier_whirlpool_corporation",
+      "target": "amzn",
+      "relationType": "Whirlpool provides appliances and kitchen equipment sold on Amazon's marketplace."
+    },
+    {
+      "id": "e_customer_whole_foods_market_inc",
+      "source": "customer_whole_foods_market_inc",
+      "target": "amzn",
+      "relationType": "Whole Foods is a subsidiary of Amazon and serves as a direct consumer-facing business channel."
+    },
+    {
+      "id": "e_customer_netflix_inc",
+      "source": "customer_netflix_inc",
+      "target": "amzn",
+      "relationType": "Part of the 'AWS 100', Netflix utilizes Amazon Web Services for a significant portion of its cloud infrastructure."
+    },
+    {
+      "id": "e_customer_ibm_corporation",
+      "source": "customer_ibm_corporation",
+      "target": "amzn",
+      "relationType": "IBM is a customer of Amazon's cloud services, particularly Amazon Web Services."
+    },
+    {
+      "id": "e_partner_google_llc",
+      "source": "partner_google_llc",
+      "target": "amzn",
+      "relationType": "Amazon and Google have a partnership allowing customers to access YouTube through Amazon's Fire TV Stick."
+    },
+    {
+      "id": "e_partner_microsoft_corporation",
+      "source": "partner_microsoft_corporation",
+      "target": "amzn",
+      "relationType": "Amazon's Alexa and Microsoft's Cortana have formed an integration partnership to enhance users' digital assistant experience."
+    },
+    {
+      "id": "e_partner_apple_inc",
+      "source": "partner_apple_inc",
+      "target": "amzn",
+      "relationType": "Apple uses Amazon as a distribution channel for some of its products like Beats headphones."
+    },
+    {
+      "id": "e_equity_rakuten_group_inc",
+      "source": "amzn",
+      "target": "equity_rakuten_group_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_uber_technologies_inc",
+      "source": "amzn",
+      "target": "equity_uber_technologies_inc",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_federal_trade_commission",
+      "source": "government_federal_trade_commission",
+      "target": "amzn",
+      "relationType": "Regulates anti-competitive behavior and helps shape Amazon's business practices."
+    },
+    {
+      "id": "e_government_state_of_california",
+      "source": "government_state_of_california",
+      "target": "amzn",
+      "relationType": "Amazon's operations in California are affected by state tax laws and regulations."
+    },
+    {
+      "id": "e_macro_inflation",
+      "source": "macro_inflation",
+      "target": "amzn",
+      "relationType": "Inflation can impact consumer spending and thus Amazon's sales."
+    },
+    {
+      "id": "e_macro_global_supply_chain_disruptions",
+      "source": "macro_global_supply_chain_disruptions",
+      "target": "amzn",
+      "relationType": "Affects Amazon's ability to fulfill orders and maintain inventory levels."
+    }
+  ]
+}

@@ -19,6 +19,7 @@ import type {
   AnalyzeResponse,
   EntityImpact,
   GraphNode,
+  ImpactStrength,
   NodeType,
   Signal,
   StockGraph,
@@ -33,10 +34,10 @@ import {
 } from "@/components/map/nodes";
 import { ImpactDrawer } from "@/components/map/ImpactDrawer";
 import { ResizableDrawerPanel } from "@/components/map/ResizableDrawerPanel";
-import { PipelineProfileBanner } from "@/components/map/PipelineProfileBanner";
 import { SignalPill } from "@/components/SignalPill";
 import { Brand } from "@/components/Brand";
 import { CATEGORY_LABELS, NODE_TYPE_COLORS, SIGNAL_COLORS } from "@/lib/ui";
+import { STRENGTH_RANK, STRENGTH_SCORE } from "@/lib/strength";
 
 const TYPE_ORDER: NodeType[] = [
   "supplier",
@@ -55,11 +56,59 @@ interface Pos {
 
 const hubId = (cat: NodeType) => `cat:${cat}`;
 
+/** Approximate node footprint in px (matches w-44 / category hub sizing). */
+const ENTITY_W = 176;
+const ENTITY_H = 76;
+const NODE_GAP = 28;
+const COL_STEP = ENTITY_W + NODE_GAP;
+const ROW_STEP = ENTITY_H + NODE_GAP;
+
 interface Layout {
   stockId: string;
   positions: Record<string, Pos>;
   categories: NodeType[];
   entitiesByCategory: Record<string, GraphNode[]>;
+}
+
+/** Place entity nodes in a neat fan/grid without overlapping boxes. */
+function layoutCategoryEntities(
+  entities: GraphNode[],
+  u: { x: number; y: number },
+  p: { x: number; y: number },
+  baseAlong: number,
+  positions: Record<string, Pos>
+): void {
+  const n = entities.length;
+  if (n === 0) return;
+
+  if (n === 1) {
+    positions[entities[0].id] = { x: u.x * baseAlong, y: u.y * baseAlong };
+    return;
+  }
+
+  if (n <= 3) {
+    entities.forEach((node, j) => {
+      const spread = (j - (n - 1) / 2) * COL_STEP;
+      positions[node.id] = {
+        x: u.x * baseAlong + p.x * spread,
+        y: u.y * baseAlong + p.y * spread,
+      };
+    });
+    return;
+  }
+
+  // 4+ entities: 2 columns, rows extend away from the stock
+  const cols = 2;
+  entities.forEach((node, j) => {
+    const col = j % cols;
+    const row = Math.floor(j / cols);
+    const colSpread = (col === 0 ? -0.5 : 0.5) * COL_STEP;
+    const along = baseAlong + row * ROW_STEP;
+    positions[node.id] = {
+      x: u.x * along + p.x * colSpread,
+      y: u.y * along + p.y * colSpread,
+    };
+  });
 }
 
 function buildLayout(graph: StockGraph): Layout {
@@ -71,31 +120,33 @@ function buildLayout(graph: StockGraph): Layout {
   const categories = TYPE_ORDER.filter((t) => graph.nodes.some((n) => n.type === t));
   const entitiesByCategory: Record<string, GraphNode[]> = {};
 
-  const R_HUB = 320;
-  const CLUSTER_START = 230; // distance beyond the hub where companies begin
-  const ROW_GAP = 92;
-  const COL_OFFSET = 104;
+  const maxInCategory = Math.max(
+    1,
+    ...categories.map((cat) => graph.nodes.filter((n) => n.type === cat).length)
+  );
+  const maxRows = Math.max(1, Math.ceil(maxInCategory / 2));
+
+  // Scale hub radius + cluster depth when a category has many entities
+  const R_HUB = 360 + Math.max(0, maxInCategory - 3) * 18;
+  const CLUSTER_START = 220 + Math.max(0, maxRows - 2) * 24;
 
   categories.forEach((cat, i) => {
     const angle = (i / categories.length) * Math.PI * 2 - Math.PI / 2;
-    const u = { x: Math.cos(angle), y: Math.sin(angle) }; // radial direction
-    const p = { x: -Math.sin(angle), y: Math.cos(angle) }; // perpendicular
+    const u = { x: Math.cos(angle), y: Math.sin(angle) };
+    const p = { x: -Math.sin(angle), y: Math.cos(angle) };
 
     positions[hubId(cat)] = { x: u.x * R_HUB, y: u.y * R_HUB };
 
     const entities = graph.nodes.filter((n) => n.type === cat);
     entitiesByCategory[cat] = entities;
 
-    entities.forEach((node, j) => {
-      const col = j % 2;
-      const row = Math.floor(j / 2);
-      const along = R_HUB + CLUSTER_START + row * ROW_GAP;
-      const side = (col === 0 ? -1 : 1) * (entities.length > 1 ? COL_OFFSET : 0);
-      positions[node.id] = {
-        x: u.x * along + p.x * side,
-        y: u.y * along + p.y * side,
-      };
-    });
+    layoutCategoryEntities(
+      entities,
+      u,
+      p,
+      R_HUB + CLUSTER_START,
+      positions
+    );
   });
 
   return { stockId, positions, categories, entitiesByCategory };
@@ -125,7 +176,7 @@ function FitController({
         });
         rf.fitView({
           nodes: [...ids].map((id) => ({ id })),
-          padding: 0.2,
+          padding: 0.28,
           duration: 450,
         });
       } else {
@@ -248,27 +299,27 @@ export function StockView({ ticker }: { ticker: string }) {
     return map;
   }, [graph]);
 
-  // Aggregate signal/magnitude per category from its entities' impacts.
+  // Aggregate signal/strength per category from its entities' impacts.
   const categoryAgg = useMemo(() => {
-    const agg: Record<string, { signal: Signal; magnitude: number }> = {};
+    const agg: Record<string, { signal: Signal; strength: ImpactStrength }> = {};
     if (!graph) return agg;
     for (const cat of TYPE_ORDER) {
       const entities = graph.nodes.filter((n) => n.type === cat);
       if (entities.length === 0) continue;
       let score = 0;
-      let top = 0;
+      let top: ImpactStrength = "low";
       let any = false;
       for (const e of entities) {
         const im = impactByNode.get(e.id);
         if (!im) continue;
         any = true;
-        score += SIGN[im.signal] * im.magnitude;
-        top = Math.max(top, im.magnitude);
+        score += SIGN[im.signal] * STRENGTH_SCORE[im.strength];
+        if (STRENGTH_RANK[im.strength] > STRENGTH_RANK[top]) top = im.strength;
       }
       if (!any) continue;
       agg[cat] = {
         signal: score > 0.05 ? "positive" : score < -0.05 ? "negative" : "neutral",
-        magnitude: top,
+        strength: top,
       };
     }
     return agg;
@@ -315,7 +366,7 @@ export function StockView({ ticker }: { ticker: string }) {
             category: cat,
             count: layout.entitiesByCategory[cat].length,
             signal: agg?.signal,
-            magnitude: agg?.magnitude,
+            strength: agg?.strength,
             expanded: expanded.has(cat),
             loading: analyzing && !agg,
           } satisfies CategoryNodeData,
@@ -338,7 +389,7 @@ export function StockView({ ticker }: { ticker: string }) {
               type: node.type,
               relationship: node.relationship,
               signal: impact?.signal,
-              magnitude: impact?.magnitude,
+              strength: impact?.strength,
               isMostAffected: node.id === mostAffectedId,
               loading: analyzing && !impact,
             } satisfies EntityNodeData,
@@ -353,48 +404,50 @@ export function StockView({ ticker }: { ticker: string }) {
       const pos = (id: string): Pos => posLookup[id] ?? positions[id] ?? { x: 0, y: 0 };
       const edges: Edge[] = [];
 
-      // Stock -> category hub (always visible).
+      // Category hub -> stock (ripple flows inward).
       categories.forEach((cat) => {
-        const sp = pos(layout.stockId);
-        const tp = pos(hubId(cat));
+        const sp = pos(hubId(cat));
+        const tp = pos(layout.stockId);
         const agg = categoryAgg[cat];
         const color = agg ? SIGNAL_COLORS[agg.signal] : "#2e2e2e";
-        const strong = agg && agg.signal !== "neutral" && agg.magnitude > 0.35;
+        const active = agg && agg.signal !== "neutral";
+        const strokeBoost = agg ? STRENGTH_RANK[agg.strength] * 1.5 : 0;
         edges.push({
           id: `hub_${cat}`,
-          source: layout.stockId,
-          target: hubId(cat),
+          source: hubId(cat),
+          target: layout.stockId,
           sourceHandle: side(tp.x - sp.x, tp.y - sp.y),
           targetHandle: side(sp.x - tp.x, sp.y - tp.y),
-          animated: Boolean(strong),
+          animated: Boolean(active),
           style: {
             stroke: color,
-            strokeWidth: agg ? 1.5 + agg.magnitude * 4 : 1.5,
+            strokeWidth: agg ? 1.5 + strokeBoost : 1.5,
             opacity: agg ? 0.95 : 0.5,
           },
         });
       });
 
-      // Category hub -> entity (visible only when expanded).
+      // Entity -> category hub (ripple flows inward toward stock).
       graph.nodes
         .filter((n) => n.type !== "stock")
         .forEach((node) => {
-          const sp = pos(hubId(node.type));
-          const tp = pos(node.id);
+          const sp = pos(node.id);
+          const tp = pos(hubId(node.type));
           const impact = impactByNode.get(node.id);
           const color = impact ? SIGNAL_COLORS[impact.signal] : "#2e2e2e";
-          const strong = impact && impact.signal !== "neutral" && impact.magnitude > 0.35;
+          const active = impact && impact.signal !== "neutral";
+          const strokeBoost = impact ? STRENGTH_RANK[impact.strength] * 1.2 : 0;
           edges.push({
             id: `e_${node.id}`,
-            source: hubId(node.type),
-            target: node.id,
+            source: node.id,
+            target: hubId(node.type),
             hidden: !expanded.has(node.type),
             sourceHandle: side(tp.x - sp.x, tp.y - sp.y),
             targetHandle: side(sp.x - tp.x, sp.y - tp.y),
-            animated: Boolean(strong),
+            animated: Boolean(active),
             style: {
               stroke: color,
-              strokeWidth: impact ? 1 + impact.magnitude * 4 : 1,
+              strokeWidth: impact ? 1 + strokeBoost : 1,
               opacity: impact ? 0.9 : 0.45,
             },
           });
@@ -428,6 +481,8 @@ export function StockView({ ticker }: { ticker: string }) {
         return next;
       });
     } else if (node.type === "entity") {
+      const cat = (node.data as EntityNodeData).type;
+      setExpanded((prev) => new Set(prev).add(cat));
       setSelected(node.id);
     }
   }, []);
@@ -550,8 +605,6 @@ export function StockView({ ticker }: { ticker: string }) {
           news ripples across this map.
         </div>
       ) : null}
-
-      {analysis?.profile ? <PipelineProfileBanner profile={analysis.profile} /> : null}
 
       <div className="flex min-h-0 flex-1">
         {/* Sandbox map */}

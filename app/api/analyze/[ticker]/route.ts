@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getCachedAnalysis, saveAnalysis } from "@/lib/analysis-store";
 import { getGraph, getOrGenerateGraph } from "@/lib/graphs";
 import { analyzeStock } from "@/lib/pipeline";
+import { stripProfileFromAnalysis } from "@/lib/strength";
 import type { TimeHorizon } from "@/lib/types";
 import { normalizeHorizon } from "@/lib/horizon-news";
 
@@ -60,7 +61,7 @@ export async function POST(
     const graph = await getOrGenerateGraph(ticker, companyName);
     const result = await analyzeStock(graph, horizon);
     await saveAnalysis(result);
-    return NextResponse.json(result);
+    return NextResponse.json(stripProfileFromAnalysis(result));
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Analysis failed" },

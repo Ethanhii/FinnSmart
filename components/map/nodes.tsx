@@ -1,7 +1,8 @@
 "use client";
 
 import { Handle, Position } from "@xyflow/react";
-import type { NodeType, Signal } from "@/lib/types";
+import type { ImpactStrength, NodeType, Signal } from "@/lib/types";
+import { strengthBarWidth } from "@/lib/strength";
 import { CATEGORY_LABELS, NODE_TYPE_COLORS, SIGNAL_COLORS } from "@/lib/ui";
 import { NODE_TYPE_LABELS } from "@/lib/types";
 
@@ -34,7 +35,7 @@ export interface EntityNodeData {
   type: NodeType;
   relationship: string;
   signal?: Signal;
-  magnitude?: number;
+  strength?: ImpactStrength;
   isMostAffected?: boolean;
   loading?: boolean;
   [key: string]: unknown;
@@ -77,7 +78,7 @@ export function EntityNode({ data }: { data: EntityNodeData }) {
           <div
             className="h-full rounded-full"
             style={{
-              width: `${Math.round((data.magnitude ?? 0) * 100)}%`,
+              width: strengthBarWidth(data.strength ?? "low"),
               background: signalColor,
             }}
           />
@@ -127,7 +128,7 @@ export interface CategoryNodeData {
   category: NodeType;
   count: number;
   signal?: Signal;
-  magnitude?: number;
+  strength?: ImpactStrength;
   expanded?: boolean;
   loading?: boolean;
   [key: string]: unknown;
@@ -164,7 +165,7 @@ export function CategoryNode({ data }: { data: CategoryNodeData }) {
         ) : data.signal ? (
           <div
             className="h-full rounded-full"
-            style={{ width: `${Math.round((data.magnitude ?? 0) * 100)}%`, background: signalColor }}
+            style={{ width: strengthBarWidth(data.strength ?? "low"), background: signalColor }}
           />
         ) : null}
       </div>

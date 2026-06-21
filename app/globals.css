@@ -104,3 +104,18 @@ body {
 .react-flow__controls-button svg {
   fill: var(--color-muted);
 }
+
+/* Ripple edges — use xyflow's dashdraw keyframe (do not override with a missing keyframe name) */
+.react-flow__edge.animated path:not(.react-flow__edge-interaction) {
+  stroke-dasharray: 8 6;
+  animation: dashdraw 0.55s linear infinite;
+}
+
+@keyframes dashdraw {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

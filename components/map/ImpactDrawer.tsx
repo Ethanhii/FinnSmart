@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "rea
 import type { Citation, EntityImpact, Signal, StockVerdict } from "@/lib/types";
 import { NODE_TYPE_LABELS } from "@/lib/types";
 import { SignalPill } from "@/components/SignalPill";
-import { SIGNAL_COLORS, pct } from "@/lib/ui";
+import { SIGNAL_COLORS, strengthLabel } from "@/lib/ui";
+import { compareStrength } from "@/lib/strength";
 
 type DrawerTab = "company" | "ecosystem";
 
@@ -23,12 +24,12 @@ function relativeTime(publishedAt?: string): string {
 function deriveDrivers(impacts: EntityImpact[]) {
   const bullish = impacts
     .filter((i) => i.signal === "positive")
-    .sort((a, b) => b.magnitude - a.magnitude)
+    .sort((a, b) => compareStrength(a.strength, b.strength))
     .slice(0, 4)
     .map((i) => `${i.name}: ${i.summary.split(".")[0]}`);
   const bearish = impacts
     .filter((i) => i.signal === "negative")
-    .sort((a, b) => b.magnitude - a.magnitude)
+    .sort((a, b) => compareStrength(a.strength, b.strength))
     .slice(0, 4)
     .map((i) => `${i.name}: ${i.summary.split(".")[0]}`);
   return { bullish, bearish };
@@ -53,7 +54,7 @@ export function ImpactDrawer({
   ticker?: string;
   onSelect?: (nodeId: string) => void;
 }) {
-  const sorted = [...impacts].sort((a, b) => b.magnitude - a.magnitude);
+  const sorted = [...impacts].sort((a, b) => compareStrength(a.strength, b.strength));
   const stockSelected = Boolean(stockNodeId && selectedNodeId === stockNodeId);
   const sym = ticker ?? "Stock";
 
@@ -127,27 +128,12 @@ export function ImpactDrawer({
           </div>
         ) : (
           <div className="mt-3">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <SignalPill signal={verdict.signal} />
-              <span
-                className="text-lg font-semibold"
-                style={{ color: SIGNAL_COLORS[verdict.signal] }}
-              >
-                {verdict.expectedMove}
+              <span className="text-sm font-medium text-[var(--color-muted)]">
+                {strengthLabel(verdict.strength)} impact
               </span>
               <span className="text-xs text-[var(--color-muted)]">{verdict.timeframe}</span>
-            </div>
-            <div className="mt-3">
-              <div className="mb-1 flex items-center justify-between text-xs text-[var(--color-muted)]">
-                <span>Confidence</span>
-                <span>{pct(verdict.confidence)}</span>
-              </div>
-              <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--color-surface-2)]">
-                <div
-                  className="h-full rounded-full"
-                  style={{ width: pct(verdict.confidence), background: SIGNAL_COLORS[verdict.signal] }}
-                />
-              </div>
             </div>
 
             {stockSelected && outlook ? (
@@ -310,9 +296,6 @@ function CompanyNewsPanel({
 
   return (
     <div className="space-y-2">
-      <p className="mb-3 text-[11px] text-[var(--color-muted)]">
-        Headlines about {ticker} from Yahoo Finance — not ecosystem ripples.
-      </p>
       {items.map((c, i) => (
         <NewsLink key={i} citation={c} />
       ))}

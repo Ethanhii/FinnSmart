@@ -1,4 +1,5 @@
-import type { NodeType, Signal } from "@/lib/types";
+import type { ImpactStrength, NodeType, Signal } from "@/lib/types";
+import { strengthLabel } from "@/lib/strength";
 
 export const SIGNAL_COLORS: Record<Signal, string> = {
   positive: "#2bd576",
@@ -46,3 +47,6 @@ export const CATEGORY_LABELS: Record<NodeType, string> = {
 export function pct(n: number): string {
   return `${Math.round(n * 100)}%`;
 }
+
+export { strengthLabel };
+export type { ImpactStrength };

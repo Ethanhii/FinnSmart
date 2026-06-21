@@ -2,6 +2,9 @@ import type { PipelineProfile } from "@/lib/pipeline-profile";
 
 export type Signal = "positive" | "negative" | "neutral";
 
+/** Qualitative ripple strength — not a price or probability forecast. */
+export type ImpactStrength = "low" | "moderate" | "high";
+
 export type NodeType =
   | "stock"
   | "supplier"
@@ -52,18 +55,16 @@ export interface EntityImpact {
   name: string;
   type: NodeType;
   signal: Signal;
-  /** 0..1, how strongly this entity's news moves the target stock. */
-  magnitude: number;
+  /** Rough qualitative strength of the ripple to the target stock. */
+  strength: ImpactStrength;
   summary: string;
   citations: Citation[];
 }
 
 export interface StockVerdict {
   signal: Signal;
-  /** 0..1 confidence in the verdict. */
-  confidence: number;
-  /** e.g. "+1% to +3%" */
-  expectedMove: string;
+  /** Rough overall strength of the news-driven read-through. */
+  strength: ImpactStrength;
   /** e.g. "next 24-48h" */
   timeframe: string;
   rationale: string;
@@ -130,7 +131,7 @@ export interface AnalyzeResponse {
   impacts: EntityImpact[];
   /** Headlines about the stock itself (Yahoo Finance — not ecosystem ripples). */
   directCompanyNews?: Citation[];
-  /** Present when FINNSMART_PROFILE=true — wall-clock phase breakdown. */
+  /** Server-terminal timing only when FINNSMART_PROFILE=true — stripped from API responses. */
   profile?: PipelineProfile;
 }
 

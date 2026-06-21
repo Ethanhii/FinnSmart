@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { AnalyzeResponse } from "@/lib/types";
 import { SignalPill } from "@/components/SignalPill";
-import { SIGNAL_COLORS, pct } from "@/lib/ui";
+import { strengthLabel } from "@/lib/ui";
 
 export interface CardState {
   status: "idle" | "loading" | "ready" | "error";
@@ -77,12 +77,9 @@ export function WatchlistCard({
           ) : verdict ? (
             <>
               <div className="flex items-center justify-between text-sm">
-                <span className="text-[var(--color-muted)]">Expected move</span>
-                <span
-                  className="font-semibold"
-                  style={{ color: SIGNAL_COLORS[verdict.signal] }}
-                >
-                  {verdict.expectedMove}
+                <span className="text-[var(--color-muted)]">Impact strength</span>
+                <span className="font-medium text-[var(--color-text)]">
+                  {strengthLabel(verdict.strength)}
                 </span>
               </div>
               <div className="flex items-center justify-between text-sm">
@@ -90,21 +87,6 @@ export function WatchlistCard({
                 <span className="max-w-[10rem] truncate font-medium text-[var(--color-text)]">
                   {mostAffected?.name ?? "—"}
                 </span>
-              </div>
-              <div>
-                <div className="mb-1 flex items-center justify-between text-xs text-[var(--color-muted)]">
-                  <span>Confidence</span>
-                  <span>{pct(verdict.confidence)}</span>
-                </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--color-surface-2)]">
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: pct(verdict.confidence),
-                      background: SIGNAL_COLORS[verdict.signal],
-                    }}
-                  />
-                </div>
               </div>
             </>
           ) : null}
