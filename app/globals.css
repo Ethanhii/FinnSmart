@@ -16,6 +16,10 @@
   --color-accent-soft: #1a1a1a;
 
   --radius-card: 12px;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-space-grotesk), var(--font-sans);
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 :root {
@@ -30,9 +34,26 @@ body {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headline);
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-ticker {
+  font-family: var(--font-mono);
 }
 
 /* Thin, consistent scrollbars */

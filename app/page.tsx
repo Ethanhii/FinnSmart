@@ -178,19 +178,19 @@ export default function HomePage() {
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 pb-20 pt-6">
-      <header className="flex items-center justify-between">
-        <Brand subtitle="News ripple intelligence" />
-        <span className="pill pill-neutral">Beta</span>
+      <header>
+        <Brand />
       </header>
 
       <section className="mt-16">
         <h1 className="max-w-2xl text-3xl font-semibold leading-[1.1] tracking-tight md:text-[2.7rem]">
-          See how the news ripples to the stocks you own.
+          Track how news ripples
+          <br />
+          through your portfolio.
         </h1>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--color-muted)]">
           Each stock becomes a living map of its suppliers, customers, partners and
-          dependencies. When news hits any of them, FinnSmart traces the impact back to
-          your stock with green and red flows.
+          dependencies.
         </p>
 
         <form onSubmit={addStock} className="relative mt-7 max-w-md">
@@ -226,7 +226,7 @@ export default function HomePage() {
                     className="flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-sm hover:bg-[var(--color-surface-2)]"
                   >
                     <span>
-                      <span className="font-semibold">{item.ticker}</span>
+                      <span className="font-ticker font-semibold">{item.ticker}</span>
                       <span className="ml-2 text-[var(--color-muted)]">{item.name}</span>
                     </span>
                     {item.exchange ? (
@@ -269,7 +269,7 @@ export default function HomePage() {
           <div className="mt-2 text-lg font-semibold">
             {summary.mostAffected ? (
               <span style={{ color: SIGNAL_COLORS[summary.mostAffected.signal] }}>
-                {summary.mostAffected.ticker}{" "}
+                <span className="font-ticker">{summary.mostAffected.ticker}</span>{" "}
                 <span className="text-sm font-normal text-[var(--color-muted)]">
                   {strengthLabel(summary.mostAffected.strength)} ·{" "}
                   {SIGNAL_LABELS[summary.mostAffected.signal].toLowerCase()}

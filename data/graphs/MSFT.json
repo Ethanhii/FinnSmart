@@ -1,0 +1,219 @@
+{
+  "ticker": "MSFT",
+  "name": "Microsoft Corporation",
+  "description": "Microsoft Corporation ecosystem — suppliers, customers, partners, holdings, regulators, and macro risks.",
+  "nodes": [
+    {
+      "id": "msft",
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "stock",
+      "relationship": "Your stock"
+    },
+    {
+      "id": "supplier_accenture",
+      "name": "Accenture",
+      "ticker": "ACN",
+      "type": "supplier",
+      "relationship": "Provides Microsoft with strategic consulting for cloud services integration."
+    },
+    {
+      "id": "supplier_foxconn",
+      "name": "Foxconn",
+      "ticker": "Foxconn parent company is Hon Hai Precision Industry",
+      "type": "supplier",
+      "relationship": "Manufactures and assembles Microsoft's hardware products."
+    },
+    {
+      "id": "supplier_intel",
+      "name": "Intel",
+      "ticker": "INTC",
+      "type": "supplier",
+      "relationship": "Supplies processors for various Microsoft devices."
+    },
+    {
+      "id": "customer_general_electric",
+      "name": "General Electric",
+      "ticker": "GE",
+      "type": "customer",
+      "relationship": "Uses Microsoft Azure as a key platform for their cloud based applications and data analytics."
+    },
+    {
+      "id": "customer_walmart",
+      "name": "Walmart",
+      "ticker": "WMT",
+      "type": "customer",
+      "relationship": "selected Microsoft for using cloud solutions in its e-commerce operations."
+    },
+    {
+      "id": "customer_at_t",
+      "name": "AT&T",
+      "ticker": "T",
+      "type": "customer",
+      "relationship": "Partners with Microsoft on cloud service offerings for its business customers."
+    },
+    {
+      "id": "partner_salesforce",
+      "name": "Salesforce",
+      "ticker": "CRM",
+      "type": "partner",
+      "relationship": "Strategic partnership to integrate services and enhance offering for their shared clients."
+    },
+    {
+      "id": "partner_nokia",
+      "name": "Nokia",
+      "ticker": "NOK",
+      "type": "partner",
+      "relationship": "Partnered to develop and produce internet services on Nokia's range of mobile devices."
+    },
+    {
+      "id": "partner_sap",
+      "name": "SAP",
+      "ticker": "SAP",
+      "type": "partner",
+      "relationship": "Both companies cooperate on cloud services offerings and share development efforts."
+    },
+    {
+      "id": "equity_naspers",
+      "name": "Naspers",
+      "ticker": "Naspers is not publicly traded",
+      "type": "equity",
+      "relationship": "Holds significant shares in Tencent, which collaborates with Microsoft on various initiatives."
+    },
+    {
+      "id": "equity_altimeter_capital",
+      "name": "Altimeter Capital",
+      "ticker": "Altimeter Capital is not publicly traded",
+      "type": "equity",
+      "relationship": "Hedge fund that has taken a significant position in Microsoft shares."
+    },
+    {
+      "id": "government_european_commission",
+      "name": "European Commission",
+      "type": "government",
+      "relationship": "Enforces competition policies directly impacting Microsoft's operations in the EU."
+    },
+    {
+      "id": "government_united_states_department_of_justice",
+      "name": "United States Department of Justice",
+      "type": "government",
+      "relationship": "Has previously investigated Microsoft for antitrust practices and monitors their corporate behavior."
+    },
+    {
+      "id": "macro_global_cloud_infrastructure_spending",
+      "name": "Global Cloud Infrastructure Spending",
+      "type": "macro",
+      "relationship": "Directly influences Microsoft's Azure cloud business which is a significant revenue driver."
+    },
+    {
+      "id": "macro_regulations_on_data_privacy",
+      "name": "Regulations on Data Privacy",
+      "type": "macro",
+      "relationship": "Affects the compliance costs and regulations faced by Microsoft’s cloud and data processing services."
+    },
+    {
+      "id": "macro_cybersecurity_threats",
+      "name": "Cybersecurity Threats",
+      "type": "macro",
+      "relationship": "Impacts Microsoft's spend on security measures and product offerings, affecting cost and customer trust."
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_supplier_accenture",
+      "source": "supplier_accenture",
+      "target": "msft",
+      "relationType": "Provides Microsoft with strategic consulting for cloud services integration."
+    },
+    {
+      "id": "e_supplier_foxconn",
+      "source": "supplier_foxconn",
+      "target": "msft",
+      "relationType": "Manufactures and assembles Microsoft's hardware products."
+    },
+    {
+      "id": "e_supplier_intel",
+      "source": "supplier_intel",
+      "target": "msft",
+      "relationType": "Supplies processors for various Microsoft devices."
+    },
+    {
+      "id": "e_customer_general_electric",
+      "source": "customer_general_electric",
+      "target": "msft",
+      "relationType": "Uses Microsoft Azure as a key platform for their cloud based applications and data analytics."
+    },
+    {
+      "id": "e_customer_walmart",
+      "source": "customer_walmart",
+      "target": "msft",
+      "relationType": "selected Microsoft for using cloud solutions in its e-commerce operations."
+    },
+    {
+      "id": "e_customer_at_t",
+      "source": "customer_at_t",
+      "target": "msft",
+      "relationType": "Partners with Microsoft on cloud service offerings for its business customers."
+    },
+    {
+      "id": "e_partner_salesforce",
+      "source": "partner_salesforce",
+      "target": "msft",
+      "relationType": "Strategic partnership to integrate services and enhance offering for their shared clients."
+    },
+    {
+      "id": "e_partner_nokia",
+      "source": "partner_nokia",
+      "target": "msft",
+      "relationType": "Partnered to develop and produce internet services on Nokia's range of mobile devices."
+    },
+    {
+      "id": "e_partner_sap",
+      "source": "partner_sap",
+      "target": "msft",
+      "relationType": "Both companies cooperate on cloud services offerings and share development efforts."
+    },
+    {
+      "id": "e_equity_naspers",
+      "source": "msft",
+      "target": "equity_naspers",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_equity_altimeter_capital",
+      "source": "msft",
+      "target": "equity_altimeter_capital",
+      "relationType": "holds equity in"
+    },
+    {
+      "id": "e_government_european_commission",
+      "source": "government_european_commission",
+      "target": "msft",
+      "relationType": "Enforces competition policies directly impacting Microsoft's operations in the EU."
+    },
+    {
+      "id": "e_government_united_states_department_of_justice",
+      "source": "government_united_states_department_of_justice",
+      "target": "msft",
+      "relationType": "Has previously investigated Microsoft for antitrust practices and monitors their corporate behavior."
+    },
+    {
+      "id": "e_macro_global_cloud_infrastructure_spending",
+      "source": "macro_global_cloud_infrastructure_spending",
+      "target": "msft",
+      "relationType": "Directly influences Microsoft's Azure cloud business which is a significant revenue driver."
+    },
+    {
+      "id": "e_macro_regulations_on_data_privacy",
+      "source": "macro_regulations_on_data_privacy",
+      "target": "msft",
+      "relationType": "Affects the compliance costs and regulations faced by Microsoft’s cloud and data processing services."
+    },
+    {
+      "id": "e_macro_cybersecurity_threats",
+      "source": "macro_cybersecurity_threats",
+      "target": "msft",
+      "relationType": "Impacts Microsoft's spend on security measures and product offerings, affecting cost and customer trust."
+    }
+  ]
+}

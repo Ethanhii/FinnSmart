@@ -13,16 +13,22 @@
     { "id": "msft", "name": "Microsoft", "ticker": "MSFT", "type": "customer", "relationship": "Buys GPUs at scale for Azure AI cloud" },
     { "id": "meta", "name": "Meta", "ticker": "META", "type": "customer", "relationship": "Large buyer of GPUs for AI training clusters" },
     { "id": "amzn", "name": "Amazon (AWS)", "ticker": "AMZN", "type": "customer", "relationship": "Deploys GPUs across AWS data centers" },
+    { "id": "google", "name": "Google", "ticker": "GOOGL", "type": "customer", "relationship": "Major buyer of GPUs for Google Cloud and AI workloads; distributes NVIDIA platforms" },
     { "id": "coreweave", "name": "CoreWeave", "ticker": "CRWV", "type": "customer", "relationship": "GPU cloud provider; major NVIDIA customer and partner" },
 
     { "id": "arm", "name": "Arm Holdings", "ticker": "ARM", "type": "partner", "relationship": "CPU architecture partner for Grace and edge platforms" },
     { "id": "smci", "name": "Super Micro", "ticker": "SMCI", "type": "partner", "relationship": "Builds GPU servers around NVIDIA platforms" },
     { "id": "dell", "name": "Dell Technologies", "ticker": "DELL", "type": "partner", "relationship": "OEM partner shipping NVIDIA AI servers" },
 
+    { "id": "marvell", "name": "Marvell", "ticker": "MRVL", "type": "equity", "relationship": "NVIDIA holds an equity stake" },
     { "id": "soundhound", "name": "SoundHound AI", "ticker": "SOUN", "type": "equity", "relationship": "NVIDIA holds an equity stake" },
+    { "id": "intel", "name": "Intel", "ticker": "INTC", "type": "equity", "relationship": "NVIDIA holds an equity stake" },
+    { "id": "coherent", "name": "Coherent", "ticker": "COHR", "type": "equity", "relationship": "NVIDIA holds an equity stake" },
 
     { "id": "us_gov", "name": "US Government", "type": "government", "relationship": "Controls export licenses for advanced AI chips" },
-    { "id": "china", "name": "China (Regulators)", "type": "government", "relationship": "Key market subject to export restrictions and local competition" }
+    { "id": "china", "name": "China (Regulators)", "type": "government", "relationship": "Key market subject to export restrictions and local competition" },
+
+    { "id": "fed", "name": "US Federal Reserve", "type": "macro", "relationship": "Interest-rate policy shapes tech valuations and hyperscaler AI capex budgets" }
   ],
   "edges": [
     { "id": "e_tsmc", "source": "tsmc", "target": "nvda", "relationType": "fabricates chips for" },
@@ -32,12 +38,17 @@
     { "id": "e_msft", "source": "msft", "target": "nvda", "relationType": "buys GPUs from" },
     { "id": "e_meta", "source": "meta", "target": "nvda", "relationType": "buys GPUs from" },
     { "id": "e_amzn", "source": "amzn", "target": "nvda", "relationType": "buys GPUs from" },
+    { "id": "e_google", "source": "google", "target": "nvda", "relationType": "buys GPUs from" },
     { "id": "e_coreweave", "source": "coreweave", "target": "nvda", "relationType": "buys GPUs from" },
     { "id": "e_arm", "source": "arm", "target": "nvda", "relationType": "licenses architecture to" },
     { "id": "e_smci", "source": "smci", "target": "nvda", "relationType": "builds systems with" },
     { "id": "e_dell", "source": "dell", "target": "nvda", "relationType": "ships servers with" },
+    { "id": "e_marvell", "source": "nvda", "target": "marvell", "relationType": "holds equity in" },
     { "id": "e_soundhound", "source": "nvda", "target": "soundhound", "relationType": "holds equity in" },
+    { "id": "e_intel", "source": "nvda", "target": "intel", "relationType": "holds equity in" },
+    { "id": "e_coherent", "source": "nvda", "target": "coherent", "relationType": "holds equity in" },
     { "id": "e_us_gov", "source": "us_gov", "target": "nvda", "relationType": "regulates exports of" },
-    { "id": "e_china", "source": "china", "target": "nvda", "relationType": "is a key market for" }
+    { "id": "e_china", "source": "china", "target": "nvda", "relationType": "is a key market for" },
+    { "id": "e_fed", "source": "fed", "target": "nvda", "relationType": "shapes valuations and AI capex via interest-rate policy" }
   ]
 }

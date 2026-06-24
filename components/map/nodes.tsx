@@ -107,7 +107,7 @@ export function StockNode({ data }: { data: StockNodeData }) {
       }}
     >
       <HiddenHandles />
-      <div className="text-2xl font-semibold tracking-tight" style={{ color }}>
+      <div className="font-ticker text-2xl font-semibold tracking-tight" style={{ color }}>
         {data.ticker}
       </div>
       <div className="mt-0.5 max-w-[9rem] truncate text-[11px] text-[var(--color-muted)]">

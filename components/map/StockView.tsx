@@ -505,7 +505,7 @@ export function StockView({ ticker }: { ticker: string }) {
     return (
       <div className="grid min-h-screen place-items-center px-6 text-center">
         <div>
-          <h1 className="text-xl font-semibold">{ticker}</h1>
+          <h1 className="font-ticker text-xl font-semibold">{ticker}</h1>
           <p className="mt-2 text-[var(--color-muted)]">
             {graphGenerating
               ? "Building relationship map with AI — first visit only…"
@@ -520,7 +520,9 @@ export function StockView({ ticker }: { ticker: string }) {
     return (
       <div className="grid min-h-screen place-items-center px-6 text-center">
         <div>
-          <h1 className="text-xl font-semibold">No map for {ticker} yet</h1>
+          <h1 className="text-xl font-semibold">
+            No map for <span className="font-ticker">{ticker}</span> yet
+          </h1>
           <p className="mt-2 text-[var(--color-muted)]">{graphError}</p>
           <Link href="/" className="mt-4 inline-block text-[var(--color-accent)]">
             ← Back to dashboard
@@ -539,7 +541,7 @@ export function StockView({ ticker }: { ticker: string }) {
           <span className="text-[var(--color-border)]">/</span>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg font-semibold">{ticker}</span>
+              <span className="font-ticker text-lg font-semibold">{ticker}</span>
               {verdict ? <SignalPill signal={verdict.signal} /> : null}
             </div>
             <div className="text-xs text-[var(--color-muted)]">{graph?.name}</div>

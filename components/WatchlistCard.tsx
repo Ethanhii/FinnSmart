@@ -42,7 +42,7 @@ export function WatchlistCard({
       <Link href={`/stock/${ticker}`} className="block no-underline">
         <div className="flex items-baseline justify-between">
           <div>
-            <div className="text-lg font-semibold tracking-tight text-[var(--color-text)]">
+            <div className="font-ticker text-lg font-semibold tracking-tight text-[var(--color-text)]">
               {ticker}
             </div>
             <div className="max-w-[12rem] truncate text-xs text-[var(--color-muted)]">
